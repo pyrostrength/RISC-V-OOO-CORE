@@ -1,0 +1,64 @@
+/* The info-decoder produces control signals for the respective
+	functional units to which an instruction is sent to and control
+	signals to determine source operands to be used for an instruction.
+	
+	Some instructions require the use of the immediates instead of register values
+	for their operands e.g I-type,JAl-type,JALR-type,S-type,L-type.
+	Thus we must extend immediate field on instructions as determined by their instruction type.
+	This is done in a separate module.
+	
+	We must produce control signals dictating the operation of the ALU.
+	
+	ALU source operand control signals, jump/branch control signal and ALUOp 
+	control signal which control writing to memory/register,whether to branch or jump to a
+	different target address, and a control signal to aid the ALU decoder
+	in determining the appropriate ALU control signals respectively.
+*/
+
+
+
+
+module infodecoder (input logic[3:0] opcode,//Only the first 4-bits of opcode are needed for base implementation
+						  output logic[2:0] immSrc,
+						  output logic[1:0] aluOp,
+						  output logic memWrite,branch,jump);
+						  
+						  always_comb begin
+								{branch,jump,memWrite} = 1'b0;
+								aluOp = 2'b11;
+								immSrc = 3'b000;
+								case(opcode)
+										4'b0000 : begin //R-type
+											aluOp = 2'b00;
+											immSrc = 3'b111;
+										end
+										4'b0001 : begin //I-type
+											aluOp = 2'b00;
+										end
+										4'b0010 : begin //S-type
+											aluOp = 2'b01;
+											memWrite = 1'b1;
+											immSrc = 3'b001;
+										end	
+										4'b0011 : begin //B-type
+											aluOp = 2'b01;
+											immSrc = 3'b010;
+										end
+										//B-type
+										4'b0100,4'b0110 : begin	//U-type
+											immSrc = 3'b011;
+											branch = 1'b1;
+										end
+										4'b0101 : begin //JAL-type
+											immSrc = 3'b100;
+											jump = 1'b1;
+										end
+										4'b0111 : begin //JALR-type
+											jump = 1'b1;
+										end
+										4'b1000 : begin //Load-type
+											aluOp = 2'b01;
+										end
+								endcase
+							end
+endmodule

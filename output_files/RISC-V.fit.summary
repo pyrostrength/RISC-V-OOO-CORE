@@ -1,0 +1,20 @@
+Fitter Status : Successful - Thu Nov 14 22:37:42 2024
+Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Revision Name : RISC-V
+Top-level Entity Name : ALURStationEntry
+Family : Cyclone V
+Device : 5CGXFC9A6U19A7
+Timing Models : Final
+Logic utilization (in ALMs) : 83 / 113,560 ( < 1 % )
+Total registers : 2
+Total pins : 191 / 264 ( 72 % )
+Total virtual pins : 0
+Total block memory bits : 0 / 12,492,800 ( 0 % )
+Total RAM Blocks : 0 / 1,220 ( 0 % )
+Total DSP Blocks : 0 / 342 ( 0 % )
+Total HSSI RX PCSs : 0 / 5 ( 0 % )
+Total HSSI PMA RX Deserializers : 0 / 5 ( 0 % )
+Total HSSI TX PCSs : 0 / 5 ( 0 % )
+Total HSSI PMA TX Serializers : 0 / 5 ( 0 % )
+Total PLLs : 0 / 13 ( 0 % )
+Total DLLs : 0 / 4 ( 0 % )

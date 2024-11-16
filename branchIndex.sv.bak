@@ -1,0 +1,19 @@
+module branchIndex #(parameter G_WIDTH = 9)
+				(input logic wasTaken,clk,
+				 input logic [G_WIDTH:0] programCount,
+				 output logic[G_WIDTH:0] index);
+				 
+				 logic[G_WIDTH:0] globalHistory;
+										 
+				 always_ff @(posedge clk) begin
+						globalHistory[0] <= wasTaken; 
+							 for(int i=1 ; i<10 ; i++) begin
+									globalHistory[i] <= globalHistory[i-1];
+							 end
+				 end
+				 
+				 always_comb begin
+					index = globalHistory ^ programCount;
+				end
+					
+endmodule												

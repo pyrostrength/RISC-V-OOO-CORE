@@ -1,0 +1,17 @@
+module mempostprocess #(parameter WIDTH = 31)
+							  (input logic[WIDTH:0] memdata,
+							   input logic[3:0] bytEnable,
+								input logic[2:0] funct3,
+								output logic[WIDTH:0] rfdata);
+								
+								logic[WIDTH:0] q;
+								assign q[7:0] = bytEnable[0] ? memdata[7:0] : 4'b0000;
+								assign q[15:8] = bytEnable[1] ? memdata[15:8] : 4'b0000;
+								assign q[23:16] = bytEnable[2] ? memdata[23:16] : 4'b0000;
+								assign q[31:24] = bytEnable[3] ? memdata[31:24] : 4'b0000;
+								
+								always_comb begin
+									rfdata = q;
+									case(funct3)
+										3'b000:
+											

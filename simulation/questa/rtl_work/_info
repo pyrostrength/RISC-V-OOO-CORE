@@ -1,0 +1,77 @@
+m255
+K4
+z2
+!s12c _opt
+Z0 !s99 nomlopt
+!s11f vlog 2023.3 2023.07, Jul 17 2023
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 d/home/voidknight/Downloads/CPU_Q/simulation/questa
+T_opt
+Z2 !s110 1727567767
+VD_jhNeEj[7`?h_H<knWJl2
+04 10 4 work adder_test fast 0
+=1-000ae431a4f1-66f89797-b7b2a-4b41
+R0
+!s12b OEM100
+!s124 OEM10U2 
+o-quiet -auto_acc_if_foreign -work work -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work +acc
+Z3 tCvgOpt 0
+n@_opt
+OL;O;2023.3;77
+vadder
+2/home/voidknight/Downloads/CPU_Q/adder.sv
+Z4 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+R2
+!i10b 1
+!s100 _cBJAmQZ_J8O?kH0lPXSW1
+IcBWMg_6lfh;H2<`:EAWdQ2
+S1
+R1
+w1727522760
+8/home/voidknight/Downloads/CPU_Q/adder.sv
+F/home/voidknight/Downloads/CPU_Q/adder.sv
+!i122 0
+L0 1 5
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+Z6 OL;L;2023.3;77
+r1
+!s85 0
+31
+Z7 !s108 1727567767.000000
+!s107 /home/voidknight/Downloads/CPU_Q/adder.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/adder.sv|
+!i113 0
+Z8 o-sv -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z9 !s92 -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R3
+vadder_test
+2/home/voidknight/Downloads/CPU_Q/adder_test.sv
+R4
+R2
+!i10b 1
+!s100 8ia]1QW09AG7Ke]aZlQk<0
+I^VKKCgo5_<2zA3On^CI331
+S1
+R1
+w1727567733
+8/home/voidknight/Downloads/CPU_Q/adder_test.sv
+F/home/voidknight/Downloads/CPU_Q/adder_test.sv
+!i122 1
+L0 3 10
+R5
+R6
+r1
+!s85 0
+31
+R7
+!s107 /home/voidknight/Downloads/CPU_Q/adder_test.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/adder_test.sv|
+!i113 0
+R8
+R9
+R3

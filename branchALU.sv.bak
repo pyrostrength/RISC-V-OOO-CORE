@@ -1,0 +1,78 @@
+/* Branch ALU is the functional unit handling branching instructions,
+	JAL,JALR instructions. No need to use flags. Though we must decode
+	each possible branch instruction.
+	
+	isJAL,isJALR,Branchfunct3,wasTaken are control signals.
+	
+	Next state logic is implemented in this stage. BEQ,BNE,BLT,BLT(U),
+	BGE(U). 000,001,010,011,100,101,110.
+	
+	We add request signal to indicate availability of result. This necessasitates
+	drawing out the combinational logic. Regardless, path through ALU and 
+	CDB controller might be shorter than path through memory. Since clock cycle limited
+	by slowest stage, we need not pipeline our functional unit.
+	
+	Need to incorporate next state logic.
+	
+	Mispredict is a two bit signal appropriate for our 4:1 multiplexor that 
+	determines next instruction PC.
+	
+	writeAddress acts as a write enable for pattern history table. We only
+	write to the branch target buffer in the case of conditional branches
+	that were predicted as taken. Emphasis we only write to branch target buffer
+	for conditional branches predicted as taken. Otherwise if we
+	predicted a target and our prediction turns out wrong, then we must edit at
+	that location.
+	
+	Remember we pipelined instruction PC through. And we used instruction PC(part of it) to access 
+	BTB.
+	
+	Critical path will be register
+	file reads and decode-extend. decode-ALU decode.*/ 
+
+
+module branchALU #(parameter WIDTH = 31, C_WIDTH = 7, B_WIDTH = 9)
+						(input logic signed[WIDTH:0] src1,src2,PC
+						 input logic [C_WIDTH:0] branchControl,
+						 input logic [B_WIDTH:0] previousIndex,
+						 input logic[1:0] state,
+						 output logic signed[WIDTH:0] correctAddress,
+						 output logic[1:0] mispredict,
+						 output logic incorrectAddress,
+						 output logic overflow);
+						 
+						 /*For shifts with immediate the shift amount
+						 is encoded in first 5 bits of immediate or rs2 value.
+						 Precise source 2 value is chosen by the mux*/
+						 always_comb begin
+							{negative,zero,overflow} = 1'b0;
+							case(ALUControl)
+								4'b0000: begin
+									result = src1 + src2;	//add
+									zero = (result == 32'b0);
+									negative = result[31];
+									overflow = (result[31] ^ src1[31]) & (src1[31] ~^ src2[31]);
+								end
+								4'b0001:
+									result = src1 & src2; //bit-wise and
+								4'b0010: 
+									result = src1 | src2; //bit-wise or	
+								4'b0011:
+									result = src1 ^ src2; //bit-wise xor
+								4'b0100:
+									result = src1 < src2; // set-less than 
+								4'b0101:
+									result = unsigned' (src1) < unsigned' (src2); // set-less than unsigned
+								4'b0110: 
+									result = src1 << src2[4:0]; // shift left logical
+								4'b0111: 
+									result = src1 >> src2[4:0]; // shift right logical
+								4'b1000: begin
+									result = src1 - src2; // subtraction
+									zero = (result == 32'b0);
+									negative = result[31];
+									overflow = (result[31] ^ src1[31]) & (src1[31] ^ src2[31]);
+								end
+								4'b1001:
+									result = src1 >>> src2[4:0]; // shift right arithmetic. 
+								default: result = 32'd0;

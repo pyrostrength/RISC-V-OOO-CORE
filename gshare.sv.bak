@@ -1,0 +1,8 @@
+module gshare #(parameter WIDTH = 31,
+								  I_WIDTH = 10) //I_WIDTH is the index formed from XORING the lower 10bits of PC and 10 bits of global
+								                //branching history.
+					 (input logic[I_WIDTH:0] index,preIndex, //index selects current prediction,pre-index for previous prediction
+					  input logic wastaken,clk  // Signal indicating whether predicted taken/untaken branch was taken and clock signal
+					  output logic istaken);   // Output determining branch prediction.
+					  
+					  

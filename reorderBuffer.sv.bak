@@ -1,0 +1,60 @@
+/*The reorder buffer holds instructions results before commit.
+
+Written to during instruction write ROB and RS stage where we have the
+RS station to send the instruction to together with it's values.
+
+FIFO circular buffer implemented using read and write pointers.
+
+Read pointer stuck to the head of the ROB and implements the pop
+operation. Writing to an ROB entry is only restricted if the new
+pop pointer points to the most recent write pointer.
+
+We must decide whether we're writing to register file or memory.
+Handle cases of branch instructions with mispredicted branches.
+
+We also need to implement load/store buffer that handles loads and store
+cases. Loads cannot precede stores earlier in the program that write to the
+same memory location. 
+
+We cannot split ROB to handle memory and register file cases. Must make them handle both.
+We add combinational logic to determine the write enable signals for memory and register
+file. This info is held in instruction which is why instruction decode stage came in handy
+as we produce the {branch,wasTaken,jump,regWrite,memWrite} control signals which will
+act as register write enable or memory write enable.
+
+Read_ptr must move separate from write_ptr to allow us to write to any space in the buffer.
+
+ 
+*/
+
+module reorderBuffer #(parameter ROB = 2, WIDTH = 31)
+							  (input logic[ROB:0] rob1,rob2,ROBresult,ROBcommit,
+								input logic[WIDTH:0] result,
+							   input logic clk,wresult,wcommit,busy1,busy2,
+								output logic[WIDTH + 1:0] ROBValue1,ROBValue2);
+								
+								logic readybuffer[7:0]; //Indexed by ROB entry,data value indicates result availability.
+								
+								logic[WIDTH:0] valuebuffer[7:0]; // Indexed by ROB entry,data value indicates result availability
+								
+								logic valid1,valid2;
+								
+								always_comb begin
+									valid1 = readybuffer[rob1] & (!busy1);
+									valid2 = readybuffer[rob2] & (!busy2);
+									ROBValue1 = {valid1,valuebuffer[rob1]};
+									ROBValue2 = {valid2,valuebuffer[rob2]};
+								end
+								
+								always @(negedge clk) begin
+									if(wresult) begin
+										readybuffer[ROBresult] <= 1'b1;
+										valuebuffer[ROBresult] <= result;
+									end
+									
+									if(wcommit) begin
+										readybuffer[ROBcommit] <= 1'b0;
+									end
+								end
+								
+endmodule

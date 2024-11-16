@@ -1,0 +1,19 @@
+interface commonDataBus #(parameter WIDTH = 31, ROB = 2)
+								 (input logic clk,
+								  input logic ALURequest,branchRequest,
+								  input logic[WIDTH:0] ALUResult,branchResult);
+								  
+								  logic[WIDTH:0] result;
+								  logic[ROB:0] robEntry;
+								
+								modport functional_ports(output ALURequest,branchRequest, //requests from functional units
+															output ALUResult,branchResult);//results from the functional units
+								
+								modport reservation_stations(input result,robEntry); //Reservation station needs result and robEntry
+								
+								modport reorder_buffer(input result,robEntry); //Reorder buffer also needs result an ROB entry.
+								
+								//Bus arbitration functionality
+								logic pointer_reg;
+								always_comb begin
+									

@@ -1,0 +1,17 @@
+module PCrelative #(parameter WIDTH = 31)
+						 (input logic[WIDTH:0] signed PC,immExt
+						  input logic branch,useImm
+						  input logic isJAL,isLUI,isAUIPC,isJALR,
+						  output logic[WIDTH:0] signed targetaddress,sequentialPC);
+						  
+						  logic[3:0] control;
+						  assign control = {branch,isJAL,isAUIPC,isLUI};
+						  assign sequentialPC = PC + 4;
+						  
+						  always_comb begin
+							unique case(control)
+								5'b10000,5'b01000:
+									targetaddress =  PC + immExt;
+								4'b
+						  
+						  

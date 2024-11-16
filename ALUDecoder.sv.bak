@@ -1,0 +1,38 @@
+module ALUDecoder (input logic funct7,
+						 input logic[2:0] funct3,
+						 input logic[1:0] ALUOp,
+						 output logic[3:0] ALUControl);
+						 
+						 always_comb begin
+								case(ALUOp)
+									2'b00: 
+										case(funct7)
+											1'b1:
+												case(funct3)
+													3'b000 : ALUControl = 4'b1000; //Subtraction
+													3'b111 : ALUControl = 4'b1001; //Arithmetic right shift
+													default : ALUControl = 4'b0000; //Addition in case of incorrect funct3 field.
+												endcase
+											1'b0:
+												case(funct3)
+													3'b000: ALUControl = 4'b0000;  // Addition
+													3'b001: ALUControl = 4'b0001;  // And
+													3'b010: ALUControl = 4'b0010;  // Or
+													3'b011: ALUControl = 4'b0011;  // Xor
+													3'b100: ALUControl = 4'b0100;  // Slt
+													3'b101: ALUControl = 4'b0101;  // Slt[unsigned]
+													3'b110: ALUControl = 4'b0110;  // Sll
+													3'b111: ALUControl = 4'b0111;  // Srl
+												endcase
+										endcase
+									2'b01: ALUControl = 4'b0000; //Addition for load and store instructions
+									2'b10: //Branch instructions
+										case(funct3)
+											3'b000,3'b001: ALUControl = 4'b1000; //Subtraction
+											3'b010,3'b100: ALUControl = 4'b0100; //Slt
+											3'b011,3'b101: ALUControl = 4'b0101; //Slt[unsigned]
+										endcase
+									default: ALUControl = 4'b0000; // Instructions independent of the ALU.
+								endcase
+						end
+endmodule

@@ -1,0 +1,39 @@
+/*Code for the instruction decode stage
+
+
+*/
+
+
+
+
+
+module instr_decode #(parameter WIDTH = 31, V_WIDTH = 63, I_WIDTH = 23, ROB = 3)
+							(input logic[WIDTH : 0] instruction,ROBValue
+							 input logic wasTaken,clk,ROBavailable,ROBcommit, //is a ROB entry available,
+							 input logic[3:0][1:0] RSstation, //Vector indicating availability in the 4 reservation stations.
+							 input logic[3:0] ROBentry, //ROB entry that's available to write to.
+							 input logic[4:0] freedReg, //ROB destination register that's being freed during instruction commit
+							 output logic[I_WIDTH:0] instrInfo1,instrInfo2,instrInfo3,instrInfo4, //Instruction info to write to reservation stations
+							 output logic[V_WIDTH:0] valuesRS1,valuesRS2,valuesRS3,valuesRS4); //Instruction source operand values to be buffered in reservation stations.
+							 
+							 
+							 logic[WIDTH:0]  regValue1,regValue2;
+							 register_file regfile(.*,.a1(instruction[19:15]),.a2(instruction[24:20]),
+																.a3(freedReg),.we(ROBcommit),.rd1(regValue1),
+																.rd2(regValue2),.wd(ROBValue));
+							 logic[ROB:0] rob1,rob2;
+							 register_status regStatus(.*,.we(ROBavailable),.rs1(instruction[19:15]),
+																.rs2(instruction[24:20]),.wd(instruction[11:7]),
+																.wrob(freedReg),.wdvalue(ROBentry));
+							 
+							 
+							 //Mux and demux logic
+							 logic [31:0] instrValue1,instrValue2;
+							 always_comb begin
+								values = '0;
+								if(rob1[3] != 1)
+									instrValue1 = regValue1;
+								else
+									if 
+									
+							 

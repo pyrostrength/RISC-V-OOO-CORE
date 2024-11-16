@@ -1,0 +1,11 @@
+module dmem #(parameter WIDTH = 31)
+             (input logic[WIDTH:0] addr,wrdata,
+				  input logic we,clk,
+				  output logic[WIDTH:0] rddata);
+				  
+				  logic[WIDTH:0] ram[(2**32)-1:0];
+				  always_ff @(posedge clk)
+						if(we) ram[addr] <= wrdata;
+				  assign rddata = ram[addr];
+endmodule
+				  

@@ -1,0 +1,25 @@
+module decodeextend #(parameter WIDTH = 31, I_WIDTH = 24)
+							
+							(input logic[WIDTH:0] instruction
+							 output logic[3:0] ALUControl,
+							 output logic[WIDTH:0] immExt,
+							 output logic memWrite,branch,jump);
+							
+							logic[2:0] immSrc;
+							
+							logic[1:0] aluOp;
+							
+							
+							//Produces control signals for respective functional units
+							infodecoder maindecoder(.*,.opcode(instruction[4:0]),.immSrc(immSrc),.aluOp(aluOp));
+							
+							//Produces the 32-bit immediate field for address calculations
+							extend extender(.*,.immSrc(immSrc),.imm(instruction[31:8]));
+							
+							//Produces ALU control signals
+							ALUDecoder ALUdecoder(.*,.ALUOp(aluOp),.funct7(instruction[30]),.funct3(instruction[14:12]);
+
+endmodule
+							
+							
+							 

@@ -1,0 +1,115 @@
+/*Reservation station entry for the branching unit.
+
+Each reservation station entry consists of pertinent instruction info
+related to its execution, the ROB entry to which the instruction has
+been assigned(ROB entry is required by end of instruction decode),the
+instruction's destination(register or memory address),values for the
+source operand if available during write to reservation station
+entry or LATCHED in during instruction write result stage.
+
+We latch in instruction value on match between write results
+ROB entry and source entry stored in RS entry. This requires 2 comparators
+for every single entry.
+
+Input values per RSstation entry vary depending on assignment to functional unit.
+branchALU's reservation station entries are different from
+ALU's.
+
+commonDataBus.arbiter databus bundles up the result during instruction
+write result,the ROB entry associated with the instruction and the valid
+broadcast signal.
+
+
+ 
+*/
+module branchRSEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3)
+									(commonDataBus.arbiter dataBus,
+									 input logic ready1,ready2,clear,writeReq,
+									 input logic[WIDTH:0] value1,value2,
+									 input logic[C_WIDTH:0] ALUControl,
+									 input logic[ROB:0] rob1,rob2,robInstr,
+									 output logic busy,selectReq,
+									 output logic src1,src2);
+									 
+									 //Internal variables that are stored.
+									 //Must be cleared when clear signal is sent.
+									 logic value1Latched,value2Latched; //Had we already received the necessary value
+									 
+									 logic match1,match2,readySelect1,readySelect2; //Match on write result stage then assert 
+									 //ready select signals.
+									 
+									 logic[C_WIDTH:0] instrInfo; //instruction entries control info
+									 
+									 logic[ROB:0] src1Rob,src2Rob,instrRob; //ROB values associated with the source operands.
+									 
+									 initial begin
+										{readySelect1,readySelect2,selectReq,busy} = 1'b0;
+									 end
+									 
+									 //Stored internal variables
+									 
+									 //Combinational logic for comparing instruction write result
+									 //ROB entry with source operands ROB entries.
+									 //We add logic for producing a request to the select logic.
+									 always_comb begin
+										match1 =  (dataBus.robEntry == src1Rob);
+										match2 = (dataBus.robEntry == src2Rob);
+										selectReq = readySelect1 & readySelect2;
+									 end
+										
+									 
+									 always_latch begin
+									 //Clearing latch values on branch misprediction and on selection for execution. 
+										
+										if(clear) begin
+											{busy,value1Latched,value2Latched,readySelect1,readySelect2} <= 1'b0;
+											{src1,src2} <= 32'd0;
+											instrInfo <= '0;
+											instrRob <= '0;
+										end
+									
+									 //Latching in appropriate data values if we hadn't latched in a value before and
+									 //if the broadcast is valid and also if we had a match on ROB compare.
+										
+										else if(dataBus.validBroadcast) begin //Have a broadcast on CDB
+											if(!value1Latched & match1) begin
+												src1 <= dataBus.result;
+												value1Latched <= 1'b1;
+												readySelect1 <= 1'b1;
+											end
+											if(!value2Latched & match2) begin
+												src2 <= dataBus.result;
+												value2Latched <= 1'b1;
+												readySelect2 <= 1'b1;
+											end
+										end
+										
+										//If entry isn't busy we write to it according to request on low period of clock signal.
+										else begin
+											if(!clk & (!busy & writeReq)) begin
+												src1 <= (ready1) ? value1 : 32'd0;
+												src2 <= (ready2) ? value2 : 32'd0;
+												value1Latched <= (ready1) ? 1'b1 : 1'b0;
+												value2Latched <= (ready2) ? 1'b1 : 1'b0;
+												readySelect1 <= (ready1) ? 1'b1 : 1'b0;
+												readySelect2 <= (ready2) ? 1'b1 : 1'b0;
+												busy <= 1'b1; //Indicate busy if we write to it. RS arbiter determines write Request signal.
+											end
+										end
+									end
+									
+									//Model adding instruction info to station entry on clock edge.
+									//Need to write in assigned ROB entry.
+									always_ff @(negedge clk) begin
+										if(clear) begin
+											{src1Rob,src2Rob} <= '0;
+											instrInfo <= '0;
+											instrRob <= '0;
+										else if(writeReq) begin
+											src1Rob <= rob1;
+											src2Rob <= rob2;
+											instrInfo <= ALUControl;
+											instrRob <= robInstr;
+										end
+									end
+endmodule

@@ -1,0 +1,21 @@
+module ALU #(parameter WIDTH = 31,C_WIDTH = 3)
+				(input logic[WIDTH:0] src1,src2,
+				 input logic[C_WIDTH:0] ALUControl,
+				 output logic[WIDTH:0] ALUResult,
+				 output logic zero)
+				 
+				 logic[WIDTH:0] temp;
+				 
+				 always_comb begin
+					assign temp = src1 - src2;
+					case(ALUControl)
+						4'b0000: ALUResult = src1 + src2; //add
+						4'b0001: ALUResult = temp; //subtraction
+						4'b0010: ALUResult = src1 & src2; //bit-wise and
+						4'b0011: ALUResult = src1 | src2; //bit-wise or
+						4'b0100: ALUResult = src1 ^ src2; //bit-wise xor
+						4'b0101: ALUResult = (temp[WIDTH:WIDTH] == 1) ? 32'd1 : 32'd0; //set-less-than signed		
+					endcase
+					assign zero = ~ ( ALUResult[WIDTH-1:0] ^ 31'd0); 
+				end
+endmodule				

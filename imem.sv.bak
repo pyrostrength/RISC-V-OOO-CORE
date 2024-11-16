@@ -1,0 +1,7 @@
+module imem #(parameter WIDTH = 31)
+				 (input logic[WIDTH:0] address,
+				  output logic[WIDTH:0] instr);
+				  
+				  logic[WIDTH:0] im[WIDTH:0];
+				  assign instr = im[address];
+endmodule

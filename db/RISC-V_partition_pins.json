@@ -1,0 +1,773 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "instrRob[0]",
+					"strict" : false
+				},
+				{
+					"name" : "instrRob[1]",
+					"strict" : false
+				},
+				{
+					"name" : "instrRob[2]",
+					"strict" : false
+				},
+				{
+					"name" : "instrInfo[0]",
+					"strict" : false
+				},
+				{
+					"name" : "instrInfo[1]",
+					"strict" : false
+				},
+				{
+					"name" : "instrInfo[2]",
+					"strict" : false
+				},
+				{
+					"name" : "instrInfo[3]",
+					"strict" : false
+				},
+				{
+					"name" : "busy",
+					"strict" : false
+				},
+				{
+					"name" : "selectReq",
+					"strict" : false
+				},
+				{
+					"name" : "src1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[4]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[5]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[6]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[7]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[8]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[9]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[10]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[11]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[12]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[13]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[14]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[15]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[16]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[17]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[18]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[19]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[20]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[21]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[22]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[23]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[24]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[25]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[26]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[27]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[28]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[29]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[30]",
+					"strict" : false
+				},
+				{
+					"name" : "src1[31]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[4]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[5]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[6]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[7]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[8]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[9]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[10]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[11]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[12]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[13]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[14]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[15]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[16]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[17]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[18]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[19]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[20]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[21]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[22]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[23]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[24]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[25]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[26]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[27]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[28]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[29]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[30]",
+					"strict" : false
+				},
+				{
+					"name" : "src2[31]",
+					"strict" : false
+				},
+				{
+					"name" : "robInstr[0]",
+					"strict" : false
+				},
+				{
+					"name" : "writeReq",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "clear",
+					"strict" : false
+				},
+				{
+					"name" : "robInstr[1]",
+					"strict" : false
+				},
+				{
+					"name" : "robInstr[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ALUControl[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ALUControl[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ALUControl[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ALUControl[3]",
+					"strict" : false
+				},
+				{
+					"name" : "ready2",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.robEntry[0]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.robEntry[1]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.robEntry[2]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.validBroadcast",
+					"strict" : false
+				},
+				{
+					"name" : "ready1",
+					"strict" : false
+				},
+				{
+					"name" : "value1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[0]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[1]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[2]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[3]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[4]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[4]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[5]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[5]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[6]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[6]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[7]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[7]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[8]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[8]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[9]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[9]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[10]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[10]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[11]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[11]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[12]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[12]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[13]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[13]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[14]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[14]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[15]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[15]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[16]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[16]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[17]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[17]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[18]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[18]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[19]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[19]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[20]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[20]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[21]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[21]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[22]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[22]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[23]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[23]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[24]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[24]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[25]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[25]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[26]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[26]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[27]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[27]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[28]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[28]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[29]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[29]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[30]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[30]",
+					"strict" : false
+				},
+				{
+					"name" : "value1[31]",
+					"strict" : false
+				},
+				{
+					"name" : "dataBus.result[31]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[4]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[5]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[6]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[7]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[8]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[9]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[10]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[11]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[12]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[13]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[14]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[15]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[16]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[17]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[18]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[19]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[20]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[21]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[22]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[23]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[24]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[25]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[26]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[27]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[28]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[29]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[30]",
+					"strict" : false
+				},
+				{
+					"name" : "value2[31]",
+					"strict" : false
+				},
+				{
+					"name" : "rob2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "rob2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "rob2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "rob1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "rob1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "rob1[2]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

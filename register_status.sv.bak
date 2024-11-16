@@ -1,0 +1,27 @@
+/* Register file with 32 entries holding 32-bit values. Entry address
+   0 is the x0 register which always holds the value 0. 
+	Register file has two dedicated read ports and one
+	dedicated write port.
+	Memory is written to on negative clock edge if write enable is
+	asserted. 
+*/
+
+
+module register_status #(parameter D_WIDTH = 31, A_WIDTH = 4)
+							(input logic clk,we,
+							 input logic[A_WIDTH:0] a1,a2,a3,
+							 input logic[D_WIDTH:0] wd,
+							 output logic[D_WIDTH:0] rd1,rd2);
+							 
+							 logic[D_WIDTH:0] rf[D_WIDTH:0];
+							 //three ported register file
+							 //register x0 hardwired to 0
+							 
+							 
+							 always @(posedge clk)
+								if(we) rf[a3] <= wd;
+							 always_comb begin
+								rd1 = (a1 != 4'b0) ? rf[a1] : 32'b0;
+								rd2 = (a2 != 4'b0) ? rf[a2] : 32'b0;
+							 end
+endmodule

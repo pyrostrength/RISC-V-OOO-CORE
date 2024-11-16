@@ -1,0 +1,47 @@
+/*Reservation station entry for the ALU.
+
+Each reservation station entry consists of pertinent instruction info
+related to its execution, the ROB entry to which the instruction has
+been assigned(ROB entry is required by end of instruction decode),the
+instruction's destination(register or memory address),values for the
+source operand if available during write to reservation station
+entry or LATCHED in during instruction write result stage.
+
+We latch in instruction value on match between write results
+ROB entry and source entry stored in RS entry. This requires 2 comparators
+for every single entry.
+
+Input values per RSstation entry vary depending on assignment to functional unit.
+branchALU's reservation station entries are different from
+ALU's.
+
+commonDataBus.arbiter databus bundles up the result during instruction
+write result,the ROB entry associated with the instruction and the valid
+broadcast signal.
+
+//Worry later about the case of deciding whether to latch in a value
+into value latch.
+ 
+
+module ALURStationEntry #(parameter WIDTH = 31, ROB = 2, DEST = 31, C_WIDTH = 3)
+									(commonDataBus.arbiter dataBus,
+									 input logic ready1,ready2,grant,
+									 input logic[WIDTH:0] value1,value2,valueResult,
+									 input logic[C_WIDTH:0] ALUControl,
+									 input logic[ROB:0] rob1,rob2,robResult,robInstr,
+									 output logic busy,selectReq,
+									 output logic src1,src2);
+									 
+									 logic valueLatched;
+									 //Modeling the response to a write result
+									 always_ff @(posedge clk) begin
+										if(dataBus.validBroadcast & !valueLatched) begin
+										
+									 //Modeling writing to reservation station entry
+									 //Modeling clearing reservation station entry
+									 //and capturing its result
+									 
+									 
+									 
+									 
+									 

@@ -1,0 +1,106 @@
+/*
+
+This block of combinational logic determines the data values for source operands 
+during the rename stage  of the pipeline. 
+
+RegValue1,RegValue2 are values specified by registers read during previous decode stage.
+
+ROBValue is the current value being committed 
+to a specific destination register(freedReg).
+Reads on register status file implemented using synchronous
+RAM on cyclone V only provide old data. New data, such as 
+instruction's committing value isn't available quickly in register
+file til the next cycle. 
+
+
+In decode stage, CPU perform a search through of ROB contents 
+to find values associated with destination register matching source registers.
+An instruction may have passed write result stage but remain uncommitted,
+thus value is unavailable to unreserved instructions unless
+a search through the ROB is conducted. This search through occurs in
+decode stage of the pipeline, in a bottom-up fashion since
+most recent instructions writing to a destination register
+determine value to be used. ROBValue1 and ROBValue2 are respective
+values for the source operand 1 and source operand 2 and valid1
+and valid2 are control signals indicating the validity of the source
+values.
+
+
+*/
+
+
+
+
+
+
+
+module instructionValues #(parameter WIDTH = 31, V_WIDTH = 63, I_WIDTH = 14, ROB = 3)
+								  (input logic[WIDTH:0] regValue1,regValue2,immExt,ROBCommit,ROBValue1,ROBValue2,
+								   input logic [ROB + 1:0] freedReg,rs1,rs2  //Is currently freeing register the same as destination register of current instruction
+									input logic branch,useImm,valid1,valid2 //Is current instruction just a branch instruction? Should use immediate?
+								   input logic busy1,buys2, //Are registers destination registers of busy instructions
+									output logic ready1,ready2, //Are data values ready?
+									output logic[WIDTH:0] instrValue1,instrValue2); //Both source operands to be used
+							
+							
+							 
+								 //Determining data values and ready signals for source operand 1
+									 always_comb begin
+										instrValue1= 32'd0;
+										ready1 = '0;
+										unique case(valid1)
+										assign {instrValue1,instrValue2} = 32'd0;
+										assign {ready1,ready2} = '0;
+										
+										//For source operand 1, no immediate fields possible
+										
+										if(busy1 != 1) begin
+											instrValue1 = regValue1;
+											ready1 = '1;
+										end
+										
+										else begin
+											if (freedReg == rs1) begin
+												instrValue1 = ROBValue;
+												ready1 = '1;
+											end
+											else begin
+												instrValue1 = '0;
+												ready1 = '0;
+											end
+										end
+										
+										//	/////////////////////////////////////////////////////////////////////////
+										
+										// For source operand 2,occupied by immediate in instructions using immediates.
+										
+										if(!branch & useImm) begin
+											instrValue2 = immExt;
+											ready2 = 1'b1;
+										end
+										
+										else begin
+											unique case(busy2): //Look at busy field on ROB entry associated with register
+													1'b1: begin // If busy, see if there are any instructions currently
+													//commiting to matching destination register.
+														if(freedReg == rs2) begin
+															instrValue2 = ROBValue;
+															ready2 = '1;
+														end
+														
+														else begin
+															instrValue2 = '0;
+															ready2 = '0;
+														end
+													end
+													
+													1'b0: begin
+														instrValue2 = regValue2;
+														ready2 = 1'b1;
+													end
+											endcase
+										end
+										
+									end
+
+		endmodule	

@@ -1,0 +1,72 @@
+/*ALM-based memory module with 2 read ports and 
+2 write ports. During instruction rename stage CPU performs
+a check through the rename buffer for values associated
+with either source register. The buffer is indexed by the
+source operand's ROB allocation (an instruction in ROB
+writes the destination register, to prevent RAW register is 
+tagged by the instruction's ROB). In effect, a check is performed
+on whether instruction has passed the write result stage.
+
+ALM-based memory unit provides for new data behavior in
+read-during-write operations. This is important as sometimes
+an instruction is writing a result whilst another instruction
+is searching for that instruction's result in rename stage.
+
+rob1 and rob2 are the rob entries associated with a source 
+operand.
+
+ROBvalue1 and ROBValue2 are 33 bit signals of form {valid,result}
+with valid bit indicating relevancy & availability of result read from buffer.
+
+ROBresult is the rob entry of the instruction whose result has just
+become available during write result stage.
+
+ROBcommit is ROB entry of committing instruction. We must indicate
+that whatever is read from the value table is of zero relevancy
+as instruction that wrote to that entry has already committed. For that
+the data value is fixed to 0 on the valid/ready buffer.
+
+We implement the buffer as two separate buffers. One buffer deals with results of
+instructions whilst the other indicates availability of results from said instructions.
+
+Remember to update register status table to indicate that result either is or isn't dependent 
+on a certain instruction.
+*/
+
+
+
+
+
+
+module ROBrenamebuffer #(parameter ROB = 2, WIDTH = 31);
+							  (input logic[ROB:0] rob1,rob2,ROBresult,ROBcommit,
+								input logic[WIDTH:0] result,
+							   input logic clk,wresult,wcommit,
+								output logic[WIDTH + 1:0] ROBValue1,ROBValue2);
+								
+								logic readybuffer[7:0]; //Indexed by ROB entry,data value indicates result availability.
+								
+								logic[WIDTH:0] valuebuffer[7:0]; // Indexed by ROB entry,data value indicates result availability
+								
+								logic ready1,ready2;
+								logic[WIDTH:0] value1,value2;
+								
+								always_comb begin
+									assign ready1 = readybuffer[rob1];
+									assign ready2 = readybuffer[rob2];
+									assign value1 = valuebuffer[rob1];
+									assign value2 = valuebuffer[rob2];
+								end
+								
+								always @(negeedge clk) begin
+									if(wresult) begin
+										readybuffer[ROBresult] <= 1'b1;
+										valuebuffer[ROBresult] <= result;
+									end
+									
+									if(wcommit) begin
+										readybuffer[ROBcommit] <= 1'b0;
+									end
+								
+								
+									

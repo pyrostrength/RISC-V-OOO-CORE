@@ -1,0 +1,18 @@
+//We replace enumerated state type with bit-vector representing their binary encodings.
+//11,10,01,00 represent strongly taken,weakly taken,weakly not taken and strongly not taken respectively.
+//MSB of binary encoding is the branch prediction direction bit whilst LSB is the hysteresis bit.
+
+module PHTUpdate (input logic[9:0] previousIndex,
+                  input logic[1:0] state,
+						input logic wasTaken,
+						output logic nextState);
+
+						always_comb begin
+							unique case(state)
+								2'b11: nextState = (wasTaken == '1)? 2'b11 : 2'b10; //STAKEN
+								2'b10: nextState = (wasTaken == '1) ? 2'b11 : 2'b01; //WTAKEN
+								2'b01: nextState = (wasTaken == '1) ?  2'b10: 2'b00; //WNTAKEN
+								2'b00: nextState = (wasTaken == '1) ? 2'b01 : 2'b00; //SNTAKEN
+							endcase
+						end
+end

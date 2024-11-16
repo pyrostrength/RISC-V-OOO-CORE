@@ -1,0 +1,17 @@
+module registerfile #(parameter D_WIDTH = 31, A_WIDTH = 4)
+							(input logic clk,we,
+							 input logic[A_WIDTH:0] a1,a2,a3,
+							 input logic[D_WIDTH:0] wd,
+							 output logic[D_WIDTH:0] rd1,rd2);
+							 
+							 logic[D_WIDTH:0] rf[D_WIDTH:0];
+							 //three ported register file
+							 //register x0 hardwired to 0
+							 
+							 always_ff @(negedge clk)
+								if(we) rf[a3] <= wd;
+							assign rd1 = (a1 != 0) ? rf[a1]:0;
+							assign rd2 = (a2 != 0) ? rf[a2]:0;
+endmodule
+							 
+							 

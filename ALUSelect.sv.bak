@@ -1,0 +1,7 @@
+/* RS selection logic for instruction execution in ALU.
+	
+	Implemented as a standard round robin arbiter.
+*/
+
+
+module ALUSelect #

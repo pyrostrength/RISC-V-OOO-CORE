@@ -1,0 +1,14 @@
+module memtest (input logic clk,we,
+				    input logic[5:0] address,waddress
+					 input logic[6:0] wrdata,
+					 output logic[6:0] data);
+					 
+					 logic[6:0] memtest[0:31];
+					 always_ff @(posedge clk) begin
+						if(we)
+							memtest[waddress] <= wrdata;
+						data <= memtest[address];
+					end
+endmodule
+							
+						

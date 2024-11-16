@@ -1,0 +1,8 @@
+module mux #(parameter width = 31)
+			   (input logic[width:0] a,b,c,d,
+				 input logic[width - 30:0] select,
+				 output logic[width:0] q)
+			assign q = select[1] ? (select[0] ? d:c) :
+						  (select[0] ? b:a)
+endmodule
+				 
