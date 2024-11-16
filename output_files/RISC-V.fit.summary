@@ -1,13 +1,13 @@
-Fitter Status : Successful - Thu Nov 14 22:37:42 2024
+Fitter Status : Successful - Sat Nov 16 14:33:55 2024
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : RISC-V
-Top-level Entity Name : ALURStationEntry
+Top-level Entity Name : srcMux
 Family : Cyclone V
 Device : 5CGXFC9A6U19A7
 Timing Models : Final
-Logic utilization (in ALMs) : 83 / 113,560 ( < 1 % )
-Total registers : 2
-Total pins : 191 / 264 ( 72 % )
+Logic utilization (in ALMs) : 34 / 113,560 ( < 1 % )
+Total registers : 0
+Total pins : 164 / 264 ( 62 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 12,492,800 ( 0 % )
 Total RAM Blocks : 0 / 1,220 ( 0 % )

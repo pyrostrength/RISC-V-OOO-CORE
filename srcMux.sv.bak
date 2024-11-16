@@ -1,0 +1,21 @@
+/*Selection mechanism for specific reservation entries's
+source operand for execution in subsequent cycle. Applicable
+to branching reservation station and ALU reservation station.
+*/
+
+
+module srcMux #(parameter WIDTH = 31)
+					(input logic[WIDTH:0] src1,src2,src3,src4,
+					 input logic[3:0] grants,
+					 output logic[WIDTH:0] operand1);
+					 
+					 always_comb begin
+						unique case(grants) 
+							4'b0001 : operand1 = src1;
+							4'b0010 : operand1 = src2;
+							4'b0100 : operand1 = src3;
+							4'b1000 : operand1 = src4;
+							default : operand1 = src1;
+						endcase
+					end
+endmodule

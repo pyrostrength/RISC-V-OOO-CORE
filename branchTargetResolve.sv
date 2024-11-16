@@ -54,6 +54,7 @@ module branchTargetResolve #(parameter WIDTH = 31)
 						if(branch) begin
 							validAddress = PC + immExt;
 							branchMisdirect = (validAddress != predictedPC);
+						end
 						else if(isJAL || isJALR) begin
 							validAddress = PC + 'sd4;
 						end

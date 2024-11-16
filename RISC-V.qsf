@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CGXFC9A6U19A7
-set_global_assignment -name TOP_LEVEL_ENTITY ALURStationEntry
+set_global_assignment -name TOP_LEVEL_ENTITY srcMux
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 23.1STD.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "19:14:37  AUGUST 15, 2024"
 set_global_assignment -name LAST_QUARTUS_VERSION "23.1std.1 Lite Edition"
@@ -88,9 +88,10 @@ set_global_assignment -name SYSTEMVERILOG_FILE CDBArbiter.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ALURStationEntry.sv
 set_global_assignment -name SYSTEMVERILOG_FILE branchRSEntry.sv
 set_global_assignment -name SYSTEMVERILOG_FILE branchTargetResolve.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ALUSelect.sv
+set_global_assignment -name SYSTEMVERILOG_FILE branchSelect.sv
+set_global_assignment -name SYSTEMVERILOG_FILE srcMux.sv
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
-set_global_assignment -name SYSTEMVERILOG_FILE ALUSelect.sv
-set_global_assignment -name SYSTEMVERILOG_FILE branchSelect.sv

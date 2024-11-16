@@ -16,7 +16,7 @@ module ALUSelect  #(parameter WIDTH = 31, RS = 3)
 								/*Pointer points to respective entry.
 								Lower numbered entries are indicated
 								on least significant bits.
-								1 for ALU,0 for branch*/.
+								1 for ALU,0 for branch*/
 								always_comb begin
 									grants = 4'b0000;
 									case(pointer)

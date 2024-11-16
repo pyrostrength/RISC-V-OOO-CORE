@@ -1,13 +1,8 @@
 /*
 
-This block of combinational logic determines the data values for source operands 
+Determination of source operands 
 during the rename stage  of the pipeline. 
 
-An added functionality is to determine the target address for 
-AUIPC,LUI,JAL and Branch instructions. This address calculation
-is performed in parallel to the rest of the value determination
-before writing to reservation stations and ROB.
-AUIPC,LUI,JAL have their own reservation stations.
 
 RegValue1,RegValue2 are values specified by registers read during previous decode stage.
 

@@ -42,7 +42,7 @@ module ALURStationEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3)
 									 /*We must indicate the validity of a ROB dependence of an instruction.
 									 //The valid bit is the ready signal of instruction that's only 
 									 //written when write request and clock are high. We add
-									 */this control signal to src1Rob.
+									 */
 									 
 									 logic[ROB + 1:0] src1Rob,src2Rob;
 									 

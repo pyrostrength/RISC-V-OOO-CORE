@@ -16,7 +16,6 @@ module branchSelect #(parameter WIDTH = 31, RS = 1)
 								
 								logic nxtPointer,pointer; //Instead of in-line initialization assign a variables value through another
 								
-								logic[1:0] grants;
 								
 								//Pointer points to respective functional unit.
 								//1 for ALU,0 for branch.
@@ -29,8 +28,8 @@ module branchSelect #(parameter WIDTH = 31, RS = 1)
 											else grants = 2'b00;
 										end
 										1'b1: begin//Branch request
-											if(requests[1]) grant = 2'b10;
-											else if(requests[0]) grant = 2'b01;
+											if(requests[1]) grants = 2'b10;
+											else if(requests[0]) grants = 2'b01;
 											else grants = 2'b00;
 										end
 									endcase
@@ -44,7 +43,7 @@ module branchSelect #(parameter WIDTH = 31, RS = 1)
 								//Priority shifting logic
 								always_comb begin
 									nxtPointer = 1'b0;
-									case(grant)
+									case(grants)
 										2'b10: nxtPointer = 1'b0; //Grant priority to branchALU
 										2'b01: nxtPointer = 1'b1; //Grant priority to ALU.
 										default:nxtPointer = 1'b0;
