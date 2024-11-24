@@ -1,49 +1,46 @@
-/* Register file with 32 entries holding 32-bit values.
+/* 
+	
+	Register file with 32 entries holding 32-bit values.
 	Register x0 must always holds the value 0.
 
-   Register file implemented as synchronous RAM.
-	Read and written to on negative clock edge.
-	Displays old data behaviour during read during write behavior
-	as new data behavior is accounted for by combinational logic
-	in rename stage.
-
-	Implemented as two separate memories each holding the same data.
-	We only have dual port RAM memories with one read port and 
-	another write port.
-
-	Need not hardwire register x0 to zero. But to the
-	programmer's POV I need only ensure that register x0
-	appears hardwired to value 0. Register files are
-	always written during instruction commit thus prior
-	to selecting an instruction for commit, as an extra step,
-	we must ensure that any data value passed to destination register
-	x0 is zero.
+   Register file implemented as synchronous ALM-based
+	memory with read and write on positive clock edge.
+	Synchronous RAM has new data behavior
+	meaning read and write to the same address results
+	in new data on read output. This accounts for case
+	in which instruction commits during another's instruction
+	decode thus allowing for capturing of instruction value.
 	
-	For performance reasons we must ensure that any instruction
-	aiming to indicate that register x0 is busy in register
-	status table be stymied - the write enable on register status
-	tables should be disabled. Thus register x0 always holds the value 0.
-	This eliminates the need for combinational logic in register_file 
-	implementation.
+	What to do with the captured value is decided upon in the next
+	stage. If we determined that respective register was busy,
+	then we discard the value and observe the value on write result
+	stage or on instruction commit. Or we pick the extended
+	immediate field if value read from
+	register file was never needed to begin with.
+
+	As per RISC_V specification, register x0 should be hardwired to
+	register x0. For that we ensure that prior to instruction
+	commit any instruction writing to destination register x0 
+	writes the value zero,any value read from register x0 is automatically 
+	zero and no instruction can mark register x0 as occupied.
 	
 	Register file has two dedicated read ports and one
 	dedicated write port.
-	
-	Memory is written to on negative clock edge if write enable is
-	asserted. 
+	 
+
 */
 
 
 module register_file #(parameter D_WIDTH = 32, A_WIDTH = 4)
-							(input logic clk,we,g,
+							(input logic clk,regWrite,
 							 input logic[A_WIDTH:0] address1,address2,wraddress,
 							 input logic[D_WIDTH:0] wdata,
 							 output logic[D_WIDTH:0] regValue1,regValue2);
 							 
 							 logic[D_WIDTH:0] regFile[0:D_WIDTH];
 							 
-							 always @(negedge clk) begin
-								if(we & g) begin
+							 always @(posedge clk) begin
+								if(regWrite) begin
 									regFile[wraddress] <= wdata;
 								end
 							 end

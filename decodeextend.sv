@@ -41,7 +41,7 @@ module decodeextend #(parameter WIDTH = 31, I_WIDTH = 24)
 							 output logic[3:0] ALUControl,
 							 output logic[WIDTH:0] immExt,
 							 output logic[2:0] RSstation,
-							 output logic memWrite,branch,isJAL,useImm,writeRegStatus,regWrite,
+							 output logic memWrite,branch,isJAL,useImm,regWrite,
 							 output logic isJALR,isLUI,isAUIPC);
 							 
 							 //if memWrite is 0 then instruction writes to register file. Does this case hold?
@@ -54,7 +54,8 @@ module decodeextend #(parameter WIDTH = 31, I_WIDTH = 24)
 							
 							
 							//Produces control signals for respective functional units
-							infodecoder maindecoder(.*,.RSstation(RSstation),.opcode(instruction[4:0]),.immSrc(immSrc),.aluOp(aluOp));
+							infodecoder maindecoder(.*,.RSstation(RSstation),.opcode(instruction[4:0]),.immSrc(immSrc),.aluOp(aluOp),
+															.destReg(instruction[11:7]));
 							
 							//Produces the 32-bit immediate field for address calculations
 							extend extender(.*,.immSrc(immSrc),.imm(instruction[31:8]));

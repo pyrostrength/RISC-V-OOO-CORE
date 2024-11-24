@@ -1,5 +1,7 @@
-/*ALM-based memory module with 2 read ports and 
-2 write ports. During instruction rename stage CPU performs
+/*
+
+2 ALM-based memory module.
+During instruction rename stage CPU performs
 a check through the rename buffer for values associated
 with either source register. The buffer is indexed by the
 source operand's ROB allocation (an instruction in ROB
@@ -7,21 +9,22 @@ writes the destination register, to prevent RAW register is
 tagged by the instruction's ROB). In effect, a check is performed
 on whether instruction has passed the write result stage.
 
-ALM-based memory unit provides for new data behavior in
-read-during-write operations. This is important as sometimes
-an instruction is writing a result whilst another instruction
-is searching for that instruction's result in rename stage.
-This also complicates search through for data values during decode stage.
-Since an instruction that commits will change value
-to 0. 
+With old data behaviour on read during write operations,
+if an instruction writes its result in current stage then
+we need only bypass that value to rename stage. 
 
-Thus we must indicate that instruction
-has committed lest we shall wait in reservation station
-for an instruction that's no longer in pipeline.
-We pass on this responsibility by implementing our register
-status files and register file to be ALM-based.
-Performing combinational logic in this stage will necessitate
-a longer clock cycle thus negatively impacting performance.
+If an instruction had written it's result in previous stage 
+but is currently committing then old data behaviour captures the
+actual commit value since buffer was written during write
+result stage. Thus we need not bypass commit value
+to instruction value stage. Nevertheless we must indicate 
+correct source operand ROB entry dependence in reservation
+station so we bypass the commiting instruction's ROB entry.
+
+We must indicate validity of a data value. Done during write
+result stage where we have a valid,robEntry,result combo.
+Must indicate invalidity of a result on instruction commit
+or on pipeline flush due to branch misprediction.
 
 rob1 and rob2 are the rob entries associated with a source 
 operand.
@@ -32,42 +35,14 @@ with valid bit indicating relevancy & availability of result read from buffer.
 ROBresult is the rob entry of the instruction whose result has just
 become available during write result stage.
 
-ROBcommit is ROB entry of committing instruction. We must indicate
-that whatever is read from the value table is of zero relevancy
-as instruction that wrote to that entry has already committed. For that
-the data value is fixed to 0 on the valid/ready buffer.
+ROBcommit is ROB entry of committing instruction. 
+We must invalidate an entry's result after an instruction
+commits as an ensuing unexecuted instruction will use
+the same ROB entry. We don't want to read off the wrong
+value from the value buffer.
 
-We implement the buffer as two separate buffers. 
-One buffer deals with results of
-instructions whilst 
-the other indicates availability of results from said instructions.
+Busy1 and Busy2 act as our read enables on readybuffer
 
-Remember to update register status table to indicate 
-that result either is or isn't dependent on a certain instruction.
-This is done through updating the busy buffers.
-
-However this isn't enough. Since we never clear the register status
-ROB buffers we retain false dependence information if another instruction
-doesn't write to a destination register. 
-
-Yet we must only pass value ROB values if and
-only if the busy buffer indicated that there exists an instruction writing 
-to the destination register(iff there exists a dependence). A dependence
-only exists if busy1 or busy2 are zero. 
-
-Thus busy1 and busy2 form part of the valid bits. Busy1 and Busy2
-are read off from the register status table during instruction decode stage.
-If an instruction commits during instruction decode stage,
-then our timing and implementation allows us to capture the 
-removal of the dependence before we pass on the busy1 and busy2
-signals to ROBrename buffer in the next clock cycle.
-
-ROB rename buffer buffers the instruction results and and indicates
-instruction readiness to commit. We reuse this code for a separate ROB
-implementation.
-
-ROB rename buffer is specifically for search through during instruction 
-rename. Yet it still monitors CDB for data values like the main ROB implementation.
 
 */
 
@@ -77,33 +52,37 @@ rename. Yet it still monitors CDB for data values like the main ROB implementati
 
 
 module ROBrenamebuffer #(parameter ROB = 2, WIDTH = 31)
-							  (input logic[ROB:0] rob1,rob2,ROBresult,ROBcommit,
-								input logic[WIDTH:0] result,
-							   input logic clk,wresult,wcommit,busy1,busy2,
-								output logic[WIDTH + 1:0] ROBValue1,ROBValue2);
+							  (commonDataBus.reorder_buffer dataBus,
+								input logic[ROB:0] rob1,rob2,ROBcommit,
+							   input logic clk,wcommit,
+								output logic[WIDTH:0] ROBValue1,ROBValue2,
+								output logic valid1,valid2);
 								
 								logic readybuffer[7:0]; //Indexed by ROB entry,data value indicates result availability.
 								
-								logic[WIDTH:0] valuebuffer[7:0]; // Indexed by ROB entry,data value indicates result availability
+								logic[WIDTH:0] valuebuffer1[7:0]; // Indexed by ROB entry,data value indicates result availability
+								logic[WIDTH:0] valuebuffer2[7:0];
 								
-								logic valid1,valid2;
 								
-								always_comb begin
-									valid1 = readybuffer[rob1] & (!busy1);
-									valid2 = readybuffer[rob2] & (!busy2);
-									ROBValue1 = {valid1,valuebuffer[rob1]};
-									ROBValue2 = {valid2,valuebuffer[rob2]};
-								end
 								
-								always @(negedge clk) begin
-									if(wresult) begin
-										readybuffer[ROBresult] <= 1'b1;
-										valuebuffer[ROBresult] <= result;
+								always_ff @(negedge clk) begin
+									if(dataBus.validBroadcast) begin
+										readybuffer[dataBus.robEntry] <= dataBus.validBroadcast;
+										valuebuffer1[dataBus.robEntry] <= dataBus.result;
+										valuebuffer2[dataBus.robEntry] <= dataBus.result;
 									end
 									
 									if(wcommit) begin
 										readybuffer[ROBcommit] <= 1'b0;
 									end
+								end
+									
+								always_ff @(posedge clk) begin
+									ROBValue1 <= valuebuffer1[rob1];
+									ROBValue2 <= valuebuffer2[rob2];
+									valid1 <= readybuffer[rob1];
+									valid2 <= readybuffer[rob2];
+									
 								end
 								
 endmodule

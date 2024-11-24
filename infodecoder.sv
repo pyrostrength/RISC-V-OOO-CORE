@@ -1,54 +1,56 @@
-/* The info-decoder produces control signals for the respective
+/* 
+
+	The info-decoder produces control signals for the respective
 	functional units to which an instruction is sent to and control
 	signals to determine source operands to be used for an instruction.
 	
 	Some instructions require the use of the immediates instead of register values
 	for their operands e.g I-type,JAl-type,JALR-type,S-type,L-type.
 	Thus we must extend immediate field on instructions as determined by their instruction type.
-	This is done in a separate module.
+	This is done in by the extend unit under the control of immSrc signal.
 	
-	We must produce control signals dictating the operation of the ALU.
-	
-	ALU source operand control signals, jump/branch control signal and ALUOp 
-	control signal which control writing to memory/register,whether to branch or jump to a
-	different target address, and a control signal to aid the ALU decoder
-	in determining the appropriate ALU control signals respectively.
+	Control signals to determine which computational operation to be
+   performed by ALU(ALUOp), whether to branch/jump, whether to write
+	to memory or register, whether to use immediate value as a source
+	operand,whether our instruction writes to a destination register
+	(to avoid U-type,B-type and S-type instructions from hogging
+	 space in register status table).
 	
 	useImm instructs us to use the immediate value for source operand.
 	
 	branch informs us whether instruction is actually a branch instruction.
-	This will aid early branch recovery where we rollback instruction fetch to PC+4.
+	This will aid early branch recovery where we rollback instruction fetch to PC+4
+	if we had mispredicted an instruction as a taken branch.
 	
 	jump informs us whether instruction was actually a jump instruction.
-	This will aid early unconditional branch recovery where we rollback instruction fetch
-	to PC+4.
-	
-	writeRegStatus informs us whethe the instruction actually writes to a destination register.
+	This allows to redirect instruction fetch to jump target
+	address.
 	
 	memWrite indicates if instruction writes to memory.
 	
-	regWrite indicates if instruction writes to register file. We implement
-	this functionality to eliminate combinational logic for determining
-	write enable signals for register file during instruction 
-	commit.
+	regWrite indicates if instruction writes to register file.
+	as well as to register status table. This control signal
+	functions as our write enable for the register status table
+	and register file. If respective register is x0,then 
+	regWrite is disabled as x0 register should always have value
+	0.
 	
 	isLUI,isAUIPC,isJAL are added to handle special cases for PC relative address calculation.
 	
-	There are 4 reservation stations. 
+	There are 4 intended reservation stations. 
 	Reservation station (00) corresponds to ALU, (01) to load/store,
 	(10) to branch and (11) to JAL,AUIPC,LUI.
-	
-	During 3rd stage we determine if there's an opening. Timing requirements. We must eliminate entry from ROB.
-	Determine fullness. And transfer result to 
+	 
 */
 
 
 
 
 module infodecoder (input logic[3:0] opcode,//Only the first 4-bits of opcode are needed for base implementation
+						  input logic[4:0] destReg,
 						  output logic[2:0] immSrc,
 						  output logic[1:0] aluOp,RSstation,
-						  output logic memWrite,branch,isJAL,useImm,writeRegStatus,regWrite,
+						  output logic memWrite,branch,isJAL,useImm,regWrite,
 						  output logic isLUI,isAUIPC,isJALR); //useImm instructs us to use the immediate value for source operand.
 						  //isJALR is useful only for effective address calculation during branching stage.
 						  
@@ -57,7 +59,7 @@ module infodecoder (input logic[3:0] opcode,//Only the first 4-bits of opcode ar
 								aluOp = 2'b11;
 								immSrc = 3'b000; //For JALR and I-type instructions.
 								RSstation = 2'b00; //Corresponds to ALU.
-								{writeRegStatus,regWrite} = 1'b1;
+								regWrite = (destReg != 5'd0); //If DestReg is equal to 0 then regWrite is 0 for all instructions.
 								useImm = 1'b1; // By default useImm is high since most instructions use immediate field.
 								//Branching instructions shouldn't use the immediate field.
 								case(opcode)
@@ -71,7 +73,7 @@ module infodecoder (input logic[3:0] opcode,//Only the first 4-bits of opcode ar
 										end
 										4'b0010 : begin //S-type
 											{aluOp,RSstation} = 2'b01;
-											{writeRegStatus,regWrite} = 1'b0;
+											regWrite = 1'b0;
 											memWrite = 1'b1;
 											immSrc = 3'b001;
 											RSstation = 2'b01;
@@ -80,7 +82,7 @@ module infodecoder (input logic[3:0] opcode,//Only the first 4-bits of opcode ar
 											aluOp = 2'b01;
 											immSrc = 3'b010;
 											RSstation = 2'b10;
-											{writeRegStatus,regWrite} = 1'b0;
+											regWrite = 1'b0;
 											//Branching instructions shouldn't use the immediate field for their source values
 											useImm = 1'b0;
 										end

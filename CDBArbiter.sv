@@ -11,12 +11,16 @@ interface commonDataBus #(parameter WIDTH = 31, ROB = 2);
 								  logic[WIDTH:0] result;
 								  logic[ROB:0] robEntry;
 								  logic validBroadcast; //Is what's written to CDB a valid signal?
+								  logic[WIDTH:0] targetAddress; //specifically for branching instructions
+								  logic isControl; //Is instruction a control flow instruction?
 								
-								modport arbiter(output result,robEntry,validBroadcast); //arbiter selects instruction to write CDB.
+								modport arbiter(output result,robEntry,validBroadcast,targetAddress,isControl); //arbiter selects instruction to write CDB.
 								
 								modport reservation_station(input result,robEntry,validBroadcast); //Reservation station needs result and robEntry
 								
-								modport reorder_buffer(input result,robEntry,validBroadcast); //Reorder buffer also needs result an ROB entry.
+								modport reorder_buffer(input result,robEntry,validBroadcast,targetAddress,isControl); //Reorder buffer also needs result an ROB entry.
+								
+								modport rename_stage(input result,robEntry,validBroadcast);
 								
 endinterface
 
@@ -34,7 +38,7 @@ This default behavior does nothing of consequence as valid broadcast is
 module CDBArbiter  #(parameter WIDTH = 31, ROB = 2)
 						  (commonDataBus.arbiter dataBus,
 							input logic[ROB:0] ALURob,branchRob,
-							input logic[WIDTH:0] ALUResult,branchResult,
+							input logic[WIDTH:0] ALUResult,branchResult,targetAddress,
 							input logic ALURequest,branchRequest,clk);
 							
 								//Bus arbitration functionality
@@ -51,18 +55,28 @@ module CDBArbiter  #(parameter WIDTH = 31, ROB = 2)
 								
 								assign we = ALURequest | branchRequest;
 								
+								logic controlFlow; //Are we going to write a control flow instruction on CDB?
+								
+								
 								//Pointer points to respective functional unit.
 								//1 for ALU,0 for branch.
 								always_comb begin
 									grant = 2'b00;
+									controlFlow = 1'b0;
 									case(pointer)
 										1'b0: begin//ALU request
 											if(ALURequest) grant = 2'b10;
-											else if(branchRequest) grant = 2'b01;
+											else if(branchRequest) begin
+												grant = 2'b01;
+												controlFlow = 1'b1;
+											end
 											else grant = 2'b00;
 										end
 										1'b1: begin//Branch request
-											if(branchRequest) grant = 2'b10;
+											if(branchRequest) begin
+												grant = 2'b10;
+												controlFlow = 1'b1;
+											end
 											else if(ALURequest) grant = 2'b01;
 											else grant = 2'b00;
 										end
@@ -94,6 +108,10 @@ module CDBArbiter  #(parameter WIDTH = 31, ROB = 2)
 										dataBus.result <= value;
 										dataBus.robEntry <= rob; 
 										dataBus.validBroadcast <= we;
+										dataBus.isControl <= controlFlow;
+										if(controlFlow) begin
+											dataBus.targetAddress <= targetAddress;
+										end	
 								end
 endmodule
 								

@@ -91,8 +91,8 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : A13       :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : A14       :        :                   :         : 7A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : A15       :        :                   :         : 7A        :                
 VCCIO7A                      : A16       : power  :                   : 2.5V    : 7A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : A17       :        :                   :         : 7A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : A18       :        :                   :         : 7A        :                
+instrValue[9]                : A17       : output : 2.5 V             :         : 7A        : N              
+ROBValue[12]                 : A18       : input  : 2.5 V             :         : 7A        : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : A19       :        :                   :         : 7A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : A20       :        :                   :         : 7A        :                
 GND                          : A21       : gnd    :                   :         :           :                
@@ -103,44 +103,44 @@ GND                          : AA3       : gnd    :                   :         
 GND                          : AA4       : gnd    :                   :         :           :                
 AS_DATA3, DATA3              : AA5       :        :                   :         : 3A        :                
 VCCIO3A                      : AA6       : power  :                   : 2.5V    : 3A        :                
-sourceOperands[0][21]        : AA7       : input  : 2.5 V             :         : 3B        : N              
-sourceOperands[0][31]        : AA8       : input  : 2.5 V             :         : 3B        : N              
-sourceOperands[0][1]         : AA9       : input  : 2.5 V             :         : 3B        : N              
-sourceOperands[1][1]         : AA10      : input  : 2.5 V             :         : 3B        : N              
+dataBus.result[27]           : AA7       : input  : 2.5 V             :         : 3B        : N              
+operand[23]                  : AA8       : input  : 2.5 V             :         : 3B        : N              
+operand[24]                  : AA9       : input  : 2.5 V             :         : 3B        : N              
+dataBus.result[24]           : AA10      : input  : 2.5 V             :         : 3B        : N              
 GND                          : AA11      : gnd    :                   :         :           :                
 VCC_AUX                      : AA12      : power  :                   : 2.5V    :           :                
-grants[3]                    : AA13      : input  : 2.5 V             :         : 4A        : N              
+operand[28]                  : AA13      : input  : 2.5 V             :         : 4A        : N              
 VREFB4AN0                    : AA14      : power  :                   :         : 4A        :                
-sourceOperands[2][26]        : AA15      : input  : 2.5 V             :         : 4A        : N              
+instrValue[26]               : AA15      : output : 2.5 V             :         : 4A        : N              
 GND                          : AA16      : gnd    :                   :         :           :                
-sourceOperands[0][28]        : AA17      : input  : 2.5 V             :         : 4A        : N              
-sourceOperands[0][14]        : AA18      : input  : 2.5 V             :         : 4A        : N              
-sourceOperands[2][14]        : AA19      : input  : 2.5 V             :         : 4A        : N              
-operand1[6]                  : AA20      : output : 2.5 V             :         : 4A        : N              
+ROBValue[5]                  : AA17      : input  : 2.5 V             :         : 4A        : N              
+ready                        : AA18      : output : 2.5 V             :         : 4A        : N              
+operand[9]                   : AA19      : input  : 2.5 V             :         : 4A        : N              
+dataBus.result[9]            : AA20      : input  : 2.5 V             :         : 4A        : N              
 VCCIO4A                      : AA21      : power  :                   : 2.5V    : 4A        :                
-sourceOperands[2][28]        : AA22      : input  : 2.5 V             :         : 4A        : N              
+dataBus.result[25]           : AA22      : input  : 2.5 V             :         : 4A        : N              
 GND                          : AB1       : gnd    :                   :         :           :                
 GND                          : AB2       : gnd    :                   :         :           :                
 DNU                          : AB3       :        :                   :         :           :                
 AS_DATA0, ASDO, DATA0        : AB4       :        :                   :         : 3A        :                
 VCC_AUX                      : AB5       : power  :                   : 2.5V    :           :                
 nCSO, DATA4                  : AB6       :        :                   :         : 3A        :                
-sourceOperands[1][18]        : AB7       : input  : 2.5 V             :         : 3B        : N              
-sourceOperands[2][31]        : AB8       : input  : 2.5 V             :         : 3B        : N              
+operand[7]                   : AB7       : input  : 2.5 V             :         : 3B        : N              
+ROBValue[8]                  : AB8       : input  : 2.5 V             :         : 3B        : N              
 VCCIO3B                      : AB9       : power  :                   : 2.5V    : 3B        :                
-sourceOperands[3][19]        : AB10      : input  : 2.5 V             :         : 3B        : N              
-sourceOperands[0][30]        : AB11      : input  : 2.5 V             :         : 3B        : N              
+operand[17]                  : AB10      : input  : 2.5 V             :         : 3B        : N              
+ROBValue[14]                 : AB11      : input  : 2.5 V             :         : 3B        : N              
 VREFB3BN0                    : AB12      : power  :                   :         : 3B        :                
-grants[2]                    : AB13      : input  : 2.5 V             :         : 4A        : N              
+operand[30]                  : AB13      : input  : 2.5 V             :         : 4A        : N              
 VCCIO4A                      : AB14      : power  :                   : 2.5V    : 4A        :                
-sourceOperands[3][5]         : AB15      : input  : 2.5 V             :         : 4A        : N              
-sourceOperands[0][5]         : AB16      : input  : 2.5 V             :         : 4A        : N              
-sourceOperands[1][7]         : AB17      : input  : 2.5 V             :         : 4A        : N              
-sourceOperands[0][20]        : AB18      : input  : 2.5 V             :         : 4A        : N              
+dataBus.result[19]           : AB15      : input  : 2.5 V             :         : 4A        : N              
+instrValue[19]               : AB16      : output : 2.5 V             :         : 4A        : N              
+instrValue[4]                : AB17      : output : 2.5 V             :         : 4A        : N              
+operand[20]                  : AB18      : input  : 2.5 V             :         : 4A        : N              
 GND                          : AB19      : gnd    :                   :         :           :                
-sourceOperands[0][15]        : AB20      : input  : 2.5 V             :         : 4A        : N              
-sourceOperands[3][15]        : AB21      : input  : 2.5 V             :         : 4A        : N              
-sourceOperands[1][15]        : AB22      : input  : 2.5 V             :         : 4A        : N              
+instrValue[6]                : AB20      : output : 2.5 V             :         : 4A        : N              
+ROBValue[9]                  : AB21      : input  : 2.5 V             :         : 4A        : N              
+instrValue[1]                : AB22      : output : 2.5 V             :         : 4A        : N              
 GND                          : B1        : gnd    :                   :         :           :                
 GND                          : B2        : gnd    :                   :         :           :                
 DNU                          : B3        :        :                   :         :           :                
@@ -156,8 +156,8 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : B12       :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : B13       :        :                   :         : 7A        :                
 GND                          : B14       : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : B15       :        :                   :         : 7A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B16       :        :                   :         : 7A        :                
-operand1[14]                 : B17       : output : 2.5 V             :         : 7A        : N              
+ROBValue[29]                 : B16       : input  : 2.5 V             :         : 7A        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : B17       :        :                   :         : 7A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : B18       :        :                   :         : 7A        :                
 VCCIO7A                      : B19       : power  :                   : 2.5V    : 7A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : B20       :        :                   :         : 7A        :                
@@ -170,7 +170,7 @@ GND                          : C4        : gnd    :                   :         
 MSEL4                        : C5        :        :                   :         : 9A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : C6        :        :                   :         : 8A        :                
 GND                          : C7        : gnd    :                   :         :           :                
-sourceOperands[3][18]        : C8        : input  : 2.5 V             :         : 8A        : N              
+instrValue[27]               : C8        : output : 2.5 V             :         : 8A        : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : C9        :        :                   :         : 8A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : C10       :        :                   :         : 8A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : C11       :        :                   :         : 8A        :                
@@ -180,10 +180,10 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : C14       :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : C15       :        :                   :         : 7A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : C16       :        :                   :         : 7A        :                
 GND                          : C17       : gnd    :                   :         :           :                
-sourceOperands[3][28]        : C18       : input  : 2.5 V             :         : 7A        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : C18       :        :                   :         : 7A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : C19       :        :                   :         : 7A        :                
-operand1[27]                 : C20       : output : 2.5 V             :         : 7A        : N              
-sourceOperands[3][12]        : C21       : input  : 2.5 V             :         : 7A        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : C20       :        :                   :         : 7A        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : C21       :        :                   :         : 7A        :                
 GND                          : C22       : gnd    :                   :         :           :                
 GND                          : D1        : gnd    :                   :         :           :                
 GND                          : D2        : gnd    :                   :         :           :                
@@ -195,7 +195,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : D7        :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : D8        :        :                   :         : 8A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : D9        :        :                   :         : 8A        :                
 GND                          : D10       : gnd    :                   :         :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : D11       :        :                   :         : 8A        :                
+dataBus.result[14]           : D11       : input  : 2.5 V             :         : 8A        : N              
 VCC_AUX                      : D12       : power  :                   : 2.5V    :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : D13       :        :                   :         : 7A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : D14       :        :                   :         : 7A        :                
@@ -206,7 +206,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : D18       :        :                   :      
 VCC_AUX                      : D19       : power  :                   : 2.5V    :           :                
 GND                          : D20       : gnd    :                   :         :           :                
 DNU                          : D21       :        :                   :         :           :                
-sourceOperands[2][24]        : D22       : input  : 2.5 V             :         : 5B        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : D22       :        :                   :         : 5B        :                
 GXB_NC                       : E1        :        :                   :         : B1L       :                
 GXB_NC                       : E2        :        :                   :         : B1L       :                
 GND                          : E3        : gnd    :                   :         :           :                
@@ -226,9 +226,9 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : E16       :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : E17       :        :                   :         : 7A        :                
 VCCIO7A                      : E18       : power  :                   : 2.5V    : 7A        :                
 VCCA_FPLL                    : E19       : power  :                   : 2.5V    :           :                
-sourceOperands[1][4]         : E20       : input  : 2.5 V             :         : 5B        : N              
-sourceOperands[1][29]        : E21       : input  : 2.5 V             :         : 5B        : N              
-sourceOperands[1][27]        : E22       : input  : 2.5 V             :         : 5B        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : E20       :        :                   :         : 5B        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : E21       :        :                   :         : 5B        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : E22       :        :                   :         : 5B        :                
 GND                          : F1        : gnd    :                   :         :           :                
 GND                          : F2        : gnd    :                   :         :           :                
 GND                          : F3        :        :                   :         : 9A        :                
@@ -240,7 +240,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : F8        :        :                   :      
 VCCPD7A8A                    : F9        : power  :                   : 2.5V    : 7A, 8A    :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : F10       :        :                   :         : 8A        :                
 GND                          : F11       : gnd    :                   :         :           :                
-sourceOperands[1][19]        : F12       : input  : 2.5 V             :         : 7A        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : F12       :        :                   :         : 7A        :                
 VCCPD7A8A                    : F13       : power  :                   : 2.5V    : 7A, 8A    :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : F14       :        :                   :         : 7A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : F15       :        :                   :         : 7A        :                
@@ -248,31 +248,31 @@ GND                          : F16       : gnd    :                   :         
 GND                          : F17       :        :                   :         : 7A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : F18       :        :                   :         : 5B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : F19       :        :                   :         : 5B        :                
-sourceOperands[2][29]        : F20       : input  : 2.5 V             :         : 5B        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : F20       :        :                   :         : 5B        :                
 GND                          : F21       : gnd    :                   :         :           :                
-sourceOperands[2][11]        : F22       : input  : 2.5 V             :         : 5B        : N              
+dataBus.validBroadcast       : F22       : input  : 2.5 V             :         : 5B        : N              
 GND                          : G1        :        :                   :         : B1L       :                
 GND                          : G2        :        :                   :         : B1L       :                
 GND                          : G3        : gnd    :                   :         :           :                
 GND                          : G4        :        :                   :         : B1L       :                
 nSTATUS                      : G5        :        :                   :         : 9A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : G6        :        :                   :         : 8A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : G7        :        :                   :         : 8A        :                
+instrValue[8]                : G7        : output : 2.5 V             :         : 8A        : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : G8        :        :                   :         : 7A        :                
 GND                          : G9        : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : G10       :        :                   :         : 8A        :                
-sourceOperands[3][14]        : G11       : input  : 2.5 V             :         : 7A        : N              
-RESERVED_INPUT_WITH_WEAK_PULLUP : G12       :        :                   :         : 7A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : G13       :        :                   :         : 7A        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : G11       :        :                   :         : 7A        :                
+instrValue[12]               : G12       : output : 2.5 V             :         : 7A        : N              
+operand[12]                  : G13       : input  : 2.5 V             :         : 7A        : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : G14       :        :                   :         : 7A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : G15       :        :                   :         : 7A        :                
-operand1[10]                 : G16       : output : 2.5 V             :         : 7A        : N              
-sourceOperands[2][2]         : G17       : input  : 2.5 V             :         : 5B        : N              
-sourceOperands[1][9]         : G18       : input  : 2.5 V             :         : 5B        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : G16       :        :                   :         : 7A        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : G17       :        :                   :         : 5B        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : G18       :        :                   :         : 5B        :                
 VCCIO5B                      : G19       : power  :                   : 2.5V    : 5B        :                
-sourceOperands[3][4]         : G20       : input  : 2.5 V             :         : 5B        : N              
-sourceOperands[2][4]         : G21       : input  : 2.5 V             :         : 5B        : N              
-sourceOperands[0][27]        : G22       : input  : 2.5 V             :         : 5B        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : G20       :        :                   :         : 5B        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : G21       :        :                   :         : 5B        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : G22       :        :                   :         : 5B        :                
 GND                          : H1        : gnd    :                   :         :           :                
 GND                          : H2        : gnd    :                   :         :           :                
 GND                          : H3        : gnd    :                   :         :           :                
@@ -280,20 +280,20 @@ GND                          : H4        : gnd    :                   :         
 nCE                          : H5        :        :                   :         : 9A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : H6        :        :                   :         : 8A        :                
 VCCIO8A                      : H7        : power  :                   : 2.5V    : 8A        :                
-sourceOperands[0][0]         : H8        : input  : 2.5 V             :         : 8A        : N              
+ROBValue[24]                 : H8        : input  : 2.5 V             :         : 8A        : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : H9        :        :                   :         : 7A        :                
-operand1[5]                  : H10       : output : 2.5 V             :         : 7A        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : H10       :        :                   :         : 7A        :                
 VCC                          : H11       : power  :                   : 1.1V    :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : H12       :        :                   :         : 7A        :                
+dataBus.result[6]            : H12       : input  : 2.5 V             :         : 7A        : N              
 VCC                          : H13       : power  :                   : 1.1V    :           :                
 GND                          : H14       : gnd    :                   :         :           :                
 VCC                          : H15       : power  :                   : 1.1V    :           :                
-sourceOperands[1][12]        : H16       : input  : 2.5 V             :         : 7A        : N              
+instrValue[21]               : H16       : output : 2.5 V             :         : 7A        : N              
 VCCIO7A                      : H17       : power  :                   : 2.5V    : 7A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : H18       :        :                   :         : 5B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : H19       :        :                   :         : 5B        :                
-operand1[24]                 : H20       : output : 2.5 V             :         : 5B        : N              
-sourceOperands[3][27]        : H21       : input  : 2.5 V             :         : 5B        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : H20       :        :                   :         : 5B        :                
+instrValue[5]                : H21       : output : 2.5 V             :         : 5B        : N              
 VCCIO5B                      : H22       : power  :                   : 2.5V    : 5B        :                
 GXB_NC                       : J1        :        :                   :         : B1L       :                
 GXB_NC                       : J2        :        :                   :         : B1L       :                
@@ -310,13 +310,13 @@ VCC                          : J12       : power  :                   : 1.1V    
 GND                          : J13       : gnd    :                   :         :           :                
 VCC                          : J14       : power  :                   : 1.1V    :           :                
 GND                          : J15       : gnd    :                   :         :           :                
-sourceOperands[3][2]         : J16       : input  : 2.5 V             :         : 5B        : N              
-sourceOperands[2][27]        : J17       : input  : 2.5 V             :         : 5B        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : J16       :        :                   :         : 5B        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : J17       :        :                   :         : 5B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : J18       :        :                   :         : 5B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : J19       :        :                   :         : 5B        :                
 GND                          : J20       : gnd    :                   :         :           :                
-sourceOperands[0][4]         : J21       : input  : 2.5 V             :         : 5B        : N              
-sourceOperands[2][13]        : J22       : input  : 2.5 V             :         : 5B        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : J21       :        :                   :         : 5B        :                
+dataBus.result[21]           : J22       : input  : 2.5 V             :         : 5B        : N              
 GND                          : K1        : gnd    :                   :         :           :                
 GND                          : K2        : gnd    :                   :         :           :                
 VCCL_GXBL                    : K3        : power  :                   : 1.1V    :           :                
@@ -331,168 +331,168 @@ VCC                          : K11       : power  :                   : 1.1V    
 GND                          : K12       : gnd    :                   :         :           :                
 VCC                          : K13       : power  :                   : 1.1V    :           :                
 GND                          : K14       : gnd    :                   :         :           :                
-sourceOperands[1][24]        : K15       : input  : 2.5 V             :         : 5B        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : K15       :        :                   :         : 5B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : K16       :        :                   :         : 5B        :                
-sourceOperands[3][13]        : K17       : input  : 2.5 V             :         : 5B        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : K17       :        :                   :         : 5B        :                
 VCCIO5B                      : K18       : power  :                   : 2.5V    : 5B        :                
-sourceOperands[3][29]        : K19       : input  : 2.5 V             :         : 5B        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : K19       :        :                   :         : 5B        :                
 VREFB5BN0                    : K20       : power  :                   :         : 5B        :                
-sourceOperands[1][2]         : K21       : input  : 2.5 V             :         : 5B        : N              
-operand1[13]                 : K22       : output : 2.5 V             :         : 5B        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : K21       :        :                   :         : 5B        :                
+instrValue[29]               : K22       : output : 2.5 V             :         : 5B        : N              
 GND                          : L1        :        :                   :         : B1L       :                
 GND                          : L2        :        :                   :         : B1L       :                
 GND                          : L3        : gnd    :                   :         :           :                
 VCCE_GXBL                    : L4        : power  :                   : 1.1V    :           :                
 GND                          : L5        : gnd    :                   :         :           :                
 MSEL0                        : L6        :        :                   :         : 9A        :                
-sourceOperands[1][8]         : L7        : input  : 2.5 V             :         : 3A        : N              
-sourceOperands[0][25]        : L8        : input  : 2.5 V             :         : 3A        : N              
-sourceOperands[3][22]        : L9        : input  : 2.5 V             :         : 3B        : N              
+ROBValue[22]                 : L7        : input  : 2.5 V             :         : 3A        : N              
+instrValue[7]                : L8        : output : 2.5 V             :         : 3A        : N              
+instrValue[22]               : L9        : output : 2.5 V             :         : 3B        : N              
 VCC                          : L10       : power  :                   : 1.1V    :           :                
 GND                          : L11       : gnd    :                   :         :           :                
 VCC                          : L12       : power  :                   : 1.1V    :           :                
 GND                          : L13       : gnd    :                   :         :           :                
 VCC                          : L14       : power  :                   : 1.1V    :           :                
-sourceOperands[0][24]        : L15       : input  : 2.5 V             :         : 5B        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : L15       :        :                   :         : 5B        :                
 GND                          : L16       : gnd    :                   :         :           :                
-sourceOperands[0][2]         : L17       : input  : 2.5 V             :         : 5B        : N              
-operand1[29]                 : L18       : output : 2.5 V             :         : 5B        : N              
-sourceOperands[0][29]        : L19       : input  : 2.5 V             :         : 5B        : N              
-operand1[2]                  : L20       : output : 2.5 V             :         : 5B        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : L17       :        :                   :         : 5B        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : L18       :        :                   :         : 5B        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : L19       :        :                   :         : 5B        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : L20       :        :                   :         : 5B        :                
 VCCIO5B                      : L21       : power  :                   : 2.5V    : 5B        :                
-sourceOperands[2][3]         : L22       : input  : 2.5 V             :         : 5B        : N              
+ROBValue[31]                 : L22       : input  : 2.5 V             :         : 5B        : N              
 GND                          : M1        : gnd    :                   :         :           :                
 GND                          : M2        : gnd    :                   :         :           :                
 VCCH_GXBL                    : M3        : power  :                   : 2.5V    :           :                
 GND                          : M4        : gnd    :                   :         :           :                
 DCLK                         : M5        :        :                   :         : 3A        :                
-sourceOperands[1][25]        : M6        : input  : 2.5 V             :         : 3A        : N              
-operand1[8]                  : M7        : output : 2.5 V             :         : 3A        : N              
-operand1[18]                 : M8        : output : 2.5 V             :         : 3B        : N              
+dataBus.result[17]           : M6        : input  : 2.5 V             :         : 3A        : N              
+instrValue[23]               : M7        : output : 2.5 V             :         : 3A        : N              
+dataBus.result[7]            : M8        : input  : 2.5 V             :         : 3B        : N              
 GND                          : M9        : gnd    :                   :         :           :                
-grants[1]                    : M10       : input  : 2.5 V             :         : 3B        : N              
+instrValue[24]               : M10       : output : 2.5 V             :         : 3B        : N              
 VCC                          : M11       : power  :                   : 1.1V    :           :                
 GND                          : M12       : gnd    :                   :         :           :                
 VCC                          : M13       : power  :                   : 1.1V    :           :                
 GND                          : M14       : gnd    :                   :         :           :                
 VCC                          : M15       : power  :                   : 1.1V    :           :                
-operand1[4]                  : M16       : output : 2.5 V             :         : 5B        : N              
-sourceOperands[3][24]        : M17       : input  : 2.5 V             :         : 5B        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : M16       :        :                   :         : 5B        :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : M17       :        :                   :         : 5B        :                
 VCCPD5B                      : M18       : power  :                   : 2.5V    : 5B        :                
 GND                          : M19       : gnd    :                   :         :           :                
-operand1[3]                  : M20       : output : 2.5 V             :         : 5B        : N              
-sourceOperands[1][3]         : M21       : input  : 2.5 V             :         : 5B        : N              
-sourceOperands[0][11]        : M22       : input  : 2.5 V             :         : 5B        : N              
+instrValue[25]               : M20       : output : 2.5 V             :         : 5B        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : M21       :        :                   :         : 5B        :                
+instrValue[31]               : M22       : output : 2.5 V             :         : 5B        : N              
 GXB_NC                       : N1        :        :                   :         : B0L       :                
 GXB_NC                       : N2        :        :                   :         : B0L       :                
 GND                          : N3        : gnd    :                   :         :           :                
 VCCE_GXBL                    : N4        : power  :                   : 1.1V    :           :                
 GND                          : N5        : gnd    :                   :         :           :                
-operand1[17]                 : N6        : output : 2.5 V             :         : 3A        : N              
+instrValue[18]               : N6        : output : 2.5 V             :         : 3A        : N              
 GND                          : N7        : gnd    :                   :         :           :                
-operand1[0]                  : N8        : output : 2.5 V             :         : 3B        : N              
-sourceOperands[2][21]        : N9        : input  : 2.5 V             :         : 3B        : N              
-sourceOperands[3][0]         : N10       : input  : 2.5 V             :         : 3B        : N              
+dataBus.result[23]           : N8        : input  : 2.5 V             :         : 3B        : N              
+dataBus.result[0]            : N9        : input  : 2.5 V             :         : 3B        : N              
+operand[22]                  : N10       : input  : 2.5 V             :         : 3B        : N              
 GND                          : N11       : gnd    :                   :         :           :                
 VCC                          : N12       : power  :                   : 1.1V    :           :                
 GND                          : N13       : gnd    :                   :         :           :                
 VCC                          : N14       : power  :                   : 1.1V    :           :                
 GND                          : N15       : gnd    :                   :         :           :                
-operand1[11]                 : N16       : output : 2.5 V             :         : 5B        : N              
+dataBus.result[5]            : N16       : input  : 2.5 V             :         : 5B        : N              
 VCCIO5B                      : N17       : power  :                   : 2.5V    : 5B        :                
-sourceOperands[0][13]        : N18       : input  : 2.5 V             :         : 5B        : N              
+operand[5]                   : N18       : input  : 2.5 V             :         : 5B        : N              
 VCCPD5B                      : N19       : power  :                   : 2.5V    : 5B        :                
-sourceOperands[3][11]        : N20       : input  : 2.5 V             :         : 5B        : N              
-sourceOperands[3][3]         : N21       : input  : 2.5 V             :         : 5B        : N              
+dataBus.result[4]            : N20       : input  : 2.5 V             :         : 5B        : N              
+operand[11]                  : N21       : input  : 2.5 V             :         : 5B        : N              
 GND                          : N22       : gnd    :                   :         :           :                
 GND                          : P1        : gnd    :                   :         :           :                
 GND                          : P2        : gnd    :                   :         :           :                
 VCCL_GXBL                    : P3        : power  :                   : 1.1V    :           :                
 GND                          : P4        : gnd    :                   :         :           :                
 TDI                          : P5        : input  :                   :         : 3A        :                
-operand1[25]                 : P6        : output : 2.5 V             :         : 3A        : N              
-sourceOperands[1][21]        : P7        : input  : 2.5 V             :         : 3A        : N              
-sourceOperands[1][17]        : P8        : input  : 2.5 V             :         : 3A        : N              
-operand1[31]                 : P9        : output : 2.5 V             :         : 3B        : N              
+dataBus.result[28]           : P6        : input  : 2.5 V             :         : 3A        : N              
+operand[15]                  : P7        : input  : 2.5 V             :         : 3A        : N              
+instrValue[15]               : P8        : output : 2.5 V             :         : 3A        : N              
+ROBValue[13]                 : P9        : input  : 2.5 V             :         : 3B        : N              
 GND                          : P10       : gnd    :                   :         :           :                
 VCC                          : P11       : power  :                   : 1.1V    :           :                
-sourceOperands[0][22]        : P12       : input  : 2.5 V             :         : 3B        : N              
+busy                         : P12       : input  : 2.5 V             :         : 3B        : N              
 VCC                          : P13       : power  :                   : 1.1V    :           :                
-sourceOperands[1][6]         : P14       : input  : 2.5 V             :         : 4A        : N              
+dataBus.result[26]           : P14       : input  : 2.5 V             :         : 4A        : N              
 VCC                          : P15       : power  :                   : 1.1V    :           :                
-sourceOperands[1][11]        : P16       : input  : 2.5 V             :         : 5B        : N              
+operand[16]                  : P16       : input  : 2.5 V             :         : 5B        : N              
 VCCPD5A                      : P17       : power  :                   : 2.5V    : 5A        :                
-sourceOperands[1][13]        : P18       : input  : 2.5 V             :         : 5B        : N              
-sourceOperands[0][16]        : P19       : input  : 2.5 V             :         : 5A        : N              
+dataBus.result[3]            : P18       : input  : 2.5 V             :         : 5B        : N              
+dataBus.robEntry[1]          : P19       : input  : 2.5 V             :         : 5A        : N              
 VCCIO5B                      : P20       : power  :                   : 2.5V    : 5B        :                
-sourceOperands[2][10]        : P21       : input  : 2.5 V             :         : 5B        : N              
-sourceOperands[0][3]         : P22       : input  : 2.5 V             :         : 5B        : N              
+instrValue[11]               : P21       : output : 2.5 V             :         : 5B        : N              
+ROBValue[16]                 : P22       : input  : 2.5 V             :         : 5B        : N              
 GND                          : R1        :        :                   :         : B0L       :                
 GND                          : R2        :        :                   :         : B0L       :                
 GND                          : R3        : gnd    :                   :         :           :                
 TMS                          : R4        : input  :                   :         : 3A        :                
-sourceOperands[3][25]        : R5        : input  : 2.5 V             :         : 3A        : N              
-sourceOperands[3][17]        : R6        : input  : 2.5 V             :         : 3A        : N              
-sourceOperands[0][8]         : R7        : input  : 2.5 V             :         : 3A        : N              
+instrValue[0]                : R5        : output : 2.5 V             :         : 3A        : N              
+ROBValue[18]                 : R6        : input  : 2.5 V             :         : 3A        : N              
+dataBus.result[15]           : R7        : input  : 2.5 V             :         : 3A        : N              
 VCCIO3B                      : R8        : power  :                   : 2.5V    : 3B        :                
-sourceOperands[3][21]        : R9        : input  : 2.5 V             :         : 3B        : N              
-sourceOperands[2][22]        : R10       : input  : 2.5 V             :         : 3B        : N              
-sourceOperands[1][30]        : R11       : input  : 2.5 V             :         : 3B        : N              
-sourceOperands[2][30]        : R12       : input  : 2.5 V             :         : 4A        : N              
+ROBValue[15]                 : R9        : input  : 2.5 V             :         : 3B        : N              
+instrValue[17]               : R10       : output : 2.5 V             :         : 3B        : N              
+ROBValue[32]                 : R11       : input  : 2.5 V             :         : 3B        : N              
+ROBValue[30]                 : R12       : input  : 2.5 V             :         : 4A        : N              
 GND                          : R13       : gnd    :                   :         :           :                
-sourceOperands[0][6]         : R14       : input  : 2.5 V             :         : 4A        : N              
-sourceOperands[1][28]        : R15       : input  : 2.5 V             :         : 4A        : N              
-sourceOperands[0][23]        : R16       : input  : 2.5 V             :         : 5A        : N              
-sourceOperands[1][23]        : R17       : input  : 2.5 V             :         : 5A        : N              
+operand[26]                  : R14       : input  : 2.5 V             :         : 4A        : N              
+operand[29]                  : R15       : input  : 2.5 V             :         : 4A        : N              
+rob[2]                       : R16       : input  : 2.5 V             :         : 5A        : N              
+instrValue[16]               : R17       : output : 2.5 V             :         : 5A        : N              
 VCCIO5A                      : R18       : power  :                   : 2.5V    : 5A        :                
-operand1[12]                 : R19       : output : 2.5 V             :         : 5A        : N              
-sourceOperands[3][16]        : R20       : input  : 2.5 V             :         : 5A        : N              
-operand1[23]                 : R21       : output : 2.5 V             :         : 5A        : N              
-sourceOperands[2][16]        : R22       : input  : 2.5 V             :         : 5A        : N              
+instrValue[10]               : R19       : output : 2.5 V             :         : 5A        : N              
+ROBValue[11]                 : R20       : input  : 2.5 V             :         : 5A        : N              
+operand[10]                  : R21       : input  : 2.5 V             :         : 5A        : N              
+operand[31]                  : R22       : input  : 2.5 V             :         : 5A        : N              
 GND                          : T1        : gnd    :                   :         :           :                
 GND                          : T2        : gnd    :                   :         :           :                
 VCCH_GXBL                    : T3        : power  :                   : 2.5V    :           :                
 VCCA_FPLL                    : T4        : power  :                   : 2.5V    :           :                
 AS_DATA2, DATA2              : T5        :        :                   :         : 3A        :                
 VCCIO3A                      : T6        : power  :                   : 2.5V    : 3A        :                
-sourceOperands[0][17]        : T7        : input  : 2.5 V             :         : 3A        : N              
-sourceOperands[2][17]        : T8        : input  : 2.5 V             :         : 3A        : N              
-sourceOperands[3][8]         : T9        : input  : 2.5 V             :         : 3A        : N              
-sourceOperands[3][30]        : T10       : input  : 2.5 V             :         : 3B        : N              
+operand[18]                  : T7        : input  : 2.5 V             :         : 3A        : N              
+ROBValue[23]                 : T8        : input  : 2.5 V             :         : 3A        : N              
+dataBus.result[8]            : T9        : input  : 2.5 V             :         : 3A        : N              
+instrValue[28]               : T10       : output : 2.5 V             :         : 3B        : N              
 GND                          : T11       : gnd    :                   :         :           :                
-operand1[30]                 : T12       : output : 2.5 V             :         : 4A        : N              
-sourceOperands[1][22]        : T13       : input  : 2.5 V             :         : 4A        : N              
-sourceOperands[1][14]        : T14       : input  : 2.5 V             :         : 4A        : N              
-operand1[26]                 : T15       : output : 2.5 V             :         : 4A        : N              
+ROBValue[28]                 : T12       : input  : 2.5 V             :         : 4A        : N              
+dataBus.result[30]           : T13       : input  : 2.5 V             :         : 4A        : N              
+instrValue[2]                : T14       : output : 2.5 V             :         : 4A        : N              
+operand[6]                   : T15       : input  : 2.5 V             :         : 4A        : N              
 VCCIO4A                      : T16       : power  :                   : 2.5V    : 4A        :                
-sourceOperands[3][23]        : T17       : input  : 2.5 V             :         : 5A        : N              
-sourceOperands[1][10]        : T18       : input  : 2.5 V             :         : 5A        : N              
-sourceOperands[1][16]        : T19       : input  : 2.5 V             :         : 5A        : N              
-operand1[16]                 : T20       : output : 2.5 V             :         : 5A        : N              
+dataBus.robEntry[2]          : T17       : input  : 2.5 V             :         : 5A        : N              
+dataBus.result[31]           : T18       : input  : 2.5 V             :         : 5A        : N              
+ROBValue[10]                 : T19       : input  : 2.5 V             :         : 5A        : N              
+dataBus.result[11]           : T20       : input  : 2.5 V             :         : 5A        : N              
 VCCIO5A                      : T21       : power  :                   : 2.5V    : 5A        :                
-sourceOperands[2][23]        : T22       : input  : 2.5 V             :         : 5A        : N              
+dataBus.result[10]           : T22       : input  : 2.5 V             :         : 5A        : N              
 GXB_NC                       : U1        :        :                   :         : B0L       :                
 GXB_NC                       : U2        :        :                   :         : B0L       :                
 GND                          : U3        : gnd    :                   :         :           :                
 GND                          : U4        :        :                   :         : B0L       :                
 GND                          : U5        : gnd    :                   :         :           :                
-sourceOperands[2][8]         : U6        : input  : 2.5 V             :         : 3A        : N              
-sourceOperands[2][25]        : U7        : input  : 2.5 V             :         : 3A        : N              
-sourceOperands[2][18]        : U8        : input  : 2.5 V             :         : 3B        : N              
+dataBus.result[22]           : U6        : input  : 2.5 V             :         : 3A        : N              
+ROBValue[7]                  : U7        : input  : 2.5 V             :         : 3A        : N              
+operand[8]                   : U8        : input  : 2.5 V             :         : 3B        : N              
 GND                          : U9        : gnd    :                   :         :           :                
-operand1[22]                 : U10       : output : 2.5 V             :         : 3B        : N              
-operand1[19]                 : U11       : output : 2.5 V             :         : 3B        : N              
-sourceOperands[0][19]        : U12       : input  : 2.5 V             :         : 4A        : N              
-sourceOperands[2][20]        : U13       : input  : 2.5 V             :         : 4A        : N              
+ROBValue[17]                 : U10       : input  : 2.5 V             :         : 3B        : N              
+operand[14]                  : U11       : input  : 2.5 V             :         : 3B        : N              
+ROBValue[20]                 : U12       : input  : 2.5 V             :         : 4A        : N              
+dataBus.result[20]           : U13       : input  : 2.5 V             :         : 4A        : N              
 GND                          : U14       : gnd    :                   :         :           :                
-sourceOperands[0][26]        : U15       : input  : 2.5 V             :         : 4A        : N              
-sourceOperands[2][7]         : U16       : input  : 2.5 V             :         : 4A        : N              
-operand1[28]                 : U17       : output : 2.5 V             :         : 4A        : N              
+dataBus.result[12]           : U15       : input  : 2.5 V             :         : 4A        : N              
+operand[1]                   : U16       : input  : 2.5 V             :         : 4A        : N              
+ROBValue[25]                 : U17       : input  : 2.5 V             :         : 4A        : N              
 VCCA_FPLL                    : U18       : power  :                   : 2.5V    :           :                
 GND                          : U19       : gnd    :                   :         :           :                
 VCCPGM                       : U20       : power  :                   : 1.8V/2.5V/3.0V/3.3V :           :                
-sourceOperands[0][12]        : U21       : input  : 2.5 V             :         : 5A        : N              
-sourceOperands[0][7]         : U22       : input  : 2.5 V             :         : 5A        : N              
+rob[0]                       : U21       : input  : 2.5 V             :         : 5A        : N              
+rob[1]                       : U22       : input  : 2.5 V             :         : 5A        : N              
 GND                          : V1        : gnd    :                   :         :           :                
 GND                          : V2        : gnd    :                   :         :           :                
 TDO                          : V3        : output :                   :         : 3A        :                
@@ -500,19 +500,19 @@ GND                          : V4        :        :                   :         
 TCK                          : V5        : input  :                   :         : 3A        :                
 VCCPD3A                      : V6        : power  :                   : 2.5V    : 3A        :                
 VCCIO3B                      : V7        : power  :                   : 2.5V    : 3B        :                
-operand1[21]                 : V8        : output : 2.5 V             :         : 3B        : N              
-sourceOperands[1][31]        : V9        : input  : 2.5 V             :         : 3B        : N              
+dataBus.result[13]           : V8        : input  : 2.5 V             :         : 3B        : N              
+ROBValue[0]                  : V9        : input  : 2.5 V             :         : 3B        : N              
 VCCPD3B4A                    : V10       : power  :                   : 2.5V    : 3B, 4A    :                
 DNU                          : V11       :        :                   :         :           :                
 VCCIO4A                      : V12       : power  :                   : 2.5V    : 4A        :                
-sourceOperands[1][5]         : V13       : input  : 2.5 V             :         : 4A        : N              
+instrValue[20]               : V13       : output : 2.5 V             :         : 4A        : N              
 VCCPD3B4A                    : V14       : power  :                   : 2.5V    : 3B, 4A    :                
-sourceOperands[2][6]         : V15       : input  : 2.5 V             :         : 4A        : N              
+dataBus.result[29]           : V15       : input  : 2.5 V             :         : 4A        : N              
 VCCPD3B4A                    : V16       : power  :                   : 2.5V    : 3B, 4A    :                
 GND                          : V17       : gnd    :                   :         :           :                
-operand1[7]                  : V18       : output : 2.5 V             :         : 4A        : N              
-sourceOperands[2][15]        : V19       : input  : 2.5 V             :         : 5A        : N              
-operand1[9]                  : V20       : output : 2.5 V             :         : 5A        : N              
+operand[3]                   : V18       : input  : 2.5 V             :         : 4A        : N              
+operand[25]                  : V19       : input  : 2.5 V             :         : 5A        : N              
+dataBus.robEntry[0]          : V20       : input  : 2.5 V             :         : 5A        : N              
 VREFB5AN0                    : V21       : power  :                   :         : 5A        :                
 GND                          : V22       : gnd    :                   :         :           :                
 GND                          : W1        :        :                   :         : B0L       :                
@@ -521,41 +521,41 @@ GND                          : W3        : gnd    :                   :         
 GND                          : W4        : gnd    :                   :         :           :                
 AS_DATA1, DATA1              : W5        :        :                   :         : 3A        :                
 VREFB3AN0                    : W6        : power  :                   :         : 3A        :                
-sourceOperands[1][0]         : W7        : input  : 2.5 V             :         : 3B        : N              
-sourceOperands[2][0]         : W8        : input  : 2.5 V             :         : 3B        : N              
+ROBValue[27]                 : W7        : input  : 2.5 V             :         : 3B        : N              
+operand[0]                   : W8        : input  : 2.5 V             :         : 3B        : N              
 VCCPD3B4A                    : W9        : power  :                   : 2.5V    : 3B, 4A    :                
 VCCIO3B                      : W10       : power  :                   : 2.5V    : 3B        :                
-sourceOperands[2][1]         : W11       : input  : 2.5 V             :         : 3B        : N              
-grants[0]                    : W12       : input  : 2.5 V             :         : 4A        : N              
-sourceOperands[2][5]         : W13       : input  : 2.5 V             :         : 4A        : N              
-sourceOperands[3][20]        : W14       : input  : 2.5 V             :         : 4A        : N              
+operand[13]                  : W11       : input  : 2.5 V             :         : 3B        : N              
+instrValue[30]               : W12       : output : 2.5 V             :         : 4A        : N              
+ROBValue[2]                  : W13       : input  : 2.5 V             :         : 4A        : N              
+ROBValue[19]                 : W14       : input  : 2.5 V             :         : 4A        : N              
 VCCIO4A                      : W15       : power  :                   : 2.5V    : 4A        :                
-sourceOperands[3][10]        : W16       : input  : 2.5 V             :         : 4A        : N              
-sourceOperands[0][9]         : W17       : input  : 2.5 V             :         : 4A        : N              
-sourceOperands[0][10]        : W18       : input  : 2.5 V             :         : 4A        : N              
+operand[21]                  : W16       : input  : 2.5 V             :         : 4A        : N              
+ROBValue[1]                  : W17       : input  : 2.5 V             :         : 4A        : N              
+ROBValue[3]                  : W18       : input  : 2.5 V             :         : 4A        : N              
 VCC_AUX                      : W19       : power  :                   : 2.5V    :           :                
 GND                          : W20       : gnd    :                   :         :           :                
-sourceOperands[2][12]        : W21       : input  : 2.5 V             :         : 4A        : N              
-sourceOperands[3][9]         : W22       : input  : 2.5 V             :         : 4A        : N              
+operand[4]                   : W21       : input  : 2.5 V             :         : 4A        : N              
+dataBus.result[1]            : W22       : input  : 2.5 V             :         : 4A        : N              
 GND                          : Y1        : gnd    :                   :         :           :                
 GND                          : Y2        : gnd    :                   :         :           :                
 GXB_NC                       : Y3        :        :                   :         : B0L       :                
 GXB_NC                       : Y4        :        :                   :         : B0L       :                
 GND                          : Y5        : gnd    :                   :         :           :                
 VCCPGM                       : Y6        : power  :                   : 1.8V/2.5V/3.0V/3.3V :           :                
-sourceOperands[0][18]        : Y7        : input  : 2.5 V             :         : 3B        : N              
+dataBus.result[18]           : Y7        : input  : 2.5 V             :         : 3B        : N              
 GND                          : Y8        : gnd    :                   :         :           :                
-sourceOperands[3][31]        : Y9        : input  : 2.5 V             :         : 3B        : N              
-sourceOperands[3][1]         : Y10       : input  : 2.5 V             :         : 3B        : N              
-operand1[1]                  : Y11       : output : 2.5 V             :         : 3B        : N              
-sourceOperands[2][19]        : Y12       : input  : 2.5 V             :         : 4A        : N              
+operand[27]                  : Y9        : input  : 2.5 V             :         : 3B        : N              
+instrValue[13]               : Y10       : output : 2.5 V             :         : 3B        : N              
+instrValue[14]               : Y11       : output : 2.5 V             :         : 3B        : N              
+operand[19]                  : Y12       : input  : 2.5 V             :         : 4A        : N              
 GND                          : Y13       : gnd    :                   :         :           :                
-sourceOperands[1][20]        : Y14       : input  : 2.5 V             :         : 4A        : N              
-sourceOperands[3][6]         : Y15       : input  : 2.5 V             :         : 4A        : N              
-sourceOperands[1][26]        : Y16       : input  : 2.5 V             :         : 4A        : N              
-operand1[15]                 : Y17       : output : 2.5 V             :         : 4A        : N              
+ROBValue[6]                  : Y14       : input  : 2.5 V             :         : 4A        : N              
+operand[2]                   : Y15       : input  : 2.5 V             :         : 4A        : N              
+instrValue[3]                : Y16       : output : 2.5 V             :         : 4A        : N              
+dataBus.result[16]           : Y17       : input  : 2.5 V             :         : 4A        : N              
 VCCIO4A                      : Y18       : power  :                   : 2.5V    : 4A        :                
-operand1[20]                 : Y19       : output : 2.5 V             :         : 4A        : N              
-sourceOperands[3][26]        : Y20       : input  : 2.5 V             :         : 4A        : N              
-sourceOperands[2][9]         : Y21       : input  : 2.5 V             :         : 4A        : N              
-sourceOperands[3][7]         : Y22       : input  : 2.5 V             :         : 4A        : N              
+dataBus.result[2]            : Y19       : input  : 2.5 V             :         : 4A        : N              
+ROBValue[26]                 : Y20       : input  : 2.5 V             :         : 4A        : N              
+ROBValue[4]                  : Y21       : input  : 2.5 V             :         : 4A        : N              
+ROBValue[21]                 : Y22       : input  : 2.5 V             :         : 4A        : N              

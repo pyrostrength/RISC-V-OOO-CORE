@@ -1,0 +1,10 @@
+module iMemTest #(parameter WIDTH = 31, ENTRIES = 255)
+					  
+					  logic[31:0] instructionPC,address;
+					  logic clk;
+					  
+					  
+					  //Clock generator
+					  always begin
+						#5 clk <= ~clk;
+					  end

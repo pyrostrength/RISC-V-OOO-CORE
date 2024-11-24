@@ -1,63 +1,61 @@
-/* gshare predictor works by xoring the global history branch outcomes vector with
-	the lower 10 bits of current PC to form an index that accesses
+/* 
+	gshare predictor works by xoring the global history branch outcomes vector with
+	the lower 8 bits of current PC to form an index that accesses
 	a pattern history table whose entries are 2 bit saturating counters. 
 	
 	Here our pattern history table is implemented as an array of 2-bit
-	logic vectors. The FSM associated with every array entry is
-	distributed - the next state logic is determined in the execute 
-	stage of our pipeline. We update on global history register on
-	subsequent cycle and use that value to calculate our PHT index.
+	logic vectors. Next state logic updates pattern history
+	table with new state depending on branch conditional outcome.
+	State are represented as 2-bit vectors 00,01,10,11
+	corresponding to strongly not taken,weakly not taken,weakly taken
+	and strongly taken respectively.
 	
-	The state of the 2-bit saturating counter determines whether branch is
-	predicted as taken or not taken.
-	States are strongly taken,weakly taken,weakly not taken,strongly not taken with
-	binary encodings 3 to 0 respectively. MSB of state binary encoding yields
-	branch prediction direction whilst LSB of state binary encoding yields
-	the hysteresis - prevents abrupt direction of prediction changes.
+	For now the state is updated during instruction commit stage meaning
+	in the intervening cycles global history register works off of inaccurate
+	information.
 	
-	The output of module, the state, yields the prediction by way of it's MSB.
+	The output of module, the state, yields the branch prediction
+	by wasy of it's MSB.
 	
-	Entries are updated on positive clock edge in order to reflect actual conditional outcomes
-	associated with a particular index, as determined during execution stage. 
+	Given that our PHT as 256 entries each of 2-bit we can implement
+	this module as MLAB which allows for new read during write behavior.
+	This accounts for simultaneous reads on PHT with update of global
+	history register thus providing more accurate predictions.
 	
 	Entries are read on negative clock edge,hopefully after update occurs.
 	Using synchronous read over asynchronous read allows for significanlty less
-	logic utilization(22% ALMs vs <1% ALMs)
+	logic utilization(22% ALMs vs <1% ALMs).
+	
+	Will need to make an integrated fetch unit later.
 
 */
 
 
 
 module gshare #(parameter WIDTH = 31, 
-                            I_WIDTH = 9) //Width of the indexing field.
-					  (input logic[I_WIDTH:0] PC,previousIndex,
+                            I_WIDTH = 7) //Width of the indexing field.
+					  (input logic[I_WIDTH:0] index,previousIndex,
 					   input logic[1:0] newState,
-					   input logic clk,predictorWrite,wasTaken,
+					   input logic clk,predictorWrite,
 					   output logic[1:0] state);
 						
-						logic[I_WIDTH:0] globalHistory,index;
-						//global history represents most recent conditional branch outcomes
-						//index is used to access the pattern history table.
-						branchIndex indexModule(.*);
 						
 						
 						//Pattern history table
-						logic[1:0] patternTable[0:1023];
+						logic[1:0] patternTable[0:255];
 						
-						//Pattern history table is read sequentially
-						//using index obtained from branchIndex module.
-						//this index uses the previous record of branch
-						//conditional outcome as timing doesn't allow
-						//using the updated record.
-						always_ff @(negedge clk) begin
-							state <= patternTable[index];
+						/*Pattern history table is read asynchronously
+						  using index obtained from branchIndex module.
+						  Small size allows for MLAB implementation.
+						 */
+						always_comb begin
+							state = patternTable[index];
 						end
 						
-						//Update state associated with a particular index.
-						//after determination of conditional outcomes in 
-						//branch execute stage.
-						//Update occurs on positive clock edge provided predictorWrite
-						always_ff @(negedge clk) begin
+						/*Update state associated with a particular index.
+						  on positive clock edge provided predictorWrite
+						  is asserted */
+						always_ff @(posedge clk) begin
 							if(predictorWrite)
 								patternTable[previousIndex] <= newState;
 						end

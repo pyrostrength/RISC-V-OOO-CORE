@@ -1,30 +1,31 @@
-/* ALU decoder produces the control signals for the mainALU and
-	branchALU thus determining main operation to be performed by the ALU.
+/* ALU decoder produces the control signals
+	that determine computational operation(add,subtract,etc)
+	to be performed by the mainALU.
 	
-	The,control signal,is ALUControl will be passed along with the instruction
+	The,control signal,is ALUControl will be passed under the instruction
 	info field to the reservation station. This control info is,however,
 	useless for the ROB.
 	
-	Operation occurs in parallel with the immediate extend unit. Expectations
-	is that this unit takes slightly longer than extend unit.
-   it determines the respective operation to be performed by the ALU.
-	ALUOp distinguishes the operations to be performed based on the instruction 
-	format , i.e for branch instructions always subtract the two source operands 
-	and produce the necessary flag variables.
-	It uses the funct7 and funct3 fields of the instruction to determine
-	the integer computational operation to be performed, whether the integers
-	are register values or register value & immediate value.
+	Production of ALU controls signals occurs in parallel 
+	with the immediate extend unit but it is expected that the
+	main-decoder-ALU-decoder combination lengthens the critical path.
+	
+	ALUOp distinguishes the type of instruction to be executed and is
+	produced by the main decoder.
+	
+	funct7 and funct3 fields of the instruction  determine
+	the integer computational operation to be performed.
 */	
 
 
-module ALUDecoder (input logic funct7,
+module ALUDecoder (input logic funct7,//We only take a single bit of the funct7 field.
 						 input logic[2:0] funct3,
 						 input logic[1:0] ALUOp,
 						 output logic[3:0] ALUControl);
 						 
 						 always_comb begin 
 								//Default statement is that which produces no request.
-								//Pick the largest 4bit number to allow expansion space.
+								//Pick the largest 4bit number to accomodate for future new instructions.
 								ALUControl = 4'b1111;
 								case(ALUOp)
 									2'b00: 

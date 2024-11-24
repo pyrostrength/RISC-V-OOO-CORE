@@ -35,7 +35,9 @@
  Thus U-type instructions are executed during instruction rename stage and proceed
  immediately to write CDB stage. We therefore add the ability to create a request to 
  CDB arbiter.
-  
+ 
+ If we misdirected jump instruction then we must redirect fetch to correct
+ address.
   
 
 */
@@ -45,18 +47,19 @@
 
 module branchTargetResolve #(parameter WIDTH = 31)
 									 (input logic signed[WIDTH:0] PC,immExt,predictedPC,
-									  input logic branch,isJAL,isJALR,
-									  output logic branchMisdirect,
-									  output logic signed[WIDTH:0] validAddress);
-									  
+									  input logic branch,isJAL,redirect,
+									  output logic misdirect,jump,
+									  output logic signed[WIDTH:0] targetAddress);				
 					always_comb begin
-						branchMisdirect = 1'b0;
+						jump = isJAL;
+						misdirect = 1'b0;
 						if(branch) begin
-							validAddress = PC + immExt;
-							branchMisdirect = (validAddress != predictedPC);
+							targetAddress = PC + immExt;
+							misdirect = (targetAddress != predictedPC) & redirect;
 						end
-						else if(isJAL || isJALR) begin
-							validAddress = PC + 'sd4;
+						else if(isJAL) begin
+							targetAddress = PC + immExt;
+							misdirect = (targetAddress != predictedPC) & redirect;
 						end
 						
 						//We shall deal with U-type instructions later.
