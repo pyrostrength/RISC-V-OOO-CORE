@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RISC-V
-Sat Nov 23 18:19:10 2024
+Mon Nov 25 17:36:07 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -14,11 +14,11 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Parameter Settings for User Entity Instance: Top-level Entity: |instructionValues
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+  9. Parameter Settings for User Entity Instance: Top-level Entity: |RSArbiter
+ 10. Post-Synthesis Netlist Statistics for Top Partition
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
+ 13. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -45,14 +45,14 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat Nov 23 18:19:10 2024          ;
+; Analysis & Synthesis Status     ; Successful - Mon Nov 25 17:36:07 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; RISC-V                                         ;
-; Top-level Entity Name           ; instructionValues                              ;
+; Top-level Entity Name           ; RSArbiter                                      ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
 ; Total registers                 ; 0                                              ;
-; Total pins                      ; 138                                            ;
+; Total pins                      ; 19                                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0                                              ;
 ; Total DSP Blocks                ; 0                                              ;
@@ -71,7 +71,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CGXFC9A6U19A7     ;                    ;
-; Top-level entity name                                                           ; instructionValues  ; RISC-V             ;
+; Top-level entity name                                                           ; RSArbiter          ; RISC-V             ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Verilog Show LMF Mapping Messages                                               ; Off                ;                    ;
 ; Verilog Version                                                                 ; SystemVerilog_2005 ; Verilog_2001       ;
@@ -169,50 +169,49 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                              ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                          ; Library ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------+---------+
-; instructionValues.sv             ; yes             ; User SystemVerilog HDL File  ; /home/voidknight/Downloads/CPU_Q/instructionValues.sv ;         ;
-; CDBArbiter.sv                    ; yes             ; User SystemVerilog HDL File  ; /home/voidknight/Downloads/CPU_Q/CDBArbiter.sv        ;         ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                      ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                  ; Library ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------+---------+
+; RSArbiter.sv                     ; yes             ; User SystemVerilog HDL File  ; /home/voidknight/Downloads/CPU_Q/RSArbiter.sv ;         ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------+---------+
 
 
-+--------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary            ;
-+---------------------------------------------+----------+
-; Resource                                    ; Usage    ;
-+---------------------------------------------+----------+
-; Estimate of Logic utilization (ALMs needed) ; 34       ;
-;                                             ;          ;
-; Combinational ALUT usage for logic          ; 35       ;
-;     -- 7 input functions                    ; 32       ;
-;     -- 6 input functions                    ; 0        ;
-;     -- 5 input functions                    ; 1        ;
-;     -- 4 input functions                    ; 1        ;
-;     -- <=3 input functions                  ; 1        ;
-;                                             ;          ;
-; Dedicated logic registers                   ; 0        ;
-;                                             ;          ;
-; I/O pins                                    ; 138      ;
-;                                             ;          ;
-; Total DSP Blocks                            ; 0        ;
-;                                             ;          ;
-; Maximum fan-out node                        ; Equal0~0 ;
-; Maximum fan-out                             ; 33       ;
-; Total fan-out                               ; 406      ;
-; Average fan-out                             ; 1.31     ;
-+---------------------------------------------+----------+
++------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                      ;
++---------------------------------------------+--------------------+
+; Resource                                    ; Usage              ;
++---------------------------------------------+--------------------+
+; Estimate of Logic utilization (ALMs needed) ; 6                  ;
+;                                             ;                    ;
+; Combinational ALUT usage for logic          ; 10                 ;
+;     -- 7 input functions                    ; 0                  ;
+;     -- 6 input functions                    ; 2                  ;
+;     -- 5 input functions                    ; 3                  ;
+;     -- 4 input functions                    ; 3                  ;
+;     -- <=3 input functions                  ; 2                  ;
+;                                             ;                    ;
+; Dedicated logic registers                   ; 0                  ;
+;                                             ;                    ;
+; I/O pins                                    ; 19                 ;
+;                                             ;                    ;
+; Total DSP Blocks                            ; 0                  ;
+;                                             ;                    ;
+; Maximum fan-out node                        ; RSstation[0]~input ;
+; Maximum fan-out                             ; 6                  ;
+; Total fan-out                               ; 71                 ;
+; Average fan-out                             ; 1.48               ;
++---------------------------------------------+--------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                          ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name       ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------------+--------------+
-; |instructionValues         ; 35 (35)             ; 0 (0)                     ; 0                 ; 0          ; 138  ; 0            ; |instructionValues  ; instructionValues ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; |RSArbiter                 ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 19   ; 0            ; |RSArbiter          ; RSArbiter   ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -231,25 +230,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |instructionValues|instrValue ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
-
-
-+-----------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Top-level Entity: |instructionValues ;
-+----------------+-------+----------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                     ;
-+----------------+-------+----------------------------------------------------------+
-; WIDTH          ; 31    ; Signed Integer                                           ;
-; V_WIDTH        ; 63    ; Signed Integer                                           ;
-; I_WIDTH        ; 14    ; Signed Integer                                           ;
-; ROB            ; 2     ; Signed Integer                                           ;
-+----------------+-------+----------------------------------------------------------+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |RSArbiter ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; WIDTH          ; 31    ; Signed Integer                                   ;
+; RS             ; 1     ; Signed Integer                                   ;
+; BRANCH         ; 1     ; Signed Integer                                   ;
+; ALU            ; 5     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -258,17 +248,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_lcell_comb     ; 35                          ;
-;     extend            ; 32                          ;
-;         7 data inputs ; 32                          ;
-;     normal            ; 3                           ;
+; arriav_lcell_comb     ; 12                          ;
+;     normal            ; 12                          ;
+;         1 data inputs ; 2                           ;
 ;         2 data inputs ; 1                           ;
-;         4 data inputs ; 1                           ;
-;         5 data inputs ; 1                           ;
-; boundary_port         ; 138                         ;
+;         3 data inputs ; 1                           ;
+;         4 data inputs ; 3                           ;
+;         5 data inputs ; 3                           ;
+;         6 data inputs ; 2                           ;
+; boundary_port         ; 19                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 2.00                        ;
-; Average LUT depth     ; 1.30                        ;
+; Average LUT depth     ; 1.70                        ;
 +-----------------------+-----------------------------+
 
 
@@ -287,7 +278,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Sat Nov 23 18:19:02 2024
+    Info: Processing started: Mon Nov 25 17:36:01 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RISC-V -c RISC-V
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -312,9 +303,9 @@ Info (12021): Found 1 design units, including 1 entities, in source file gshare.
 Info (12021): Found 1 design units, including 1 entities, in source file branchIndex.sv
     Info (12023): Found entity 1: branchIndex File: /home/voidknight/Downloads/CPU_Q/branchIndex.sv Line: 24
 Info (12021): Found 1 design units, including 1 entities, in source file BTB.sv
-    Info (12023): Found entity 1: BTB File: /home/voidknight/Downloads/CPU_Q/BTB.sv Line: 35
+    Info (12023): Found entity 1: BTB File: /home/voidknight/Downloads/CPU_Q/BTB.sv Line: 37
 Info (12021): Found 1 design units, including 1 entities, in source file register_status.sv
-    Info (12023): Found entity 1: register_status File: /home/voidknight/Downloads/CPU_Q/register_status.sv Line: 29
+    Info (12023): Found entity 1: register_status File: /home/voidknight/Downloads/CPU_Q/register_status.sv Line: 33
 Info (12021): Found 1 design units, including 1 entities, in source file infodecoder.sv
     Info (12023): Found entity 1: infodecoder File: /home/voidknight/Downloads/CPU_Q/infodecoder.sv Line: 49
 Info (12021): Found 1 design units, including 1 entities, in source file decodeextend.sv
@@ -323,17 +314,18 @@ Info (12021): Found 1 design units, including 1 entities, in source file instruc
     Info (12023): Found entity 1: instructionValues File: /home/voidknight/Downloads/CPU_Q/instructionValues.sv Line: 33
 Info (12021): Found 1 design units, including 1 entities, in source file ROBrenamebuffer.sv
     Info (12023): Found entity 1: ROBrenamebuffer File: /home/voidknight/Downloads/CPU_Q/ROBrenamebuffer.sv Line: 54
-Info (12021): Found 1 design units, including 1 entities, in source file reorderBuffer.sv
-    Info (12023): Found entity 1: reorderBuffer File: /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv Line: 56
+Info (12021): Found 2 design units, including 2 entities, in source file reorderBuffer.sv
+    Info (12023): Found entity 1: reorderBuffer File: /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv Line: 63
+    Info (12023): Found entity 2: writeCommit File: /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv Line: 177
 Info (12021): Found 1 design units, including 1 entities, in source file branchALU.sv
     Info (12023): Found entity 1: branchALU File: /home/voidknight/Downloads/CPU_Q/branchALU.sv Line: 46
 Info (12021): Found 2 design units, including 2 entities, in source file CDBArbiter.sv
     Info (12023): Found entity 1: commonDataBus File: /home/voidknight/Downloads/CPU_Q/CDBArbiter.sv Line: 9
-    Info (12023): Found entity 2: CDBArbiter File: /home/voidknight/Downloads/CPU_Q/CDBArbiter.sv Line: 38
+    Info (12023): Found entity 2: CDBArbiter File: /home/voidknight/Downloads/CPU_Q/CDBArbiter.sv Line: 39
 Info (12021): Found 1 design units, including 1 entities, in source file ALURStationEntry.sv
-    Info (12023): Found entity 1: ALURStationEntry File: /home/voidknight/Downloads/CPU_Q/ALURStationEntry.sv Line: 26
+    Info (12023): Found entity 1: ALURStationEntry File: /home/voidknight/Downloads/CPU_Q/ALURStationEntry.sv Line: 21
 Info (12021): Found 1 design units, including 1 entities, in source file branchRSEntry.sv
-    Info (12023): Found entity 1: branchRSEntry File: /home/voidknight/Downloads/CPU_Q/branchRSEntry.sv Line: 30
+    Info (12023): Found entity 1: branchRSEntry File: /home/voidknight/Downloads/CPU_Q/branchRSEntry.sv Line: 24
 Info (12021): Found 1 design units, including 1 entities, in source file branchTargetResolve.sv
     Info (12023): Found entity 1: branchTargetResolve File: /home/voidknight/Downloads/CPU_Q/branchTargetResolve.sv Line: 48
 Info (12021): Found 1 design units, including 1 entities, in source file ALUSelect.sv
@@ -344,18 +336,40 @@ Info (12021): Found 1 design units, including 1 entities, in source file srcMux.
     Info (12023): Found entity 1: srcMux File: /home/voidknight/Downloads/CPU_Q/srcMux.sv Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file imemTest.sv
     Info (12023): Found entity 1: iMemTest File: /home/voidknight/Downloads/CPU_Q/imemTest.sv Line: 17
-Info (12127): Elaborating entity "instructionValues" for the top level hierarchy
+Info (12021): Found 1 design units, including 1 entities, in source file PCSelectLogic.sv
+    Info (12023): Found entity 1: PCSelectLogic File: /home/voidknight/Downloads/CPU_Q/PCSelectLogic.sv Line: 13
+Info (12021): Found 1 design units, including 1 entities, in source file RSArbiter.sv
+    Info (12023): Found entity 1: RSArbiter File: /home/voidknight/Downloads/CPU_Q/RSArbiter.sv Line: 7
+Info (12127): Elaborating entity "RSArbiter" for the top level hierarchy
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 173 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 105 input pins
-    Info (21059): Implemented 33 output pins
-    Info (21061): Implemented 35 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 468 megabytes
-    Info: Processing ended: Sat Nov 23 18:19:10 2024
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:20
+Warning (15752): Ignored 10 Virtual Pin logic option assignments
+    Warning (15751): Ignored Virtual Pin assignment to "dataBus.pcControl".
+    Warning (15751): Ignored Virtual Pin assignment to "inputBus.instrInfo".
+    Warning (15751): Ignored Virtual Pin assignment to "inputBus.regStatusW".
+    Warning (15751): Ignored Virtual Pin assignment to "dataBus.result".
+    Warning (15751): Ignored Virtual Pin assignment to "inputBus.seqPCW".
+    Warning (15751): Ignored Virtual Pin assignment to "predictedPC".
+    Warning (15751): Ignored Virtual Pin assignment to "predictedAddress".
+    Warning (15751): Ignored Virtual Pin assignment to "address".
+    Warning (15751): Ignored Virtual Pin assignment to "targetAddress".
+    Warning (15751): Ignored Virtual Pin assignment to "dataBus.isControl".
+Info (21057): Implemented 29 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 11 input pins
+    Info (21059): Implemented 8 output pins
+    Info (21061): Implemented 10 logic cells
+Info (144001): Generated suppressed messages file /home/voidknight/Downloads/CPU_Q/output_files/RISC-V.map.smsg
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 12 warnings
+    Info: Peak virtual memory: 465 megabytes
+    Info: Processing ended: Mon Nov 25 17:36:07 2024
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:14
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in /home/voidknight/Downloads/CPU_Q/output_files/RISC-V.map.smsg.
 
 

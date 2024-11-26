@@ -1,11 +1,12 @@
-/* Register status file indicating the ROB entry of 
+/* 
+	Register status file indicating the ROB entry of 
 	the instruction writing to a destination register.
 	
 	Indexed by respective destination register and each entry
 	contains associated ROB entry.
 	
 	We implement register status as 2 dual port MLAB memory module 
-	and 2 dual-port ALM-based memory module.
+	and 2 dual-port ALM-based memory mode
 	
 	For both memory modules we indicate ROB entry to which
 	a destination register is assigned on next clock cycle.
@@ -23,14 +24,18 @@
 	destination register. If destination register
 	is x0 value to be passed is changed to zero.
 	
+	destRegD is destReg in decode stage,destRegF is destReg in
+	write RS stage.
+	
 */
 
 
-module register_status #(parameter REG = 4, DEPTH = 31, ROB = 2)
+module register_status #(parameter REG = 4, DEPTH = 31, ROB = 2, WIDTH = 31)
 								(input logic clk,we,
-								 input logic[REG:0] rs1,rs2,destReg,regCommit,
+								 input logic[REG:0] rs1,rs2,destRegD,regCommit,destRegW,
 								 input logic[ROB:0] destROB, // ROB entry that writes to a destination register.
 								 output logic[ROB:0] rob1,rob2,
+								 output logic[WIDTH:0] regStatusSnap,
 								 output logic busy1,busy2); //rob1 and rob2 are {valid,ROB entry}
 							 
 							 
@@ -42,37 +47,56 @@ module register_status #(parameter REG = 4, DEPTH = 31, ROB = 2)
 								
 								logic[ROB:0] src2ROB[0:DEPTH];
 								
-								/*1 ALM-based quad-port 
-								memory block indicating if
-								there exists an uncommitted instruction
-								writing to a specific destination register.
-								For current instruction in decode stage,we 
+								logic[WIDTH:0] busyVectorI,busyVectorF;
+								
+								/*
+								For instruction in decode stage,we 
 								occupy it's destination register in the rename
-								stage where we have the ROB entry the instruction
-								should occupy*/
+								stage where we have ROB entry the instruction
+								occupies*/
 								
-								logic busybuffer1[0:DEPTH];
-								
-								logic busybuffer2[0:DEPTH];
-								
-								//Combinational read.
+								/*Write control logic that sorts out
+								destination register of current instruction
+								and register of committing instruction.
+								Indicate busyness of register in decode
+								stage but mark ROB entry associated with
+								instruction in rename stage*/
 								always_comb begin
-									busy1 = busybuffer1[rs1];
-									busy2 = busybuffer2[rs2];
+									busyVectorI = busyVectorF;
+									if(destRegD != regCommit) begin
+										busyVectorI[destRegD] = 1'b1;
+										busyVectorI[regCommit] = 1'b0;
+									end
+									if(destRegD == regCommit) begin
+										busyVectorI[destRegD] = 1'b1;
+									end
+								end
+								
+								/*Sorts out producing the relevant busy signals for
+								instruction source operands and register status
+								snapshot*/
+								always_comb begin
+									busy1 = (regCommit == rs1)  ? 1'b0 : busyVectorF[rs1];
+									busy2 = (regCommit == rs2) ? 1'b0 : busyVectorF[rs2];
+									regStatusSnap = busyVectorF;
+								end
+									
+								/*Provide for asynchrnous read with new data
+								behaviour on read during write to account for
+								case in which an instruction in rename stage indicates
+								its dependency*/
+								always_comb begin
 									rob1 = src1ROB[rs1];
 									rob2 = src2ROB[rs2];
 								end
 									
-								// Sequential write on negative clock edge
-								always @(negedge clk) begin
+								/* Sequential write on positive clock edge*/
+								always @(posedge clk) begin
 									if(we) begin
-											src1ROB[destReg] <= destROB;
-											src2ROB[destReg] <= destROB;
-											busybuffer1[regCommit] <= '0;
-											busybuffer1[destReg] <= '1;
-											busybuffer2[regCommit] <= '0;
-											busybuffer2[destReg] <= '1;
+											src1ROB[destRegW] <= destROB;
+											src2ROB[destRegW] <= destROB;
 									end
-								end				
+									busyVectorF <= busyVectorI;
+								end			
 																
 endmodule

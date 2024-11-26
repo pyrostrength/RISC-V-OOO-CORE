@@ -1,0 +1,2 @@
+module PCSelectLogic #(parameter WIDTH = 31)
+							 (input logic[WIDTH:0] validAddress,targetAddress,seqPC

@@ -1,0 +1,10 @@
+/*Arbiter for writing to specific reservation station
+entry. Produces writeRequest according to entry availability
+which is indicated by the busy field. Only one writeRequest bit
+can be high at any given point in time.*/
+
+
+module RSArbiter #(paramter WIDTH = 31, RS = 1)
+						(input logic[RS:0] RSstation,
+						 input logic stationRequest,
+						 

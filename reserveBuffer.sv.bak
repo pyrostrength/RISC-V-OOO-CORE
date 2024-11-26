@@ -1,0 +1,28 @@
+/*
+We maintain a separate buffer
+for updating branch predictor and for maintaining
+appropriate control flow of program execution.
+
+Written to during writeRS&ROB stage 
+with instruction state snapshot info{regStatus,sequentialPC,
+previousIndex} and during instruction write
+result stage with control flow and predictor update info
+{targetAddress,writeBTB,takenBranch,state}.
+
+Uses the same read and write pointer as reorder buffer
+Buffer combinations
+{sequential PC},{mispredict,writeBTB,takenBranch,state},
+{regstatus,previousIndex}
+
+*/
+
+
+module reserveBuffer #(parameter WIDTH = 31);
+							 
+							 logic[WIDTH:0] seqPCbuffer[7:0];
+								
+							 logic[WIDTH:0] predictorBuffer[7:0];
+								
+							 logic[WIDTH;0] snapshotBuffer[7:0];
+
+endmodule

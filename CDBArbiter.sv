@@ -6,19 +6,20 @@ this interface.
 
 
 
-interface commonDataBus #(parameter WIDTH = 31, ROB = 2);
+interface commonDataBus #(parameter WIDTH = 31, ROB = 2,CONTROL = 5);
 								  
 								  logic[WIDTH:0] result;
 								  logic[ROB:0] robEntry;
 								  logic validBroadcast; //Is what's written to CDB a valid signal?
 								  logic[WIDTH:0] targetAddress; //specifically for branching instructions
 								  logic isControl; //Is instruction a control flow instruction?
+								  logic[CONTROL:0] pcControl;
 								
 								modport arbiter(output result,robEntry,validBroadcast,targetAddress,isControl); //arbiter selects instruction to write CDB.
 								
 								modport reservation_station(input result,robEntry,validBroadcast); //Reservation station needs result and robEntry
 								
-								modport reorder_buffer(input result,robEntry,validBroadcast,targetAddress,isControl); //Reorder buffer also needs result an ROB entry.
+								modport reorder_buffer(input result,robEntry,validBroadcast,targetAddress,isControl,pcControl); //Reorder buffer also needs result an ROB entry.
 								
 								modport rename_stage(input result,robEntry,validBroadcast);
 								
@@ -35,8 +36,9 @@ This default behavior does nothing of consequence as valid broadcast is
 
 */							
 								
-module CDBArbiter  #(parameter WIDTH = 31, ROB = 2)
+module CDBArbiter  #(parameter WIDTH = 31, ROB = 2,CONTROL = 5)
 						  (commonDataBus.arbiter dataBus,
+							input logic[CONTROL:0] pcControl,
 							input logic[ROB:0] ALURob,branchRob,
 							input logic[WIDTH:0] ALUResult,branchResult,targetAddress,
 							input logic ALURequest,branchRequest,clk);
@@ -109,6 +111,7 @@ module CDBArbiter  #(parameter WIDTH = 31, ROB = 2)
 										dataBus.robEntry <= rob; 
 										dataBus.validBroadcast <= we;
 										dataBus.isControl <= controlFlow;
+										dataBus.pcControl <= pcControl;
 										if(controlFlow) begin
 											dataBus.targetAddress <= targetAddress;
 										end	

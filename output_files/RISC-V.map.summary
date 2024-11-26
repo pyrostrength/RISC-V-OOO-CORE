@@ -1,11 +1,11 @@
-Analysis & Synthesis Status : Successful - Sat Nov 23 18:19:10 2024
+Analysis & Synthesis Status : Successful - Mon Nov 25 17:36:07 2024
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : RISC-V
-Top-level Entity Name : instructionValues
+Top-level Entity Name : RSArbiter
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
 Total registers : 0
-Total pins : 138
+Total pins : 19
 Total virtual pins : 0
 Total block memory bits : 0
 Total DSP Blocks : 0

@@ -29,6 +29,8 @@
   
   Form instruction fetch unit completely in a separate module.
   
+  do it in main submodule.
+  
 */
 
 
@@ -41,8 +43,8 @@ module BTB #(parameter WIDTH = 31,
 				output logic validRead,
 			   output logic[WIDTH:0] targetAddress);
 				
-				logic[WIDTH + INDEX + 1:0] targetBuffer[0:255]; //36 bit buffer
-				logic validBuffer[0:255]; 
+				logic[WIDTH + INDEX + 1:0] targetBuffer[0:15]; //since we access using 4 lower bits we only have 16 entries.
+				logic validBuffer[0:15]; 
 				
 				logic valid; //Did we get a BTB hit for our instruction PC?
 				logic[WIDTH + INDEX + 1:0] address; // 

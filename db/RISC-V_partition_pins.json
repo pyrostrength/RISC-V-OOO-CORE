@@ -4,555 +4,79 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "ready",
+					"name" : "branchRequests[0]",
 					"strict" : false
 				},
 				{
-					"name" : "instrValue[0]",
+					"name" : "branchRequests[1]",
 					"strict" : false
 				},
 				{
-					"name" : "instrValue[1]",
+					"name" : "ALURequests[0]",
 					"strict" : false
 				},
 				{
-					"name" : "instrValue[2]",
+					"name" : "ALURequests[1]",
 					"strict" : false
 				},
 				{
-					"name" : "instrValue[3]",
+					"name" : "ALURequests[2]",
 					"strict" : false
 				},
 				{
-					"name" : "instrValue[4]",
+					"name" : "ALURequests[3]",
 					"strict" : false
 				},
 				{
-					"name" : "instrValue[5]",
+					"name" : "ALURequests[4]",
 					"strict" : false
 				},
 				{
-					"name" : "instrValue[6]",
+					"name" : "ALURequests[5]",
 					"strict" : false
 				},
 				{
-					"name" : "instrValue[7]",
+					"name" : "branchBusyVector[0]",
 					"strict" : false
 				},
 				{
-					"name" : "instrValue[8]",
+					"name" : "RSstation[0]",
 					"strict" : false
 				},
 				{
-					"name" : "instrValue[9]",
+					"name" : "RSstation[1]",
 					"strict" : false
 				},
 				{
-					"name" : "instrValue[10]",
+					"name" : "stationRequest",
 					"strict" : false
 				},
 				{
-					"name" : "instrValue[11]",
+					"name" : "branchBusyVector[1]",
 					"strict" : false
 				},
 				{
-					"name" : "instrValue[12]",
+					"name" : "ALUBusyVector[0]",
 					"strict" : false
 				},
 				{
-					"name" : "instrValue[13]",
+					"name" : "ALUBusyVector[1]",
 					"strict" : false
 				},
 				{
-					"name" : "instrValue[14]",
+					"name" : "ALUBusyVector[2]",
 					"strict" : false
 				},
 				{
-					"name" : "instrValue[15]",
+					"name" : "ALUBusyVector[3]",
 					"strict" : false
 				},
 				{
-					"name" : "instrValue[16]",
+					"name" : "ALUBusyVector[4]",
 					"strict" : false
 				},
 				{
-					"name" : "instrValue[17]",
-					"strict" : false
-				},
-				{
-					"name" : "instrValue[18]",
-					"strict" : false
-				},
-				{
-					"name" : "instrValue[19]",
-					"strict" : false
-				},
-				{
-					"name" : "instrValue[20]",
-					"strict" : false
-				},
-				{
-					"name" : "instrValue[21]",
-					"strict" : false
-				},
-				{
-					"name" : "instrValue[22]",
-					"strict" : false
-				},
-				{
-					"name" : "instrValue[23]",
-					"strict" : false
-				},
-				{
-					"name" : "instrValue[24]",
-					"strict" : false
-				},
-				{
-					"name" : "instrValue[25]",
-					"strict" : false
-				},
-				{
-					"name" : "instrValue[26]",
-					"strict" : false
-				},
-				{
-					"name" : "instrValue[27]",
-					"strict" : false
-				},
-				{
-					"name" : "instrValue[28]",
-					"strict" : false
-				},
-				{
-					"name" : "instrValue[29]",
-					"strict" : false
-				},
-				{
-					"name" : "instrValue[30]",
-					"strict" : false
-				},
-				{
-					"name" : "instrValue[31]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.robEntry[2]",
-					"strict" : false
-				},
-				{
-					"name" : "rob[2]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[32]",
-					"strict" : false
-				},
-				{
-					"name" : "busy",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.validBroadcast",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.robEntry[0]",
-					"strict" : false
-				},
-				{
-					"name" : "rob[0]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.robEntry[1]",
-					"strict" : false
-				},
-				{
-					"name" : "rob[1]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[0]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[0]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[0]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[1]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[1]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[1]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[2]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[2]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[2]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[3]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[3]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[3]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[4]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[4]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[4]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[5]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[5]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[5]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[6]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[6]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[6]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[7]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[7]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[7]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[8]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[8]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[8]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[9]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[9]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[9]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[10]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[10]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[10]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[11]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[11]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[11]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[12]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[12]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[12]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[13]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[13]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[13]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[14]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[14]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[14]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[15]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[15]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[15]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[16]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[16]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[16]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[17]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[17]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[17]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[18]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[18]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[18]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[19]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[19]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[19]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[20]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[20]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[20]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[21]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[21]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[21]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[22]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[22]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[22]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[23]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[23]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[23]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[24]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[24]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[24]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[25]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[25]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[25]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[26]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[26]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[26]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[27]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[27]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[27]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[28]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[28]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[28]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[29]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[29]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[29]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[30]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[30]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[30]",
-					"strict" : false
-				},
-				{
-					"name" : "operand[31]",
-					"strict" : false
-				},
-				{
-					"name" : "dataBus.result[31]",
-					"strict" : false
-				},
-				{
-					"name" : "ROBValue[31]",
+					"name" : "ALUBusyVector[5]",
 					"strict" : false
 				}
 			]

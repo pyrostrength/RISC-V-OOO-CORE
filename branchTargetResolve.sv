@@ -49,17 +49,18 @@ module branchTargetResolve #(parameter WIDTH = 31)
 									 (input logic signed[WIDTH:0] PC,immExt,predictedPC,
 									  input logic branch,isJAL,redirect,
 									  output logic misdirect,jump,
-									  output logic signed[WIDTH:0] targetAddress);				
+									  output logic signed[WIDTH:0] validAddress,seqPC);				
 					always_comb begin
 						jump = isJAL;
 						misdirect = 1'b0;
+						seqPC = PC + 32'd1; //Need to store this in ROB;
 						if(branch) begin
-							targetAddress = PC + immExt;
-							misdirect = (targetAddress != predictedPC) & redirect;
+							validAddress = PC + immExt;
+							misdirect = (validAddress != predictedPC) & redirect;
 						end
 						else if(isJAL) begin
-							targetAddress = PC + immExt;
-							misdirect = (targetAddress != predictedPC) & redirect;
+							validAddress = PC + immExt;
+							misdirect = (validAddress != predictedPC) & redirect;
 						end
 						
 						//We shall deal with U-type instructions later.

@@ -42,7 +42,7 @@ module decodeextend #(parameter WIDTH = 31, I_WIDTH = 24)
 							 output logic[WIDTH:0] immExt,
 							 output logic[2:0] RSstation,
 							 output logic memWrite,branch,isJAL,useImm,regWrite,
-							 output logic isJALR,isLUI,isAUIPC);
+							 output logic isJALR,isLUI,isAUIPC,stationRequest);
 							 
 							 //if memWrite is 0 then instruction writes to register file. Does this case hold?
 							 //Yes for I-type,R-type,JAL,JAlR
