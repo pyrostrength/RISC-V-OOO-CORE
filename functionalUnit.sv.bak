@@ -1,0 +1,11 @@
+module functionalUnits #(parameter WIDTH = 31, B_WIDTH = 7, A_WIDTH = 3, ROB = 2, CONTROL = 6)
+								(input logic signed[WIDTH:0] branchSrc1,branchSrc2,PC,immExt,predictedPC, 
+						 input logic [C_WIDTH:0] branchControl,
+						 output logic signed[WIDTH:0] correctAddress,result,
+						 output logic[1:0] nextState,
+						 output logic mispredict,misdirect,reset, 
+						 output logic writeBTB,request,
+						 (input logic signed[WIDTH:0] src1,src2,
+				 input logic [C_WIDTH:0] ALUControl,
+				 output logic signed[WIDTH:0] result,
+				 output logic signed ALURequest);

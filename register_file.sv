@@ -31,7 +31,7 @@
 */
 
 
-module register_file #(parameter D_WIDTH = 32, A_WIDTH = 4)
+module register_file #(parameter D_WIDTH = 31, A_WIDTH = 4)
 							(input logic clk,regWrite,
 							 input logic[A_WIDTH:0] address1,address2,wraddress,
 							 input logic[D_WIDTH:0] wdata,

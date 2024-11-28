@@ -18,9 +18,18 @@ Reservation station entries depend on functional unit.
 
 */
 
+//Removing the busy signal from ALURSstation entry
+//If execute and selected then we can change busy to nil in next clock cycle.
+//When do we free RSstation entry?
+//On write result stage?
+
+//We introduce a new signal called busyI. When busyI
+//ordinary equals busyF
+
 module ALURStationEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3)
 									(commonDataBus.reservation_station dataBus, //shouldn't have the arbiter view
 									 input logic ready1,ready2,clear,writeReq,clk,
+									 input logic selected,execute,
 									 input logic signed[WIDTH:0] value1,value2,
 									 input logic [C_WIDTH:0] ALUControl,
 									 input logic[ROB:0] rob1,rob2,robInstr,
@@ -39,6 +48,7 @@ module ALURStationEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3)
 									 
 									 logic[ROB:0] src1Rob,src2Rob;
 									 
+									 logic busyI; //Signal to change busyness of entry if selected and we can execute;
 									 
 									 /*Combinational logic for comparing instruction write result
 									   ROB entry with source operands ROB entries.
@@ -53,6 +63,7 @@ module ALURStationEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3)
 										an instruction to be both written to RS and selected in the same 
 										stage
 										*/
+										busyI = (selected & execute) ? 1'b0 : busy;
 									 end
 									 
 										
@@ -76,6 +87,10 @@ module ALURStationEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3)
 											src1Rob <= rob1;
 											src2Rob <= rob2;
 											busy <= 1'b1;
+										end
+										
+										else begin
+											busy <= busyI;
 										end
 										
 										/*If match for tag associated with operand we

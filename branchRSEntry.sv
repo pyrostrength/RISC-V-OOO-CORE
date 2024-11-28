@@ -15,7 +15,7 @@ write result,the ROB entry associated with the instruction and the valid
 broadcast signal.
 
 validAddress provides sequential address for JAL,JALR instructions
-or target address for conditional jumps in B-type instructions.
+or target address for conditional jumps in B-type instructions. 
 
 predictedPC is useful for determining jump predictions.
 
@@ -23,7 +23,7 @@ predictedPC is useful for determining jump predictions.
 
 module branchRSEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 7)
 									(commonDataBus.reservation_station dataBus, //shouldn't have the arbiter view
-									 input logic ready1,ready2,clear,writeReq,clk,
+									 input logic ready1,ready2,clear,writeReq,clk,selected,execute,
 									 input logic signed[WIDTH:0] value1,value2,
 									 input logic[WIDTH:0] predictedPC,address,//Need predictedPC if any to determine if we misdirected.
 									 input logic [C_WIDTH:0] branchControl,
@@ -44,6 +44,8 @@ module branchRSEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 7)
 									 
 									 logic[ROB:0] src1Rob,src2Rob;
 									 
+									 logic busyI;
+									 
 									 
 									 /*Combinational logic for comparing instruction write result
 									   ROB entry with source operands ROB entries.
@@ -58,6 +60,7 @@ module branchRSEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 7)
 										an instruction to be both written to RS and selected in the same 
 										stage
 										*/
+										busyI = (selected & execute) ? 1'b0 : busy;
 									 end
 									 
 										
@@ -83,6 +86,10 @@ module branchRSEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 7)
 											busy <= 1'b1;
 											predictedAddress <= predictedPC;
 											targetAddress <= address;
+										end
+										
+										else begin
+											busy <= busyI;
 										end
 										
 										/*If match for tag associated with operand we

@@ -35,8 +35,7 @@
 
 
 
-module decodeextend #(parameter WIDTH = 31, I_WIDTH = 24)
-							
+module decodeextend #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB=2)
 							(input logic[WIDTH:0] instruction,
 							 output logic[3:0] ALUControl,
 							 output logic[WIDTH:0] immExt,
@@ -49,8 +48,6 @@ module decodeextend #(parameter WIDTH = 31, I_WIDTH = 24)
 							
 							logic[2:0] immSrc;
 							logic[1:0] aluOp;
-							
-							
 							
 							
 							//Produces control signals for respective functional units

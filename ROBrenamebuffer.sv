@@ -63,7 +63,8 @@ module ROBrenamebuffer #(parameter ROB = 2, WIDTH = 31)
 								logic[WIDTH:0] valuebuffer1[7:0]; // Indexed by ROB entry,data value indicates result availability
 								logic[WIDTH:0] valuebuffer2[7:0];
 								
-								
+								logic[WIDTH:0] value1,value2;
+								logic ready1,ready2;
 								
 								always_ff @(negedge clk) begin
 									if(dataBus.validBroadcast) begin
@@ -78,11 +79,27 @@ module ROBrenamebuffer #(parameter ROB = 2, WIDTH = 31)
 								end
 									
 								always_ff @(posedge clk) begin
-									ROBValue1 <= valuebuffer1[rob1];
-									ROBValue2 <= valuebuffer2[rob2];
-									valid1 <= readybuffer[rob1];
-									valid2 <= readybuffer[rob2];
-									
+									value1 <= valuebuffer1[rob1];
+									value2 <= valuebuffer2[rob2];
+									ready1 <= readybuffer[rob1];
+									ready2 <= readybuffer[rob2];
+								end
+								
+								
+								always_comb begin
+								//Bypassing to account for old value behaviour
+									valid1 = ready1;
+									valid2 = ready2;
+									ROBValue1 = value1;
+									ROBValue2 = value2;
+									if((rob1 == dataBus.robEntry) & dataBus.validBroadcast) begin
+										valid1 = 1'b1;
+										ROBValue1 = dataBus.result;
+									end
+									if((rob2 == dataBus.robEntry) & dataBus.validBroadcast) begin
+										valid2 = 1'b1;
+										ROBValue2 = dataBus.result;
+									end
 								end
 								
 endmodule

@@ -6,7 +6,7 @@ this interface.
 
 
 
-interface commonDataBus #(parameter WIDTH = 31, ROB = 2,CONTROL = 5);
+interface commonDataBus #(parameter WIDTH = 31, ROB = 2,CONTROL = 6);
 								  
 								  logic[WIDTH:0] result;
 								  logic[ROB:0] robEntry;
@@ -15,7 +15,7 @@ interface commonDataBus #(parameter WIDTH = 31, ROB = 2,CONTROL = 5);
 								  logic isControl; //Is instruction a control flow instruction?
 								  logic[CONTROL:0] pcControl;
 								
-								modport arbiter(output result,robEntry,validBroadcast,targetAddress,isControl); //arbiter selects instruction to write CDB.
+								modport arbiter(output result,robEntry,validBroadcast,targetAddress,isControl,pcControl); //arbiter selects instruction to write CDB.
 								
 								modport reservation_station(input result,robEntry,validBroadcast); //Reservation station needs result and robEntry
 								
@@ -36,11 +36,11 @@ This default behavior does nothing of consequence as valid broadcast is
 
 */							
 								
-module CDBArbiter  #(parameter WIDTH = 31, ROB = 2,CONTROL = 5)
+module CDBArbiter  #(parameter WIDTH = 31, ROB = 2,CONTROL = 6) //control changed to 6 to account for reset signal. we place reset in L.S.Bit.
 						  (commonDataBus.arbiter dataBus,
-							input logic[CONTROL:0] pcControl,
+							input logic[CONTROL:0] controlPC,
 							input logic[ROB:0] ALURob,branchRob,
-							input logic[WIDTH:0] ALUResult,branchResult,targetAddress,
+							input logic[WIDTH:0] ALUResult,branchResult,fetchAddress,
 							input logic ALURequest,branchRequest,clk);
 							
 								//Bus arbitration functionality
@@ -111,9 +111,9 @@ module CDBArbiter  #(parameter WIDTH = 31, ROB = 2,CONTROL = 5)
 										dataBus.robEntry <= rob; 
 										dataBus.validBroadcast <= we;
 										dataBus.isControl <= controlFlow;
-										dataBus.pcControl <= pcControl;
+										dataBus.pcControl <= controlPC;
 										if(controlFlow) begin
-											dataBus.targetAddress <= targetAddress;
+											dataBus.targetAddress <= fetchAddress;
 										end	
 								end
 endmodule

@@ -18,21 +18,23 @@ pattern history table's indexes.
 
 
 
-
+//Only update under conditions for which we have a branching instruction.
 
 
 module branchIndex #(parameter G_WIDTH = 7)
-				(input logic wasTaken,clk,
+				(input logic wasTaken,clk,branch,
 				 input logic [G_WIDTH:0] PC,
 				 output logic[G_WIDTH:0] index);
 				 
 				 logic[G_WIDTH:0] globalHistory;
 										 
 				 always_ff @(negedge clk) begin
-						globalHistory[0] <= wasTaken; 
-							 for(int i=1 ; i<8 ; i++) begin
-									globalHistory[i] <= globalHistory[i-1];
-							 end
+						if(branch) begin
+							globalHistory[0] <= wasTaken; 
+								 for(int i=1 ; i<8 ; i++) begin
+										globalHistory[i] <= globalHistory[i-1];
+								 end
+						end
 				 end
 				 
 				 always_comb begin

@@ -32,8 +32,7 @@
 
 
 
-module gshare #(parameter WIDTH = 31, 
-                            I_WIDTH = 7) //Width of the indexing field.
+module gshare #(parameter I_WIDTH = 7) //Width of the indexing field.
 					  (input logic[I_WIDTH:0] index,previousIndex,
 					   input logic[1:0] newState,
 					   input logic clk,predictorWrite,
@@ -48,16 +47,18 @@ module gshare #(parameter WIDTH = 31,
 						  using index obtained from branchIndex module.
 						  Small size allows for MLAB implementation.
 						 */
-						always_comb begin
+						/*always_comb begin
 							state = patternTable[index];
-						end
+						end */
 						
 						/*Update state associated with a particular index.
 						  on positive clock edge provided predictorWrite
 						  is asserted */
 						always_ff @(posedge clk) begin
-							if(predictorWrite)
+							if(predictorWrite) begin
 								patternTable[previousIndex] <= newState;
+							end
+							state <= patternTable[index];
 						end
 						
 endmodule

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RISC-V
-Mon Nov 25 17:36:07 2024
+Wed Nov 27 22:01:40 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -13,12 +13,29 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Parameter Settings for User Entity Instance: Top-level Entity: |RSArbiter
- 10. Post-Synthesis Netlist Statistics for Top Partition
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
- 13. Analysis & Synthesis Suppressed Messages
+  8. Analysis & Synthesis RAM Summary
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Registers Packed Into Inferred Megafunctions
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Source assignments for imem:IMem|altsyncram:iMem_rtl_0|altsyncram_8hc1:auto_generated
+ 14. Source assignments for gshare:predictor|altsyncram:patternTable_rtl_0|altsyncram_e3n1:auto_generated
+ 15. Source assignments for BTB:branchTargetBuffer|altsyncram:targetBuffer_rtl_0|altsyncram_03n1:auto_generated
+ 16. Parameter Settings for User Entity Instance: Top-level Entity: |instrFetchUnit
+ 17. Parameter Settings for User Entity Instance: PCSelectLogic:pcSelect
+ 18. Parameter Settings for User Entity Instance: BTB:branchTargetBuffer
+ 19. Parameter Settings for User Entity Instance: gshare:predictor
+ 20. Parameter Settings for User Entity Instance: branchIndex:indexGen
+ 21. Parameter Settings for User Entity Instance: imem:IMem
+ 22. Parameter Settings for Inferred Entity Instance: imem:IMem|altsyncram:iMem_rtl_0
+ 23. Parameter Settings for Inferred Entity Instance: gshare:predictor|altsyncram:patternTable_rtl_0
+ 24. Parameter Settings for Inferred Entity Instance: BTB:branchTargetBuffer|altsyncram:targetBuffer_rtl_0
+ 25. altsyncram Parameter Settings by Entity Instance
+ 26. Port Connectivity Checks: "PCSelectLogic:pcSelect"
+ 27. Post-Synthesis Netlist Statistics for Top Partition
+ 28. Elapsed Time Per Partition
+ 29. Analysis & Synthesis Messages
+ 30. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -45,16 +62,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Nov 25 17:36:07 2024          ;
+; Analysis & Synthesis Status     ; Successful - Wed Nov 27 22:01:40 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; RISC-V                                         ;
-; Top-level Entity Name           ; RSArbiter                                      ;
+; Top-level Entity Name           ; instrFetchUnit                                 ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 0                                              ;
-; Total pins                      ; 19                                             ;
-; Total virtual pins              ; 0                                              ;
-; Total block memory bits         ; 0                                              ;
+; Total registers                 ; 146                                            ;
+; Total pins                      ; 190                                            ;
+; Total virtual pins              ; 32                                             ;
+; Total block memory bits         ; 9,216                                          ;
 ; Total DSP Blocks                ; 0                                              ;
 ; Total HSSI RX PCSs              ; 0                                              ;
 ; Total HSSI PMA RX Deserializers ; 0                                              ;
@@ -71,7 +88,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CGXFC9A6U19A7     ;                    ;
-; Top-level entity name                                                           ; RSArbiter          ; RISC-V             ;
+; Top-level entity name                                                           ; instrFetchUnit     ; RISC-V             ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Verilog Show LMF Mapping Messages                                               ; Off                ;                    ;
 ; Verilog Version                                                                 ; SystemVerilog_2005 ; Verilog_2001       ;
@@ -162,57 +179,112 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 6           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-6         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                      ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                  ; Library ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------+---------+
-; RSArbiter.sv                     ; yes             ; User SystemVerilog HDL File  ; /home/voidknight/Downloads/CPU_Q/RSArbiter.sv ;         ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                    ;
++------------------------------------+-----------------+-------------------------------------------------------+--------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path   ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                                     ; Library ;
++------------------------------------+-----------------+-------------------------------------------------------+--------------------------------------------------------------------------------------------------+---------+
+; imem.sv                            ; yes             ; User SystemVerilog HDL File                           ; /home/voidknight/Downloads/CPU_Q/imem.sv                                                         ;         ;
+; gshare.sv                          ; yes             ; User SystemVerilog HDL File                           ; /home/voidknight/Downloads/CPU_Q/gshare.sv                                                       ;         ;
+; branchIndex.sv                     ; yes             ; User SystemVerilog HDL File                           ; /home/voidknight/Downloads/CPU_Q/branchIndex.sv                                                  ;         ;
+; BTB.sv                             ; yes             ; User SystemVerilog HDL File                           ; /home/voidknight/Downloads/CPU_Q/BTB.sv                                                          ;         ;
+; PCSelectLogic.sv                   ; yes             ; User SystemVerilog HDL File                           ; /home/voidknight/Downloads/CPU_Q/PCSelectLogic.sv                                                ;         ;
+; instrFetchUnit.sv                  ; yes             ; User SystemVerilog HDL File                           ; /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv                                               ;         ;
+; imeminit.txt                       ; yes             ; Auto-Found File                                       ; /home/voidknight/Downloads/CPU_Q/imeminit.txt                                                    ;         ;
+; altsyncram.tdf                     ; yes             ; Megafunction                                          ; /home/voidknight/Downloads/Quartus/23.1std/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc              ; yes             ; Megafunction                                          ; /home/voidknight/Downloads/Quartus/23.1std/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                        ; yes             ; Megafunction                                          ; /home/voidknight/Downloads/Quartus/23.1std/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                     ; yes             ; Megafunction                                          ; /home/voidknight/Downloads/Quartus/23.1std/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal231.inc                     ; yes             ; Megafunction                                          ; /home/voidknight/Downloads/Quartus/23.1std/quartus/libraries/megafunctions/aglobal231.inc        ;         ;
+; a_rdenreg.inc                      ; yes             ; Megafunction                                          ; /home/voidknight/Downloads/Quartus/23.1std/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                         ; yes             ; Megafunction                                          ; /home/voidknight/Downloads/Quartus/23.1std/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                         ; yes             ; Megafunction                                          ; /home/voidknight/Downloads/Quartus/23.1std/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                       ; yes             ; Megafunction                                          ; /home/voidknight/Downloads/Quartus/23.1std/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_8hc1.tdf             ; yes             ; Auto-Generated Megafunction                           ; /home/voidknight/Downloads/CPU_Q/db/altsyncram_8hc1.tdf                                          ;         ;
+; db/RISC-V.ram0_imem_37c714.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/voidknight/Downloads/CPU_Q/db/RISC-V.ram0_imem_37c714.hdl.mif                              ;         ;
+; db/altsyncram_e3n1.tdf             ; yes             ; Auto-Generated Megafunction                           ; /home/voidknight/Downloads/CPU_Q/db/altsyncram_e3n1.tdf                                          ;         ;
+; db/altsyncram_03n1.tdf             ; yes             ; Auto-Generated Megafunction                           ; /home/voidknight/Downloads/CPU_Q/db/altsyncram_03n1.tdf                                          ;         ;
++------------------------------------+-----------------+-------------------------------------------------------+--------------------------------------------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                      ;
-+---------------------------------------------+--------------------+
-; Resource                                    ; Usage              ;
-+---------------------------------------------+--------------------+
-; Estimate of Logic utilization (ALMs needed) ; 6                  ;
-;                                             ;                    ;
-; Combinational ALUT usage for logic          ; 10                 ;
-;     -- 7 input functions                    ; 0                  ;
-;     -- 6 input functions                    ; 2                  ;
-;     -- 5 input functions                    ; 3                  ;
-;     -- 4 input functions                    ; 3                  ;
-;     -- <=3 input functions                  ; 2                  ;
-;                                             ;                    ;
-; Dedicated logic registers                   ; 0                  ;
-;                                             ;                    ;
-; I/O pins                                    ; 19                 ;
-;                                             ;                    ;
-; Total DSP Blocks                            ; 0                  ;
-;                                             ;                    ;
-; Maximum fan-out node                        ; RSstation[0]~input ;
-; Maximum fan-out                             ; 6                  ;
-; Total fan-out                               ; 71                 ;
-; Average fan-out                             ; 1.48               ;
-+---------------------------------------------+--------------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 84        ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 73        ;
+;     -- 7 input functions                    ; 0         ;
+;     -- 6 input functions                    ; 40        ;
+;     -- 5 input functions                    ; 0         ;
+;     -- 4 input functions                    ; 0         ;
+;     -- <=3 input functions                  ; 33        ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 146       ;
+;                                             ;           ;
+; Virtual pins                                ; 32        ;
+; I/O pins                                    ; 190       ;
+; Total MLAB memory bits                      ; 0         ;
+; Total block memory bits                     ; 9216      ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 212       ;
+; Total fan-out                               ; 1611      ;
+; Average fan-out                             ; 2.31      ;
++---------------------------------------------+-----------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; |RSArbiter                 ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 19   ; 0            ; |RSArbiter          ; RSArbiter   ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                       ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                 ; Entity Name     ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------+-----------------+--------------+
+; |instrFetchUnit                           ; 73 (0)              ; 146 (106)                 ; 9216              ; 0          ; 190  ; 32           ; |instrFetchUnit                                                                                     ; instrFetchUnit  ; work         ;
+;    |BTB:branchTargetBuffer|               ; 0 (0)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |instrFetchUnit|BTB:branchTargetBuffer                                                              ; BTB             ; work         ;
+;       |altsyncram:targetBuffer_rtl_0|     ; 0 (0)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |instrFetchUnit|BTB:branchTargetBuffer|altsyncram:targetBuffer_rtl_0                                ; altsyncram      ; work         ;
+;          |altsyncram_03n1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |instrFetchUnit|BTB:branchTargetBuffer|altsyncram:targetBuffer_rtl_0|altsyncram_03n1:auto_generated ; altsyncram_03n1 ; work         ;
+;    |PCSelectLogic:pcSelect|               ; 65 (65)             ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |instrFetchUnit|PCSelectLogic:pcSelect                                                              ; PCSelectLogic   ; work         ;
+;    |branchIndex:indexGen|                 ; 8 (8)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |instrFetchUnit|branchIndex:indexGen                                                                ; branchIndex     ; work         ;
+;    |gshare:predictor|                     ; 0 (0)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |instrFetchUnit|gshare:predictor                                                                    ; gshare          ; work         ;
+;       |altsyncram:patternTable_rtl_0|     ; 0 (0)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |instrFetchUnit|gshare:predictor|altsyncram:patternTable_rtl_0                                      ; altsyncram      ; work         ;
+;          |altsyncram_e3n1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |instrFetchUnit|gshare:predictor|altsyncram:patternTable_rtl_0|altsyncram_e3n1:auto_generated       ; altsyncram_e3n1 ; work         ;
+;    |imem:IMem|                            ; 0 (0)               ; 0 (0)                     ; 8192              ; 0          ; 0    ; 0            ; |instrFetchUnit|imem:IMem                                                                           ; imem            ; work         ;
+;       |altsyncram:iMem_rtl_0|             ; 0 (0)               ; 0 (0)                     ; 8192              ; 0          ; 0    ; 0            ; |instrFetchUnit|imem:IMem|altsyncram:iMem_rtl_0                                                     ; altsyncram      ; work         ;
+;          |altsyncram_8hc1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192              ; 0          ; 0    ; 0            ; |instrFetchUnit|imem:IMem|altsyncram:iMem_rtl_0|altsyncram_8hc1:auto_generated                      ; altsyncram_8hc1 ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                 ;
++------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------------------------------------+
+; Name                                                                                           ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                ;
++------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------------------------------------+
+; BTB:branchTargetBuffer|altsyncram:targetBuffer_rtl_0|altsyncram_03n1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 16           ; 32           ; 16           ; 32           ; 512  ; None                               ;
+; gshare:predictor|altsyncram:patternTable_rtl_0|altsyncram_e3n1:auto_generated|ALTSYNCRAM       ; AUTO ; Simple Dual Port ; 256          ; 2            ; 256          ; 2            ; 512  ; None                               ;
+; imem:IMem|altsyncram:iMem_rtl_0|altsyncram_8hc1:auto_generated|ALTSYNCRAM                      ; AUTO ; ROM              ; 256          ; 32           ; --           ; --           ; 8192 ; db/RISC-V.ram0_imem_37c714.hdl.mif ;
++------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------------------------------------+
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; redirect~reg0                         ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 1 ;                                        ;
++---------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -220,27 +292,361 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 146   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 40    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Top-level Entity: |RSArbiter ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; WIDTH          ; 31    ; Signed Integer                                   ;
-; RS             ; 1     ; Signed Integer                                   ;
-; BRANCH         ; 1     ; Signed Integer                                   ;
-; ALU            ; 5     ; Signed Integer                                   ;
-+----------------+-------+--------------------------------------------------+
++------------------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                             ;
++---------------------------------------+-------------------------------------------+------+
+; Register Name                         ; Megafunction                              ; Type ;
++---------------------------------------+-------------------------------------------+------+
+; imem:IMem|instr[0..31]                ; imem:IMem|iMem_rtl_0                      ; RAM  ;
+; gshare:predictor|state[0,1]           ; gshare:predictor|patternTable_rtl_0       ; RAM  ;
+; BTB:branchTargetBuffer|address[0..31] ; BTB:branchTargetBuffer|targetBuffer_rtl_0 ; RAM  ;
++---------------------------------------+-------------------------------------------+------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+; 3:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; Yes        ; |instrFetchUnit|PCSelectLogic:pcSelect|nextPC[23]        ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |instrFetchUnit|PCSelectLogic:pcSelect|intermediatePC[0] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------+
+; Source assignments for imem:IMem|altsyncram:iMem_rtl_0|altsyncram_8hc1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------+
+; Assignment                      ; Value              ; From ; To                      ;
++---------------------------------+--------------------+------+-------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                       ;
++---------------------------------+--------------------+------+-------------------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Source assignments for gshare:predictor|altsyncram:patternTable_rtl_0|altsyncram_e3n1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------+
+; Assignment                      ; Value              ; From ; To                                     ;
++---------------------------------+--------------------+------+----------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                      ;
++---------------------------------+--------------------+------+----------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Source assignments for BTB:branchTargetBuffer|altsyncram:targetBuffer_rtl_0|altsyncram_03n1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                           ;
++---------------------------------+--------------------+------+----------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                            ;
++---------------------------------+--------------------+------+----------------------------------------------+
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |instrFetchUnit ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; WIDTH          ; 31    ; Signed Integer                                        ;
+; INDEX          ; 7     ; Signed Integer                                        ;
+; B_WIDTH        ; 7     ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PCSelectLogic:pcSelect ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; WIDTH          ; 31    ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BTB:branchTargetBuffer ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; WIDTH          ; 31    ; Signed Integer                             ;
+; B_WIDTH        ; 7     ; Signed Integer                             ;
+; INDEX          ; 3     ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: gshare:predictor ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; I_WIDTH        ; 7     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: branchIndex:indexGen ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; G_WIDTH        ; 7     ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: imem:IMem ;
++----------------+-------+-------------------------------+
+; Parameter Name ; Value ; Type                          ;
++----------------+-------+-------------------------------+
+; WIDTH          ; 31    ; Signed Integer                ;
+; ENTRIES        ; 255   ; Signed Integer                ;
++----------------+-------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: imem:IMem|altsyncram:iMem_rtl_0         ;
++------------------------------------+------------------------------------+----------------+
+; Parameter Name                     ; Value                              ; Type           ;
++------------------------------------+------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                  ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                 ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                 ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                  ; Untyped        ;
+; OPERATION_MODE                     ; ROM                                ; Untyped        ;
+; WIDTH_A                            ; 32                                 ; Untyped        ;
+; WIDTHAD_A                          ; 8                                  ; Untyped        ;
+; NUMWORDS_A                         ; 256                                ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                       ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                               ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                               ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                               ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                               ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                               ; Untyped        ;
+; WIDTH_B                            ; 1                                  ; Untyped        ;
+; WIDTHAD_B                          ; 1                                  ; Untyped        ;
+; NUMWORDS_B                         ; 1                                  ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                             ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                             ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                             ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK1                             ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                       ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                             ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                               ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                               ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                               ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                               ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                               ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                               ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                  ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                  ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                               ; Untyped        ;
+; BYTE_SIZE                          ; 8                                  ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                          ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; OLD_DATA_NO_NBE_READ               ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; OLD_DATA_NO_NBE_READ               ; Untyped        ;
+; INIT_FILE                          ; db/RISC-V.ram0_imem_37c714.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                             ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                  ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                             ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                             ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                             ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                             ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                    ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                    ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                              ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                              ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                  ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone V                          ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_8hc1                    ; Untyped        ;
++------------------------------------+------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: gshare:predictor|altsyncram:patternTable_rtl_0 ;
++------------------------------------+----------------------+-------------------------------------+
+; Parameter Name                     ; Value                ; Type                                ;
++------------------------------------+----------------------+-------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                             ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                          ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                        ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                        ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                      ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                             ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                             ;
+; WIDTH_A                            ; 2                    ; Untyped                             ;
+; WIDTHAD_A                          ; 8                    ; Untyped                             ;
+; NUMWORDS_A                         ; 256                  ; Untyped                             ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                             ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                             ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                             ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                             ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                             ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                             ;
+; WIDTH_B                            ; 2                    ; Untyped                             ;
+; WIDTHAD_B                          ; 8                    ; Untyped                             ;
+; NUMWORDS_B                         ; 256                  ; Untyped                             ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                             ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                             ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                             ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                             ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                             ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                             ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                             ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                             ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                             ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                             ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                             ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                             ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                             ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                             ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                             ;
+; BYTE_SIZE                          ; 8                    ; Untyped                             ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped                             ;
+; READ_DURING_WRITE_MODE_PORT_A      ; OLD_DATA_NO_NBE_READ ; Untyped                             ;
+; READ_DURING_WRITE_MODE_PORT_B      ; OLD_DATA_NO_NBE_READ ; Untyped                             ;
+; INIT_FILE                          ; UNUSED               ; Untyped                             ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                             ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                             ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                             ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                             ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                             ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                             ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                             ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                             ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                             ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                             ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                             ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                             ;
+; CBXI_PARAMETER                     ; altsyncram_e3n1      ; Untyped                             ;
++------------------------------------+----------------------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: BTB:branchTargetBuffer|altsyncram:targetBuffer_rtl_0 ;
++------------------------------------+----------------------+-------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                      ;
++------------------------------------+----------------------+-------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                   ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                              ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                              ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                            ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                   ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                   ;
+; WIDTH_A                            ; 32                   ; Untyped                                   ;
+; WIDTHAD_A                          ; 4                    ; Untyped                                   ;
+; NUMWORDS_A                         ; 16                   ; Untyped                                   ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                   ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                   ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                   ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                   ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                   ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                   ;
+; WIDTH_B                            ; 32                   ; Untyped                                   ;
+; WIDTHAD_B                          ; 4                    ; Untyped                                   ;
+; NUMWORDS_B                         ; 16                   ; Untyped                                   ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                   ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                   ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                   ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                                   ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                   ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                   ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                   ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                   ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                   ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                   ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                   ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                   ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                                   ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                   ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                   ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                   ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped                                   ;
+; READ_DURING_WRITE_MODE_PORT_A      ; OLD_DATA_NO_NBE_READ ; Untyped                                   ;
+; READ_DURING_WRITE_MODE_PORT_B      ; OLD_DATA_NO_NBE_READ ; Untyped                                   ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                   ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                   ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                   ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                                   ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                   ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                   ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                   ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                   ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                   ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                   ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                   ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                   ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                   ;
+; CBXI_PARAMETER                     ; altsyncram_03n1      ; Untyped                                   ;
++------------------------------------+----------------------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                 ;
++-------------------------------------------+------------------------------------------------------+
+; Name                                      ; Value                                                ;
++-------------------------------------------+------------------------------------------------------+
+; Number of entity instances                ; 3                                                    ;
+; Entity Instance                           ; imem:IMem|altsyncram:iMem_rtl_0                      ;
+;     -- OPERATION_MODE                     ; ROM                                                  ;
+;     -- WIDTH_A                            ; 32                                                   ;
+;     -- NUMWORDS_A                         ; 256                                                  ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                         ;
+;     -- WIDTH_B                            ; 1                                                    ;
+;     -- NUMWORDS_B                         ; 1                                                    ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                               ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                         ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                 ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                            ;
+; Entity Instance                           ; gshare:predictor|altsyncram:patternTable_rtl_0       ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                            ;
+;     -- WIDTH_A                            ; 2                                                    ;
+;     -- NUMWORDS_A                         ; 256                                                  ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                         ;
+;     -- WIDTH_B                            ; 2                                                    ;
+;     -- NUMWORDS_B                         ; 256                                                  ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                               ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                         ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                 ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                             ;
+; Entity Instance                           ; BTB:branchTargetBuffer|altsyncram:targetBuffer_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                            ;
+;     -- WIDTH_A                            ; 32                                                   ;
+;     -- NUMWORDS_A                         ; 16                                                   ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                         ;
+;     -- WIDTH_B                            ; 32                                                   ;
+;     -- NUMWORDS_B                         ; 16                                                   ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                               ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                         ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                 ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                             ;
++-------------------------------------------+------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "PCSelectLogic:pcSelect"                                                                              ;
++-----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                  ; Type   ; Severity ; Details                                                                             ;
++-----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; intermediatePC[31..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -248,18 +654,21 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_lcell_comb     ; 12                          ;
-;     normal            ; 12                          ;
-;         1 data inputs ; 2                           ;
+; arriav_ff             ; 146                         ;
+;     ENA               ; 40                          ;
+;     plain             ; 106                         ;
+; arriav_lcell_comb     ; 74                          ;
+;     arith             ; 32                          ;
+;         1 data inputs ; 32                          ;
+;     normal            ; 42                          ;
+;         0 data inputs ; 1                           ;
 ;         2 data inputs ; 1                           ;
-;         3 data inputs ; 1                           ;
-;         4 data inputs ; 3                           ;
-;         5 data inputs ; 3                           ;
-;         6 data inputs ; 2                           ;
-; boundary_port         ; 19                          ;
+;         6 data inputs ; 40                          ;
+; boundary_port         ; 222                         ;
+; stratixv_ram_block    ; 66                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 2.00                        ;
-; Average LUT depth     ; 1.70                        ;
+; Max LUT depth         ; 5.10                        ;
+; Average LUT depth     ; 1.48                        ;
 +-----------------------+-----------------------------+
 
 
@@ -268,7 +677,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -278,7 +687,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Mon Nov 25 17:36:01 2024
+    Info: Processing started: Wed Nov 27 22:01:13 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RISC-V -c RISC-V
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -305,7 +714,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file branchI
 Info (12021): Found 1 design units, including 1 entities, in source file BTB.sv
     Info (12023): Found entity 1: BTB File: /home/voidknight/Downloads/CPU_Q/BTB.sv Line: 37
 Info (12021): Found 1 design units, including 1 entities, in source file register_status.sv
-    Info (12023): Found entity 1: register_status File: /home/voidknight/Downloads/CPU_Q/register_status.sv Line: 33
+    Info (12023): Found entity 1: register_status File: /home/voidknight/Downloads/CPU_Q/register_status.sv Line: 35
 Info (12021): Found 1 design units, including 1 entities, in source file infodecoder.sv
     Info (12023): Found entity 1: infodecoder File: /home/voidknight/Downloads/CPU_Q/infodecoder.sv Line: 49
 Info (12021): Found 1 design units, including 1 entities, in source file decodeextend.sv
@@ -315,19 +724,19 @@ Info (12021): Found 1 design units, including 1 entities, in source file instruc
 Info (12021): Found 1 design units, including 1 entities, in source file ROBrenamebuffer.sv
     Info (12023): Found entity 1: ROBrenamebuffer File: /home/voidknight/Downloads/CPU_Q/ROBrenamebuffer.sv Line: 54
 Info (12021): Found 2 design units, including 2 entities, in source file reorderBuffer.sv
-    Info (12023): Found entity 1: reorderBuffer File: /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv Line: 63
-    Info (12023): Found entity 2: writeCommit File: /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv Line: 177
+    Info (12023): Found entity 1: reorderBuffer File: /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv Line: 65
+    Info (12023): Found entity 2: writeCommit File: /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv Line: 190
 Info (12021): Found 1 design units, including 1 entities, in source file branchALU.sv
     Info (12023): Found entity 1: branchALU File: /home/voidknight/Downloads/CPU_Q/branchALU.sv Line: 46
 Info (12021): Found 2 design units, including 2 entities, in source file CDBArbiter.sv
     Info (12023): Found entity 1: commonDataBus File: /home/voidknight/Downloads/CPU_Q/CDBArbiter.sv Line: 9
     Info (12023): Found entity 2: CDBArbiter File: /home/voidknight/Downloads/CPU_Q/CDBArbiter.sv Line: 39
 Info (12021): Found 1 design units, including 1 entities, in source file ALURStationEntry.sv
-    Info (12023): Found entity 1: ALURStationEntry File: /home/voidknight/Downloads/CPU_Q/ALURStationEntry.sv Line: 21
+    Info (12023): Found entity 1: ALURStationEntry File: /home/voidknight/Downloads/CPU_Q/ALURStationEntry.sv Line: 29
 Info (12021): Found 1 design units, including 1 entities, in source file branchRSEntry.sv
     Info (12023): Found entity 1: branchRSEntry File: /home/voidknight/Downloads/CPU_Q/branchRSEntry.sv Line: 24
 Info (12021): Found 1 design units, including 1 entities, in source file branchTargetResolve.sv
-    Info (12023): Found entity 1: branchTargetResolve File: /home/voidknight/Downloads/CPU_Q/branchTargetResolve.sv Line: 48
+    Info (12023): Found entity 1: branchTargetResolve File: /home/voidknight/Downloads/CPU_Q/branchTargetResolve.sv Line: 50
 Info (12021): Found 1 design units, including 1 entities, in source file ALUSelect.sv
     Info (12023): Found entity 1: ALUSelect File: /home/voidknight/Downloads/CPU_Q/ALUSelect.sv Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file branchSelect.sv
@@ -337,34 +746,230 @@ Info (12021): Found 1 design units, including 1 entities, in source file srcMux.
 Info (12021): Found 1 design units, including 1 entities, in source file imemTest.sv
     Info (12023): Found entity 1: iMemTest File: /home/voidknight/Downloads/CPU_Q/imemTest.sv Line: 17
 Info (12021): Found 1 design units, including 1 entities, in source file PCSelectLogic.sv
-    Info (12023): Found entity 1: PCSelectLogic File: /home/voidknight/Downloads/CPU_Q/PCSelectLogic.sv Line: 13
+    Info (12023): Found entity 1: PCSelectLogic File: /home/voidknight/Downloads/CPU_Q/PCSelectLogic.sv Line: 14
 Info (12021): Found 1 design units, including 1 entities, in source file RSArbiter.sv
     Info (12023): Found entity 1: RSArbiter File: /home/voidknight/Downloads/CPU_Q/RSArbiter.sv Line: 7
-Info (12127): Elaborating entity "RSArbiter" for the top level hierarchy
+Info (12021): Found 1 design units, including 1 entities, in source file instrFetchUnit.sv
+    Info (12023): Found entity 1: instrFetchUnit File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file instr_decode.sv
+    Info (12023): Found entity 1: instr_decode File: /home/voidknight/Downloads/CPU_Q/instr_decode.sv Line: 7
+Info (12021): Found 1 design units, including 1 entities, in source file functionalUnit.sv
+    Info (12023): Found entity 1: functionalUnit File: /home/voidknight/Downloads/CPU_Q/functionalUnit.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file ALURS.sv
+    Info (12023): Found entity 1: ALURS File: /home/voidknight/Downloads/CPU_Q/ALURS.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file branchRS.sv
+    Info (12023): Found entity 1: branchRS File: /home/voidknight/Downloads/CPU_Q/branchRS.sv Line: 7
+Info (12021): Found 1 design units, including 1 entities, in source file commitStage.sv
+    Info (12023): Found entity 1: commitStage File: /home/voidknight/Downloads/CPU_Q/commitStage.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file renameStage.sv
+    Info (12023): Found entity 1: renameStage File: /home/voidknight/Downloads/CPU_Q/renameStage.sv Line: 1
+Info (12127): Elaborating entity "instrFetchUnit" for the top level hierarchy
+Info (12128): Elaborating entity "PCSelectLogic" for hierarchy "PCSelectLogic:pcSelect" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 16
+Info (12128): Elaborating entity "BTB" for hierarchy "BTB:branchTargetBuffer" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 22
+Info (12128): Elaborating entity "gshare" for hierarchy "gshare:predictor" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 27
+Info (12128): Elaborating entity "branchIndex" for hierarchy "branchIndex:indexGen" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 31
+Info (12128): Elaborating entity "imem" for hierarchy "imem:IMem" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 39
+Warning (10850): Verilog HDL warning at imem.sv(60): number of words (3) in memory file does not match the number of elements in the address range [0:255] File: /home/voidknight/Downloads/CPU_Q/imem.sv Line: 60
+Warning (10030): Net "iMem.data_a" at imem.sv(58) has no driver or initial value, using a default initial value '0' File: /home/voidknight/Downloads/CPU_Q/imem.sv Line: 58
+Warning (10030): Net "iMem.waddr_a" at imem.sv(58) has no driver or initial value, using a default initial value '0' File: /home/voidknight/Downloads/CPU_Q/imem.sv Line: 58
+Warning (10030): Net "iMem.we_a" at imem.sv(58) has no driver or initial value, using a default initial value '0' File: /home/voidknight/Downloads/CPU_Q/imem.sv Line: 58
+Info (19000): Inferred 3 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "imem:IMem|iMem_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to ROM
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 8
+        Info (286033): Parameter NUMWORDS_A set to 256
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/RISC-V.ram0_imem_37c714.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "gshare:predictor|patternTable_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 2
+        Info (286033): Parameter WIDTHAD_A set to 8
+        Info (286033): Parameter NUMWORDS_A set to 256
+        Info (286033): Parameter WIDTH_B set to 2
+        Info (286033): Parameter WIDTHAD_B set to 8
+        Info (286033): Parameter NUMWORDS_B set to 256
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "BTB:branchTargetBuffer|targetBuffer_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 4
+        Info (286033): Parameter NUMWORDS_A set to 16
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 4
+        Info (286033): Parameter NUMWORDS_B set to 16
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+Info (12130): Elaborated megafunction instantiation "imem:IMem|altsyncram:iMem_rtl_0"
+Info (12133): Instantiated megafunction "imem:IMem|altsyncram:iMem_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "ROM"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "8"
+    Info (12134): Parameter "NUMWORDS_A" = "256"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/RISC-V.ram0_imem_37c714.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_8hc1.tdf
+    Info (12023): Found entity 1: altsyncram_8hc1 File: /home/voidknight/Downloads/CPU_Q/db/altsyncram_8hc1.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "gshare:predictor|altsyncram:patternTable_rtl_0"
+Info (12133): Instantiated megafunction "gshare:predictor|altsyncram:patternTable_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "2"
+    Info (12134): Parameter "WIDTHAD_A" = "8"
+    Info (12134): Parameter "NUMWORDS_A" = "256"
+    Info (12134): Parameter "WIDTH_B" = "2"
+    Info (12134): Parameter "WIDTHAD_B" = "8"
+    Info (12134): Parameter "NUMWORDS_B" = "256"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_e3n1.tdf
+    Info (12023): Found entity 1: altsyncram_e3n1 File: /home/voidknight/Downloads/CPU_Q/db/altsyncram_e3n1.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "BTB:branchTargetBuffer|altsyncram:targetBuffer_rtl_0"
+Info (12133): Instantiated megafunction "BTB:branchTargetBuffer|altsyncram:targetBuffer_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "4"
+    Info (12134): Parameter "NUMWORDS_A" = "16"
+    Info (12134): Parameter "WIDTH_B" = "32"
+    Info (12134): Parameter "WIDTHAD_B" = "4"
+    Info (12134): Parameter "NUMWORDS_B" = "16"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_03n1.tdf
+    Info (12023): Found entity 1: altsyncram_03n1 File: /home/voidknight/Downloads/CPU_Q/db/altsyncram_03n1.tdf Line: 28
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "redirect" is stuck at GND File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 7
 Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file /home/voidknight/Downloads/CPU_Q/output_files/RISC-V.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (15752): Ignored 10 Virtual Pin logic option assignments
-    Warning (15751): Ignored Virtual Pin assignment to "dataBus.pcControl".
-    Warning (15751): Ignored Virtual Pin assignment to "inputBus.instrInfo".
-    Warning (15751): Ignored Virtual Pin assignment to "inputBus.regStatusW".
-    Warning (15751): Ignored Virtual Pin assignment to "dataBus.result".
-    Warning (15751): Ignored Virtual Pin assignment to "inputBus.seqPCW".
-    Warning (15751): Ignored Virtual Pin assignment to "predictedPC".
+Info (15717): Design contains 32 virtual pins; timing numbers associated with paths containing virtual pins are estimates
+    Info (15719): Pin "instrPC[0]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[1]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[2]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[3]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[4]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[5]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[6]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[7]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[8]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[9]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[10]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[11]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[12]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[13]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[14]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[15]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[16]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[17]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[18]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[19]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[20]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[21]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[22]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[23]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[24]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[25]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[26]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[27]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[28]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[29]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[30]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+    Info (15719): Pin "instrPC[31]" is virtual output pin File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 42
+Warning (15752): Ignored 21 Virtual Pin logic option assignments
+    Warning (15751): Ignored Virtual Pin assignment to "outputBus.commitInfo".
+    Warning (15751): Ignored Virtual Pin assignment to "immExt".
+    Warning (15751): Ignored Virtual Pin assignment to "operand1".
+    Warning (15751): Ignored Virtual Pin assignment to "pc".
+    Warning (15751): Ignored Virtual Pin assignment to "ROBValue1".
     Warning (15751): Ignored Virtual Pin assignment to "predictedAddress".
     Warning (15751): Ignored Virtual Pin assignment to "address".
+    Warning (15751): Ignored Virtual Pin assignment to "inputBus.seqPCW".
+    Warning (15751): Ignored Virtual Pin assignment to "outputBus.targetAddress".
+    Warning (15751): Ignored Virtual Pin assignment to "dataBus.pcControl".
+    Warning (15751): Ignored Virtual Pin assignment to "ROBValue2".
+    Warning (15751): Ignored Virtual Pin assignment to "dataBus.result".
     Warning (15751): Ignored Virtual Pin assignment to "targetAddress".
+    Warning (15751): Ignored Virtual Pin assignment to "inputBus.instrInfo".
+    Warning (15751): Ignored Virtual Pin assignment to "operand2".
+    Warning (15751): Ignored Virtual Pin assignment to "outputBus.regStatusC".
+    Warning (15751): Ignored Virtual Pin assignment to "regStatusSnap".
     Warning (15751): Ignored Virtual Pin assignment to "dataBus.isControl".
-Info (21057): Implemented 29 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 11 input pins
-    Info (21059): Implemented 8 output pins
-    Info (21061): Implemented 10 logic cells
-Info (144001): Generated suppressed messages file /home/voidknight/Downloads/CPU_Q/output_files/RISC-V.map.smsg
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 12 warnings
-    Info: Peak virtual memory: 465 megabytes
-    Info: Processing ended: Mon Nov 25 17:36:07 2024
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:14
+    Warning (15751): Ignored Virtual Pin assignment to "predictedPC".
+    Warning (15751): Ignored Virtual Pin assignment to "instruction".
+    Warning (15751): Ignored Virtual Pin assignment to "inputBus.regStatusW".
+Warning (21074): Design contains 29 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "oldPC[4]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[5]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[6]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[7]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[8]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[9]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[10]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[11]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[12]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[13]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[14]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[15]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[16]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[17]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[18]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[19]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[20]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[21]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[22]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[23]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[24]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[25]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[26]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[27]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[28]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[29]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[30]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "oldPC[31]" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 2
+    Warning (15610): No output dependent on input pin "isControl" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 4
+Info (21057): Implemented 475 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 115 input pins
+    Info (21059): Implemented 75 output pins
+    Info (21061): Implemented 219 logic cells
+    Info (21064): Implemented 66 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 59 warnings
+    Info: Peak virtual memory: 487 megabytes
+    Info: Processing ended: Wed Nov 27 22:01:40 2024
+    Info: Elapsed time: 00:00:27
+    Info: Total CPU time (on all processors): 00:01:14
 
 
 +------------------------------------------+

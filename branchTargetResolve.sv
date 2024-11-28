@@ -38,6 +38,8 @@
  
  If we misdirected jump instruction then we must redirect fetch to correct
  address.
+ 
+ earlyWrite indicates if we can write to BTB early.
   
 
 */
@@ -46,29 +48,32 @@
 
 
 module branchTargetResolve #(parameter WIDTH = 31)
-									 (input logic signed[WIDTH:0] PC,immExt,predictedPC,
-									  input logic branch,isJAL,redirect,
-									  output logic misdirect,jump,
-									  output logic signed[WIDTH:0] validAddress,seqPC);				
+									 (input logic [WIDTH:0] PC,immExt,predictedPC,
+									  input logic branch,isJAL,redirect,isLUI,isAUIPC,
+									  output logic misdirect,earlyWrite,jump,
+									  output logic [WIDTH:0] targetAddress,seqPC,earlyResult);				
+					
 					always_comb begin
 						jump = isJAL;
 						misdirect = 1'b0;
 						seqPC = PC + 32'd1; //Need to store this in ROB;
+						earlyResult = PC + immExt;
 						if(branch) begin
-							validAddress = PC + immExt;
-							misdirect = (validAddress != predictedPC) & redirect;
+							targetAddress = PC + immExt;
+							earlyWrite = 1'b0;
 						end
 						else if(isJAL) begin
-							validAddress = PC + immExt;
-							misdirect = (validAddress != predictedPC) & redirect;
+							targetAddress = PC + immExt;
+							misdirect = (targetAddress != predictedPC) & redirect;
+							earlyWrite = 1'b1;
 						end
-						
-						//We shall deal with U-type instructions later.
-						/*else if(isLUI) begin //LUI instructions just use the immediate field
-							validAddress = immExt;
+						else if(isLUI) begin //LUI instructions just use the immediate field
+							earlyResult = immExt;
+							earlyWrite = 1'b1;
+						end
 						else if(isAUIPC) begin
-							validAddress = PC + immExt;
-						end */
+							earlyWrite = 1'b1;
+						end
 					end
 
 endmodule

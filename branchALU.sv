@@ -44,23 +44,24 @@
 */
 
 module branchALU #(parameter WIDTH = 31, C_WIDTH = 7)
-						(input logic signed[WIDTH:0] src1,src2,PC,immExt,predictedPC, 
+						(input logic signed[WIDTH:0] src1,src2,
+						 input logic[WIDTH:0] predictedPC,PC,immExt,
 						 input logic [C_WIDTH:0] branchControl,
-						 output logic signed[WIDTH:0] correctAddress,result,
+						 output logic [WIDTH:0] correctAddress,branchResult,
 						 output logic[1:0] nextState,
-						 output logic mispredict,misdirect, 
+						 output logic mispredict,misdirect,reset,takenBranch, 
 						 output logic writeBTB,request); 
 						 
 						 logic signed [WIDTH : 0] tempAddress;
 						 //BranchControl is {isJAL,isJALR,funct3 for branch,state,redirect}
 						 
-						 logic takenBranch; //Is branch actually taken ? If yes update PHT. Did we mispredict?
+						 //Is branch actually taken ? If yes update PHT. Did we mispredict?
 						 
 						 always_comb begin
-							{writeBTB,takenBranch,misdirect,mispredict,request} = 1'b0;
+							{writeBTB,takenBranch,misdirect,mispredict,request,reset} = 1'b0;
 							nextState = branchControl[2:1]; //Next state equals current state
 							tempAddress = src1 + src2;
-							result = PC + 32'd4;
+							branchResult = PC + 32'd1;
 							unique case(branchControl[7:6]) //{isJAL,isJALR}
 								2'b00: begin //Branch instructions
 									correctAddress = PC + immExt;
@@ -97,6 +98,9 @@ module branchALU #(parameter WIDTH = 31, C_WIDTH = 7)
 									
 									/*Predictions don't align with outcomes*/
 									mispredict = branchControl[2] ^ takenBranch;
+									
+									/*Flush pipeline*/
+									reset = mispredict | misdirect;
 										
 									/*We only write to the BTB if we have a taken branch or
 									we redirected instruction fetch but branch isn't even taken.*/
@@ -110,10 +114,10 @@ module branchALU #(parameter WIDTH = 31, C_WIDTH = 7)
 									request = 1'b1;
 								end
 								
-								2'b10: begin //JAL instruction
+								/*2'b10: begin //JAL instruction
 									correctAddress = tempAddress;
 									request = 1'b1;
-								end
+								end*/
 								
 								default: begin  
 									correctAddress = tempAddress;

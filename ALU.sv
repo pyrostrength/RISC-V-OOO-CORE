@@ -19,7 +19,7 @@ module ALU #(parameter WIDTH = 31,C_WIDTH = 3)
 				(input logic signed[WIDTH:0] src1,src2,
 				 input logic [C_WIDTH:0] ALUControl,
 				 output logic signed[WIDTH:0] result,
-				 output logic signed ALURequest);
+				 output logic  ALURequest);
 				 
 				 /*For shifts with immediate the shift amount
 				 is encoded in first 5 bits of immediate or rs2 value.

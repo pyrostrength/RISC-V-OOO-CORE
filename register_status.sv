@@ -27,12 +27,15 @@
 	destRegD is destReg in decode stage,destRegF is destReg in
 	write RS stage.
 	
+	Forgot about dealing with register status reset.
+	
 */
 
 
 module register_status #(parameter REG = 4, DEPTH = 31, ROB = 2, WIDTH = 31)
-								(input logic clk,we,
-								 input logic[REG:0] rs1,rs2,destRegD,regCommit,destRegW,
+								(input logic clk,we,reset,
+								 input logic[REG:0] rs1,rs2,destReg,regCommit,
+								 input logic[WIDTH:0] statusRestore,
 								 input logic[ROB:0] destROB, // ROB entry that writes to a destination register.
 								 output logic[ROB:0] rob1,rob2,
 								 output logic[WIDTH:0] regStatusSnap,
@@ -49,6 +52,8 @@ module register_status #(parameter REG = 4, DEPTH = 31, ROB = 2, WIDTH = 31)
 								
 								logic[WIDTH:0] busyVectorI,busyVectorF;
 								
+								logic[ROB:0] interRob1,interRob2;
+								
 								/*
 								For instruction in decode stage,we 
 								occupy it's destination register in the rename
@@ -63,12 +68,12 @@ module register_status #(parameter REG = 4, DEPTH = 31, ROB = 2, WIDTH = 31)
 								instruction in rename stage*/
 								always_comb begin
 									busyVectorI = busyVectorF;
-									if(destRegD != regCommit) begin
-										busyVectorI[destRegD] = 1'b1;
+									if(destReg != regCommit) begin
+										busyVectorI[destReg] = 1'b1;
 										busyVectorI[regCommit] = 1'b0;
 									end
-									if(destRegD == regCommit) begin
-										busyVectorI[destRegD] = 1'b1;
+									if(destReg == regCommit) begin
+										busyVectorI[destReg] = 1'b1;
 									end
 								end
 								
@@ -84,19 +89,28 @@ module register_status #(parameter REG = 4, DEPTH = 31, ROB = 2, WIDTH = 31)
 								/*Provide for asynchrnous read with new data
 								behaviour on read during write to account for
 								case in which an instruction in rename stage indicates
-								its dependency*/
+								its dependency. Significantly slowed down clock speed.
+								Instead we use synchronous RAM with bypassing*/
 								always_comb begin
-									rob1 = src1ROB[rs1];
-									rob2 = src2ROB[rs2];
+									rob1 = (interRob1 == destROB) ? destROB : interRob1;
+									rob2 = (interRob2 == destROB) ? destROB : interRob2;
 								end
 									
 								/* Sequential write on positive clock edge*/
+								//As soon as I switched to operating regfile on positive clock edge timing issues were fixed.
 								always @(posedge clk) begin
 									if(we) begin
-											src1ROB[destRegW] <= destROB;
-											src2ROB[destRegW] <= destROB;
+											src1ROB[destReg] <= destROB;
+											src2ROB[destReg] <= destROB;
 									end
-									busyVectorF <= busyVectorI;
+									if(reset) begin
+										busyVectorF <= statusRestore;
+									end
+									else begin
+										busyVectorF <= busyVectorI;
+									end
+									interRob1 <= src1ROB[rs1];
+									interRob2 <= src2ROB[rs2];
 								end			
 																
 endmodule

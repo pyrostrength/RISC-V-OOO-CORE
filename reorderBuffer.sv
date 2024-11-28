@@ -5,7 +5,7 @@ Acts as a FIFO circular buffer for instructions up until
 they have their results ready for writing to register file or memory. 
 Written to during writeRS&ROB stage 
 with instruction control info{regWrite,
-memWrite,branch,jump,dest}.
+memWrite,branch,jump,destination(32bits)}.
 
 Uses read and write pointers. Read_ptr
 points to the head of the ROB and implements the pop
@@ -58,13 +58,18 @@ If instruction is a JAL instruction we've finished executing in rename
 stage prior to entering instruction to ROB or reservation station.
 Thus we indicate availability of its result straightaway in ROB 
 after rename stage.
+
+Added reset signal to control Flow buffer.
 */
 
-module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
+module reorderBuffer #(parameter WIDTH = 31, CONTROL = 6, INDEX = 7, ROB = 2)
 							  (commonDataBus.reorder_buffer dataBus,
-							   input logic[WIDTH:0] validAddress,
+							   input logic[ROB:0] rob1,rob2,
+							   input logic[WIDTH:0] earlyResult,
 							   writeCommit.writeROB inputBus,
 								writeCommit.commitROB outputBus,
+								output logic[WIDTH:0] ROBValue1,ROBValue2,
+								output logic valid1,valid2,
 							   input logic clk,isJAL);
 								
 								logic readyBuffer[7:0]; //Indexed by ROB entry,data indicates readiness of instruction commit.
@@ -81,7 +86,7 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 								//Contains target addresses for control flow instructions
 								logic[WIDTH:0] addressBuffer[7:0];	
 								
-								//Contains {state,writeBTB,takenBranch,mispredict,misdirect}	
+								//Contains {state,writeBTB,takenBranch,mispredict,misdirect,reset}	
 								logic[CONTROL:0] updateBuffer[7:0];
 								 
 								//Contains register status table snapshot for reset under branch misprediction.
@@ -90,20 +95,26 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 								//Contains sequential PC & previousIndex for reset in case of branch misprediction
 								logic[WIDTH + 8:0] seqPCBuffer[7:0];
 								
+								logic rdy;
+								
+								logic[WIDTH + INDEX +1:0] seqPCRead;
+								
 								always_comb begin
 										outputBus.result = valueBuffer[read_ptr];
 										outputBus.commitInfo = infoBuffer[read_ptr];
 										outputBus.seqPCC = seqPCBuffer[read_ptr][WIDTH:0];
 										outputBus.regStatusC = regStatusBuffer[read_ptr];
-										outputBus.previousIndex = seqPCBuffer[read_ptr][WIDTH + INDEX + 1:WIDTH];
+										seqPCRead = seqPCBuffer[read_ptr];
+										outputBus.previousIndex = seqPCRead[WIDTH+INDEX+1:WIDTH + 1];
 										outputBus.controlFlow = updateBuffer[read_ptr];
 										outputBus.targetAddress = addressBuffer[read_ptr];
+										rdy = readyBuffer[read_ptr];
 								end
 								
 								
 								always_ff @(negedge clk) begin
 									//If instruction ready to commit,increment read_ptr
-									   read_ptr <= {2'b00,readyBuffer[read_ptr]} + read_ptr;
+									   read_ptr <= {2'b00,rdy} + read_ptr;
 										if(!full) begin
 											
 											//Write instruction information into infobuffer
@@ -130,7 +141,7 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 											rename stage then we can add to ROB without worrying about dependency.
 											*/	
 											
-											valueBuffer[write_ptr] <= validAddress;
+											valueBuffer[write_ptr] <= earlyResult;
 											
 										end
 									
@@ -160,6 +171,8 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 									//Determining branch misprediction
 								end
 								
+								ROBrenamebuffer renamebuffer(.*,.ROBcommit(read_ptr),.wcommit(rdy));
+								
 endmodule
 
 
@@ -174,7 +187,7 @@ to update PHT if necessary, branch resolution info, sequential PC of
 instruction and snapshot of regStatus is passed out of the ROB.
 */
 
-interface writeCommit #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7);
+interface writeCommit #(parameter WIDTH = 31, CONTROL = 6, INDEX = 7);
 								logic[WIDTH:0] seqPCW,seqPCC,regStatusW,regStatusC,targetAddress,result;
 								logic[INDEX:0] PHTIndex,previousIndex;
 								logic[CONTROL:0] controlFlow;
@@ -182,6 +195,8 @@ interface writeCommit #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7);
 								
 								modport writeROB (input seqPCW,regStatusW,PHTIndex,instrInfo);
 								modport commitROB (output seqPCC,regStatusC,previousIndex,commitInfo,result,targetAddress,controlFlow);
+								modport instr_decode (input regStatusC,result,commitInfo,controlFlow); //for updating the register status file
+							                                                                           //and register file	
 endinterface
 								
 

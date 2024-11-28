@@ -1,0 +1,7 @@
+module instrFetchUnit #(parameter WIDTH = 31, INDEX = 7)
+							  (input logic[WIDTH:0] validAddress,targetAddress,seqPC,predictedPCC,
+							   input logic mispredict,misdirect,isJAL,predictorHit,clk,freeze,
+							   output logic redirect,
+								output logic[WIDTH:0] predictedPCF,instrPC,
+								output logic[INDEX:0] previousIndex,
+								output logic[1:0] state)

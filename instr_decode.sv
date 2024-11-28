@@ -1,112 +1,103 @@
-/*Code for the instruction decode stage
+/*Instruction decode stage.
+If we have a misprediction or misdirect,
+we need to clear the register pass a bubble.
+If we have no space on ROB indicated by full signal
+we pass no value i.e freeze the pipeline*/
 
-
-*/
-
-
-
-
-
-module instr_decode #(parameter WIDTH = 31, V_WIDTH = 63, I_WIDTH = 14, ROB = 3)
-							(input logic[WIDTH : 0] instruction,ROBValue,
-							 input logic wasTaken,clk,ROBavailable,ROBcommit, //is a ROB entry available,
-							 input logic[3:0][1:0] RSstation, //Vector indicating availability in the 4 reservation stations.
-							 input logic[3:0] ROBentry, //ROB entry that's available to write to.
-							 input logic[4:0] freedReg, //ROB destination register that's being freed during instruction commit
-							 output logic[I_WIDTH:0] instrInfo1,instrInfo2,instrInfo3,instrInfo4); //Instruction info to write to reservation stations
-							 //output logic[V_WIDTH:0] valuesRS1,valuesRS2,valuesRS3,valuesRS4); //Instruction source operand values to be buffered in reservation stations.
+module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1, A_WIDTH = 3)
+							(input logic clk,we,
+							 writeCommit.instr_decode robBus,
+							 input logic fullRob,
+							 input logic[WIDTH:0] instruction,instrPC,
+							 input logic[REG:0] destRegD,
+							 input logic[ROB:0] destROB, // ROB entry that writes to a destination register.
+							 output logic[ROB:0] rob1,rob2,
+							 output logic[WIDTH:0] regStatusSnap,operand1,operand2,
+							 output logic[A_WIDTH:0] ALUControl,
+							 output logic[WIDTH:0] immExt,pc,
+							 output logic[RS:0] RSstation,
+							 output logic memWrite,branch,isJAL,useImm,regWrite,
+							 output logic isJALR,isLUI,isAUIPC,stationRequest,
+							 output logic[REG:0] destRegW,
+							 output logic busy1,busy2);
 							 
+							//We, destRegD all come from this stage.
+							 logic[WIDTH:0] extImm;
+							 logic jalr,lui,auipc,stationReq,regWr,jal,brnch,memWr,occupied1,occupied2,immUse;
+							 logic[2:0] station;
+							 logic[3:0] aluC;
+							 decodeextend decodeExtender (.*,.immExt(extImm),.ALUControl(aluC),.RSstation(station),
+																	.memWrite(memWr),.branch(brnch),.isJAL(jal),.useImm(immUse),.regWrite(regWr),
+																	.isJALR(jalr),.isLUI(lui),.isAUIPC(auipc),.stationRequest(stationReq));
 							 
-							 //Register file
-							 logic[WIDTH:0]  regValue1,regValue2;
-							 register_file regfile(.*,.a1(instruction[19:15]),.a2(instruction[24:20]),
-																.a3(freedReg),.we(ROBcommit),.rd1(regValue1),
-																.rd2(regValue2),.wd(ROBValue));
-							 
-							 //Register status table
-							 //Corner case of unnecessary ball-hogging. YOU SHOULD REALLY LOOK INTO THIS!
-							 logic[ROB:0] rob1,rob2;
-							 register_status regStatus(.*,.rob1(rob1),.rob2(rob2),.we(ROBavailable),.rs1(instruction[19:15]),
-																.rs2(instruction[24:20]),.wd(instruction[11:7]),
-																.wrob(freedReg),.wdvalue(ROBentry));
-																
-							 //Instruction decoder and immediate extension
-							 
-							 logic[3:0] ALUControl;
-							 logic[WIDTH:0] immExt;
-							 logic memWrite,branch,jump,useImm;
-							 
-							 decodeextend decodeextender (.*,.ALUControl(ALUControl),.immExt(immExt),.memWrite(memWrite),
-																	.branch(branch),.jump(jump),.useImm(useImm),.RSstation(RSstation));
-																
-							
-							 
-							 
-							 //Data value determination.
-							 
-							 logic [WIDTH:0] instrValue1,instrValue2;
-							 logic [WIDTH:0] extraImm; //Specifically for branch instructions which have an extra immediate added to PC.
-							 logic [2*WIDTH:0] instrValues;
-							 logic [I_WIDTH:0] instrInfo;
-							 logic ready1,ready2;
-							 
-							 
-							
-							////////////////////////////////////////////////////////////////////////////
-							
-							assign instrInfo = {instruction[3:0],rob1[2:0],rob2[2:0],ready1,ready2};
-							
-							/*logic[V_WIDTH:0] valuesRS1,valuesRS2,valuesRS3,valuesRS4;
-							
-							//Demux logic. Constructing instruction info
-							always_comb begin
-								unique case(RSstation)
-								//ALU reservation station
-									2'b00:
-										valuesRS1 = instrValues;
-										instrInfo = {ROBALUControl,rob1[2:0],rob2[2:0],ready1,ready2,
-								//Precase assignments
-								
-								{instrInfo1,instrInfo2,instrInfo3,instrInfo4} = 15'b0;
-								{valuesRS1,valuesRS2,valuesRS3,valuesRS4} = 64'b0;
-								
-								unique case(instruction[3:0])
-									//JALR,JAL,BRANCH,U-TYPE to branch condition evaluation subunit
-									4'b0011,4'b0100,4'b0101,4'b0110,4'b0111:begin
-										if (RSstation[1] == 2'b01) begin  //01 indicates that RS for branching unit is available
-											instrInfo2 = instrInfo;
-											valuesRS2 = instrValues;
-										end
-									end
-								
-									4'b1000,4'b0010: begin
-										if (RSstation[0] == 2'b00) begin //00 indicates that RS for load/store unit is available
-											instrInfo1 = instrInfo;
-											valuesRS1 = instrValues;
-										end
-									end
-								
-									4'b1001,4'b1010,4'b1011: begin // 10 indicates multiplication
-										if(RSstation[2] == 2'b10) begin
-											instrInfo3 = instrInfo;
-											valuesRS3 = instrValues;
-										end
-									end
-									
-									default: begin //11 indicates that RS for ALU operations is available.
-										if(RSstation[3] == 2'b11) begin
-											instrInfo4 = instrInfo;
-											valuesRS4 = instrValues;
-										end
-									end
-								endcase
-						   end */
-endmodule
-								
-								
+							 logic[WIDTH:0] regValue1,regValue2;
+							 register_file regfile(.*,.wraddress(robBus.commitInfo[4:0]),.wdata(robBus.result),
+															.address1(instruction[19:15]),.address2(instruction[24:20]),
+															.regWrite(robBus.commitInfo[WIDTH+4]));
+															
+							logic[ROB:0] src1ROB,src2ROB;
+							logic[WIDTH:0] statusSnap;
+							register_status regTable(.*,.rs1(instruction[19:15]),.rs2(instruction[24:20]),.destReg(destRegD),
+															 .statusRestore(robBus.regStatusC),.regCommit(robBus.commitInfo[4:0]),
+															 .reset(robBus.controlFlow[0]),.busy1(occupied1),.busy2(occupied2),
+															 .regStatusSnap(statusSnap),.rob1(src1ROB),.rob2(src2ROB));
 										
-									
-									
+							//Value determination
+							logic[WIDTH:0] op1,op2;
+							always_comb begin
+								op1 = regValue1;
+								if(immUse) begin
+									op2 = extImm;
+								end
+								else begin
+									op2 = regValue2;
+								end
+							end
 							
-									
-							 
+							//Just pass on instruction PC.
+							//For register status and value determination
+							always_ff @(posedge clk) begin
+								if(robBus.controlFlow[0]) begin
+									{pc,operand1,operand2,immExt,regStatusSnap} <= '0;
+									{busy1,busy2} <= '0;
+									{rob1,rob2} <= '0;
+								end
+								else if(!fullRob) begin
+									pc <= instrPC;
+									operand1 <= op1;
+									operand2 <= op2;
+									busy1 <= occupied1;
+									busy2 <= occupied2;
+									regStatusSnap <= statusSnap;
+									immExt <= extImm;
+									rob1 <= src1ROB;
+									rob2 <= src2ROB;
+								end
+							end
+							
+							//For decode extend unit
+							always_ff @(posedge clk) begin
+								if(robBus.controlFlow[0]) begin
+									{isJALR,branch,memWrite,isJAL,useImm,regWrite} <= '0;
+									{isLUI,isAUIPC,stationRequest} <= '0;
+									ALUControl <= '0;
+									RSstation <= '0;
+								end
+								else if(!fullRob) begin
+									isJALR <= jalr;
+									memWrite <= memWr;
+									branch <= brnch;
+									isJAL <= jal;
+									useImm <= immUse;
+									regWrite <= regWr;
+									isLUI <= lui;
+									isAUIPC <= auipc;
+									stationRequest <= stationReq;
+									ALUControl <= aluC;
+									RSstation <= station;
+									destRegW <= instruction[11:7]; 
+								end
+							end
+
+endmodule
+																	

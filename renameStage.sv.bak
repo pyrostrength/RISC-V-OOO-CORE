@@ -1,0 +1,4 @@
+module renameStage #(parameter WIDTH = 31)
+//Instruction rename stage where we search for values in reorder rename buffer ( in commit stage module)
+//Use branch target resolve, RS write, 
+endmodule

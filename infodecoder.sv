@@ -114,6 +114,7 @@ module infodecoder (input logic[3:0] opcode,//Only the first 4-bits of opcode ar
 										end
 										4'b1000 : //Load-type
 											{aluOp,RSstation} = 2'b01;
+										
 								endcase
 							end
 endmodule

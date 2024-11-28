@@ -1,0 +1,13 @@
+module ALURS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3)
+              (commonDataBus.reservation_station dataBus,
+					input logic ready1,ready2,clear,writeReq,clk,execute,
+					input logic signed[WIDTH:0] value1,value2,
+					input logic [C_WIDTH:0] ALUControl,
+					input logic[ROB:0] rob1,rob2,robInstr,
+					output logic[ROB:0] instrRob,
+					output logic[C_WIDTH:0] instrInfo,
+					output logic busy,selectReq,
+					output logic signed[WIDTH:0] src1,src2);
+					
+					//Control signal execute determines whether we can result from ALU RS to
+					
