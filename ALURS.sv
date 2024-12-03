@@ -1,7 +1,6 @@
 module ALURS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3, RS = 3)
               (commonDataBus.reservation_station dataBus,
 					input logic ready1,ready2,clear,clk,execute,
-					input logic[RS:0] selections,
 					input logic[RS:0] writeRequests, 
 					input logic signed[WIDTH:0] value1,value2,
 					input logic [C_WIDTH:0] ALUControl,
@@ -20,28 +19,29 @@ module ALURS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3, RS = 3)
 					logic[C_WIDTH:0] instrInfo1,instrInfo2,instrInfo3,instrInfo4;
 					logic signed[WIDTH:0] src1Instr1,src1Instr2,src1Instr3,src1Instr4;
 					logic signed[WIDTH:0] src2Instr1,src2Instr2,src2Instr3,src2Instr4;
+					logic[RS:0] grants;
 					
 					ALURStationEntry entry1(.*,.writeReq(writeRequests[0]),.busy(busy1),.selectReq(selectReq1),
 													.instrRob(instrRob1),.instrInfo(instrInfo1),.src1(src1Instr1),.src2(src2Instr1),
-													.selected(selections[0]));
+													.selected(grants[0]));
 					
 					ALURStationEntry entry2(.*,.writeReq(writeRequests[1]),.busy(busy2),.selectReq(selectReq2),
 													.instrRob(instrRob2),.instrInfo(instrInfo2),.src1(src1Instr2),.src2(src2Instr2),
-													.selected(selections[1]));
+													.selected(grants[1]));
 					
 					ALURStationEntry entry3(.*,.writeReq(writeRequests[2]),.busy(busy3),.selectReq(selectReq3),
 													.instrRob(instrRob3),.instrInfo(instrInfo3),.src1(src1Instr3),.src2(src2Instr3),
-													.selected(selections[2]));
+													.selected(grants[2]));
 					
 					ALURStationEntry entry4(.*,.writeReq(writeRequests[3]),.busy(busy4),.selectReq(selectReq4),
 													.instrRob(instrRob4),.instrInfo(instrInfo4),.src1(src1Instr4),.src2(src2Instr4),
-													.selected(selections[3]));
+													.selected(grants[3]));
 					
 					
 					//ALUSelect logic
 					logic[RS:0] selectionRequests;
 					assign selectionRequests = {selectReq4,selectReq3,selectReq2,selectReq1};
-					logic[RS:0] grants;
+					
 					ALUSelect selectLogic(.*,.requests(selectionRequests));
 					
 					//SrcMux
@@ -65,10 +65,13 @@ module ALURS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3, RS = 3)
 					srcMux #(.WIDTH(C_WIDTH)) info(.*,.sourceOperands(information),.operand(toomanyNames));
 					
 					always_ff @(posedge clk) begin
-						src1 <= sourceValue1;
-						src2 <= sourceValue2;
-						instrInfo <= toomanyNames;
-						instrRob <= chosenROB;
+					//Only pass values from sourceMux if functional unit is available for execution.
+						if(execute) begin
+							src1 <= sourceValue1;
+							src2 <= sourceValue2;
+							instrInfo <= toomanyNames;
+							instrRob <= chosenROB;
+						end
 					end
 					
 endmodule

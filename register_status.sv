@@ -1,4 +1,6 @@
 /* 
+  Lower clock rate to 150 MHz.
+  VERIFIED.
 	Register status file indicating the ROB entry of 
 	the instruction writing to a destination register.
 	
@@ -24,19 +26,21 @@
 	destination register. If destination register
 	is x0 value to be passed is changed to zero.
 	
-	destRegD is destReg in decode stage,destRegF is destReg in
-	write RS stage.
+	destReg comes in from instruction in rename stage that was previously
+	in the decode stage. It thus fully writes it's occupancy of in 2 stages.
+	What about regStatusSnap?
 	
 	Forgot about dealing with register status reset.
 	
 */
 
+//regWrite comes from instruction decode stage.
 
 module register_status #(parameter REG = 4, DEPTH = 31, ROB = 2, WIDTH = 31)
-								(input logic clk,we,reset,
-								 input logic[REG:0] rs1,rs2,destReg,regCommit,
+								(input logic clk,we,reset,validCommit,regWrite,
+								 input logic[REG:0] rs1,rs2,destReg,destRegR,regCommit, //Must be sure that an instruction is actually commiting
 								 input logic[WIDTH:0] statusRestore,
-								 input logic[ROB:0] destROB, // ROB entry that writes to a destination register.
+								 input logic[ROB:0] destROB,commitROB, // ROB entry that writes to a destination register.
 								 output logic[ROB:0] rob1,rob2,
 								 output logic[WIDTH:0] regStatusSnap,
 								 output logic busy1,busy2); //rob1 and rob2 are {valid,ROB entry}
@@ -44,15 +48,40 @@ module register_status #(parameter REG = 4, DEPTH = 31, ROB = 2, WIDTH = 31)
 							 
 							   /*Two dual port MLAB memory modules
 								storing ROB entry associated with
-								specific register */
+								specific register. Provide initial states
+							   for register-ROB dependencies on power-up
+								*/
 								
 								logic[ROB:0] src1ROB[0:DEPTH];
 								
 								logic[ROB:0] src2ROB[0:DEPTH];
 								
+								initial begin
+									$readmemb("robSrc.txt",src1ROB);
+									$readmemb("robSrc.txt",src2ROB);
+									$readmemb("dpendencyBuffer.txt", dependencyBuffer);
+								end
+								
 								logic[WIDTH:0] busyVectorI,busyVectorF;
 								
 								logic[ROB:0] interRob1,interRob2;
+								
+								
+								logic[ROB + 1:0] dependencyBuffer[0:DEPTH];
+								
+								//{valid,ROB entry} data format.
+								logic[ROB + 1:0] latestDpndency,interDep;
+								
+								logic dependent;
+								
+								/* Determine register's current dependency based on committing instruction
+								and instruction writing to register status table.*/
+								always_comb begin
+								//Need to provide bypassing as altsyncram configuration was changed such that
+								//asynchronous read provides old data.
+									latestDpndency = (destRegR == regCommit) ? {we,destROB} : interDep;
+									dependent = (latestDpndency[ROB:0] == commitROB) & latestDpndency[ROB+1] & validCommit;
+								end
 								
 								/*
 								For instruction in decode stage,we 
@@ -60,55 +89,80 @@ module register_status #(parameter REG = 4, DEPTH = 31, ROB = 2, WIDTH = 31)
 								stage where we have ROB entry the instruction
 								occupies*/
 								
-								/*Write control logic that sorts out
-								destination register of current instruction
-								and register of committing instruction.
-								Indicate busyness of register in decode
-								stage but mark ROB entry associated with
-								instruction in rename stage*/
+								/*We determine busyness of registers by
+								comparing destination registers written to 
+								by instruction and registers
+								freed by instruction in commit stage. Updated
+								busy information available on next clock edge
+								allowing us to take a snapshot of register status
+								table before updating it. Instruction writes
+								its busyness and ROB entry in rename stage.*/
+								
 								always_comb begin
 									busyVectorI = busyVectorF;
 									if(destReg != regCommit) begin
-										busyVectorI[destReg] = 1'b1;
-										busyVectorI[regCommit] = 1'b0;
+										if(regWrite) begin
+											busyVectorI[destReg] = 1'b1;
+										end
+										if(dependent) begin
+											busyVectorI[regCommit] = 1'b0;
+										end
 									end
-									if(destReg == regCommit) begin
-										busyVectorI[destReg] = 1'b1;
+									else if(destReg == regCommit) begin
+										if(regWrite) begin
+											busyVectorI[destReg] = 1'b1;
+										end
+										else if(dependent) begin //
+											busyVectorI[destReg] = 1'b0;
+										end
 									end
 								end
 								
-								/*Sorts out producing the relevant busy signals for
-								instruction source operands and register status
-								snapshot*/
+								/*Register is busy if current commiting instruction
+								doesn't free it (register mismatch or later instruction
+							   indicated register's dependence on it.*/
+								
 								always_comb begin
-									busy1 = (regCommit == rs1)  ? 1'b0 : busyVectorF[rs1];
-									busy2 = (regCommit == rs2) ? 1'b0 : busyVectorF[rs2];
+									busy1 = busyVectorF[rs1];
+									busy2 = busyVectorF[rs2];
+									
+									if((regCommit == rs1) & dependent) begin
+											busy1 = 1'b0;
+									end
+										
+									if((regCommit == rs2) & dependent) begin
+											busy2 = 1'b0;
+									end
+									/*Snapshot of the busyVector prior to instruction
+									indicating destination register's dependence on it.*/
 									regStatusSnap = busyVectorF;
 								end
 									
-								/*Provide for asynchrnous read with new data
-								behaviour on read during write to account for
-								case in which an instruction in rename stage indicates
-								its dependency. Significantly slowed down clock speed.
-								Instead we use synchronous RAM with bypassing*/
+								/*Destination register ROB entry dependency determination 
+								accounting for instruction in rename stage writing
+								to register status table. destROB is ROB entry of 
+								instruction in rename stage.*/
 								always_comb begin
-									rob1 = (interRob1 == destROB) ? destROB : interRob1;
-									rob2 = (interRob2 == destROB) ? destROB : interRob2;
+									rob1 = ((rs1 == destRegR) & we) ? destROB : interRob1;
+									rob2 = ((rs2 == destRegR) & we) ? destROB : interRob2;
 								end
 									
 								/* Sequential write on positive clock edge*/
-								//As soon as I switched to operating regfile on positive clock edge timing issues were fixed.
 								always @(posedge clk) begin
 									if(we) begin
-											src1ROB[destReg] <= destROB;
-											src2ROB[destReg] <= destROB;
+											src1ROB[destRegR] <= destROB;
+											src2ROB[destRegR] <= destROB;
+											dependencyBuffer[destRegR] <= {we,destROB};
 									end
+									
 									if(reset) begin
 										busyVectorF <= statusRestore;
 									end
+									
 									else begin
 										busyVectorF <= busyVectorI;
 									end
+									interDep <= dependencyBuffer[regCommit];
 									interRob1 <= src1ROB[rs1];
 									interRob2 <= src2ROB[rs2];
 								end			

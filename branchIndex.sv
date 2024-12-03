@@ -1,4 +1,6 @@
 /* 
+VERIFIED
+branch = 1'b1 ; wasTaken= 1'b1; PC = 8'b00000000;#3
 This module combines the global history register module with
 the XOR functionality required to produce the PHT's index.
 
@@ -22,14 +24,17 @@ pattern history table's indexes.
 
 
 module branchIndex #(parameter G_WIDTH = 7)
-				(input logic wasTaken,clk,branch,
+				(input logic wasTaken,clk,branch,reset,
 				 input logic [G_WIDTH:0] PC,
 				 output logic[G_WIDTH:0] index);
 				 
 				 logic[G_WIDTH:0] globalHistory;
-										 
+				 			 
 				 always_ff @(negedge clk) begin
-						if(branch) begin
+						if(reset) begin
+							globalHistory <= '0;
+						end
+						else if(branch) begin
 							globalHistory[0] <= wasTaken; 
 								 for(int i=1 ; i<8 ; i++) begin
 										globalHistory[i] <= globalHistory[i-1];
@@ -37,6 +42,7 @@ module branchIndex #(parameter G_WIDTH = 7)
 						end
 				 end
 				 
+				 //Regardless of branch value this xors with branchindex.
 				 always_comb begin
 					index = globalHistory ^ PC;
 				end

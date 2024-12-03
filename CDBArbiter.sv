@@ -86,7 +86,7 @@ module CDBArbiter  #(parameter WIDTH = 31, ROB = 2,CONTROL = 6) //control change
 									//Assigning to a result
 									value = grant[0] ? ALUResult : (grant[1] ? branchResult : 32'd0); 
 									
-									rob = grant[0] ? ALURob : (grant[1] ? branchRob : 2'd00);
+									rob = grant[0] ? ALURob : (grant[1] ? branchRob : 3'b000);
 								end
 								
 								
@@ -106,15 +106,18 @@ module CDBArbiter  #(parameter WIDTH = 31, ROB = 2,CONTROL = 6) //control change
 										
 								//We only pass a result out if and only if we received sth from functional units.
 								always_ff @(posedge clk) begin
+								//Pass a result iff and only if we actually received sth from the functional units.
+									if(we) begin
 										pointer <= nxtPointer;
 										dataBus.result <= value;
 										dataBus.robEntry <= rob; 
 										dataBus.validBroadcast <= we;
 										dataBus.isControl <= controlFlow;
 										dataBus.pcControl <= controlPC;
-										if(controlFlow) begin
-											dataBus.targetAddress <= fetchAddress;
-										end	
+									end
+									if(controlFlow) begin
+										dataBus.targetAddress <= fetchAddress;
+									end	
 								end
 endmodule
 								

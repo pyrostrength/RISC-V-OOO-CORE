@@ -1,5 +1,7 @@
 /*
 
+  VERIFIED
+
   Branch Target Buffer predicts instruction fetch PC
   for next cycle provided current instruction PC matches
   a previous instruction found to be a taken branch.
@@ -42,6 +44,10 @@ module BTB #(parameter WIDTH = 31,
 			   input logic writeBTB,clk,takenBranch,
 				output logic validRead,
 			   output logic[WIDTH:0] targetAddress);
+				
+				//MLAB doesn't have default zero power up.
+				//Outputs cleared only if registered. otherwise reads memory contents leading to propagation of X values.
+				//Possible site for glitches.
 				
 				logic[WIDTH + INDEX + 1:0] targetBuffer[0:15]; //since we access using 4 lower bits we only have 16 entries.
 				logic validBuffer[0:15]; 

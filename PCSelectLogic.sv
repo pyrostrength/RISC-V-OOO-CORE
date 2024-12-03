@@ -1,4 +1,6 @@
 /*
+
+VERIFIED.
 Priority encoded selection logic for instruction PC.
 Highest priority given to branch mispredict and misdirect related
 PC changes then address change associated with JAL instructions
@@ -6,8 +8,7 @@ from rename stage,then address change as a result of
 predictions made by branch predictor unit,then
 ordinary sequential PC
 */
- //seq pc not important for PC select logic. We instead use the target 
- //address to store instruction PC changer
+
 
 
 
@@ -37,11 +38,11 @@ module PCSelectLogic #(parameter WIDTH = 31)
 										intermediatePC = validAddress;
 									end
 									
-									//Severely limits the clock speed in my cycle. Should try and make it synchronous.
-									/*else if(predictorHit) begin
+									else if(predictorHit) begin
 										intermediatePC = predictedPC;
 										redirect = 1'b1;
-									end */
+									end
+									
 									else begin
 										intermediatePC = pcPlus1;
 									end

@@ -1,0 +1,19 @@
+/*
+
+Test module for the branch target buffer.
+
+Check for power up state - no predictions
+yet.
+
+Fill BTB with predictions. For one change it's
+prediction to not taken so as BTB hit changes.
+
+Check for address conflict
+
+*/
+
+
+
+
+module BTBTest #(parameter WIDTH = 31)
+					 

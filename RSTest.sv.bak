@@ -1,0 +1,12 @@
+module RSTest #(parameter 
+					commonDataBus.reservation_station dataBus,
+					logic ready1,ready2,clear,clk,execute,
+					logic[RS:0] selections,writeRequests,
+					logic[RS:0] writeRequests, 
+					input logic signed[WIDTH:0] value1,value2,
+					input logic [C_WIDTH:0] ALUControl,
+					input logic[ROB:0] rob1,rob2,robInstr,
+					output logic[ROB:0] instrRob,
+					output logic[C_WIDTH:0] instrInfo,
+					output logic[RS:0] busy,
+					output logic signed[WIDTH:0] src1,src2

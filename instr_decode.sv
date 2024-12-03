@@ -9,8 +9,8 @@ module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1
 							 writeCommit.instr_decode robBus,
 							 input logic fullRob,
 							 input logic[WIDTH:0] instruction,instrPC,
-							 input logic[REG:0] destRegD,
-							 input logic[ROB:0] destROB, // ROB entry that writes to a destination register.
+							 input logic[REG:0] destRegR,
+							 input logic[ROB:0] destROB,commitROB, // ROB entry that writes to a destination register.
 							 output logic[ROB:0] rob1,rob2,
 							 output logic[WIDTH:0] regStatusSnap,operand1,operand2,
 							 output logic[A_WIDTH:0] ALUControl,
@@ -37,10 +37,11 @@ module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1
 															
 							logic[ROB:0] src1ROB,src2ROB;
 							logic[WIDTH:0] statusSnap;
-							register_status regTable(.*,.rs1(instruction[19:15]),.rs2(instruction[24:20]),.destReg(destRegD),
+							register_status regTable(.*,.rs1(instruction[19:15]),.rs2(instruction[24:20]),.destReg(instruction[11:7]),
 															 .statusRestore(robBus.regStatusC),.regCommit(robBus.commitInfo[4:0]),
 															 .reset(robBus.controlFlow[0]),.busy1(occupied1),.busy2(occupied2),
-															 .regStatusSnap(statusSnap),.rob1(src1ROB),.rob2(src2ROB));
+															 .regStatusSnap(statusSnap),.rob1(src1ROB),.rob2(src2ROB),.validCommit(robBus.validCommit),
+															 .regWrite(regWr));
 										
 							//Value determination
 							logic[WIDTH:0] op1,op2;

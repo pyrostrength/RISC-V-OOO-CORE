@@ -2,6 +2,7 @@ module instrFetchUnit #(parameter WIDTH = 31, INDEX = 7, B_WIDTH = 7)
 							  (input logic[WIDTH:0] validAddress,target,oldPC,//valid address,target,seqPC come from other stages.
 							   input logic mispredict,misdirect,isJAL,clk,freeze, //other stages
 								input logic writeBTB,isControl,takenBranch,branch,
+								input logic reset,
 								input logic[INDEX:0] updateIndex,
 								input logic[1:0] newState,
 							   output logic redirect,

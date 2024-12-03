@@ -7,7 +7,7 @@
 module branchRS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 7, RS = 1)
 					  (commonDataBus.reservation_station dataBus,
 						input logic ready1,ready2,clear,clk,execute,
-						input logic[RS:0] writeRequests,selections, 
+						input logic[RS:0] writeRequests, 
 						input logic signed[WIDTH:0] value1,value2,
 						input logic[WIDTH:0] predictedPC,address,
 						input logic [C_WIDTH:0] branchControl,
@@ -28,19 +28,20 @@ module branchRS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 7, RS = 1)
 						logic signed[WIDTH:0] src2Instr1,src2Instr2;
 						logic[WIDTH:0] prediction1,prediction2;
 						logic[WIDTH:0] target1,target2;
+						logic[RS:0] grants;
 						branchRSEntry entry1(.*,.writeReq(writeRequests[0]),.busy(busy1),.selectReq(selectReq1),
 														.instrRob(instrRob1),.instrInfo(instrInfo1),.src1(src1Instr1),.src2(src2Instr1),
 														.predictedAddress(prediction1),.targetAddress(target1),
-														.selected(selections[0]));
+														.selected(grants[0]));
 						branchRSEntry entry2(.*,.writeReq(writeRequests[1]),.busy(busy2),.selectReq(selectReq2),
 														.instrRob(instrRob2),.instrInfo(instrInfo2),.src1(src1Instr2),.src2(src2Instr2),
 														.predictedAddress(prediction2),.targetAddress(target2),
-														.selected(selections[1]));
+														.selected(grants[1]));
 						
 						//branchSelect logic
 						logic[RS:0] selectionRequests;
 						assign selectionRequests = {selectReq2,selectReq1};
-						logic[RS:0] grants;
+						
 						branchSelect selectLogic(.*,.requests(selectionRequests));
 						
 						//SrcMux
@@ -70,12 +71,14 @@ module branchRS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 7, RS = 1)
 						srcMux #(.WIDTH(31),.RS(RS)) addressor(.*,.sourceOperands(fetchAddr),.operand(actualAddress));
 						
 						always_ff @(posedge clk) begin
-							src1 <= sourceValue1;
-							src2 <= sourceValue2;
-							instrInfo <= toomanyNames;
-							instrRob <= chosenROB;
-							predictedAddress <= btbPrediction;
-							targetAddress <= actualAddress;
+							if(execute) begin
+								src1 <= sourceValue1;
+								src2 <= sourceValue2;
+								instrInfo <= toomanyNames;
+								instrRob <= chosenROB;
+								predictedAddress <= btbPrediction;
+								targetAddress <= actualAddress;
+							end
 						end
 					
 endmodule

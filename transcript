@@ -1,0 +1,346 @@
+# Compile of regfileTest.sv was successful.
+# Compile of register_file.sv was successful.
+# 2 compiles, 0 failed with no errors.
+# Load canceled
+simulate
+# invalid command name "simulate"
+vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=\"+acc\" work.regfileTest
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" work.regfileTest 
+# Start time: 17:01:14 on Nov 29,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Error (suppressible): (vopt-19) Failed to access library 'rtl_work' at "rtl_work".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'rtl_work' at "rtl_work".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'rtl_work' at "rtl_work".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: /home/voidknight/Downloads/CPU_Q/regfileTest.sv(1): (vopt-2669) Unable to find library 'rtl_work'.
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=3, Warnings=2.
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./RISC-V_run_msim_rtl_verilog.do PAUSED at line 12
+vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=\"+acc\" work.regfileTest
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" work.regfileTest 
+# Start time: 17:01:14 on Nov 29,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Error (suppressible): (vopt-19) Failed to access library 'rtl_work' at "rtl_work".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'rtl_work' at "rtl_work".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'rtl_work' at "rtl_work".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: /home/voidknight/Downloads/CPU_Q/regfileTest.sv(1): (vopt-2669) Unable to find library 'rtl_work'.
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=6, Warnings=4.
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./RISC-V_run_msim_rtl_verilog.do PAUSED at line 12
+vmap rtl_work work
+# Questa Intel Starter FPGA Edition-64 vmap 2023.3 Lib Mapping Utility 2023.07 Jul 17 2023
+# vmap rtl_work work 
+# Modifying /home/voidknight/Downloads/CPU_Q/CPUsimulations.mpf
+vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=\"+acc\" work.regfileTest
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" work.regfileTest 
+# Start time: 17:01:14 on Nov 29,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=6, Warnings=5.
+# Loading sv_std.std
+# Loading work.regfileTest(fast)
+# Loading work.register_file(fast)
+add wave -position insertpoint  \
+sim:/regfileTest/address1
+add wave -position insertpoint  \
+sim:/regfileTest/address2
+add wave -position insertpoint  \
+sim:/regfileTest/clk
+add wave -position insertpoint  \
+sim:/regfileTest/regValue1
+add wave -position insertpoint  \
+sim:/regfileTest/regValue2
+add wave -position insertpoint  \
+sim:/regfileTest/wdata
+add wave -position insertpoint  \
+sim:/regfileTest/wraddress
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+vsim -help
+# Questa Intel Starter FPGA Edition-64 vsim 2023.3 Simulator 2023.07 Jul 17 2023
+#     The vsim tool provides HDL simulation based on the compiled and optimized
+#     design and it provides various post-simulation analysis capabilities. In
+#     simulation mode it expects to be provided with the optimization output for
+#     the root of the design, or it will automatically produce such an
+#     optimization from the root of the design.
+#     
+#     Try the following to get help on specific options or categories: 
+# 
+#     vsim -help all            : List all categories and options
+#     vsim -help category       : List all categories
+#     vsim -help <option>       : Help on an option
+#     vsim -help <command-line> : Help on all options in a command-line
+#     vsim -help <category>     : List all options in a category
+# 
+#     Category:       The list of categories in vsim tool.
+# 
+#     General         List most common general options
+#     Coverage        List options for Coverage
+#     Cpp             List options supporting SystemC module
+#     Debug           List options for debug, and assertion
+#     GLS             List options for Gate Level Simulation
+#     Language        List all options supported by hardware language Verilog/VHDL
+#     Library         List options for design, work library
+#     License         List options helping for license issues
+#     Messages        List all warn, error, note, fatal messages options
+#     MultiCore       List options supporting for Multicore (MC2)
+#     PA              List most common options supporting for Power Aware
+#     Pdu             List options for Preoptimized Design Unit.
+#     Report          List options for reporting log file, statistics, capstats
+#     Solver          List options supporting for Solver
+#     Visualizer      List options supporting for visualizer
+# vsim -help General
+# Questa Intel Starter FPGA Edition-64 vsim 2023.3 Simulator 2023.07 Jul 17 2023
+# ------------------------------------General------------------------------------
+# General Category for option
+# 
+# --------------------------------------------------------------------------------
+# -32                             Run in 32-bit mode.
+#                                 
+# -64                             Run in 64-bit mode.
+#                                 
+# -F <filename>                   Read command line arguments from <filename>
+#                                 
+# -G<Name>=<Value>                Override generic/parameter with specified Value
+#                                 
+# -assertcallstack                Print assertion callstack
+#                                 
+# -assertmsgsingleline            Display the Assertion messages in a single
+#                                 line.
+#                                 
+# -autofindloop                   Identification of an infinite zero delay loop
+#                                 
+# -batch                          Batch mode
+#                                 
+# -c                              Command line mode
+#                                 
+# -check_plusargs <number>        Enable checking of plusargs.
+#                                 0 (the default) means no checking.
+#                                 1 means a warning for unknown plusarg.
+#                                 2 means an error and exit for unknown plusarg.
+#                                 
+# -classic                        Use -classic to switch vsim to use +acc
+#                                 visibility.
+#                                 
+# -colormap new                   Specifies that the window should have a new
+#                                 private colormap instead of using the default
+#                                 colormap for the screen.
+#                                 
+# -compresslog                    Enables compression of transcript(default) OR
+#                                 log file(in conjunction with -l/-logfile
+#                                 <file>)
+#                                 
+# -default_radix radix|radix_flag[,radix_flag...]
+#                                 Set default radix and radix flags. Specifying
+#                                 just a radix will clear all radix flags.
+#                                 Specifying just radix flags will set the flags
+#                                 but leave the default radix unchanged.
+#                                 
+# -detectzerodelayloop            Identification of an infinite zero delay loop
+#                                 
+# -display <display-spec>         Specifies the name of the display to use.
+#                                 
+# -displaymsgmode <mode>          Controls transcripting of display system task
+#                                 messages. Messages will appear in transcript
+#                                 and/or MsgViewer (.wlf file). Valid modes -
+#                                 tran, wlf, both (Default: tran)
+#                                 Controls output of write/witeline functions to
+#                                 transcript.(VHDL only)
+#                                 
+# -do <command>                   Execute <command> on startup; <command> can be
+#                                 a macro filename
+#                                 
+# -elablibpath <path>             This is for load_elab mode only. Specify the
+#                                 path in case the work library is moved after
+#                                 creating elabfile
+#                                 
+# -f <filename>                   Read command line arguments from <filename>
+#                                 
+# -file <filename>                Read command line arguments from <filename>
+#                                 
+# -g<Name>=<Value>                Specify generic/parameter default Value for
+#                                 Name
+#                                 
+# -geometry <geometry_spec>       Specifies the size and location of the main
+#                                 window. Where <geometry_spec> is of the form:
+#                                 WxH+X+Y
+#                                 
+# -gui                            Open the GUI without loading a design
+#                                 
+# -i                              Force interactive mode
+#                                 
+# -modelsimini <modelsim.ini>     Specify path to the modelsim.ini file
+#                                 
+# -mvchome <path>                 Location of Questa Verification IP
+#                                 installation. Overrides 'MvcHome' modelsim.ini
+#                                 setting
+#                                 
+# -name <name>                    Specifies the application name used by the
+#                                 interpreter for send commands.
+#                                 
+# -nocollapse                     This option may have a large negative impact on
+#                                 performance.
+#                                 Disable optimization of internal port map
+#                                 connections
+#                                 
+# -nocompress                     Create/restore uncompressed checkpoint file
+#                                 
+# -noglitch                       Disable VITAL glitch generation
+#                                 
+# -nostdout                       Do not write transcript to stdout (batch mode
+#                                 only)
+#                                 
+# -novopt                         Force incremental mode (pre-6.0 behavior)
+#                                 
+# -optionset <optionset_name>     Calls an option set in modelsim.ini.
+#                                 
+# -quiet                          Do not report 'Loading...' messages
+#                                 
+# -run_dyncfg <fileName>          Dynamic reconfiguration of module instances
+#                                 
+# -runinit                        Execute run -init before command prompt or
+#                                 running -do files.
+#                                 
+# -t [1|10|100]fs|ps|ns|us|ms|sec Time resolution limit
+#                                 (VHDL default: resolution setting from .ini
+#                                 file)
+#                                 (Verilog default: minimum time_precision in the
+#                                 design)
+#                                 
+# -title <string>                 Optional title for the Main window
+#                                 
+# -version                        Print the version of the simulator
+#                                 
+# -visual <visual>                Specify the visual to use for the window. Does
+#                                 not apply to Windows platforms.
+#                                 
+# -vopt                           Run vopt optimization before elaborating the
+#                                 simulator
+#                                 
+# -voptargs=<arglist>             Pass the specified arguments to vopt
+#                                 
+# -work <libname>                 Work library to write the optimized design
+#                                 into. (Default: top-level library i.e.
+#                                 <libname> used with -lib option)
+#                                 
+# quit -sim
+# End time: 17:14:20 on Nov 29,2024, Elapsed time: 0:13:06
+# Errors: 6, Warnings: 12
+# Load canceled
+# Compile of regfileTest.sv was successful.
+# Compile of register_file.sv was successful.
+# Compile of PCSelectLogic.sv was successful.
+# Compile of BTB.sv was successful.
+# Compile of pcSelectTest.sv failed with 1 errors.
+# 5 compiles, 1 failed with 1 error.
+# Compile of pcSelectTest.sv was successful.
+vsim work.pcSelectTest
+# vsim work.pcSelectTest 
+# Start time: 17:49:55 on Nov 29,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: /home/voidknight/Downloads/CPU_Q/pcSelectTest.sv(37): (vopt-3838) Variable 'nextPC' written by continuous and procedural assignments. 
+# One of the assignments is implicit. See /home/voidknight/Downloads/CPU_Q/pcSelectTest.sv(32). 
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.pcSelectTest(fast)
+# A time value could not be extracted from the current line
+vsim work.pcSelectTest
+# End time: 17:52:57 on Nov 29,2024, Elapsed time: 0:03:02
+# Errors: 0, Warnings: 7
+# vsim work.pcSelectTest 
+# Start time: 17:52:57 on Nov 29,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Loading sv_std.std
+# Loading work.pcSelectTest(fast)
+vsim work.pcSelectTest
+# End time: 17:55:21 on Nov 29,2024, Elapsed time: 0:02:24
+# Errors: 0, Warnings: 1
+# vsim work.pcSelectTest 
+# Start time: 17:55:21 on Nov 29,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Loading sv_std.std
+# Loading work.pcSelectTest(fast)
+run
+run
+run
+# ** Error: Assertion error.
+#    Time: 3 ns  Scope: pcSelectTest File: /home/voidknight/Downloads/CPU_Q/pcSelectTest.sv Line: 45
+run
+run
+run
+run
+run
+# ** Error: Assertion error.
+#    Time: 8 ns  Scope: pcSelectTest File: /home/voidknight/Downloads/CPU_Q/pcSelectTest.sv Line: 49
+# ** Error: Assertion error.
+#    Time: 8 ns  Scope: pcSelectTest File: /home/voidknight/Downloads/CPU_Q/pcSelectTest.sv Line: 51
+run
+run
+run
+run
+run
+# ** Error: Assertion error.
+#    Time: 13 ns  Scope: pcSelectTest File: /home/voidknight/Downloads/CPU_Q/pcSelectTest.sv Line: 54
+# ** Error: Assertion error.
+#    Time: 13 ns  Scope: pcSelectTest File: /home/voidknight/Downloads/CPU_Q/pcSelectTest.sv Line: 55
+# ** Error: Assertion error.
+#    Time: 13 ns  Scope: pcSelectTest File: /home/voidknight/Downloads/CPU_Q/pcSelectTest.sv Line: 56
+run
+run
+run
+run
+run
+# ** Error: Assertion error.
+#    Time: 18 ns  Scope: pcSelectTest File: /home/voidknight/Downloads/CPU_Q/pcSelectTest.sv Line: 59
+run
+run
+run
+run
+run
+# ** Error: Assertion error.
+#    Time: 23 ns  Scope: pcSelectTest File: /home/voidknight/Downloads/CPU_Q/pcSelectTest.sv Line: 64
+# ** Error: Assertion error.
+#    Time: 23 ns  Scope: pcSelectTest File: /home/voidknight/Downloads/CPU_Q/pcSelectTest.sv Line: 65
+run
+run
+run
+run
+run
+# ** Error: Assertion error.
+#    Time: 28 ns  Scope: pcSelectTest File: /home/voidknight/Downloads/CPU_Q/pcSelectTest.sv Line: 68
+# ** Error: Assertion error.
+#    Time: 28 ns  Scope: pcSelectTest File: /home/voidknight/Downloads/CPU_Q/pcSelectTest.sv Line: 69
+run
+run
+run
+run
+# Optimization canceled
+quit -sim
+# End time: 18:00:47 on Nov 29,2024, Elapsed time: 0:05:26
+# Errors: 11, Warnings: 1
+# Compile of pcSelectTest.sv was successful.

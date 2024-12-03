@@ -109,6 +109,7 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 6, INDEX = 7, ROB = 2)
 										outputBus.controlFlow = updateBuffer[read_ptr];
 										outputBus.targetAddress = addressBuffer[read_ptr];
 										rdy = readyBuffer[read_ptr];
+										outputBus.validCommit = rdy;
 								end
 								
 								
@@ -192,10 +193,11 @@ interface writeCommit #(parameter WIDTH = 31, CONTROL = 6, INDEX = 7);
 								logic[INDEX:0] PHTIndex,previousIndex;
 								logic[CONTROL:0] controlFlow;
 								logic[WIDTH+4:0] instrInfo,commitInfo;
+								logic validCommit;
 								
 								modport writeROB (input seqPCW,regStatusW,PHTIndex,instrInfo);
-								modport commitROB (output seqPCC,regStatusC,previousIndex,commitInfo,result,targetAddress,controlFlow);
-								modport instr_decode (input regStatusC,result,commitInfo,controlFlow); //for updating the register status file
+								modport commitROB (output seqPCC,regStatusC,previousIndex,commitInfo,result,targetAddress,controlFlow,validCommit);
+								modport instr_decode (input regStatusC,result,commitInfo,controlFlow,validCommit); //for updating the register status file
 							                                                                           //and register file	
 endinterface
 								

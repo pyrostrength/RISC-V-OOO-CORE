@@ -1,4 +1,6 @@
 /*
+VERIFIED.
+NO REGISTERED OUTPUTS.
 Test module for synchronous instruction
 memory. Reads occur synchronously - address
 at tsetup before rising clock edge is read for
@@ -14,7 +16,7 @@ reading and writing to file using SystemVerilog etc.
 
 
 
-module iMemTest #(parameter WIDTH = 31, ENTRIES = 255);
+module imemTest #(parameter WIDTH = 31, ENTRIES = 255);
 					  
 					  timeunit 1ns;
 					  
@@ -25,13 +27,16 @@ module iMemTest #(parameter WIDTH = 31, ENTRIES = 255);
 					  
 					  //Clock generator
 					  initial begin
-						clk <= '0;
-						forever #5 clk = ~clk;
+						clk = '0; //Begin clock pulse at low level.
+						forever #5 clk = ~clk; //Clock period of 5 nanoseconds. Corresponds to a duty period of 5 nanoseconds. 100 Mhz signal
 					  end
 					  
 					  imem Memory(.*,.rAddress(address),.instr(instructionPC));
 					  
 					  initial begin
-							address = 32'd0;
+							address = 32'd0; #7
+							assert (instructionPC === 32'hFFFFFFFF) else $error("Memory doesn't read out appropriate valeu");
+							address = 32'd2; #9
+							assert (instructionPC === 32'h00000000) else $error("Memory doesn't read out appropriate value on address change");
 					  end
 endmodule

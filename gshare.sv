@@ -1,4 +1,5 @@
 /* 
+   VERIFIED. TOO SIMPLE A MODULE.
 	gshare predictor works by xoring the global history branch outcomes vector with
 	the lower 8 bits of current PC to form an index that accesses
 	a pattern history table whose entries are 2 bit saturating counters. 

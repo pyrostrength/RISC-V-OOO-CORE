@@ -1,0 +1,29 @@
+/home/voidknight/Downloads/CPU_Q/BTB.sv {1 {vlog -work work -vopt -sv -stats=none /home/voidknight/Downloads/CPU_Q/BTB.sv
+Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+-- Compiling module BTB
+
+Top level modules:
+	BTB
+
+} {} {}} /home/voidknight/Downloads/CPU_Q/register_file.sv {1 {vlog -work work -vopt -sv -stats=none /home/voidknight/Downloads/CPU_Q/register_file.sv
+Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+-- Compiling module register_file
+
+Top level modules:
+	register_file
+
+} {} {}} /home/voidknight/Downloads/CPU_Q/PCSelectLogic.sv {1 {vlog -work work -vopt -sv -stats=none /home/voidknight/Downloads/CPU_Q/PCSelectLogic.sv
+Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+-- Compiling module PCSelectLogic
+
+Top level modules:
+	PCSelectLogic
+
+} {} {}} /home/voidknight/Downloads/CPU_Q/regfileTest.sv {1 {vlog -work work -vopt -sv -stats=none /home/voidknight/Downloads/CPU_Q/regfileTest.sv
+Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+-- Compiling module regfileTest
+
+Top level modules:
+	regfileTest
+
+} {} {}}

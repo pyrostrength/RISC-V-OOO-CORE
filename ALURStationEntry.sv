@@ -18,6 +18,8 @@ Reservation station entries depend on functional unit.
 
 */
 
+//We got a couple of issues bro!
+
 //Removing the busy signal from ALURSstation entry
 //If execute and selected then we can change busy to nil in next clock cycle.
 //When do we free RSstation entry?
@@ -38,7 +40,7 @@ module ALURStationEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3)
 									 output logic busy,selectReq,
 									 output logic signed[WIDTH:0] src1,src2); //Leave them as outputs to our RS entry
 									 
-									 logic value1Ready,value2Ready; //Had we already received the necessary value
+									 logic value1Ready,value2Ready,valRdy1,valRdy2; //Had we already received the necessary value
 									 
 									 logic match1,match2; //Match on write result stage then assert 
 									 //ready select signals.
@@ -46,7 +48,11 @@ module ALURStationEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3)
 									 /*We must indicate the validity of a ROB dependence of an instruction.
 									 Done using value ready signal and RS entry busy signal*/
 									 
-									 logic[ROB:0] src1Rob,src2Rob;
+									 logic cdbValid;
+									 
+									 logic[ROB:0] src1Rob,src2Rob,cdbEntry;
+									 
+									 logic[WIDTH:0] renameVal1,renameVal2,cdbValue;
 									 
 									 logic busyI; //Signal to change busyness of entry if selected and we can execute;
 									 
@@ -64,6 +70,10 @@ module ALURStationEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3)
 										stage
 										*/
 										busyI = (selected & execute) ? 1'b0 : busy;
+										/*Functionality to write instruction to reservation station entry
+										and capture broadcast on CDB all in the same cycle*/
+										src1 = (match1)  
+										
 									 end
 									 
 										
@@ -78,12 +88,12 @@ module ALURStationEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3)
 										end
 									 /*If a request to write to the RS has been made*/
 										else if(writeReq) begin
-											value1Ready <= ready1;
-											value2Ready <= ready2;
+											valRdy1 <= ready1;
+											valRdy2 <= ready2;
 											instrRob <= robInstr;
 											instrInfo <= ALUControl;
-											src1 <= value1;
-											src2 <= value2;
+											renameVal1 <= value1;
+											renameVal2 <= value2;
 											src1Rob <= rob1;
 											src2Rob <= rob2;
 											busy <= 1'b1;
@@ -96,12 +106,10 @@ module ALURStationEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3)
 										/*If match for tag associated with operand we
 										store value and indicate operand readiness*/ 
 										if(match1) begin
-											src1 <= dataBus.result;
 											value1Ready <= 1'b1;
 										end
 										
 										if(match2) begin
-											src2 <= dataBus.result;
 											value2Ready <= 1'b1;
 										end
 									end

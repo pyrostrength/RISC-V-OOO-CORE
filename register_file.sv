@@ -1,5 +1,5 @@
 /* 
-	
+	VERIFIED
 	Register file with 32 entries holding 32-bit values.
 	Register x0 must always holds the value 0.
 
@@ -38,6 +38,10 @@ module register_file #(parameter D_WIDTH = 31, A_WIDTH = 4)
 							 output logic[D_WIDTH:0] regValue1,regValue2);
 							 
 							 logic[D_WIDTH:0] regFile[0:D_WIDTH];
+							 
+							 initial begin
+								  $readmemb("regFileInit.txt",regFile);
+							 end
 							 
 							 always @(posedge clk) begin
 								if(regWrite) begin

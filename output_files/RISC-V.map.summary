@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Wed Nov 27 22:01:40 2024
+Analysis & Synthesis Status : Successful - Sun Dec  1 22:53:13 2024
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : RISC-V
-Top-level Entity Name : instrFetchUnit
+Top-level Entity Name : RSArbiter
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 146
-Total pins : 190
-Total virtual pins : 32
-Total block memory bits : 9,216
+Total registers : 0
+Total pins : 15
+Total virtual pins : 0
+Total block memory bits : 0
 Total DSP Blocks : 0
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0
