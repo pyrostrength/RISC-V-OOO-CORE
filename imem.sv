@@ -59,8 +59,9 @@ module imem #(parameter WIDTH = 31,ENTRIES = 255)
 				  initial begin
 						$readmemh("/home/voidknight/Downloads/CPU_Q/imeminit.txt",iMem);
 				  end
-				  //Synchronous read at positive clock edge
-				  always_ff @(posedge clk) begin
+				  /*Synchronous read at negative clock edge with PC from
+				  PCselect logic*/
+				  always_ff @(negedge clk) begin
 					 instr <= iMem[rAddress[$clog2(ENTRIES+1) - 1:0]];
 				  end 
 endmodule

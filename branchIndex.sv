@@ -29,8 +29,11 @@ module branchIndex #(parameter G_WIDTH = 7)
 				 output logic[G_WIDTH:0] index);
 				 
 				 logic[G_WIDTH:0] globalHistory;
-				 			 
-				 always_ff @(negedge clk) begin
+				 
+		       /*We update value of global history shift register at
+		       positive clock edge. Thus we commit and only in the
+				 next cycle do we get to use updated branch instruction information.*/		 
+				 always_ff @(posedge clk) begin
 						if(reset) begin
 							globalHistory <= '0;
 						end

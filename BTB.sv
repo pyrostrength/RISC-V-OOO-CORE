@@ -55,7 +55,7 @@ module BTB #(parameter WIDTH = 31,
 				logic valid; //Did we get a BTB hit for our instruction PC?
 				logic[WIDTH + INDEX + 1:0] address; // 
 				
-				always_ff @(posedge clk) begin
+				always_ff @(negedge clk) begin
 					/*Sequential write to BTB if and only if 
 					old instruction was a taken branch 
 					or to correct in case previously taken
@@ -65,11 +65,11 @@ module BTB #(parameter WIDTH = 31,
 						validBuffer[oldPC[INDEX:0]] <= takenBranch;
 					end
 					
-					/*Read off BTB cache to check for next fetch
-					instruction PC associated with a taken branch
-					(conditional and unconditional branches) */
+					/*Synchronous read off BTB cache for prediction
+					associated with current instruction PC*/
 					address <= targetBuffer[PC[INDEX:0]]; //validRead determines what we do with accessed value from BTB cache.
 					valid <= validBuffer[PC[INDEX:0]]; //Was instruction a taken branch?
+					
 				end
 				
 				logic btbHit;

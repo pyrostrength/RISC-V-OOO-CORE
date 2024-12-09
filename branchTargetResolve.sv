@@ -40,6 +40,9 @@
  address.
  
  earlyWrite indicates if we can write to BTB early.
+ 
+ Sequential PC acts as the result for JAL,JALR instructions and as
+ default result for branch instructions.
   
 
 */
@@ -48,23 +51,22 @@
 
 
 module branchTargetResolve #(parameter WIDTH = 31)
-									 (input logic [WIDTH:0] PC,immExt,predictedPC,
+									 (input logic [WIDTH:0] PC,immExt,
 									  input logic branch,isJAL,redirect,isLUI,isAUIPC,
-									  output logic misdirect,earlyWrite,jump,
-									  output logic [WIDTH:0] targetAddress,seqPC,earlyResult);				
+									  output logic earlyWrite,jump,
+									  output logic [WIDTH:0] targetAddress,earlyResult,seqPC);				
 					
 					always_comb begin
 						jump = isJAL;
-						misdirect = 1'b0;
-						seqPC = PC + 32'd1; //Need to store this in ROB;
+						earlyWrite = 1'b0;
+						targetAddress = PC + immExt;
 						earlyResult = PC + immExt;
+						seqPC = PC + 32'd1;
 						if(branch) begin
-							targetAddress = PC + immExt;
 							earlyWrite = 1'b0;
 						end
 						else if(isJAL) begin
-							targetAddress = PC + immExt;
-							misdirect = (targetAddress != predictedPC) & redirect;
+							//misdirect = (targetAddress != predictedPC) & redirect;
 							earlyWrite = 1'b1;
 						end
 						else if(isLUI) begin //LUI instructions just use the immediate field

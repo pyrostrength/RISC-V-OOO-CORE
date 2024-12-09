@@ -26,8 +26,8 @@ Otherwise pick next sequential address ; nextPC plus1;
 
 module pcSelectTest #(parameter WIDTH = 31);
 							
-							logic[WIDTH:0] validAddress,targetAddress,predictedPC;
-							logic mispredict,misdirect,isJAL,predictorHit,clk,freeze;
+							logic[WIDTH:0] validAddress,targetAddress,predictedPC,oldPC;
+							logic mispredict,misdirect,isJAL,predictorHit,clk,freeze,globalReset,reset;
 							logic redirect; //if we redirected instruction PC according to predictedPC. JAL has no wrong redirect.
 							logic[WIDTH:0] nextPC,intermediatePC;
 							

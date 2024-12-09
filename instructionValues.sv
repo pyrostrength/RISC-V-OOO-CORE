@@ -37,25 +37,25 @@ module instructionValues #(parameter WIDTH = 31, V_WIDTH = 63, I_WIDTH = 14, ROB
 								   input logic [ROB:0] rob,
 								   input logic busy, //Is source operands destination registers of busy instructions?
 									output logic ready, //Is data values ready?
-									output logic[WIDTH:0] instrValue); //Source operand to be used
+									output logic signed[WIDTH:0] instrValue); //Source operand to be used
 									
 									
 									always_comb begin
 										if(busy) begin
 											if(ROBValue[WIDTH+1]) begin
-												instrValue = ROBValue[WIDTH:0];
+												instrValue = signed '(ROBValue[WIDTH:0]);
 												ready = 1'b1;
 											end
 											else if(dataBus.validBroadcast & (dataBus.robEntry == rob)) begin //Currently writing instruction had value
-												instrValue = dataBus.result;
+												instrValue = signed '(dataBus.result);
 												ready = 1'b1;
 											end
 											else begin
 												ready = 1'b0;
-												instrValue = 32'd0;
+												instrValue = signed '(32'd0);
 											end
 										end else begin
-											instrValue = operand;
+											instrValue = signed '(operand);
 											ready = 1'b1;
 										end
 									end

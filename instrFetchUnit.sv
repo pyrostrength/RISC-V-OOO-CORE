@@ -1,10 +1,7 @@
 module instrFetchUnit #(parameter WIDTH = 31, INDEX = 7, B_WIDTH = 7)
-							  (input logic[WIDTH:0] validAddress,target,oldPC,//valid address,target,seqPC come from other stages.
-							   input logic mispredict,misdirect,isJAL,clk,freeze, //other stages
-								input logic writeBTB,isControl,takenBranch,branch,
-								input logic reset,
-								input logic[INDEX:0] updateIndex,
-								input logic[1:0] newState,
+							  (writeCommit outputBus,
+							   input logic[WIDTH:0] validAddress,//valid address,target,seqPC come from other stages.
+							   input logic isJAL,clk,freeze,globalReset,//other stages
 							   output logic redirect,
 								output logic[WIDTH:0] predictedPCF,instr,instrPC,//read from I-mem
 								output logic[INDEX:0] GHRIndex, //from predictor
@@ -14,22 +11,27 @@ module instrFetchUnit #(parameter WIDTH = 31, INDEX = 7, B_WIDTH = 7)
 								//Account for all signals
 								logic[WIDTH:0] nextPC,intermediatePC;
 								logic direct; //Did we steer instruction fetch according to prediction made by branch predictor.
-								PCSelectLogic pcSelect(.*,.redirect(direct),.targetAddress(target));
+								PCSelectLogic pcSelect(.*,.redirect(direct),.targetAddress(outputBus.targetAddress),
+								                        .mispredict(outputBus.controlFlow[6]),.misdirect(outputBus.controlFlow[5]),
+																.reset(outputBus.controlFlow[0]),.oldPC(outputBus.oldPC));
 								
 								//BTB relevant signals
 							   logic validHit;
 								logic[WIDTH:0] predictedPC; //PredictedPC from the Branch Target Buffer forwarded to PC select
-								BTB branchTargetBuffer(.*,.resolvedTarget(target),.PC(nextPC),.validRead(validHit),
-															  .targetAddress(predictedPC),.oldPC(oldPC[B_WIDTH:0]));
+								BTB branchTargetBuffer(.*,.resolvedTarget(outputBus.targetAddress),.PC(nextPC),.validRead(validHit),
+															  .targetAddress(predictedPC),.oldPC(outputBus.oldPC[B_WIDTH:0]),
+															  .writeBTB(outputBus.controlFlow[2]),.takenBranch(outputBus.controlFlow[1]));
 															  
 								//Branch predictor(gshare and branchIndex)
 								logic[INDEX:0] index;
 								logic[1:0] state;
-								gshare predictor(.*,.predictorWrite(branch),.previousIndex(updateIndex));
+								gshare predictor(.*,.predictorWrite(outputBus.controlFlow[7]),.previousIndex(outputBus.previousIndex)
+								                 ,.newState(outputBus.controlFlow[4:3]));
 								
 								//For a while we have instability on intermediatePC
 								
-								branchIndex indexGen(.*,.PC(intermediatePC),.wasTaken(takenBranch));
+								branchIndex indexGen(.*,.PC(nextPC),.wasTaken(outputBus.controlFlow[1]),.branch(outputBus.controlFlow[7])
+								                      ,.reset(outputBus.controlFlow[0]));
 								
 								//Valid prediction on BTB
 								logic predictorHit;
@@ -40,15 +42,23 @@ module instrFetchUnit #(parameter WIDTH = 31, INDEX = 7, B_WIDTH = 7)
 								imem IMem(.*,.instr(instruction),.rAddress(nextPC));
 								
 								
+								//Has a register to pass to the next stage
+								
 								always_ff @(posedge clk) begin
-									predictedPCF <= predictedPC;
-									GHRIndex <= index;
-									PHTState <= state;
-									instr <= instruction;
-									redirect <= direct;
-									instrPC <= nextPC;
+									if(globalReset) begin
+										instr <= '0;
+										instrPC <=  '0;
+									end
+									else if(!freeze) begin
+										predictedPCF <= predictedPC;
+										GHRIndex <= index;
+										PHTState <= state;
+										instr <= instruction;
+										redirect <= direct;
+										instrPC <= nextPC;
+									end
 								end
-									
+										
 								
 															  
 endmodule

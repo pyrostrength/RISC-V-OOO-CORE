@@ -45,9 +45,9 @@
 
 module branchALU #(parameter WIDTH = 31, C_WIDTH = 7)
 						(input logic signed[WIDTH:0] src1,src2,
-						 input logic[WIDTH:0] predictedPC,PC,immExt,
+						 input logic[WIDTH:0] predictedPC,targetAddress,branchResult,
 						 input logic [C_WIDTH:0] branchControl,
-						 output logic [WIDTH:0] correctAddress,branchResult,
+						 output logic [WIDTH:0] correctAddress,branchResultE,
 						 output logic[1:0] nextState,
 						 output logic mispredict,misdirect,reset,takenBranch, 
 						 output logic writeBTB,request); 
@@ -61,10 +61,9 @@ module branchALU #(parameter WIDTH = 31, C_WIDTH = 7)
 							{writeBTB,takenBranch,misdirect,mispredict,request,reset} = 1'b0;
 							nextState = branchControl[2:1]; //Next state equals current state
 							tempAddress = src1 + src2;
-							branchResult = PC + 32'd1;
 							unique case(branchControl[7:6]) //{isJAL,isJALR}
 								2'b00: begin //Branch instructions
-									correctAddress = PC + immExt;
+									correctAddress = targetAddress;
 									request = 1'b1;
 									unique case(branchControl[5:3])
 										3'b000: begin//BEQ
@@ -133,6 +132,8 @@ module branchALU #(parameter WIDTH = 31, C_WIDTH = 7)
 										2'b00: nextState = (takenBranch == '1) ? 2'b01 : 2'b00; //SNTAKEN
 							endcase
 						end
+						
+						assign branchResultE = branchResult;
 
 endmodule
 

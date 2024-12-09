@@ -34,6 +34,15 @@ no requests made by functional units ( functional units were empty ).
 This default behavior does nothing of consequence as valid broadcast is
 0.
 
+CDB arbiter also determines whether a functional unit is
+available. If no request had been made to CDB arbiter within
+the clock cycle then functional unit is available.If a request
+had been made but functional unit wasn't granted permission
+to write to CDB then functional unit is unavailable.
+
+If request was made and permission granted to write CDB then
+respective functional unit is available.
+
 */							
 								
 module CDBArbiter  #(parameter WIDTH = 31, ROB = 2,CONTROL = 6) //control changed to 6 to account for reset signal. we place reset in L.S.Bit.
@@ -41,15 +50,16 @@ module CDBArbiter  #(parameter WIDTH = 31, ROB = 2,CONTROL = 6) //control change
 							input logic[CONTROL:0] controlPC,
 							input logic[ROB:0] ALURob,branchRob,
 							input logic[WIDTH:0] ALUResult,branchResult,fetchAddress,
-							input logic ALURequest,branchRequest,clk);
+							input logic ALURequest,branchRequest,clk,
+							output logic aluAvailable,branchAvailable);
 							
 								//Bus arbitration functionality
 								
 								logic nxtPointer,pointer; //Instead of in-line initialization assign a variables value through another
 								
-								logic[1:0] grant;
-								
 								logic[WIDTH:0] value;
+								
+								logic[1:0] grant;
 								
 								logic[ROB:0] rob;
 								//Variable declaration assignment needs to have a constant expression
@@ -102,6 +112,11 @@ module CDBArbiter  #(parameter WIDTH = 31, ROB = 2,CONTROL = 6) //control change
 										2'b01: nxtPointer = 1'b1; //Grant priority to ALU.
 										default:nxtPointer = 1'b0;
 									endcase
+								end
+								
+								always_comb begin
+									aluAvailable = (grant == 2'b01) ? 1'b1 : !ALURequest;
+									branchAvailable = (grant == 2'b10) ? 1'b1 : !branchRequest;
 								end
 										
 								//We only pass a result out if and only if we received sth from functional units.

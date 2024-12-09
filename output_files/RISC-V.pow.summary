@@ -1,0 +1,12 @@
+Power Analyzer Status : Successful - Sun Dec  8 22:58:37 2024
+Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Revision Name : RISC-V
+Top-level Entity Name : RISCV
+Family : Cyclone V
+Device : 5CGXFC9A6U19A7
+Power Models : Final
+Total Thermal Power Dissipation : 588.30 mW
+Core Dynamic Thermal Power Dissipation : 38.22 mW
+Core Static Thermal Power Dissipation : 524.53 mW
+I/O Thermal Power Dissipation : 25.54 mW
+Power Estimation Confidence : Low: user provided insufficient toggle rate data

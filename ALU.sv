@@ -26,28 +26,48 @@ module ALU #(parameter WIDTH = 31,C_WIDTH = 3)
 				 */
 				 always_comb begin
 					result = 32'd0;
-					ALURequest = 1'b1;
+					ALURequest = 1'b0; //Default value of zero for ALURequest
 					case(ALUControl)
-						4'b0000: 
-							result = src1 + src2;	//add
-						4'b0001:
+						4'b0000: begin
+							result = src1 + src2; //add
+							ALURequest = 1'b1;
+						end
+						4'b0001: begin
 							result = src1 & src2; //bit-wise and
-						4'b0010: 
+							ALURequest = 1'b1;
+						end
+						4'b0010: begin
 							result = src1 | src2; //bit-wise or	
-						4'b0011:
+							ALURequest = 1'b1;
+						end
+						4'b0011: begin
 							result = src1 ^ src2; //bit-wise xor
-						4'b0100:
+							ALURequest = 1'b1;
+						end
+						4'b0100: begin
 							result = src1 < src2; // set-less than 
-						4'b0101:
+							ALURequest = 1'b1;
+						end
+						4'b0101: begin
 							result = unsigned' (src1) < unsigned' (src2); // set-less than unsigned
-						4'b0110: 
+							ALURequest = 1'b1;
+						end
+						4'b0110: begin
 							result = src1 << src2[4:0]; // shift left logical
-						4'b0111: 
+							ALURequest = 1'b1;
+						end
+						4'b0111: begin
 							result = src1 >> src2[4:0]; // shift right logical
-						4'b1000: 
+							ALURequest = 1'b1;
+						end
+						4'b1000: begin
 							result = src1 - src2; // subtraction
-						4'b1001: 
-							result = src1 >>> src2[4:0]; // shift right arithmetic. 
+							ALURequest = 1'b1;
+						end
+						4'b1001: begin
+							result = src1 >>> src2[4:0]; // shift right arithmetic.
+							ALURequest = 1'b1;
+						end
 						default: begin
 							result = 32'd0;
 							ALURequest = 1'b0;

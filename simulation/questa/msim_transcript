@@ -23,222 +23,124 @@
 # Copying /home/voidknight/Downloads/Quartus/23.1std/questa_fse/linux_x86_64/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/RSArbiter.sv}
+# vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/CDBArbiter.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 15:46:39 on Dec 02,2024
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/RSArbiter.sv 
-# -- Compiling module RSArbiter
+# Start time: 23:23:20 on Dec 03,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/CDBArbiter.sv 
+# -- Compiling interface commonDataBus
+# -- Compiling module CDBArbiter
 # 
 # Top level modules:
-# 	RSArbiter
-# End time: 15:46:39 on Dec 02,2024, Elapsed time: 0:00:00
+# 	CDBArbiter
+# End time: 23:23:20 on Dec 03,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# 
-# vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/regfileTest.sv}
+# vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/ALURStationEntry.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 15:46:39 on Dec 02,2024
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/regfileTest.sv 
-# -- Compiling module regfileTest
+# Start time: 23:23:20 on Dec 03,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/ALURStationEntry.sv 
+# -- Compiling module ALURStationEntry
+# ** Error (suppressible): /home/voidknight/Downloads/CPU_Q/ALURStationEntry.sv(51): (vlog-2388) 'src2Rob' already declared in this scope (ALURStationEntry) at /home/voidknight/Downloads/CPU_Q/ALURStationEntry.sv(36).
+# End time: 23:23:20 on Dec 03,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /home/voidknight/Downloads/Quartus/23.1std/questa_fse/linux_x86_64/vlog failed.
+# Error in macro ./RISC-V_run_msim_rtl_verilog.do line 9
+# /home/voidknight/Downloads/Quartus/23.1std/questa_fse/linux_x86_64/vlog failed.
+#     while executing
+# "vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/ALURStationEntry.sv}"
 # 
-# Top level modules:
-# 	regfileTest
-# End time: 15:46:39 on Dec 02,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# 
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  regfileTest
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" regfileTest 
-# Start time: 15:46:40 on Dec 02,2024
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
-# ** Error: /home/voidknight/Downloads/CPU_Q/regfileTest.sv(28): Module 'register_file' is not defined.
-#  For instance 'regFile' at path 'regfileTest'
-# Optimization failed
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=1.
-# Error loading design
-# Error: Error loading design
-#        Pausing macro execution
-# MACRO ./RISC-V_run_msim_rtl_verilog.do PAUSED at line 12
+# stdin: <EOF>
+# Load canceled
 cd /home/voidknight/Downloads/CPU_Q
 # reading modelsim.ini
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/RSTest.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 15:47:09 on Dec 02,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/RSTest.sv 
-# -- Compiling module RSTest
-# 
-# Top level modules:
-# 	RSTest
-# End time: 15:47:09 on Dec 02,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vsim -t 100ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=\"+acc\" work.RSTest
-# vsim -t 100ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" work.RSTest 
-# Start time: 15:46:40 on Dec 02,2024
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=2.
+vsim -i -l msim_transcript work.CDBArbiterTest -t 100ps
+# vsim -i -l msim_transcript work.CDBArbiterTest -t 100ps 
+# Start time: 23:24:13 on Dec 03,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt2
 # Loading sv_std.std
-# Loading work.RSTest(fast)
-# Loading work.commonDataBus(fast__1)
-# Loading work.ALURS(fast)
-# Loading work.ALURStationEntry(fast)
-# Loading work.ALUSelect(fast)
-# Loading work.srcMux(fast)
-# Loading work.srcMux(fast__1)
-# Loading work.srcMux(fast__2)
+# Loading work.CDBArbiterTest(fast)
 run -all
 # ** Error: Assertion error.
-#    Time: 13 ns  Scope: RSTest File: /home/voidknight/Downloads/CPU_Q/RSTest.sv Line: 34
+#    Time: 8 ns  Scope: CDBArbiterTest File: /home/voidknight/Downloads/CPU_Q/CDBArbiterTest.sv Line: 29
 # ** Error: Assertion error.
-#    Time: 13 ns  Scope: RSTest File: /home/voidknight/Downloads/CPU_Q/RSTest.sv Line: 36
-#           x
-#           x
-restart -f
+#    Time: 8 ns  Scope: CDBArbiterTest File: /home/voidknight/Downloads/CPU_Q/CDBArbiterTest.sv Line: 30
+vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/CDBArbiterTest.sv
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 23:24:50 on Dec 03,2024
+# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/CDBArbiterTest.sv 
+# -- Compiling module CDBArbiterTest
+# 
+# Top level modules:
+# 	CDBArbiterTest
+# End time: 23:24:50 on Dec 03,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/CDBArbiter.sv
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 23:24:52 on Dec 03,2024
+# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/CDBArbiter.sv 
+# -- Compiling interface commonDataBus
+# -- Compiling module CDBArbiter
+# 
+# Top level modules:
+# 	CDBArbiter
+# End time: 23:24:52 on Dec 03,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Optimization canceled
+vsim -i -l msim_transcript -t 100ps work.CDBArbiterTest
+# End time: 23:25:11 on Dec 03,2024, Elapsed time: 0:00:58
+# Errors: 2, Warnings: 0
+# vsim -i -l msim_transcript -t 100ps work.CDBArbiterTest 
+# Start time: 23:25:11 on Dec 03,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt2
+# Loading sv_std.std
+# Loading work.CDBArbiterTest(fast)
+vsim -i -l msim_transcript -t 100ps work.CDBArbiterTest -novopt
+# End time: 23:26:54 on Dec 03,2024, Elapsed time: 0:01:43
+# Errors: 0, Warnings: 0
+# vsim -i -l msim_transcript -t 100ps work.CDBArbiterTest -novopt 
+# Start time: 23:26:54 on Dec 03,2024
+# ** Error (suppressible): (vsim-12110) All optimizations are disabled because the -novopt option is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features, please see the User's Manual section on Preserving Object Visibility with vopt. -novopt option is now deprecated and will be removed in future releases.
+# Error loading design
+# End time: 23:26:54 on Dec 03,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vsim -i -l msim_transcript -t 100ps -vopt work.CDBArbiterTest -voptargs=+acc
+# vsim -i -l msim_transcript -t 100ps -vopt work.CDBArbiterTest -voptargs="+acc" 
+# Start time: 23:28:05 on Dec 03,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.CDBArbiterTest(fast)
+# Loading work.commonDataBus(fast__1)
+# Loading work.CDBArbiter(fast)
+add wave sim:/CDBArbiterTest/*
+run
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/voidknight/Downloads/CPU_Q/wave.do
+run
+run
+run
+run
+run
+run
+run
+# ** Error: Assertion error.
+#    Time: 8 ns  Scope: CDBArbiterTest File: /home/voidknight/Downloads/CPU_Q/CDBArbiterTest.sv Line: 29
+# ** Error: Assertion error.
+#    Time: 8 ns  Scope: CDBArbiterTest File: /home/voidknight/Downloads/CPU_Q/CDBArbiterTest.sv Line: 30
+run
+run
+run
+view -new wave
+# .main_pane.wave1.interior.cs.body.pw.wf
+add wave -position insertpoint  \
+sim:/CDBArbiterTest/ALUResult
+add wave -r /*
+restart
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
 # ** Note: (vsim-8009) Loading existing optimized design _opt1
 # ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
-# Loading work.RSTest(fast)
+# Loading work.CDBArbiterTest(fast)
 # Loading work.commonDataBus(fast__1)
-# Loading work.ALURS(fast)
-# Loading work.ALURStationEntry(fast)
-# Loading work.ALUSelect(fast)
-# Loading work.srcMux(fast)
-# Loading work.srcMux(fast__1)
-# Loading work.srcMux(fast__2)
-add wave sim:/RSTest/*
-run
-run
-run
-run
-run
-run
-run
-run
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/RSTest.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 15:59:30 on Dec 02,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/RSTest.sv 
-# -- Compiling module RSTest
-# ** Error: /home/voidknight/Downloads/CPU_Q/RSTest.sv(31): (vlog-2730) Undefined variable: 'writeRequests'.
-# End time: 15:59:30 on Dec 02,2024, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/RSTest.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 15:59:54 on Dec 02,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/RSTest.sv 
-# -- Compiling module RSTest
-# 
-# Top level modules:
-# 	RSTest
-# End time: 15:59:54 on Dec 02,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vsim -t 100ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=\"+acc\" work.RSTest
-# End time: 16:00:16 on Dec 02,2024, Elapsed time: 0:13:36
+# Loading work.CDBArbiter(fast)
+add wave -r /*
+# End time: 23:33:50 on Dec 03,2024, Elapsed time: 0:05:45
 # Errors: 0, Warnings: 1
-# vsim -t 100ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" work.RSTest 
-# Start time: 16:00:16 on Dec 02,2024
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
-# ** Error (suppressible): /home/voidknight/Downloads/CPU_Q/RSTest.sv(14): (vopt-2247) The implicit port connection (.*) did not find a matching port, net, variable or interface instance for port 'selected'.
-# ** Error (suppressible): /home/voidknight/Downloads/CPU_Q/RSTest.sv(14): (vopt-2247) The implicit port connection (.*) did not find a matching port, net, variable or interface instance for port 'selectReq'.
-# Optimization failed
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=2, Warnings=1.
-# Error loading design
-# Error: Error loading design
-#        Pausing macro execution
-# MACRO ./RISC-V_run_msim_rtl_verilog.do PAUSED at line 12
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/RSTest.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:01:09 on Dec 02,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/RSTest.sv 
-# -- Compiling module RSTest
-# 
-# Top level modules:
-# 	RSTest
-# End time: 16:01:10 on Dec 02,2024, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-vsim -t 100ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=\"+acc\" work.RSTest
-# vsim -t 100ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" work.RSTest 
-# Start time: 16:00:16 on Dec 02,2024
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=2, Warnings=2.
-# Loading sv_std.std
-# Loading work.RSTest(fast)
-# Loading work.commonDataBus(fast__1)
-# Loading work.ALURStationEntry(fast)
-run -all
-#           3
-#           7
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/RSTest.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:09:24 on Dec 02,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/RSTest.sv 
-# -- Compiling module RSTest
-# 
-# Top level modules:
-# 	RSTest
-# End time: 16:09:24 on Dec 02,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-restart -f
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
-# Loading sv_std.std
-# Loading work.RSTest(fast)
-# Loading work.commonDataBus(fast__1)
-# Loading work.ALURStationEntry(fast)
-run -all
-#           3
-#           7
-# ** Error: Assertion error.
-#    Time: 18 ns  Scope: RSTest File: /home/voidknight/Downloads/CPU_Q/RSTest.sv Line: 44
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/RSTest.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:12:25 on Dec 02,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/RSTest.sv 
-# -- Compiling module RSTest
-# 
-# Top level modules:
-# 	RSTest
-# End time: 16:12:25 on Dec 02,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-restart -f
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
-# Loading sv_std.std
-# Loading work.RSTest(fast)
-# Loading work.commonDataBus(fast__1)
-# Loading work.ALURStationEntry(fast)
-run -all
-#           3
-#           7
-# Load canceled
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/RSTest.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:33 on Dec 02,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/RSTest.sv 
-# -- Compiling module RSTest
-# 
-# Top level modules:
-# 	RSTest
-# End time: 16:20:33 on Dec 02,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-restart -f
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
-# Loading sv_std.std
-# Loading work.RSTest(fast)
-# Loading work.commonDataBus(fast__1)
-# Loading work.ALURStationEntry(fast)
-run -all
-#           3
-#           7
-# ** Error: Assertion error.
-#    Time: 23 ns  Scope: RSTest File: /home/voidknight/Downloads/CPU_Q/RSTest.sv Line: 54
-# ** Error: Assertion error.
-#    Time: 23 ns  Scope: RSTest File: /home/voidknight/Downloads/CPU_Q/RSTest.sv Line: 55

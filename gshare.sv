@@ -44,23 +44,24 @@ module gshare #(parameter I_WIDTH = 7) //Width of the indexing field.
 						//Pattern history table
 						logic[1:0] patternTable[0:255];
 						
-						/*Pattern history table is read asynchronously
-						  using index obtained from branchIndex module.
-						  Small size allows for MLAB implementation.
-						 */
-						/*always_comb begin
-							state = patternTable[index];
-						end */
-						
+				
+				
 						/*Update state associated with a particular index.
-						  on positive clock edge provided predictorWrite
-						  is asserted */
-						always_ff @(posedge clk) begin
+						  on negative clock edge provided predictorWrite
+						  is asserted;signal is transferred through ROB outputBus. */
+						always_ff @(negedge clk) begin
 							if(predictorWrite) begin
 								patternTable[previousIndex] <= newState;
 							end
+							/*Pattern history table is read synchronously
+						  using index obtained from branchIndex module.
+						  Index obtained by xoring current instruction PC
+						  with global history of conditional and unconditional
+						  control flow instructions*/
 							state <= patternTable[index];
 						end
+						
+
 						
 endmodule
 								

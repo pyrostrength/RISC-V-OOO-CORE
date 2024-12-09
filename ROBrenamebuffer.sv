@@ -63,6 +63,13 @@ module ROBrenamebuffer #(parameter ROB = 2, WIDTH = 31)
 								logic[WIDTH:0] valuebuffer1[7:0]; // Indexed by ROB entry,data value indicates result availability
 								logic[WIDTH:0] valuebuffer2[7:0];
 								
+								initial begin
+									$readmemb("valueInit.txt",valuebuffer1);
+									$readmemb("valueInit.txt",valuebuffer2);
+									$readmemb("readyInit.txt",readybuffer);
+								end
+								
+								
 								logic[WIDTH:0] value1,value2;
 								logic ready1,ready2;
 								
@@ -76,14 +83,14 @@ module ROBrenamebuffer #(parameter ROB = 2, WIDTH = 31)
 									if(wcommit) begin
 										readybuffer[ROBcommit] <= 1'b0;
 									end
-								end
 									
-								always_ff @(posedge clk) begin
+								/*Values will be setup by negative edge of clock*/
 									value1 <= valuebuffer1[rob1];
 									value2 <= valuebuffer2[rob2];
 									ready1 <= readybuffer[rob1];
 									ready2 <= readybuffer[rob2];
 								end
+								
 								
 								
 								always_comb begin

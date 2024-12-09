@@ -1,4 +1,7 @@
 /*
+
+VERIFIED
+
 Reservation station entry for the ALU.
 
 consists of instruction info
@@ -16,17 +19,8 @@ for every single entry.
 
 Reservation station entries depend on functional unit.
 
+
 */
-
-//We got a couple of issues bro!
-
-//Removing the busy signal from ALURSstation entry
-//If execute and selected then we can change busy to nil in next clock cycle.
-//When do we free RSstation entry?
-//On write result stage?
-
-//We introduce a new signal called busyI. When busyI
-//ordinary equals busyF
 
 module ALURStationEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3)
 									(commonDataBus.reservation_station dataBus, //shouldn't have the arbiter view
@@ -42,19 +36,19 @@ module ALURStationEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3)
 									 
 									 logic value1Ready,value2Ready,valRdy1,valRdy2; //Had we already received the necessary value
 									 
+									 logic signed[WIDTH:0] val1,val2;
+									 
 									 logic match1,match2; //Match on write result stage then assert 
 									 //ready select signals.
 									 
 									 /*We must indicate the validity of a ROB dependence of an instruction.
 									 Done using value ready signal and RS entry busy signal*/
 									 
-									 logic cdbValid;
-									 
-									 logic[ROB:0] src1Rob,src2Rob,cdbEntry;
-									 
-									 logic[WIDTH:0] renameVal1,renameVal2,cdbValue;
+									 logic[ROB:0] src1Rob,src2Rob;
 									 
 									 logic busyI; //Signal to change busyness of entry if selected and we can execute;
+									 
+									 logic selectReq1,selectReq2;
 									 
 									 /*Combinational logic for comparing instruction write result
 									   ROB entry with source operands ROB entries.
@@ -63,16 +57,21 @@ module ALURStationEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3)
 									 always_comb begin
 										match1 =  (dataBus.robEntry == src1Rob) & !value1Ready & busy & dataBus.validBroadcast; //Match only possible if value wasn't ready
 										match2 = (dataBus.robEntry == src2Rob) & !value2Ready & busy & dataBus.validBroadcast; 
-										selectReq = (value1Ready|ready1) & (value2Ready|ready2); 
+										selectReq1 = (value1Ready|ready1|match1);
+										selectReq2 = (value2Ready|ready2|match2);
+										selectReq = selectReq1 & selectReq2;
 										/*When both operands ready, we can request the selection logic.
 										Oring the ready inputs and value1Ready signals allows for 
 										an instruction to be both written to RS and selected in the same 
 										stage
 										*/
 										busyI = (selected & execute) ? 1'b0 : busy;
-										/*Functionality to write instruction to reservation station entry
-										and capture broadcast on CDB all in the same cycle*/
-										src1 = (match1)  
+										
+										//Source values either value broadcast on CDB or value stored in RS.
+										src1 = (match1) ? dataBus.result : val1;
+										
+										src2 = (match2) ? dataBus.result : val2;
+										
 										
 									 end
 									 
@@ -88,12 +87,12 @@ module ALURStationEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3)
 										end
 									 /*If a request to write to the RS has been made*/
 										else if(writeReq) begin
-											valRdy1 <= ready1;
-											valRdy2 <= ready2;
+											value1Ready <= ready1;
+											value2Ready <= ready2;
 											instrRob <= robInstr;
 											instrInfo <= ALUControl;
-											renameVal1 <= value1;
-											renameVal2 <= value2;
+											val1 <= value1;
+											val2 <= value2;
 											src1Rob <= rob1;
 											src2Rob <= rob2;
 											busy <= 1'b1;
@@ -106,13 +105,18 @@ module ALURStationEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3)
 										/*If match for tag associated with operand we
 										store value and indicate operand readiness*/ 
 										if(match1) begin
+											val1 <= dataBus.result; 
 											value1Ready <= 1'b1;
 										end
 										
+										/*If match for tag associated with operand we
+										store value and indicate operand readiness*/ 
 										if(match2) begin
+											val2 <= dataBus.result;
 											value2Ready <= 1'b1;
 										end
 									end
+									
 									 
 									
 endmodule

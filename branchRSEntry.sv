@@ -25,12 +25,12 @@ module branchRSEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 7)
 									(commonDataBus.reservation_station dataBus, //shouldn't have the arbiter view
 									 input logic ready1,ready2,clear,writeReq,clk,selected,execute,
 									 input logic signed[WIDTH:0] value1,value2,
-									 input logic[WIDTH:0] predictedPC,address,//Need predictedPC if any to determine if we misdirected.
+									 input logic[WIDTH:0] predictedPC,address,seqPC,//Need predictedPC if any to determine if we misdirected.
 									 input logic [C_WIDTH:0] branchControl,
 									 input logic[ROB:0] rob1,rob2,robInstr,
 									 output logic[ROB:0] instrRob,
 									 output logic[C_WIDTH:0] instrInfo,
-									 output logic[WIDTH:0] predictedAddress,targetAddress,
+									 output logic[WIDTH:0] predictedAddress,targetAddress,branchResult,
 									 output logic busy,selectReq,
 									 output logic signed[WIDTH:0] src1,src2); //Leave them as outputs to our RS entry
 									 
@@ -41,6 +41,8 @@ module branchRSEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 7)
 									 
 									 /*We must indicate the validity of a ROB dependence of an instruction.
 									 Done using value ready signal and RS entry busy signal*/
+									 
+									 logic signed[WIDTH:0] val1,val2;
 									 
 									 logic[ROB:0] src1Rob,src2Rob;
 									 
@@ -54,13 +56,16 @@ module branchRSEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 7)
 									 always_comb begin
 										match1 =  (dataBus.robEntry == src1Rob) & !value1Ready & busy & dataBus.validBroadcast; //Match only possible if value wasn't ready
 										match2 = (dataBus.robEntry == src2Rob) & !value2Ready & busy & dataBus.validBroadcast; 
-										selectReq = (value1Ready|ready1) & (value2Ready|ready2); 
+										selectReq = (value1Ready|ready1|match1) & (value2Ready|ready2|match2); 
 										/*When both operands ready, we can request the selection logic.
 										Oring the ready inputs and value1Ready signals allows for 
 										an instruction to be both written to RS and selected in the same 
 										stage
 										*/
 										busyI = (selected & execute) ? 1'b0 : busy;
+										
+										src1 = (match1) ? dataBus.result : val1;
+										src2 = (match2) ? dataBus.result : val2;
 									 end
 									 
 										
@@ -72,6 +77,7 @@ module branchRSEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 7)
 											{value1Ready,value2Ready,busy} <= '0;
 											{instrInfo} <= '0;
 											{instrRob} <= '0;
+											{branchResult} <= '0;
 										end
 									 /*If a request to write to the RS has been made*/
 										else if(writeReq) begin
@@ -79,13 +85,14 @@ module branchRSEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 7)
 											value2Ready <= ready2;
 											instrRob <= robInstr;
 											instrInfo <= branchControl;
-											src1 <= value1;
-											src2 <= value2;
+											val1 <= value1;
+											val2 <= value2;
 											src1Rob <= rob1;
 											src2Rob <= rob2;
 											busy <= 1'b1;
 											predictedAddress <= predictedPC;
 											targetAddress <= address;
+											branchResult <= seqPC;
 										end
 										
 										else begin
@@ -95,14 +102,16 @@ module branchRSEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 7)
 										/*If match for tag associated with operand we
 										store value and indicate operand readiness*/ 
 										if(match1) begin
-											src1 <= dataBus.result;
+											val1 <= dataBus.result;
 											value1Ready <= 1'b1;
 										end
 										
 										if(match2) begin
-											src2 <= dataBus.result;
+											val2 <= dataBus.result;
 											value2Ready <= 1'b1;
 										end
+										
+										
 									end
 									 
 									

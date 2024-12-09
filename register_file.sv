@@ -37,13 +37,15 @@ module register_file #(parameter D_WIDTH = 31, A_WIDTH = 4)
 							 input logic[D_WIDTH:0] wdata,
 							 output logic[D_WIDTH:0] regValue1,regValue2);
 							 
-							 logic[D_WIDTH:0] regFile[0:D_WIDTH];
+							 logic[D_WIDTH:0] regFile[D_WIDTH:0];
 							 
 							 initial begin
 								  $readmemb("regFileInit.txt",regFile);
 							 end
 							 
-							 always @(posedge clk) begin
+							 /*Values from ROB are passed out on positive edge so
+							 we write on negative edge of the clock*/
+							 always @(negedge clk) begin
 								if(regWrite) begin
 									regFile[wraddress] <= wdata;
 								end

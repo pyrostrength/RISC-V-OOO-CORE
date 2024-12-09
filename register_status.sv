@@ -147,24 +147,26 @@ module register_status #(parameter REG = 4, DEPTH = 31, ROB = 2, WIDTH = 31)
 									rob2 = ((rs2 == destRegR) & we) ? destROB : interRob2;
 								end
 									
-								/* Sequential write on positive clock edge*/
-								always @(posedge clk) begin
+								/* Sequential write on negative clock edge*/
+								always @(negedge clk) begin
 									if(we) begin
 											src1ROB[destRegR] <= destROB;
 											src2ROB[destRegR] <= destROB;
 											dependencyBuffer[destRegR] <= {we,destROB};
 									end
-									
-									if(reset) begin
-										busyVectorF <= statusRestore;
-									end
-									
-									else begin
-										busyVectorF <= busyVectorI;
-									end
 									interDep <= dependencyBuffer[regCommit];
 									interRob1 <= src1ROB[rs1];
 									interRob2 <= src2ROB[rs2];
-								end			
+								end
+					
+							always_ff @(posedge clk) begin
+								if(reset) begin
+									busyVectorF <= statusRestore;
+								end
+								
+								else begin
+									busyVectorF <= busyVectorI;
+								end
+							end
 																
 endmodule

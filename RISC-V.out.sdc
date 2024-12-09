@@ -39,7 +39,7 @@ set_time_format -unit ns -decimal_places 3
 # Create Clock
 #**************************************************************
 
-create_clock -name {clk} -period 5.000 -waveform { 0.000 2.500 } [get_ports {clk}]
+create_clock -name {clk} -period 12.500 -waveform { 0.000 6.250 } [get_ports {clk}]
 
 create_clock -name virt_clk -period 5.000 -waveform { 0.000 2.500 }
 
@@ -72,7 +72,7 @@ create_clock -name virt_clk -period 5.000 -waveform { 0.000 2.500 }
 # Set Output Delay
 #**************************************************************
 
-set_output_delay -max 1 -clock_fall -clock virt_clk [get_ports {result[30]} ]
+#set_output_delay -max 1 -clock_fall -clock virt_clk [get_ports {result[30]} ]
 
 #**************************************************************
 # Set Clock Groups

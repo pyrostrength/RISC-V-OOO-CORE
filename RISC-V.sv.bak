@@ -1,0 +1,70 @@
+/*
+Out of order CPU implementing a subset of the RISC_V architecture
+(control instruction,integer computational instructions and 
+U-type instructions).
+
+Features a gshare branch predictor, uses implicit renaming via
+reorder Buffer, single cycle write to reservation station and
+wakeup and select.
+
+To be added in future :
+Full support for load/store instructions with out of order load-store
+execution,caching etc.
+TAGE branch predictor.
+Pipelined Dadda multiplier and non-restoring division unit.
+
+Target clock speed of 150 MHz.
+
+*/
+
+
+
+
+module CPU #(parameter WIDTH = 31)
+            (input CPUReset,
+				 output logic[WIDTH:0] result);
+				 
+				 //instrFetchUnit signals
+				 logic[WIDTH:0] validAddress,target,oldPC;//valid address,target,seqPC come from other stages.
+				 logic mispredict,misdirect,isJAL,clk,freeze; //other stages
+				 logic writeBTB,isControl,takenBranch,branch;
+				 logic reset;
+				 logic[INDEX:0] updateIndex;
+				 logic[1:0] newState;
+				 logic redirect;
+				 logic[WIDTH:0] predictedPCF,instr,instrPC;//read from I-mem
+				 logic[INDEX:0] GHRIndex; //from predictor
+				 logic[1:0] PHTState;
+				
+				instrFetchUnit fetchStage(.*); //Basic .* shortcut for our solution.
+				
+				logic clk,we,
+				writeCommit.instr_decode robBus,
+				logic fullRob,
+				logic[WIDTH:0] instruction,instrPC,
+				logic[REG:0] destRegR,
+				logic[ROB:0] destROB,commitROB, // ROB entry that writes to a destination register.
+				logic[ROB:0] rob1,rob2,
+				logic[WIDTH:0] regStatusSnap,operand1,operand2,
+				logic[A_WIDTH:0] ALUControl,
+				logic[WIDTH:0] immExt,pc,
+				logic[RS:0] RSstation,
+				logic memWrite,branch,isJAL,useImm,regWrite,
+				logic isJALR,isLUI,isAUIPC,stationRequest,
+				logic[REG:0] destRegW, //We write ROB dependence on second stage when we're sure that we occupy a register so loop back the output.
+				logic busy1,busy2
+				
+				instrDecode decodeStage(.*); 
+				
+				assign destRegR = destRegW;
+				//renameStage instrRenameStage (.*);
+				
+				
+				
+				//ALURS (.*);
+				//branchRS (.*);
+				//functionalUnit executeStage (.*);
+				
+endmodule
+				
+				
