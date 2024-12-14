@@ -23,7 +23,7 @@ predictedPC is useful for determining jump predictions.
 
 module branchRSEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 7)
 									(commonDataBus.reservation_station dataBus, //shouldn't have the arbiter view
-									 input logic ready1,ready2,clear,writeReq,clk,selected,execute,
+									 input logic ready1,ready2,clear,writeReq,clk,selected,execute,globalReset,
 									 input logic signed[WIDTH:0] value1,value2,
 									 input logic[WIDTH:0] predictedPC,address,seqPC,//Need predictedPC if any to determine if we misdirected.
 									 input logic [C_WIDTH:0] branchControl,
@@ -73,11 +73,11 @@ module branchRSEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 7)
 									 or capturing value on CDB*/
 									 always_ff @(posedge clk) begin
 									 /*If a request to clear the RS has been made*/
-										if(clear) begin
+										if(clear | globalReset) begin
 											{value1Ready,value2Ready,busy} <= '0;
 											{instrInfo} <= '0;
-											{instrRob} <= '0;
-											{branchResult} <= '0;
+											{instrRob,src1Rob,src2Rob} <= '0;
+											{branchResult,val1,val2,predictedAddress,targetAddress} <= '0;
 										end
 									 /*If a request to write to the RS has been made*/
 										else if(writeReq) begin
@@ -101,12 +101,12 @@ module branchRSEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 7)
 										
 										/*If match for tag associated with operand we
 										store value and indicate operand readiness*/ 
-										if(match1) begin
+										if(match1 & (!clear & !globalReset)) begin
 											val1 <= dataBus.result;
 											value1Ready <= 1'b1;
 										end
 										
-										if(match2) begin
+										if(match2 & (!clear & !globalReset)) begin
 											val2 <= dataBus.result;
 											value2Ready <= 1'b1;
 										end

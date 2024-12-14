@@ -47,6 +47,7 @@ respective functional unit is available.
 								
 module CDBArbiter  #(parameter WIDTH = 31, ROB = 2,CONTROL = 6) //control changed to 6 to account for reset signal. we place reset in L.S.Bit.
 						  (commonDataBus.arbiter dataBus,
+						   input logic globalReset,
 							input logic[CONTROL:0] controlPC,
 							input logic[ROB:0] ALURob,branchRob,
 							input logic[WIDTH:0] ALUResult,branchResult,fetchAddress,
@@ -71,18 +72,17 @@ module CDBArbiter  #(parameter WIDTH = 31, ROB = 2,CONTROL = 6) //control change
 								
 								
 								//Pointer points to respective functional unit.
-								//1 for ALU,0 for branch.
+								//01 for ALU,10 for branch.
 								always_comb begin
-									grant = 2'b00;
+									grant = 2'b01;
 									controlFlow = 1'b0;
 									case(pointer)
 										1'b0: begin//ALU request
-											if(ALURequest) grant = 2'b10;
+											if(ALURequest) grant = 2'b01;
 											else if(branchRequest) begin
-												grant = 2'b01;
+												grant = 2'b10;
 												controlFlow = 1'b1;
 											end
-											else grant = 2'b00;
 										end
 										1'b1: begin//Branch request
 											if(branchRequest) begin
@@ -90,7 +90,6 @@ module CDBArbiter  #(parameter WIDTH = 31, ROB = 2,CONTROL = 6) //control change
 												controlFlow = 1'b1;
 											end
 											else if(ALURequest) grant = 2'b01;
-											else grant = 2'b00;
 										end
 									endcase
 									//Assigning to a result
@@ -122,15 +121,24 @@ module CDBArbiter  #(parameter WIDTH = 31, ROB = 2,CONTROL = 6) //control change
 								//We only pass a result out if and only if we received sth from functional units.
 								always_ff @(posedge clk) begin
 								//Pass a result iff and only if we actually received sth from the functional units.
-									if(we) begin
+									if(globalReset) begin
+										pointer <= nxtPointer;
+										dataBus.result <= '0;
+										dataBus.robEntry <= '0; 
+										dataBus.validBroadcast <= '0;
+										dataBus.isControl <= '0;
+										dataBus.pcControl <= '0;
+										dataBus.targetAddress <= '0;
+									end
+									else if(we) begin
 										pointer <= nxtPointer;
 										dataBus.result <= value;
 										dataBus.robEntry <= rob; 
-										dataBus.validBroadcast <= we;
+										dataBus.validBroadcast <= we;//(Value of we to determine if we actually made a request)
 										dataBus.isControl <= controlFlow;
 										dataBus.pcControl <= controlPC;
 									end
-									if(controlFlow) begin
+									if(controlFlow & !globalReset) begin
 										dataBus.targetAddress <= fetchAddress;
 									end	
 								end

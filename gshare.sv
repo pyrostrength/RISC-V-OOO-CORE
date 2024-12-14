@@ -40,6 +40,11 @@ module gshare #(parameter I_WIDTH = 7) //Width of the indexing field.
 					   output logic[1:0] state);
 						
 						
+						/*Default prediction of all conditional branching
+						instructions as weakly taken*/
+						initial begin
+							$readmemb("/home/voidknight/Downloads/CPU_Q/gshareInit.txt",patternTable);
+						end
 						
 						//Pattern history table
 						logic[1:0] patternTable[0:255];

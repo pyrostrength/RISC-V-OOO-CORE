@@ -260,6 +260,134 @@
 					"strict" : false
 				},
 				{
+					"name" : "nextPC[0]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[1]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[2]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[3]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[4]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[5]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[6]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[7]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[8]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[9]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[10]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[11]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[12]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[13]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[14]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[15]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[16]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[17]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[18]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[19]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[20]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[21]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[22]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[23]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[24]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[25]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[26]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[27]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[28]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[29]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[30]",
+					"strict" : false
+				},
+				{
+					"name" : "nextPC[31]",
+					"strict" : false
+				},
+				{
 					"name" : "clk",
 					"strict" : false
 				},

@@ -1,23 +1,17 @@
 /*
-Selection arbiter for specific reservation station
-entry for execution in respective functional unit
-in subsequent cycle. 
+General multiplexer for passing on selected
+instructions info/source operands/robEntry for instruction
+execution.
 
-Parameter constants allows for reconfigurability of the module.
+Parameter constants allows for generalizability of the module
+for any reservation station.
+Simply adjust value of parameter WIDTH and RS
 For control info,adjust the width parameter to match that of 
 control signal.
 
-Used for loops and parameter constants to make
-module highly configurable for implementing
-final stage of instruction selection logic.
-
-Create a subfielded vector for source operands.
-Number of subfields correspond to number of reservation
-station entries. Add it as input to the module*
-
-Provide safeguard for grant high on multiple
-bits by "stopping" loop operation using done
-control signal.
+Input grants acts as our selection signal whilst number
+of subfields in input sourceOperands depends on number
+of reservation station entries(4 for ALU,2 for branch).
 
 */
 

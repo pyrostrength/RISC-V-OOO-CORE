@@ -66,12 +66,14 @@ Perform comparisons on with broadcast on CDB to determine instruction
 readiness.
 
 Must bypass for all instructions : value,target address,control flow info etc
+
+Add global reset signal to pulse out zeroes when global reset is asserted.
 */
 
 module reorderBuffer #(parameter WIDTH = 31, CONTROL = 7, INDEX = 7, ROB = 2)
 							  (commonDataBus.reorder_buffer dataBus,
 							   input logic[ROB:0] rob1,rob2,
-								input logic robWrite,freeze,
+								input logic robWrite,freeze,globalReset,
 							   writeCommit inputBus,
 								writeCommit outputBus,
 								output logic[WIDTH:0] ROBValue1,ROBValue2,
@@ -83,8 +85,8 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 7, INDEX = 7, ROB = 2)
 								
 								//Use initialization procedure
 
-								logic[ROB:0] write_ptr = 3'b0; // write_ptr determines where to push onto buffer.
-								logic[ROB:0] read_ptr = 3'b0;	// read_ptr determines where to pop off from buffer. 
+								logic[ROB:0] write_ptr = 3'b000; // write_ptr determines where to push onto buffer.
+								logic[ROB:0] read_ptr = 3'b000;	// read_ptr determines where to pop off from buffer. 
 								
 								logic[WIDTH:0] valueBuffer[7:0]; // Indexed by ROB entry, data provides result.
 								
@@ -111,14 +113,14 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 7, INDEX = 7, ROB = 2)
 								
 								//Memory initialization for reorder buffers.
 								initial begin
-									$readmemb("valueInit.txt",valueBuffer);
-									$readmemb("valueInit.txt",addressBuffer);
-									$readmemb("readyInit.txt",regStatusBuffer);
-									$readmemb("valueInit.txt",oldPCBuffer);
-									$readmemb("controlInit.txt",updateBuffer);
-									$readmemb("updateInit.txt",controlBuffer);
-									$readmemb("indexInit.txt",previousIndexBuffer);
-									$readmemb("valueInit.txt",destinationBuffer);
+									$readmemb("/home/voidknight/Downloads/CPU_Q/valueInit.txt",valueBuffer);
+									$readmemb("/home/voidknight/Downloads/CPU_Q/valueInit.txt",addressBuffer);
+									$readmemb("/home/voidknight/Downloads/CPU_Q/readyInit.txt",regStatusBuffer);
+									$readmemb("/home/voidknight/Downloads/CPU_Q/valueInit.txt",oldPCBuffer);
+									$readmemb("/home/voidknight/Downloads/CPU_Q/controlInit.txt",updateBuffer);
+									$readmemb("/home/voidknight/Downloads/CPU_Q/updateInit.txt",controlBuffer);
+									$readmemb("/home/voidknight/Downloads/CPU_Q/indexInit.txt",previousIndexBuffer);
+									$readmemb("/home/voidknight/Downloads/CPU_Q/valueInit.txt",destinationBuffer);
 								end
 								
 								logic rdy,bypass,commitRdy;
@@ -174,8 +176,7 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 7, INDEX = 7, ROB = 2)
 										rdy <= readyBuffer[read_ptr];
 										destCommit <= destinationBuffer[read_ptr];
 										
-										/*Write on negative clock edge since values are pushed out
-								of flip-flops at positive clock edge*/
+								/*Write on negative clock edge since inter-stage flip-flops operate positive clock edge*/
 										if(!freeze & robWrite) begin 
 											
 											//Write instruction destination into destination buffer
@@ -187,8 +188,12 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 7, INDEX = 7, ROB = 2)
 											//Clear ready buffer of incorrect information
 											readyBuffer[write_ptr] <= 1'b0;
 											
-											//Increment write_ptr for subsequent writes.
-											write_ptr <= write_ptr + 1'b1;
+											/*Increment write_ptr iff pipeline was never frozen,
+											a request to write the rob had been made and rob isn't
+											full*/
+											if(!full) begin
+												write_ptr <= write_ptr + 3'b001;
+											end
 											
 											//Write sequential PC associated with an instruction to buffer
 											oldPCBuffer[write_ptr] <= inputBus.instrPC;
@@ -221,13 +226,10 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 7, INDEX = 7, ROB = 2)
 										end
 								end
 								
-								//target address,{isControl,pcControl}
 								
-								//Can perform combinational logic for branch prediction unit,
 								always_comb begin
 									//Is buffer full?
-									full = ((write_ptr + 3'd1) == read_ptr);
-									//Determining branch misprediction
+									full = ((write_ptr + 3'b001) == read_ptr);
 								end
 								
 								ROBrenamebuffer renamebuffer(.*,.ROBcommit(commitRob),.wcommit(commitRdy));
@@ -236,13 +238,27 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 7, INDEX = 7, ROB = 2)
 								
 								
 								always_ff @(posedge clk) begin
+								/*Global reset signal sets the CPU into a known state*/
+									if(globalReset) begin
+										outputBus.result <= '0;
+										outputBus.commitInfo <= '0;
+										outputBus.oldPC <= '0;
+										outputBus.statusSnap <= '0;
+										outputBus.previousIndex <= '0;
+										outputBus.controlFlow <= '0;
+										outputBus.targetAddress <= '0;
+										outputBus.validCommit <= '0;
+										outputBus.destCommit <= '0;
+										commitRob <= '0;
+										read_ptr <= '0;
+									end
 								/*Pass new value of the read_ptr. Then we
 								use the new value to read from buffers at negative
 								clock edge. Timing should be met*/
 								   
 								/*Writing to the commit bus if and only if instruction is ready to commit. We
 								also increment read_ptr if and only if instruction was ready to commit.*/
-									if(commitRdy) begin
+									else if(commitRdy) begin
 										outputBus.result <= result;
 										outputBus.commitInfo <= commitInfo;
 										outputBus.oldPC <= oldPC;
@@ -252,9 +268,10 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 7, INDEX = 7, ROB = 2)
 										outputBus.targetAddress <= targetAddress;
 										outputBus.validCommit <= 1'b1;
 										outputBus.destCommit <= destCommit;
-										read_ptr <= read_ptr + 3'd1; //Increment read_ptr
+										read_ptr <= read_ptr + 3'b001; //Increment read_ptr
 										commitRob <= read_ptr; //the rob entry for currently commiting instruction is commitRob, the initial read_ptr.
 									end
+									
 									
 									/* If we received no indication that instruction was ready to commit
 									then its imperative that some signals be rendered inactive as opposed to 
@@ -272,13 +289,7 @@ endmodule
 
 
 /*
-Define a common interface for signals coming into and out of ROB. During write ROB and RS
-stage a snapshot of the register status table,the sequential PC and previousIndex
-used to access PHT and instruction info is written into the ROB.
-
-During commit, result of instruction,correct target address,previous index
-to update PHT if necessary, branch resolution info, sequential PC of
-instruction and snapshot of regStatus is passed out of the ROB.
+Define a common interface for signals coming into and out of ROB. 
 */
 
 interface writeCommit #(parameter WIDTH = 31, CONTROL = 7, INDEX = 7);
@@ -289,12 +300,6 @@ interface writeCommit #(parameter WIDTH = 31, CONTROL = 7, INDEX = 7);
 								logic[3:0] commitInfo;
 								logic validCommit;
 								
-								//modport writeROB (input instrPC,regStatus,PHTIndex,destination,commitInfo);
-								//modport commitROB (output oldPC,statusSnap,previousIndex,commitInfo,result,
-														// targetAddress,controlFlow,validCommit,destCommit);
-								//modport instr_decode(input statusSnap,result,commitInfo,controlFlow,
-								                     // validCommit,destCommit); //for updating the register status file
-							                                                                           //and register file	
 endinterface
 								
 

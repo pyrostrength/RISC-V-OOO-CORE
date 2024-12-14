@@ -37,7 +37,7 @@
 //regWrite comes from instruction decode stage.
 
 module register_status #(parameter REG = 4, DEPTH = 31, ROB = 2, WIDTH = 31)
-								(input logic clk,we,reset,validCommit,regWrite,
+								(input logic clk,we,reset,validCommit,regWrite,globalReset,
 								 input logic[REG:0] rs1,rs2,destReg,destRegR,regCommit, //Must be sure that an instruction is actually commiting
 								 input logic[WIDTH:0] statusRestore,
 								 input logic[ROB:0] destROB,commitROB, // ROB entry that writes to a destination register.
@@ -160,7 +160,11 @@ module register_status #(parameter REG = 4, DEPTH = 31, ROB = 2, WIDTH = 31)
 								end
 					
 							always_ff @(posedge clk) begin
-								if(reset) begin
+								if(globalReset) begin
+									busyVectorF <= '0;
+								end
+								
+								else if(reset) begin
 									busyVectorF <= statusRestore;
 								end
 								

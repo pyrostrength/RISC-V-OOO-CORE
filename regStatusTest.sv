@@ -1,5 +1,5 @@
 module regStatusTest #(parameter REG = 4, DEPTH = 31, ROB = 2, WIDTH = 31);
-		   logic clk,we,reset,validCommit,regWrite;
+		   logic clk,we,reset,validCommit,regWrite,globalReset;
 			logic[REG:0] rs1,rs2,destReg,destRegR,regCommit;
 			logic[WIDTH:0] statusRestore;
 			logic[ROB:0] destROB,commitROB; // ROB entry that writes to a destination register.

@@ -7,7 +7,7 @@ we pass no value i.e freeze the pipeline*
 Reset signal coming from ROB bus control flow signal*/
 
 module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1, A_WIDTH = 3,INDEX = 7)
-							(input logic clk,we,
+							(input logic clk,we,globalReset,
 							 writeCommit robBus, //Don't change the name here
 							 input logic redirect,ALUFull,branchFull,
 							 input logic[WIDTH:0] predictedPCF,//read from I-mem
@@ -95,7 +95,7 @@ module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1
 							//Just pass on instruction PC.
 							//For register status and value determination
 							always_ff @(posedge clk) begin
-								if(robBus.controlFlow[0]) begin
+								if(robBus.controlFlow[0] | globalReset) begin
 									{pc,operand1,operand2,immExt} <= '0;
 									{busy1,busy2} <= '0;
 									{rob1,rob2,robInstr} <= '0;
@@ -122,10 +122,24 @@ module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1
 							  entry or requesting to write the ROB or writing
 							  to register status in the next cycle or
 							  making special requests for special instructions*/
-								if(robBus.controlFlow[0]) begin
+								if(robBus.controlFlow[0] | globalReset) begin
 									stationRequest <= '0;
 									regWrite <= '0;
-									{isJALR,isJAL,isLUI,isAUIPC} <= '0; //No special instruction requests on CDB.
+									{isJALR,isJAL,isLUI,isAUIPC} <= '0;
+									 
+									inputBus.commitInfo <= '0;
+									inputBus.destination <= '0;
+									inputBus.PHTIndex <= '0;
+									inputBus.regStatus <= '0;
+									inputBus.instrPC <= '0;
+									
+									{branch,useImm} <= '0;
+									{RSstation,state} <= '0;
+									destRegW <= '0; 
+									ALUControl <= '0;
+									predictPC <= '0;
+									rdirect <= '0;
+									branchFunct3 <= '0;//No special instruction requests on CDB.
 								end
 								else if(!freeze) begin
 								//To reorder buffer and reorder rename buffer.

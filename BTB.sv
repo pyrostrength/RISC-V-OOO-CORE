@@ -45,9 +45,10 @@ module BTB #(parameter WIDTH = 31,
 				output logic validRead,
 			   output logic[WIDTH:0] targetAddress);
 				
-				//MLAB doesn't have default zero power up.
-				//Outputs cleared only if registered. otherwise reads memory contents leading to propagation of X values.
-				//Possible site for glitches.
+				initial begin
+					$readmemb("/home/voidknight/Downloads/CPU_Q/btbTargetInit.txt",targetBuffer);
+					$readmemb("/home/voidknight/Downloads/CPU_Q/btbvalidInit.txt",validBuffer);
+				end
 				
 				logic[WIDTH + INDEX + 1:0] targetBuffer[0:15]; //since we access using 4 lower bits we only have 16 entries.
 				logic validBuffer[0:15]; 

@@ -34,6 +34,7 @@ module branchIndex #(parameter G_WIDTH = 7)
 		       positive clock edge. Thus we commit and only in the
 				 next cycle do we get to use updated branch instruction information.*/		 
 				 always_ff @(posedge clk) begin
+				 /*State initialization during power-up*/
 						if(reset) begin
 							globalHistory <= '0;
 						end

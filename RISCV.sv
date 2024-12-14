@@ -27,7 +27,7 @@ Change instruction decode to assign to an interface.
 module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, INDEX = 7,
 					BRANCH = 1, ALU = 3, B_WIDTH = 7)
                (input logic globalReset,clk,
-				    output logic[WIDTH:0] result,regDest);
+				    output logic[WIDTH:0] result,regDest,nextPC);
 				 
 				 
 				 /*Declare instances of write commit interface which models
@@ -106,13 +106,29 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 				
 				renameStage instrRenameStage (.*,.isJAL(jal),.branch(brnch),.redirect(rdirect));
 				
-				assign isJAL = jump;
-				assign validAddress = targetPC;
+				//Pass values from instruction rename stage on positive clock edge to instruction fetch stage.
+				always_ff @(posedge clk) begin
+					if(!freeze) begin
+						isJAL <= jump;
+						validAddress <= targetPC;
+					end
+					if(globalReset) begin
+						isJAL <= '0;
+						validAddress <= '0;
+					end
+				end
 				
 				//Outputs from ALURS
 				logic[ROB:0] ALURob;
 				logic[A_WIDTH:0] ALUInfo;
 				logic signed[WIDTH:0] aluSrc1,aluSrc2;
+				logic aluAvailable,branchAvailable;
+				
+				//Outputs from branchRS.
+				logic signed[WIDTH:0] bsrc1,bsrc2;
+				logic[ROB:0] branchRob;
+				logic[B_WIDTH:0] branchInfo;
+				logic[WIDTH:0] predictedAddress,targetAddress,branchResult;
 				
 				ALURS aluReservationStation(.*,.ALUControl(aluCntrl),.writeRequests(ALURequests),.instrRob(ALURob)
 				                            ,.instrInfo(ALUInfo),.busy(ALUBusyVector),.execute(aluAvailable),.clear(outputBus.controlFlow[0]),
@@ -123,18 +139,17 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 				                                  ,.writeRequests(branchRequests),.predictedPC(predictPC),.address(targetPC)
 															 ,.branchControl(brnchCntrl),.execute(branchAvailable),.clear(outputBus.controlFlow[0]));
 				
-				//Outputs from branchRS.
-				logic signed[WIDTH:0] bsrc1,bsrc2;
-				logic[ROB:0] branchRob;
-				logic[B_WIDTH:0] branchInfo;
-				logic[WIDTH:0] predictedAddress,targetAddress,branchResult;
 				
 				
 				functionalUnit executeStage(.*,.predictedPC(predictedAddress),.branchControl(branchInfo),.src1(aluSrc1),.src2(aluSrc2)
 													 ,.ALUControl(ALUInfo),.bSrc1(bsrc1),.bSrc2(bsrc2));
 				
 				//Output from functional Unit is grant signal to pass instruction for execution
-				logic aluAvailable,branchAvailable;
+				
+				//Values from robRenameBuffer.										 
+								
+				logic[WIDTH:0] ROBValue1,ROBValue2;
+				logic valid1,valid2,full; 
 				
 				reorderBuffer rob(.*,.robWrite(robReq),.inputBus(inputBus),.outputBus(outputBus));
 				
@@ -144,10 +159,6 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 				to each module. We instantiate interface outputBus and connect
 				to both rob and instruction_decode stage.*/
 				
-				//Values from robRenameBuffer.										 
-								
-				logic[WIDTH:0] ROBValue1,ROBValue2;
-				logic valid1,valid2,full; 
 				
 				assign fullRob = full; 
 				assign robValue1 = {valid1,ROBValue1};

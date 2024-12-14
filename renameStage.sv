@@ -24,9 +24,9 @@ module renameStage #(parameter WIDTH = 31,B_WIDTH = 7, A_WIDTH = 3, BRANCH = 1, 
 							 assign brnchCntrl = {isJAL,isJALR,branchFunct3,state,redirect};
 							 assign aluCntrl = ALUControl;
 							 
-							 instructionValues valdet1(.instrValue(value1),.operand(operand1),.ROBValue(robValue1),.busy(busy1),.ready(ready1),
+							 instructionValues valdet1(.*,.instrValue(value1),.operand(operand1),.ROBValue(robValue1),.busy(busy1),.ready(ready1),
 																.rob(rob1));
-							 instructionValues valdet2(.instrValue(value2),.operand(operand2),.ROBValue(robValue2),.busy(busy2),.ready(ready2),
+							 instructionValues valdet2(.*,.instrValue(value2),.operand(operand2),.ROBValue(robValue2),.busy(busy2),.ready(ready2),
 																.rob(rob2));
 							 
 							 RSArbiter arbiter(.*);

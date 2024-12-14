@@ -1,8 +1,0 @@
-module adder_test();
-	logic [31:0] a,b,y; //Internal logic signals to be used for DUT
-	adder a1(.*); // Device Under Test(DUT)
-	initial begin
-		a = 32'd0;b = 32'd0;#10 //Both inputs are 0.
-		assert(y == '0) else $error("Test failed");
-	end
-endmodule

@@ -3,7 +3,7 @@
 
 module RSTest #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3, RS = 3);
 					commonDataBus dataBus();
-					logic ready1,ready2,clear,clk,execute,writeReq,selectReq,busy,selected;
+					logic ready1,ready2,clear,clk,execute,writeReq,selectReq,busy,selected,globalReset;
 					//logic[RS:0] writeRequests;
 					logic signed[WIDTH:0] value1,value2;
 					logic [C_WIDTH:0] ALUControl;

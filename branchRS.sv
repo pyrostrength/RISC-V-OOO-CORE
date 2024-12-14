@@ -1,4 +1,6 @@
-/*Branch reservation station*/
+/*Queue for holding instructions awaiting execution as well as
+wakeup and select logic for selection for execution and registered outputs
+that pass selected instruction on positive clock edge*/
 
 
 
@@ -6,7 +8,7 @@
 
 module branchRS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 7, RS = 1)
 					  (commonDataBus.reservation_station dataBus,
-						input logic ready1,ready2,clear,clk,execute,
+						input logic ready1,ready2,clear,clk,execute,globalReset,
 						input logic[RS:0] writeRequests, 
 						input logic signed[WIDTH:0] value1,value2,
 						input logic[WIDTH:0] predictedPC,address,seqPC,
@@ -79,7 +81,12 @@ module branchRS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 7, RS = 1)
 						srcMux #(.WIDTH(31),.RS(RS)) fetchor(.*,.sourceOperands(seqFetch),.operand(sequentialFetch));
 						
 						always_ff @(posedge clk) begin
-							if(execute) begin
+							if(clear | globalReset) begin
+								{src1,src2,predictedAddress,targetAddress,branchResult} <= '0;
+								instrInfo <= '0;
+								instrRob <= '0;
+							end
+							else if(execute) begin
 								src1 <= sourceValue1;
 								src2 <= sourceValue2;
 								instrInfo <= toomanyNames;

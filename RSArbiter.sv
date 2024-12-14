@@ -1,10 +1,20 @@
-/*Arbiter for writing to specific reservation station
+/*
+Arbiter for writing to specific reservation station
 entry. Produces writeRequest according to entry availability
-which is indicated by the busy field. Only one writeRequest bit
-can be high at any given point in time.
+in reservation station. Entry inavailability indicated
+by high bit on busy signal. Only one writeRequest bit
+can be high in any given cycle as an instruction is
+only written to one specific entry.
 
-Instruction in decode stage needs an assured spot
-on reservation station.*/
+Default preference for first empty entries
+at top of the reservation station.
+
+We ensure an instruction has an assured space in reservation
+station in decode stage. Thus our RS arbiter must inform
+decode stage whether the ALU reservation station is full
+or whether it's empty. Consideration of fullness/emptiness
+includes instruction currently in rename stage.
+*/
 
 
 module RSArbiter #(parameter WIDTH = 31, RS = 1, BRANCH = 1, ALU = 3)
@@ -20,6 +30,7 @@ module RSArbiter #(parameter WIDTH = 31, RS = 1, BRANCH = 1, ALU = 3)
 						 logic ALUDone;
 						 logic branchDone;
 						 logic ALUMatch,branchMatch;
+						
 						
 						 always_comb begin
 								{branchRequests,ALURequests} = '0;
@@ -51,8 +62,9 @@ module RSArbiter #(parameter WIDTH = 31, RS = 1, BRANCH = 1, ALU = 3)
 						end
 						
 						
-						/*Parallel search through of busy vectors to determine
-						reservation station fullness. Non-scalable solution*/
+						/*
+						Parallel search through of busy vectors to determine
+						reservation station fullness. Non-scalable solution
 						logic[1:0] aluBusy1,aluBusy2;
 						logic open1,open2;
 						assign aluBusy1 = ALUBusyVector[1:0];
@@ -62,7 +74,7 @@ module RSArbiter #(parameter WIDTH = 31, RS = 1, BRANCH = 1, ALU = 3)
 						we at least have 2 slots available. Then based on
 						instruction in rename stage requesting availability 
 						in reservation station we determine whether the
-						reservation station is full*/
+						reservation station is full
 						always_comb begin
 							{open1,open2} = 1'b1;
 							unique case(aluBusy1)
@@ -86,11 +98,12 @@ module RSArbiter #(parameter WIDTH = 31, RS = 1, BRANCH = 1, ALU = 3)
 							ALUFull = (ALUMatch) ? (open1 & open2) : (open1 | open2);
 						
 						end
+						*/
 									
 								
 							
 						
-						/*logic[BRANCH:0] branchOccupancy;
+						logic[BRANCH:0] branchOccupancy;
 						logic[ALU:0] aluOccupancy;
 						
 						assign branchOccupancy = branchRequests + branchBusyVector;
@@ -105,7 +118,7 @@ module RSArbiter #(parameter WIDTH = 31, RS = 1, BRANCH = 1, ALU = 3)
 							if(aluOccupancy == 4'b1111) begin
 								ALUFull = 1'b1;
 							end
-						end */
+						end
 endmodule
 									
 								

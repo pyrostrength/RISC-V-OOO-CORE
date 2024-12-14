@@ -1,6 +1,0 @@
-module commitStage #(parameter WIDTH = 31, ROB = 2, B_WIDTH = 7, RS = 1 , A_WIDTH = 3);
-
-//add reorder buffer,reorder rename buffer,make connections to instruction fetch decode etc using commit bus
-//need to monitor data bus,output values on commit bus,write values to reorder rename buffer,
-//reset PC if necessary.
-endmodule

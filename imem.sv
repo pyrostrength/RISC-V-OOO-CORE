@@ -55,9 +55,9 @@ module imem #(parameter WIDTH = 31,ENTRIES = 255)
 				  
 				  
 				 
-				  logic[WIDTH:0] iMem[0:ENTRIES]; // little-endian memory system.
+				  logic[WIDTH:0] iMem[ENTRIES:0]; // little-endian memory system.
 				  initial begin
-						$readmemh("/home/voidknight/Downloads/CPU_Q/imeminit.txt",iMem);
+						$readmemb("/home/voidknight/Downloads/CPU_Q/imeminit.txt",iMem);
 				  end
 				  /*Synchronous read at negative clock edge with PC from
 				  PCselect logic*/

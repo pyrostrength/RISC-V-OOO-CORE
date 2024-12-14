@@ -1,6 +1,10 @@
+/*Queue for holding instructions awaiting execution as well as
+wakeup and select logic for selection for execution and registered outputs
+that pass selected instruction on positive clock edge*/
+
 module ALURS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3, RS = 3)
               (commonDataBus.reservation_station dataBus,
-					input logic ready1,ready2,clear,clk,execute,
+					input logic ready1,ready2,clear,clk,execute,globalReset,
 					input logic[RS:0] writeRequests, 
 					input logic signed[WIDTH:0] value1,value2,
 					input logic [C_WIDTH:0] ALUControl,
@@ -10,7 +14,6 @@ module ALURS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3, RS = 3)
 					output logic[RS:0] busy,
 					output logic signed[WIDTH:0] src1,src2);
 					
-					//We include ALURsSelect in this module to select for instructions
 					logic busy1,busy2,busy3,busy4;
 					assign busy = {busy4,busy3,busy2,busy1};
 					
@@ -66,7 +69,12 @@ module ALURS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3, RS = 3)
 					
 					always_ff @(posedge clk) begin
 					//Only pass values from sourceMux if functional unit is available for execution.
-						if(execute) begin
+						if(clear | globalReset) begin
+							{src1,src2} <= '0;
+							instrInfo <= '0;
+							instrRob <= '0;
+						end
+						else if(execute) begin
 							src1 <= sourceValue1;
 							src2 <= sourceValue2;
 							instrInfo <= toomanyNames;

@@ -83,7 +83,7 @@ module infodecoder (input logic[3:0] opcode,//Only the first 4-bits of opcode ar
 											regWrite = 1'b0;
 											memWrite = 1'b1;
 											immSrc = 3'b001;
-											RSstation = 2'b01;
+											RSstation = 2'b11;
 											robWrite = 1'b0;
 										end	
 										4'b0100 : begin //B-type
@@ -114,7 +114,7 @@ module infodecoder (input logic[3:0] opcode,//Only the first 4-bits of opcode ar
 										end
 										4'b1000 : begin //JALR-type
 											isJALR = 1'b1;
-											RSstation = 2'b10; //To branching unit.
+											RSstation = 2'b01; //To branching unit.
 											stationRequest = 1'b1;
 										end
 										4'b1001 : begin//Load-type

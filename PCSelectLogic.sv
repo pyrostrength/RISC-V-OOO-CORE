@@ -19,8 +19,6 @@ instruction.
 */
 
 
-//Global reset signal initializes PC to 0.
-
 module PCSelectLogic #(parameter WIDTH = 31)
 							 (input logic[WIDTH:0] validAddress,targetAddress,predictedPC,oldPC,
 							  input logic mispredict,misdirect,isJAL,predictorHit,clk,freeze,globalReset,reset,
@@ -46,7 +44,7 @@ module PCSelectLogic #(parameter WIDTH = 31)
 									else if(mispredict | misdirect) begin
 										intermediatePC = targetAddress;
 									end
-									//Branching mandated by JAL instruction in rename stage.
+									
 									else if(isJAL) begin
 										intermediatePC = validAddress;
 									end
