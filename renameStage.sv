@@ -1,3 +1,19 @@
+/* 
+Instruction rename stage.
+
+Write to register status table,performing an implicit
+rename of registers, provided that the instruction
+writes to a destination register.
+
+Determine source operand values,instruction dependencies
+to be buffered in reservation
+station as instruction awaits selection for execution.
+
+Determine target address for JAL instructions.
+
+*/
+
+
 module renameStage #(parameter WIDTH = 31,B_WIDTH = 7, A_WIDTH = 3, BRANCH = 1, ALU = 3, ROB = 2)
                      (commonDataBus.rename_stage dataBus,
 							 input logic[WIDTH:0] operand1,operand2,

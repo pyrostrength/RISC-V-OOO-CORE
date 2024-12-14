@@ -1,10 +1,10 @@
 Info (10281): Verilog HDL Declaration information at instructionValues.sv(33): object "ROB" differs only in case from object "rob" in the same scope File: /home/voidknight/Downloads/CPU_Q/instructionValues.sv Line: 33
 Info (10281): Verilog HDL Declaration information at CDBArbiter.sv(48): object "ROB" differs only in case from object "rob" in the same scope File: /home/voidknight/Downloads/CPU_Q/CDBArbiter.sv Line: 48
-Info (10281): Verilog HDL Declaration information at instrFetchUnit.sv(1): object "INDEX" differs only in case from object "index" in the same scope File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 1
-Info (10281): Verilog HDL Declaration information at ALURS.sv(1): object "ROB" differs only in case from object "rob" in the same scope File: /home/voidknight/Downloads/CPU_Q/ALURS.sv Line: 1
-Info (10281): Verilog HDL Declaration information at branchRS.sv(7): object "ROB" differs only in case from object "rob" in the same scope File: /home/voidknight/Downloads/CPU_Q/branchRS.sv Line: 7
+Info (10281): Verilog HDL Declaration information at instrFetchUnit.sv(17): object "INDEX" differs only in case from object "index" in the same scope File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 17
+Info (10281): Verilog HDL Declaration information at ALURS.sv(5): object "ROB" differs only in case from object "rob" in the same scope File: /home/voidknight/Downloads/CPU_Q/ALURS.sv Line: 5
+Info (10281): Verilog HDL Declaration information at branchRS.sv(9): object "ROB" differs only in case from object "rob" in the same scope File: /home/voidknight/Downloads/CPU_Q/branchRS.sv Line: 9
 Info (10281): Verilog HDL Declaration information at renameStage.sv(1): object "BRANCH" differs only in case from object "branch" in the same scope File: /home/voidknight/Downloads/CPU_Q/renameStage.sv Line: 1
 Info (10281): Verilog HDL Declaration information at reorderBufferTest.sv(3): object "ROB" differs only in case from object "rob" in the same scope File: /home/voidknight/Downloads/CPU_Q/reorderBufferTest.sv Line: 3
-Info (10281): Verilog HDL Declaration information at RISCV.sv(94): object "robValue1" differs only in case from object "ROBValue1" in the same scope File: /home/voidknight/Downloads/CPU_Q/RISCV.sv Line: 94
-Info (10281): Verilog HDL Declaration information at RISCV.sv(94): object "robValue2" differs only in case from object "ROBValue2" in the same scope File: /home/voidknight/Downloads/CPU_Q/RISCV.sv Line: 94
+Info (10281): Verilog HDL Declaration information at RISCV.sv(93): object "robValue1" differs only in case from object "ROBValue1" in the same scope File: /home/voidknight/Downloads/CPU_Q/RISCV.sv Line: 93
+Info (10281): Verilog HDL Declaration information at RISCV.sv(93): object "robValue2" differs only in case from object "ROBValue2" in the same scope File: /home/voidknight/Downloads/CPU_Q/RISCV.sv Line: 93
 Info (10281): Verilog HDL Declaration information at RISCV.sv(27): object "ROB" differs only in case from object "rob" in the same scope File: /home/voidknight/Downloads/CPU_Q/RISCV.sv Line: 27

@@ -25,332 +25,332 @@
 # 
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/extend.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:55 on Dec 11,2024
+# Start time: 16:40:12 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/extend.sv 
 # -- Compiling module extend
 # 
 # Top level modules:
 # 	extend
-# End time: 16:20:55 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:12 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/ALU.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:55 on Dec 11,2024
+# Start time: 16:40:12 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/ALU.sv 
 # -- Compiling module ALU
 # 
 # Top level modules:
 # 	ALU
-# End time: 16:20:55 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:12 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/ALUDecoder.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:55 on Dec 11,2024
+# Start time: 16:40:12 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/ALUDecoder.sv 
 # -- Compiling module ALUDecoder
 # 
 # Top level modules:
 # 	ALUDecoder
-# End time: 16:20:55 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/gshare.sv}
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:55 on Dec 11,2024
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/gshare.sv 
-# -- Compiling module gshare
-# 
-# Top level modules:
-# 	gshare
-# End time: 16:20:55 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:12 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/branchIndex.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:55 on Dec 11,2024
+# Start time: 16:40:12 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/branchIndex.sv 
 # -- Compiling module branchIndex
 # 
 # Top level modules:
 # 	branchIndex
-# End time: 16:20:55 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/BTB.sv}
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:56 on Dec 11,2024
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/BTB.sv 
-# -- Compiling module BTB
-# 
-# Top level modules:
-# 	BTB
-# End time: 16:20:56 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:13 on Dec 13,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/infodecoder.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:56 on Dec 11,2024
+# Start time: 16:40:13 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/infodecoder.sv 
 # -- Compiling module infodecoder
 # 
 # Top level modules:
 # 	infodecoder
-# End time: 16:20:56 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:13 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/branchALU.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:56 on Dec 11,2024
+# Start time: 16:40:13 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/branchALU.sv 
 # -- Compiling module branchALU
 # 
 # Top level modules:
 # 	branchALU
-# End time: 16:20:56 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:13 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/CDBArbiter.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:56 on Dec 11,2024
+# Start time: 16:40:13 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/CDBArbiter.sv 
 # -- Compiling interface commonDataBus
 # -- Compiling module CDBArbiter
 # 
 # Top level modules:
 # 	CDBArbiter
-# End time: 16:20:56 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:13 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/branchTargetResolve.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:56 on Dec 11,2024
+# Start time: 16:40:13 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/branchTargetResolve.sv 
 # -- Compiling module branchTargetResolve
 # 
 # Top level modules:
 # 	branchTargetResolve
-# End time: 16:20:56 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:13 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/ALUSelect.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:56 on Dec 11,2024
+# Start time: 16:40:13 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/ALUSelect.sv 
 # -- Compiling module ALUSelect
 # 
 # Top level modules:
 # 	ALUSelect
-# End time: 16:20:56 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:13 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/branchSelect.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:57 on Dec 11,2024
+# Start time: 16:40:13 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/branchSelect.sv 
 # -- Compiling module branchSelect
 # 
 # Top level modules:
 # 	branchSelect
-# End time: 16:20:57 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:14 on Dec 13,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/srcMux.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:57 on Dec 11,2024
+# Start time: 16:40:14 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/srcMux.sv 
 # -- Compiling module srcMux
-# ** Warning: /home/voidknight/Downloads/CPU_Q/srcMux.sv(26): (vlog-13314) Defaulting port 'sourceOperands' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# ** Warning: /home/voidknight/Downloads/CPU_Q/srcMux.sv(20): (vlog-13314) Defaulting port 'sourceOperands' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
 # 
 # Top level modules:
 # 	srcMux
-# End time: 16:20:57 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:14 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 1
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/PCSelectLogic.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:57 on Dec 11,2024
+# Start time: 16:40:14 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/PCSelectLogic.sv 
 # -- Compiling module PCSelectLogic
 # 
 # Top level modules:
 # 	PCSelectLogic
-# End time: 16:20:57 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:14 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/RSArbiter.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:57 on Dec 11,2024
+# Start time: 16:40:14 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/RSArbiter.sv 
 # -- Compiling module RSArbiter
 # 
 # Top level modules:
 # 	RSArbiter
-# End time: 16:20:57 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:14 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/register_file.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:57 on Dec 11,2024
+# Start time: 16:40:14 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/register_file.sv 
 # -- Compiling module register_file
 # 
 # Top level modules:
 # 	register_file
-# End time: 16:20:57 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:14 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/imem.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:57 on Dec 11,2024
+# Start time: 16:40:14 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/imem.sv 
 # -- Compiling module imem
 # 
 # Top level modules:
 # 	imem
-# End time: 16:20:57 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:14 on Dec 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/gshare.sv}
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 16:40:14 on Dec 13,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/gshare.sv 
+# -- Compiling module gshare
+# 
+# Top level modules:
+# 	gshare
+# End time: 16:40:14 on Dec 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/BTB.sv}
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 16:40:15 on Dec 13,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/BTB.sv 
+# -- Compiling module BTB
+# 
+# Top level modules:
+# 	BTB
+# End time: 16:40:15 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/register_status.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:57 on Dec 11,2024
+# Start time: 16:40:15 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/register_status.sv 
 # -- Compiling module register_status
 # 
 # Top level modules:
 # 	register_status
-# End time: 16:20:58 on Dec 11,2024, Elapsed time: 0:00:01
+# End time: 16:40:15 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/decodeextend.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:58 on Dec 11,2024
+# Start time: 16:40:15 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/decodeextend.sv 
 # -- Compiling module decodeextend
 # 
 # Top level modules:
 # 	decodeextend
-# End time: 16:20:58 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:15 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/instructionValues.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:58 on Dec 11,2024
+# Start time: 16:40:15 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/instructionValues.sv 
 # -- Compiling module instructionValues
 # 
 # Top level modules:
 # 	instructionValues
-# End time: 16:20:58 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:15 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/ROBrenamebuffer.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:58 on Dec 11,2024
+# Start time: 16:40:15 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/ROBrenamebuffer.sv 
 # -- Compiling module ROBrenamebuffer
 # 
 # Top level modules:
 # 	ROBrenamebuffer
-# End time: 16:20:58 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:15 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/ALURStationEntry.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:58 on Dec 11,2024
+# Start time: 16:40:15 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/ALURStationEntry.sv 
 # -- Compiling module ALURStationEntry
 # 
 # Top level modules:
 # 	ALURStationEntry
-# End time: 16:20:58 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:15 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/branchRSEntry.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:58 on Dec 11,2024
+# Start time: 16:40:15 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/branchRSEntry.sv 
 # -- Compiling module branchRSEntry
 # 
 # Top level modules:
 # 	branchRSEntry
-# End time: 16:20:58 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:16 on Dec 13,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/functionalUnit.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:58 on Dec 11,2024
+# Start time: 16:40:16 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/functionalUnit.sv 
 # -- Compiling module functionalUnit
 # 
 # Top level modules:
 # 	functionalUnit
-# End time: 16:20:59 on Dec 11,2024, Elapsed time: 0:00:01
+# End time: 16:40:16 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/reorderBuffer.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:59 on Dec 11,2024
+# Start time: 16:40:16 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv 
 # -- Compiling module reorderBuffer
 # -- Compiling interface writeCommit
 # 
 # Top level modules:
 # 	reorderBuffer
-# End time: 16:20:59 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:16 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/ALURS.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:59 on Dec 11,2024
+# Start time: 16:40:16 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/ALURS.sv 
 # -- Compiling module ALURS
 # 
 # Top level modules:
 # 	ALURS
-# End time: 16:20:59 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:16 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/branchRS.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:59 on Dec 11,2024
+# Start time: 16:40:16 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/branchRS.sv 
 # -- Compiling module branchRS
 # 
 # Top level modules:
 # 	branchRS
-# End time: 16:20:59 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:16 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/renameStage.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:59 on Dec 11,2024
+# Start time: 16:40:16 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/renameStage.sv 
 # -- Compiling module renameStage
 # 
 # Top level modules:
 # 	renameStage
-# End time: 16:20:59 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:16 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:59 on Dec 11,2024
+# Start time: 16:40:16 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv 
 # -- Compiling module instrFetchUnit
 # 
 # Top level modules:
 # 	instrFetchUnit
-# End time: 16:20:59 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:17 on Dec 13,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/instr_decode.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:59 on Dec 11,2024
+# Start time: 16:40:17 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/instr_decode.sv 
 # -- Compiling module instr_decode
 # 
 # Top level modules:
 # 	instr_decode
-# End time: 16:20:59 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:17 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/RISCV.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:20:59 on Dec 11,2024
+# Start time: 16:40:17 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/RISCV.sv 
 # -- Compiling module RISCV
 # 
 # Top level modules:
 # 	RISCV
-# End time: 16:21:00 on Dec 11,2024, Elapsed time: 0:00:01
+# End time: 16:40:17 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/regfileTest.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:21:00 on Dec 11,2024
+# Start time: 16:40:17 on Dec 13,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/regfileTest.sv 
 # -- Compiling module regfileTest
 # 
 # Top level modules:
 # 	regfileTest
-# End time: 16:21:00 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:17 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  regfileTest
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" regfileTest 
-# Start time: 16:21:00 on Dec 11,2024
+# Start time: 16:40:17 on Dec 13,2024
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
 # ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
@@ -371,131 +371,35 @@
 #    Time: 11 ns  Scope: regfileTest File: /home/voidknight/Downloads/CPU_Q/regfileTest.sv Line: 37
 # 
 # stdin: <EOF>
-quit sim
-# unknown switch: sim
-stop
-run stop
-# Invalid time value: stop
 quit -sim
-# End time: 16:21:37 on Dec 11,2024, Elapsed time: 0:00:37
+# End time: 16:40:37 on Dec 13,2024, Elapsed time: 0:00:20
 # Errors: 1, Warnings: 2
 cd /home/voidknight/Downloads/CPU_Q
 # reading modelsim.ini
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/RSArbiter.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:21:54 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/RSArbiter.sv 
-# -- Compiling module RSArbiter
-# 
-# Top level modules:
-# 	RSArbiter
-# End time: 16:21:54 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
 vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:21:58 on Dec 11,2024
+# Start time: 16:40:53 on Dec 13,2024
 # vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv 
 # -- Compiling module reorderBuffer
 # -- Compiling interface writeCommit
 # 
 # Top level modules:
 # 	reorderBuffer
-# End time: 16:21:58 on Dec 11,2024, Elapsed time: 0:00:00
+# End time: 16:40:53 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/renameStage.sv
+vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/RISCV.sv
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:22:01 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/renameStage.sv 
-# -- Compiling module renameStage
+# Start time: 16:40:57 on Dec 13,2024
+# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/RISCV.sv 
+# -- Compiling module RISCV
 # 
 # Top level modules:
-# 	renameStage
-# End time: 16:22:01 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/register_status.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:22:04 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/register_status.sv 
-# -- Compiling module register_status
-# 
-# Top level modules:
-# 	register_status
-# End time: 16:22:04 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/CDBArbiter.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:22:11 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/CDBArbiter.sv 
-# -- Compiling interface commonDataBus
-# -- Compiling module CDBArbiter
-# 
-# Top level modules:
-# 	CDBArbiter
-# End time: 16:22:11 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/branchRS.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:22:15 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/branchRS.sv 
-# -- Compiling module branchRS
-# 
-# Top level modules:
-# 	branchRS
-# End time: 16:22:15 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/branchRSEntry.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:22:16 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/branchRSEntry.sv 
-# -- Compiling module branchRSEntry
-# 
-# Top level modules:
-# 	branchRSEntry
-# End time: 16:22:16 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/branchSelect.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:22:17 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/branchSelect.sv 
-# -- Compiling module branchSelect
-# 
-# Top level modules:
-# 	branchSelect
-# End time: 16:22:18 on Dec 11,2024, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/ALURStationEntry.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:22:21 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/ALURStationEntry.sv 
-# -- Compiling module ALURStationEntry
-# 
-# Top level modules:
-# 	ALURStationEntry
-# End time: 16:22:21 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/ALUSelect.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:22:22 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/ALUSelect.sv 
-# -- Compiling module ALUSelect
-# 
-# Top level modules:
-# 	ALUSelect
-# End time: 16:22:22 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/ALURS.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:22:23 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/ALURS.sv 
-# -- Compiling module ALURS
-# 
-# Top level modules:
-# 	ALURS
-# End time: 16:22:24 on Dec 11,2024, Elapsed time: 0:00:01
+# 	RISCV
+# End time: 16:40:57 on Dec 13,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 vsim -t 100ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=\"+acc\" work.cpuSim
 # vsim -t 100ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" work.cpuSim 
-# Start time: 16:22:38 on Dec 11,2024
+# Start time: 16:41:17 on Dec 13,2024
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
 # ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
@@ -547,11 +451,8 @@ vsim -t 100ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_l
 # ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'opcode'. The port definition is at: /home/voidknight/Downloads/CPU_Q/infodecoder.sv(53).
 #    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/decodeStage/decodeExtender/maindecoder File: /home/voidknight/Downloads/CPU_Q/decodeextend.sv Line: 54
 run -all
-# ** Warning: (vsim-PLI-3406) Too many digits (32) in data on line 1 of file "imeminit.txt". (Max is 8.)    : /home/voidknight/Downloads/CPU_Q/imem.sv(60)
-#    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/fetchStage/IMem
 # ** Warning: (vsim-8315) No condition is true in the unique/priority if/case statement.
 #    Time: 0 ps  Iteration: 3  Process: /cpuSim/cpu/executeStage/branchUnit/#implicit#unique__128 File: /home/voidknight/Downloads/CPU_Q/branchALU.sv Line: 128
-add wave sim:/cpuSim/*
 restart
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
 # ** Note: (vsim-8009) Loading existing optimized design _opt
@@ -602,20 +503,6 @@ restart
 #    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/fetchStage/indexGen File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 34
 # ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'opcode'. The port definition is at: /home/voidknight/Downloads/CPU_Q/infodecoder.sv(53).
 #    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/decodeStage/decodeExtender/maindecoder File: /home/voidknight/Downloads/CPU_Q/decodeextend.sv Line: 54
-run
-# ** Warning: (vsim-PLI-3406) Too many digits (32) in data on line 1 of file "imeminit.txt". (Max is 8.)    : /home/voidknight/Downloads/CPU_Q/imem.sv(60)
-#    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/fetchStage/IMem
-# ** Warning: (vsim-8315) No condition is true in the unique/priority if/case statement.
-#    Time: 0 ps  Iteration: 3  Process: /cpuSim/cpu/executeStage/branchUnit/#implicit#unique__128 File: /home/voidknight/Downloads/CPU_Q/branchALU.sv Line: 128
-run
-run
-run
-run
-run
-run
-run
-run
-run
 do /home/voidknight/Downloads/CPU_Q/wave.do
 restart
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
@@ -667,280 +554,6 @@ restart
 #    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/fetchStage/indexGen File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 34
 # ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'opcode'. The port definition is at: /home/voidknight/Downloads/CPU_Q/infodecoder.sv(53).
 #    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/decodeStage/decodeExtender/maindecoder File: /home/voidknight/Downloads/CPU_Q/decodeextend.sv Line: 54
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/ALU.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:38:33 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/ALU.sv 
-# -- Compiling module ALU
-# 
-# Top level modules:
-# 	ALU
-# End time: 16:38:33 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/ALURStationEntry.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:38:38 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/ALURStationEntry.sv 
-# -- Compiling module ALURStationEntry
-# 
-# Top level modules:
-# 	ALURStationEntry
-# End time: 16:38:38 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/branchIndex.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:38:42 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/branchIndex.sv 
-# -- Compiling module branchIndex
-# 
-# Top level modules:
-# 	branchIndex
-# End time: 16:38:42 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/branchIndexTest.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:38:44 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/branchIndexTest.sv 
-# -- Compiling module branchIndexTest
-# 
-# Top level modules:
-# 	branchIndexTest
-# End time: 16:38:44 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/branchIndexTest.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:38:49 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/branchIndexTest.sv 
-# -- Compiling module branchIndexTest
-# 
-# Top level modules:
-# 	branchIndexTest
-# End time: 16:38:49 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/branchRS.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:38:51 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/branchRS.sv 
-# -- Compiling module branchRS
-# 
-# Top level modules:
-# 	branchRS
-# End time: 16:38:51 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/branchRSEntry.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:38:52 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/branchRSEntry.sv 
-# -- Compiling module branchRSEntry
-# 
-# Top level modules:
-# 	branchRSEntry
-# End time: 16:38:52 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/branchSelect.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:38:54 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/branchSelect.sv 
-# -- Compiling module branchSelect
-# 
-# Top level modules:
-# 	branchSelect
-# End time: 16:38:54 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/CDBArbiter.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:38:56 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/CDBArbiter.sv 
-# -- Compiling interface commonDataBus
-# -- Compiling module CDBArbiter
-# 
-# Top level modules:
-# 	CDBArbiter
-# End time: 16:38:56 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/BTB.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:38:57 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/BTB.sv 
-# -- Compiling module BTB
-# 
-# Top level modules:
-# 	BTB
-# End time: 16:38:58 on Dec 11,2024, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/cpuSim.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:39:01 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/cpuSim.sv 
-# -- Compiling module cpuSim
-# 
-# Top level modules:
-# 	cpuSim
-# End time: 16:39:01 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/gshare.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:39:04 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/gshare.sv 
-# -- Compiling module gshare
-# 
-# Top level modules:
-# 	gshare
-# End time: 16:39:04 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/imem.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:39:07 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/imem.sv 
-# -- Compiling module imem
-# 
-# Top level modules:
-# 	imem
-# End time: 16:39:07 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/instr_decode.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:39:10 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/instr_decode.sv 
-# -- Compiling module instr_decode
-# 
-# Top level modules:
-# 	instr_decode
-# End time: 16:39:10 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/infodecoder.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:39:12 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/infodecoder.sv 
-# -- Compiling module infodecoder
-# 
-# Top level modules:
-# 	infodecoder
-# End time: 16:39:13 on Dec 11,2024, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:39:14 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv 
-# -- Compiling module instrFetchUnit
-# 
-# Top level modules:
-# 	instrFetchUnit
-# End time: 16:39:14 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/instructionValues.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:39:15 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/instructionValues.sv 
-# -- Compiling module instructionValues
-# 
-# Top level modules:
-# 	instructionValues
-# End time: 16:39:15 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/register_file.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:39:20 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/register_file.sv 
-# -- Compiling module register_file
-# 
-# Top level modules:
-# 	register_file
-# End time: 16:39:20 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:39:23 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv 
-# -- Compiling module reorderBuffer
-# -- Compiling interface writeCommit
-# 
-# Top level modules:
-# 	reorderBuffer
-# End time: 16:39:23 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/renameStage.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:39:24 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/renameStage.sv 
-# -- Compiling module renameStage
-# 
-# Top level modules:
-# 	renameStage
-# End time: 16:39:24 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/RSArbiter.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:39:35 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/RSArbiter.sv 
-# -- Compiling module RSArbiter
-# 
-# Top level modules:
-# 	RSArbiter
-# End time: 16:39:35 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/cpuSim.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:39:40 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/cpuSim.sv 
-# -- Compiling module cpuSim
-# 
-# Top level modules:
-# 	cpuSim
-# End time: 16:39:40 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
-# Loading sv_std.std
-# Loading work.cpuSim(fast)
-# Loading work.RISCV(fast)
-# Loading work.writeCommit(fast__1)
-# Loading work.writeCommit(fast__2)
-# Loading work.commonDataBus(fast__1)
-# Loading work.instrFetchUnit(fast)
-# Loading work.PCSelectLogic(fast)
-# Loading work.BTB(fast)
-# Loading work.gshare(fast)
-# Loading work.branchIndex(fast)
-# Loading work.imem(fast)
-# Loading work.instr_decode(fast)
-# Loading work.decodeextend(fast)
-# Loading work.infodecoder(fast)
-# Loading work.extend(fast)
-# Loading work.ALUDecoder(fast)
-# Loading work.register_file(fast)
-# Loading work.register_status(fast)
-# Loading work.renameStage(fast)
-# Loading work.instructionValues(fast)
-# Loading work.RSArbiter(fast)
-# Loading work.branchTargetResolve(fast)
-# Loading work.ALURS(fast)
-# Loading work.ALURStationEntry(fast)
-# Loading work.ALUSelect(fast)
-# Loading work.srcMux(fast)
-# Loading work.srcMux(fast__1)
-# Loading work.srcMux(fast__2)
-# Loading work.branchRS(fast)
-# Loading work.branchRSEntry(fast)
-# Loading work.branchSelect(fast)
-# Loading work.srcMux(fast__3)
-# Loading work.srcMux(fast__4)
-# Loading work.srcMux(fast__5)
-# Loading work.functionalUnit(fast)
-# Loading work.branchALU(fast)
-# Loading work.ALU(fast)
-# Loading work.CDBArbiter(fast)
-# Loading work.reorderBuffer(fast)
-# Loading work.ROBrenamebuffer(fast)
-# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'PC'. The port definition is at: /home/voidknight/Downloads/CPU_Q/BTB.sv(43).
-#    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/fetchStage/branchTargetBuffer File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 22
-# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'PC'. The port definition is at: /home/voidknight/Downloads/CPU_Q/branchIndex.sv(28).
-#    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/fetchStage/indexGen File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 34
-# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'opcode'. The port definition is at: /home/voidknight/Downloads/CPU_Q/infodecoder.sv(53).
-#    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/decodeStage/decodeExtender/maindecoder File: /home/voidknight/Downloads/CPU_Q/decodeextend.sv Line: 54
 run
 # ** Warning: (vsim-8315) No condition is true in the unique/priority if/case statement.
 #    Time: 0 ps  Iteration: 3  Process: /cpuSim/cpu/executeStage/branchUnit/#implicit#unique__128 File: /home/voidknight/Downloads/CPU_Q/branchALU.sv Line: 128
@@ -951,186 +564,7 @@ run
 run
 run
 run
-# Load canceled
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/reorderBufferTest.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:55:59 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/reorderBufferTest.sv 
-# -- Compiling module reorderBufferTest
-# ** Error: /home/voidknight/Downloads/CPU_Q/reorderBufferTest.sv(4): 'commonDataBus' is an unknown type.
-# Or did you omit the '()' for an instantiation?
-# ** Error: /home/voidknight/Downloads/CPU_Q/reorderBufferTest.sv(7): 'writeCommit' is an unknown type.
-# Or did you omit the '()' for an instantiation?
-# ** Error: /home/voidknight/Downloads/CPU_Q/reorderBufferTest.sv(8): 'writeCommit' is an unknown type.
-# Or did you omit the '()' for an instantiation?
-# End time: 16:55:59 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 3, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/reorderBufferTest.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 16:56:44 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/reorderBufferTest.sv 
-# -- Compiling module reorderBufferTest
-# 
-# Top level modules:
-# 	reorderBufferTest
-# End time: 16:56:44 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vsim -t 100ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=\"+acc\" work.reorderBuffer
-# End time: 16:57:09 on Dec 11,2024, Elapsed time: 0:34:31
-# Errors: 0, Warnings: 5
-# vsim -t 100ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" work.reorderBuffer 
-# Start time: 16:57:09 on Dec 11,2024
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
-# Loading sv_std.std
-# Loading work.reorderBuffer(fast)
-# Loading work.ROBrenamebuffer(fast)
-# ** Fatal: (vsim-3695) The interface port 'dataBus' must be passed an actual interface.
-#    Time: 0 ps  Iteration: 0  Instance: /reorderBuffer File: /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv Line: 74
-# FATAL ERROR while loading design
-# Error loading design
-# End time: 16:57:10 on Dec 11,2024, Elapsed time: 0:00:01
-# Errors: 1, Warnings: 1
-vsim -t 100ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=\"+acc\" work.reorderBufferTest
-# vsim -t 100ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" work.reorderBufferTest 
-# Start time: 16:57:33 on Dec 11,2024
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
-# Loading sv_std.std
-# Loading work.reorderBufferTest(fast)
-# Loading work.commonDataBus(fast__1)
-# Loading work.writeCommit(fast__1)
-# Loading work.writeCommit(fast__2)
-# Loading work.reorderBuffer(fast)
-# Loading work.ROBrenamebuffer(fast)
-add wave -r /*
 run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/reorderBufferTest.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 17:11:42 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/reorderBufferTest.sv 
-# -- Compiling module reorderBufferTest
-# ** Error: (vlog-13069) /home/voidknight/Downloads/CPU_Q/reorderBufferTest.sv(31): near "#": syntax error, unexpected '#', expecting ';'.
-# End time: 17:11:43 on Dec 11,2024, Elapsed time: 0:00:01
-# Errors: 1, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/reorderBufferTest.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 17:12:02 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/reorderBufferTest.sv 
-# -- Compiling module reorderBufferTest
-# 
-# Top level modules:
-# 	reorderBufferTest
-# End time: 17:12:02 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-restart -f
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
-# Loading sv_std.std
-# Loading work.reorderBufferTest(fast)
-# Loading work.commonDataBus(fast__1)
-# Loading work.writeCommit(fast__1)
-# Loading work.writeCommit(fast__2)
-# Loading work.reorderBuffer(fast)
-# Loading work.ROBrenamebuffer(fast)
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/reorderBufferTest.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 17:14:35 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/reorderBufferTest.sv 
-# -- Compiling module reorderBufferTest
-# ** Error: (vlog-13069) /home/voidknight/Downloads/CPU_Q/reorderBufferTest.sv(37): near "end": syntax error, unexpected end.
-# End time: 17:14:35 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/reorderBufferTest.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 17:15:01 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/reorderBufferTest.sv 
-# -- Compiling module reorderBufferTest
-# 
-# Top level modules:
-# 	reorderBufferTest
-# End time: 17:15:01 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-restart -f
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
-# Loading sv_std.std
-# Loading work.reorderBufferTest(fast)
-# Loading work.commonDataBus(fast__1)
-# Loading work.writeCommit(fast__1)
-# Loading work.writeCommit(fast__2)
-# Loading work.reorderBuffer(fast)
-# Loading work.ROBrenamebuffer(fast)
-run
-run
-run
-run
-run
-run
-run
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 17:19:33 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv 
-# -- Compiling module reorderBuffer
-# -- Compiling interface writeCommit
-# 
-# Top level modules:
-# 	reorderBuffer
-# End time: 17:19:33 on Dec 11,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/reorderBufferTest.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 17:19:35 on Dec 11,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/reorderBufferTest.sv 
-# -- Compiling module reorderBufferTest
-# 
-# Top level modules:
-# 	reorderBufferTest
-# End time: 17:19:36 on Dec 11,2024, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
-# Loading sv_std.std
-# Loading work.reorderBufferTest(fast)
-# Loading work.commonDataBus(fast__1)
-# Loading work.writeCommit(fast__1)
-# Loading work.writeCommit(fast__2)
-# Loading work.reorderBuffer(fast)
-# Loading work.ROBrenamebuffer(fast)
 run
 run
 run

@@ -12,7 +12,7 @@ and incrementing read_ptr in next cycle at positive clock edge.
 Written to in rename stage 
 with instruction control info{regWrite,
 memWrite,branch,jump},
-result destination,sequential PC,index used
+result destination,old instruction PC,index used
 to access g-share prediction and a snapshot
 of register status table.
 

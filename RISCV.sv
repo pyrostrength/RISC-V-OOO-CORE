@@ -54,7 +54,6 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 				//Inputs to instruction decode stage
 				logic[ROB:0] commitRob;
 				logic we; //regWrite passed through flip-flop and looped back to act as write enable on register status table.
-				logic fullRob;
 				logic[WIDTH:0] instruction;
 				logic[REG:0] destRegR;
 				logic[ROB:0] destROB,robAllocation;	
@@ -81,7 +80,7 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 				
 				
 				
-				instr_decode decodeStage(.*,.isJAL(jal),.branch(brnch),.robBus(outputBus),.inputBus(inputBus),.commitROB(commitRob)); 
+				instr_decode decodeStage(.*,.isJAL(jal),.branch(brnch),.robBus(outputBus),.inputBus(inputBus),.commitROB(commitRob),.fullRob(full)); 
 				
 				assign destRegR = destRegW; //Loop back to write during rename stage
 				assign we = regWrite;
