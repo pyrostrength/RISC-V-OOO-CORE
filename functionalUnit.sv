@@ -9,7 +9,7 @@ Writing to CDB controlled by CDBArbiter.*/
 
 module functionalUnit #(parameter WIDTH = 31, B_WIDTH = 7, A_WIDTH = 3, ROB = 2, CONTROL = 6)
 								(input logic signed[WIDTH:0] bSrc1,bSrc2,
-								 input logic[WIDTH:0] targetAddress,predictedPC,branchResult,
+								 input logic[WIDTH:0] targetAddress,predictedPC,nxtPC,
 						       input logic [B_WIDTH:0] branchControl,
 								 input logic signed[WIDTH:0] src1,src2,
 								 input logic [A_WIDTH:0] ALUControl,
@@ -20,7 +20,7 @@ module functionalUnit #(parameter WIDTH = 31, B_WIDTH = 7, A_WIDTH = 3, ROB = 2,
 								 
 								 logic signed[WIDTH:0] result;
 								 logic ALURequest;
-								 logic[WIDTH:0] correctAddress,branchResultE;
+								 logic[WIDTH:0] correctAddress,branchResult;
 								 logic[1:0] nextState;
 								 logic mispredict,misdirect,reset,writeBTB,request,takenBranch; 
 								 logic[CONTROL:0] controlPC;

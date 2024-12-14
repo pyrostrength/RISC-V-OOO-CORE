@@ -103,7 +103,7 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 				logic[BRANCH:0] branchRequests;
 				logic[ALU:0] ALURequests;
 				
-				renameStage instrRenameStage (.*,.isJAL(jal),.branch(brnch),.redirect(rdirect));
+				renameStage instrRenameStage (.*,.isJAL(jal),.redirect(rdirect));
 				
 				//Pass values from instruction rename stage on positive clock edge to instruction fetch stage.
 				always_ff @(posedge clk) begin
