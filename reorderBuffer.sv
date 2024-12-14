@@ -1,73 +1,29 @@
 /*
 The reorder buffer holds instructions results before commit.										
 
-Acts as a FIFO circular buffer for instructions up until
-they have their results ready for writing to register file or memory. 
-Written to during writeRS&ROB stage 
+Implemented as a FIFO circular buffer. 
+Holds for instructions up until their results ready 
+and instruction is head of ROB. Head and tail of
+ROB maintained by read and write pointers.
+We provide for two cycle instruction wakeup and commit
+by bypassing value on CDB broadcast,marking entry as ready
+and incrementing read_ptr in next cycle at positive clock edge.
+
+Written to in rename stage 
 with instruction control info{regWrite,
-memWrite,branch,jump,destination(32bits)}.
+memWrite,branch,jump},
+result destination,sequential PC,index used
+to access g-share prediction and a snapshot
+of register status table.
 
-Uses read and write pointers. Read_ptr
-points to the head of the ROB and implements the pop
-operation. Write pointer points to current write
-location and implements push operation.
+Clearing of instruction from ROB is completed by
+simply incrementing the read_ptr. That way writes
+to that entry are allowed.
 
-Uses full and empty signals to indicate whether we can write
-to ROB. 
+Written to during broadcast on CDB with target address
+(for JAL instructions),instruction fetch control info
+{isControl,misdirect,mispredict,nextState,takenBranch,branch,reset}
 
-Regwrite and memWrite determine if we're writing 
-to register file or memory.
-Branch and jump handle the specific cases of conditional 
-and unconditional branching instructions.
-
-Read_ptr incremented with each successive read and
-write_ptr with every write.
-
-We risk placing useless state changes on 
-register file,memory or even during instruction commit
-broadcast thus necessasitating a signal determining validity
-of an instruction commit prior to commit cycle. For this
-allow asynchronous reads on ready buffer.
-
-When an instruction writes results we indicate
-availability of result in ready buffer.
-When an instruction gets assigned to ROB we clear
-it's associated ready buffer entry
-otherwise we'll commit unready instructions.
-
-MLAB implementation is possible and it would allow
-for single cycle change in instruction fetch. Not
-two cycle in which we fetch after commit cycle.
-
-We maintain a separate buffer
-for updating branch predictor and for maintaining
-appropriate control flow of program execution.
-
-Written to during writeRS&ROB stage 
-with instruction state snapshot info{regStatus,sequentialPC,
-previousIndex} and during instruction write
-result stage with control flow and predictor update info
-{targetAddress,writeBTB,takenBranch,state}.
-
-Uses the same read and write pointer as reorder buffer
-Buffer combinations
-{sequential PC},{previousIndex,mispredict,writeBTB,takenBranch,state},
-{regstatus},{targetaddress}.
-
-If instruction is a JAL instruction we've finished executing in rename
-stage prior to entering instruction to ROB or reservation station.
-Thus we indicate availability of its result straightaway in ROB 
-after rename stage.
-
-Added reset signal to control Flow buffer.
-
-Use read_ptr to synchronously read the memory buffers. 
-Perform comparisons on with broadcast on CDB to determine instruction
-readiness.
-
-Must bypass for all instructions : value,target address,control flow info etc
-
-Add global reset signal to pulse out zeroes when global reset is asserted.
 */
 
 module reorderBuffer #(parameter WIDTH = 31, CONTROL = 7, INDEX = 7, ROB = 2)
