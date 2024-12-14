@@ -1,19 +1,19 @@
 -- begin_signature
 -- reorderBuffer
 -- end_signature
-WIDTH=8;
+WIDTH=6;
 DEPTH=8;
 
 ADDRESS_RADIX=UNS;
 DATA_RADIX=BIN;
 
 CONTENT BEGIN
-	7 :	00000000;
-	6 :	00000000;
-	5 :	00000000;
-	4 :	00000000;
-	3 :	00000000;
-	2 :	00000000;
-	1 :	00000000;
-	0 :	00000000;
+	7 :	000000;
+	6 :	000000;
+	5 :	000000;
+	4 :	000000;
+	3 :	000000;
+	2 :	000000;
+	1 :	000000;
+	0 :	000000;
 END;

@@ -1,16 +1,16 @@
-Fitter Status : Successful - Fri Dec 13 16:56:36 2024
+Fitter Status : Successful - Sat Dec 14 15:20:25 2024
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : RISC-V
 Top-level Entity Name : RISCV
 Family : Cyclone V
 Device : 5CGXFC9A6U19A7
 Timing Models : Final
-Logic utilization (in ALMs) : 2,251 / 113,560 ( 2 % )
-Total registers : 2601
-Total pins : 98 / 264 ( 37 % )
+Logic utilization (in ALMs) : 2,062 / 113,560 ( 2 % )
+Total registers : 2415
+Total pins : 66 / 264 ( 25 % )
 Total virtual pins : 0
-Total block memory bits : 10,752 / 12,492,800 ( < 1 % )
-Total RAM Blocks : 13 / 1,220 ( 1 % )
+Total block memory bits : 10,496 / 12,492,800 ( < 1 % )
+Total RAM Blocks : 12 / 1,220 ( < 1 % )
 Total DSP Blocks : 0 / 342 ( 0 % )
 Total HSSI RX PCSs : 0 / 5 ( 0 % )
 Total HSSI PMA RX Deserializers : 0 / 5 ( 0 % )

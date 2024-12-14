@@ -6,7 +6,7 @@ this interface.
 
 
 
-interface commonDataBus #(parameter WIDTH = 31, ROB = 2,CONTROL = 6);
+interface commonDataBus #(parameter WIDTH = 31, ROB = 2,CONTROL = 4);
 								  
 								  logic[WIDTH:0] result;
 								  logic[ROB:0] robEntry;
@@ -45,7 +45,7 @@ respective functional unit is available.
 
 */							
 								
-module CDBArbiter  #(parameter WIDTH = 31, ROB = 2,CONTROL = 6) //control changed to 6 to account for reset signal. we place reset in L.S.Bit.
+module CDBArbiter  #(parameter WIDTH = 31, ROB = 2,CONTROL = 4) //control changed to 6 to account for reset signal. we place reset in L.S.Bit.
 						  (commonDataBus.arbiter dataBus,
 						   input logic globalReset,
 							input logic[CONTROL:0] controlPC,
@@ -130,6 +130,7 @@ module CDBArbiter  #(parameter WIDTH = 31, ROB = 2,CONTROL = 6) //control change
 										dataBus.pcControl <= '0;
 										dataBus.targetAddress <= '0;
 									end
+									/*Potential source for glitches*/
 									else if(we) begin
 										pointer <= nxtPointer;
 										dataBus.result <= value;

@@ -16,8 +16,8 @@ in order listed.
 
 module instrFetchUnit #(parameter WIDTH = 31, INDEX = 7, B_WIDTH = 7)
 							  (writeCommit outputBus,
-							   input logic[WIDTH:0] validAddress,
-							   input logic isJAL,clk,freeze,globalReset,
+							   input logic[WIDTH:0] validAddress,decodePC,
+							   input logic isJAL,clk,freeze,globalReset,earlyMisdirect,
 							   output logic redirect,
 								output logic[WIDTH:0] nextPC,
 								output logic[WIDTH:0] predictedPCF,instr,instrPC,
@@ -29,8 +29,7 @@ module instrFetchUnit #(parameter WIDTH = 31, INDEX = 7, B_WIDTH = 7)
 								logic[WIDTH:0] intermediatePC;
 								logic direct; //Did we steer instruction fetch according to prediction made by branch predictor.
 								PCSelectLogic pcSelect(.*,.redirect(direct),.targetAddress(outputBus.targetAddress),
-								                        .mispredict(outputBus.controlFlow[6]),.misdirect(outputBus.controlFlow[5]),
-																.reset(outputBus.controlFlow[0]),.oldPC(outputBus.oldPC));
+																.reset(outputBus.controlFlow[0]));
 								
 								//BTB relevant signals
 							   logic validHit;
@@ -42,12 +41,11 @@ module instrFetchUnit #(parameter WIDTH = 31, INDEX = 7, B_WIDTH = 7)
 								//Branch predictor(gshare and branchIndex)
 								logic[INDEX:0] index;
 								logic[1:0] state;
-								gshare predictor(.*,.predictorWrite(outputBus.controlFlow[7]),.previousIndex(outputBus.previousIndex)
+								gshare predictor(.*,.predictorWrite(outputBus.commitInfo[1]),.previousIndex(outputBus.previousIndex)
 								                 ,.newState(outputBus.controlFlow[4:3]));
 								
-								//For a while we have instability on intermediatePC
 								
-								branchIndex indexGen(.*,.PC(nextPC),.wasTaken(outputBus.controlFlow[1]),.branch(outputBus.controlFlow[7])
+								branchIndex indexGen(.*,.PC(nextPC),.wasTaken(outputBus.controlFlow[1]),.branch(outputBus.commitInfo[1])
 								                      ,.reset(globalReset));
 								
 								//Valid prediction on BTB

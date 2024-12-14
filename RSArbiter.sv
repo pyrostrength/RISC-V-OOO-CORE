@@ -70,7 +70,7 @@ module RSArbiter #(parameter WIDTH = 31, RS = 1, BRANCH = 1, ALU = 3)
 						assign aluBusy1 = ALUBusyVector[1:0];
 						assign aluBusy2 = ALUBusyVector[3:2];
 						
-						/*Search through busy vector to determine if
+						Search through busy vector to determine if
 						we at least have 2 slots available. Then based on
 						instruction in rename stage requesting availability 
 						in reservation station we determine whether the

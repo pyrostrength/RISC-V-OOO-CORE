@@ -7,7 +7,7 @@ to execute stage).
 Writing to CDB controlled by CDBArbiter.*/
 
 
-module functionalUnit #(parameter WIDTH = 31, B_WIDTH = 7, A_WIDTH = 3, ROB = 2, CONTROL = 6)
+module functionalUnit #(parameter WIDTH = 31, B_WIDTH = 7, A_WIDTH = 3, ROB = 2, CONTROL = 4)
 								(input logic signed[WIDTH:0] bSrc1,bSrc2,
 								 input logic[WIDTH:0] targetAddress,predictedPC,nxtPC,
 						       input logic [B_WIDTH:0] branchControl,
@@ -22,9 +22,9 @@ module functionalUnit #(parameter WIDTH = 31, B_WIDTH = 7, A_WIDTH = 3, ROB = 2,
 								 logic ALURequest;
 								 logic[WIDTH:0] correctAddress,branchResult;
 								 logic[1:0] nextState;
-								 logic mispredict,misdirect,reset,writeBTB,request,takenBranch; 
+								 logic reset,writeBTB,request,takenBranch; 
 								 logic[CONTROL:0] controlPC;
-								 assign controlPC = {mispredict,misdirect,nextState,writeBTB,takenBranch,reset};
+								 assign controlPC = {nextState,writeBTB,takenBranch,reset};
 								 
 								 branchALU branchUnit(.*);
 								 ALU computeUnit(.*);

@@ -22,8 +22,8 @@ module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1
 							 output logic[A_WIDTH:0] ALUControl,
 							 output logic[WIDTH:0] immExt,pc,
 							 output logic[RS:0] RSstation,
-							 output logic branch,isJAL,useImm,regWrite, //Must pass out regWrite to bring it back in as write enable for register status.
-							 output logic isJALR,isLUI,isAUIPC,stationRequest,
+							 output logic branch,isJAL,useImm,regWrite,earlyMisdirect, //Must pass out regWrite to bring it back in as write enable for register status.
+							 output logic isJALR,stationRequest,
 							 output logic[REG:0] destRegW,
 							 output logic busy1,busy2,
 							 output logic freeze,  //Is respective reservation station full? We must freeze the pipeline.
@@ -41,12 +41,12 @@ module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1
 							 
 							//We, destRegD all come from this stage.
 							 logic[WIDTH:0] extImm;
-							 logic jalr,lui,auipc,stationReq,regWr,jal,brnch,memWr,occupied1,occupied2,immUse,robWrite;
+							 logic jalr,stationReq,regWr,jal,brnch,memWr,occupied1,occupied2,immUse,robWrite;
 							 logic[1:0] station;
 							 logic[3:0] aluC;
 							 decodeextend decodeExtender (.*,.immExt(extImm),.ALUControl(aluC),.RSstation(station),
 																	.memWrite(memWr),.branch(brnch),.isJAL(jal),.useImm(immUse),.regWrite(regWr),
-																	.isJALR(jalr),.isLUI(lui),.isAUIPC(auipc),.stationRequest(stationReq));
+																	.isJALR(jalr),.stationRequest(stationReq));
 							 
 							 logic[WIDTH:0] regValue1,regValue2;
 							 register_file regfile(.*,.wraddress(robBus.destCommit[4:0]),.wdata(robBus.result),
@@ -85,12 +85,22 @@ module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1
 										noRS = 1'b0;
 								endcase
 								
-								freeze = fullRob | noRS;
+								freeze = fullRob | noRS | earlyMisdirect;
 								
 								robReq = robBus.controlFlow[0] & robWrite; 
 							end
 							
-											
+							/*Course correction if we mistakenly took an instruction
+							as a branch instruction */
+							always_comb begin
+							//Only conditional control flow instructions undergo branch prediction.
+								if(!brnch & redirect) begin
+									earlyMisdirect = 1'b1;
+								end
+								else begin
+									earlyMisdirect = 1'b0;
+								end
+							end				
 							
 							//Just pass on instruction PC.
 							//For register status and value determination
@@ -125,7 +135,7 @@ module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1
 								if(robBus.controlFlow[0] | globalReset) begin
 									stationRequest <= '0;
 									regWrite <= '0;
-									{isJALR,isJAL,isLUI,isAUIPC} <= '0;
+									{isJALR,isJAL} <= '0;
 									 
 									inputBus.commitInfo <= '0;
 									inputBus.destination <= '0;
@@ -154,8 +164,6 @@ module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1
 									branch <= brnch;
 									isJAL <= jal;
 									useImm <= immUse;
-									isLUI <= lui;
-									isAUIPC <= auipc;
 									stationRequest <= stationReq;
 									ALUControl <= aluC;
 									RSstation <= station;

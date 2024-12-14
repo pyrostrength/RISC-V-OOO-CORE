@@ -27,7 +27,7 @@ Change instruction decode to assign to an interface.
 module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, INDEX = 7,
 					BRANCH = 1, ALU = 3, B_WIDTH = 7)
                (input logic globalReset,clk,
-				    output logic[WIDTH:0] result,regDest,nextPC);
+				    output logic[WIDTH:0] result,regDest);
 				 
 				 
 				 /*Declare instances of write commit interface which models
@@ -41,19 +41,23 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 				
 				 //instrFetchUnit input signals
 				 logic[WIDTH:0] validAddress;//valid address is instruction PC change coming in from the rename stage.
-				 logic isJAL,freeze; //isJAL is control signal indicating JAL instruction requesting instruction PC change from rename stage.
+				 logic isJAL,freeze,earlyMisdirect; //isJAL is control signal indicating JAL instruction requesting instruction PC change from rename stage.
 				 
+				 logic[WIDTH:0] decodePC; //Instruction PC from decode stage correcting control flow if we discover that instruction fetched was never
+				 //a branch instruction.
 				 //instrFetchUnit output signals
 				 logic redirect; //Did we redirect program flow according to branch predictor?
-				 logic[WIDTH:0] predictedPCF,instr,instrPC;//read from I-mem
+				 logic[WIDTH:0] predictedPCF,instr,instrPC,nextPC;//read from I-mem
 				 logic[INDEX:0] GHRIndex; //from predictor
 				 logic[1:0] PHTState; //State read off from g-share predictor.
 				
 				instrFetchUnit fetchStage(.*); 
 				
+				assign decodePC = instrPC ; //Loop-back.
+				
 				//Inputs to instruction decode stage
 				logic[ROB:0] commitRob;
-				logic we; //regWrite passed through flip-flop and looped back to act as write enable on register status table.
+				logic we,full; //regWrite passed through flip-flop and looped back to act as write enable on register status table.
 				logic[WIDTH:0] instruction;
 				logic[REG:0] destRegR;
 				logic[ROB:0] destROB,robAllocation;	
@@ -127,7 +131,7 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 				logic signed[WIDTH:0] bsrc1,bsrc2;
 				logic[ROB:0] branchRob;
 				logic[B_WIDTH:0] branchInfo;
-				logic[WIDTH:0] predictedAddress,targetAddress,branchResult;
+				logic[WIDTH:0] predictedAddress,targetAddress,nxtPC;
 				
 				ALURS aluReservationStation(.*,.ALUControl(aluCntrl),.writeRequests(ALURequests),.instrRob(ALURob)
 				                            ,.instrInfo(ALUInfo),.busy(ALUBusyVector),.execute(aluAvailable),.clear(outputBus.controlFlow[0]),
@@ -148,9 +152,9 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 				//Values from robRenameBuffer.										 
 								
 				logic[WIDTH:0] ROBValue1,ROBValue2;
-				logic valid1,valid2,full; 
+				logic valid1,valid2; 
 				
-				reorderBuffer rob(.*,.robWrite(robReq),.inputBus(inputBus),.outputBus(outputBus));
+				reorderBuffer rob(.*,.robWrite(robReq),.inputBus(inputBus),.outputBus(outputBus),.full(full));
 				
 				
 				/*Instruction decode stage signals from reorder buffer
@@ -159,7 +163,6 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 				to both rob and instruction_decode stage.*/
 				
 				
-				assign fullRob = full; 
 				assign robValue1 = {valid1,ROBValue1};
 				assign robValue2 = {valid2,ROBValue2};
 				

@@ -1,17 +1,17 @@
-/* Branch ALU is the functional unit handling branching instructions,
-	JAL,JALR instructions. 
+/* 
+   Branch ALU is the execution unit for branch,JAL,JALR instructions. 
 	
 	{isJAL,isJALR,Branchfunct3,state,redirect} are branchcontrol signals.
 	
-	redirect signal is the valid bit from BTB access that indicates
-	if instruction fetch was redirected to predicted target address.
+	redirect signal indicates if instruction fetch 
+	was redirected according to branch prediction.
 	
 	state is the readout from the pattern history table. It's MSBit
-	represents prediction direction.
+	represents prediction direction. Input to next state logic
+	for g-share predictor.
 	
 	The Branchfunct3 are BEQ,BNE,BLT,BLT(U) and BGE(U)
 	corresponding to bit representations 000,001,010,011,100,101,110.
-	
 	
 	Misdirect is a 1-bit signal indicating that we 
 	redirected instruction PC according 
@@ -22,24 +22,13 @@
 	was wrong. We must reset instruction fetch and flush pipeline
 	as we fetched from wrong PC.
 	
-	writeBTB acts as a write enable for Branch Target Buffer. We update
-	BTB for all conditional branches predicted as taken 
-	regardless of whether predicted PC matched correct address
-	and we eliminate entries for which we predicted taken yet
-	aren't taken.
-	
-	Next state logic updates saturating counters
-	comprising of the predictor table.
-	For now pattern history table is updated during instruction
-	commit.
-	
-	we use bit-vector representing
-	strongly taken(11),weakly taken(10),weakly not taken(01) and strongly
-	not taken(00). If branch is taken we shift upwards. If branch isn't taken
-	we shift downwards.
-	
-	Request signal is used to request round robin arbiter for opportunity to 
-	write result on common data bus.
+	writeBTB acts as a write enable for Branch Target Buffer. 
+	For branches taken we update BTB with instruction
+	fetch address associated with the taken branch.
+	We also update the BTB for unconditional JALR instructions.
+	If branch originally predicted as taken and we redirected
+	according to hit on BTB we must indicate invalidity of 
+	BTB entry - make the valid bit of BTB valid buffer 0.
 	
 */
 
@@ -49,7 +38,7 @@ module branchALU #(parameter WIDTH = 31, C_WIDTH = 7)
 						 input logic [C_WIDTH:0] branchControl,
 						 output logic [WIDTH:0] correctAddress,branchResult,
 						 output logic[1:0] nextState,
-						 output logic mispredict,misdirect,reset,takenBranch, 
+						 output logic reset,takenBranch, 
 						 output logic writeBTB,request); 
 						 
 						 logic signed [WIDTH : 0] tempAddress;
@@ -57,17 +46,19 @@ module branchALU #(parameter WIDTH = 31, C_WIDTH = 7)
 						 
 						 //Is branch actually taken ? If yes update PHT. Did we mispredict?
 						 
+						 logic mispredict,misdirect;
+						 
 						 always_comb begin
-							{writeBTB,takenBranch,misdirect,mispredict,request,reset} = 1'b0;
+							{writeBTB,takenBranch,request,reset,mispredict,misdirect} = 1'b0;
 							nextState = branchControl[2:1]; //Next state equals current state
 							tempAddress = src1 + src2;
 							branchResult = nxtPC;
 							unique case(branchControl[7:6]) //{isJAL,isJALR}
 								2'b00: begin //Branch instructions
-									correctAddress = targetAddress;
 									request = 1'b1;
+									takenBranch = 1'b0; 
 									unique case(branchControl[5:3])
-										3'b000: begin//BEQ
+										3'b000: begin //BEQ
 											takenBranch = (src1 == src2);
 										end
 										3'b001: begin //BNE
@@ -85,18 +76,22 @@ module branchALU #(parameter WIDTH = 31, C_WIDTH = 7)
 										3'b101:begin //BGE(U)
 											takenBranch = unsigned' (src1) >= unsigned' (src2);
 										end
-										default: begin 
-											takenBranch = 1'b1;
-										end
+										
+										default: takenBranch = 1'b0;
 									
-									endcase	
+									endcase
+								
+									/*If branch not taken then the correct address is the next sequential PC*/
+									correctAddress = (takenBranch) ? nxtPC : targetAddress;
 									
-									/*If we redirected yet correct address doesn't equal that predicted.
-									Or if correct address equals that predicted yet we redirected but branch
-									wasn't taken*/
-									misdirect = ((correctAddress != predictedPC) & branchControl[0]) | (branchControl[0] & !takenBranch);
+									/*If we fetched according to branch prediction yet branch isn't taken
+									then we must reset PC for our misprediction. If we branch is taken but
+									we redirected instruction fetch to wrong memory location then we must 
+									correct this misdirection using actual target address*/
 									
-									/*Predictions don't align with outcomes*/
+									misdirect = (correctAddress != predictedPC) & branchControl[0];
+									
+									/*Predictions don't align with outcomes - xor*/
 									mispredict = branchControl[2] ^ takenBranch;
 									
 									/*Flush pipeline*/
@@ -108,19 +103,25 @@ module branchALU #(parameter WIDTH = 31, C_WIDTH = 7)
 									
 								end
 								
-								/*We change instruction PC quite early on for JAL & JALR instructions*/
+								/*JALR and JAL instructions don't update the BTB */
 								2'b01: begin //JALR instructions
-									correctAddress = {tempAddress[WIDTH:1],1'b0};
+									{writeBTB,takenBranch}= 1'b0;
+									correctAddress = {tempAddress[WIDTH:1],1'b0}; //Actual target address.
+									reset = 1'b1; //Since we change next sequential fetch.
 									request = 1'b1;
 								end
 								
-								/*2'b10: begin //JAL instruction
-									correctAddress = tempAddress;
+								/*JAL instruction changes instruction PC 2 cycles after rename stage.
+								We,for now,prevent it from writing to BTB or updating the g-share predictor.*/
+								2'b10: begin //JAL instruction
+									{writeBTB,takenBranch,reset} = 1'b0;
+									correctAddress = targetAddress;
 									request = 1'b1;
-								end*/
+								end
 								
 								default: begin  
 									correctAddress = tempAddress;
+									request = 1'b0;
 								end
 							
 							endcase

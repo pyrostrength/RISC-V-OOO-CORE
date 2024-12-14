@@ -20,13 +20,13 @@ Clearing of instruction from ROB is completed by
 simply incrementing the read_ptr. That way writes
 to that entry are allowed.
 
-Written to during broadcast on CDB with target address
-(for JAL instructions),instruction fetch control info
-{isControl,misdirect,mispredict,nextState,takenBranch,branch,reset}
+Written to during broadcast on CDB with correct fetch address
+(for JALR/branch instructions),instruction fetch control info
+{isControl,nextState,writeBTB,takenBranch,reset}
 
 */
 
-module reorderBuffer #(parameter WIDTH = 31, CONTROL = 7, INDEX = 7, ROB = 2)
+module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 							  (commonDataBus.reorder_buffer dataBus,
 							   input logic[ROB:0] rob1,rob2,
 								input logic robWrite,freeze,globalReset,
@@ -54,14 +54,13 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 7, INDEX = 7, ROB = 2)
 								//Contains target addresses for control flow instructions
 								logic[WIDTH:0] addressBuffer[7:0];	
 								
-								//Contains {state,writeBTB,takenBranch,mispredict,misdirect,isControl,reset}	
+								//Contains {isControl,nextstate,writeBTB,takenBranch,reset}	
 								logic[CONTROL:0] updateBuffer[7:0];
 								 
 								//Contains register status table snapshot for reset under branch misprediction.
 								logic[WIDTH:0] regStatusBuffer[7:0];
 								 
-								/*Contains instruction PC for reset in case of branch misprediction and for
-								updating the branch target buffer*/
+								/*Contains instruction PC for updating the branch target buffer*/
 								logic[WIDTH:0] oldPCBuffer[7:0];
 								
 								//Contains previousIndex for updating the gshare unit
@@ -133,7 +132,7 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 7, INDEX = 7, ROB = 2)
 										destCommit <= destinationBuffer[read_ptr];
 										
 								/*Write on negative clock edge since inter-stage flip-flops operate positive clock edge*/
-										if(!freeze & robWrite) begin 
+										if(!freeze & robWrite & !globalReset) begin 
 											
 											//Write instruction destination into destination buffer
 											destinationBuffer[write_ptr] <= inputBus.destination;
@@ -161,6 +160,10 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 7, INDEX = 7, ROB = 2)
 											regStatusBuffer[write_ptr] <= inputBus.regStatus;
 											
 											
+										end
+										
+										if(globalReset) begin
+											write_ptr <= '0;
 										end
 									
 									 /*Indicate data value and it's availability after write result stage.
@@ -236,7 +239,7 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 7, INDEX = 7, ROB = 2)
 									else begin
 										outputBus.commitInfo <= '0;
 										outputBus.controlFlow <= '0;
-										outputBus.validCommit <= 1'b0;
+										outputBus.validCommit <= '0;
 									end
 								end
 								

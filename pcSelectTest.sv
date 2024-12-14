@@ -26,8 +26,8 @@ Otherwise pick next sequential address ; nextPC plus1;
 
 module pcSelectTest #(parameter WIDTH = 31);
 							
-							logic[WIDTH:0] validAddress,targetAddress,predictedPC,oldPC;
-							logic mispredict,misdirect,isJAL,predictorHit,clk,freeze,globalReset,reset;
+							logic[WIDTH:0] validAddress,targetAddress,predictedPC,decodePC;
+							logic isJAL,predictorHit,clk,freeze,globalReset,reset,earlyMisdirect;
 							logic redirect; //if we redirected instruction PC according to predictedPC. JAL has no wrong redirect.
 							logic[WIDTH:0] nextPC,intermediatePC;
 							
@@ -59,12 +59,12 @@ module pcSelectTest #(parameter WIDTH = 31);
 								assert (redirect == 1'b1);
 								assert (intermediatePC == predictedPC); #2 //Intermediate PC will equal predicted PC since predictorHit is still high
 								//Branch prediction led us down the wrong path but we have an address change request by JAL instruction
-								misdirect = 1'b1 ; targetAddress = 32'd50; #3
+								reset = 1'b1 ; targetAddress = 32'd50; #3
 								assert(nextPC == targetAddress);
 								assert(redirect == 1'b0);
 								assert(intermediatePC == (targetAddress)); #2 //Since misdirect is still high
 								//Do we have sequential PC following target Address ?
-								misdirect = 1'b0 ; predictorHit = 1'b0; #3
+								reset = 1'b0 ; predictorHit = 1'b0; #3
 								assert(nextPC == (targetAddress + 32'd1));
 								assert(intermediatePC == (targetAddress + 32'd2)); #2
 								//What if we run out of space on RS or ROB? Freeze the pipeline

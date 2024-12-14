@@ -18,7 +18,7 @@ module branchRS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 7, RS = 1)
 						output logic[C_WIDTH:0] instrInfo,
 						output logic[RS:0] busy,
 						output logic signed[WIDTH:0] src1,src2,
-						output logic[WIDTH:0] predictedAddress,targetAddress,branchResult);
+						output logic[WIDTH:0] predictedAddress,targetAddress,nxtPC);
 					
 						//We include BranchRsSelect in this module to select for instructions
 						logic busy1,busy2;
@@ -82,7 +82,7 @@ module branchRS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 7, RS = 1)
 						
 						always_ff @(posedge clk) begin
 							if(clear | globalReset) begin
-								{src1,src2,predictedAddress,targetAddress,branchResult} <= '0;
+								{src1,src2,predictedAddress,targetAddress,nxtPC} <= '0;
 								instrInfo <= '0;
 								instrRob <= '0;
 							end
@@ -93,7 +93,7 @@ module branchRS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 7, RS = 1)
 								instrRob <= chosenROB;
 								predictedAddress <= btbPrediction;
 								targetAddress <= actualAddress;
-								branchResult <= sequentialFetch;
+								nxtPC <= sequentialFetch;
 							end
 						end
 					

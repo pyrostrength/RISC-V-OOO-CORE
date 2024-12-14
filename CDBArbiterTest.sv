@@ -1,7 +1,7 @@
 /*Test module for the CDB arbiter*/
 
 
-module CDBArbiterTest #(parameter WIDTH = 31,ROB = 2,CONTROL = 6);
+module CDBArbiterTest #(parameter WIDTH = 31,ROB = 2,CONTROL = 5);
 							 
 							  commonDataBus dataBus();
 							  logic[CONTROL:0] controlPC;

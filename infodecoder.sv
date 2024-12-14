@@ -76,7 +76,7 @@ module infodecoder (input logic[3:0] opcode,
 											stationRequest = 1'b1;
 										end
 										
-										default:
+										default: begin
 											stationRequest = 1'b0;
 											RSstation = 2'b11;
 											robWrite = 1'b0;

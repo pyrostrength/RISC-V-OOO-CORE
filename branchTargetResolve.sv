@@ -18,7 +18,6 @@ module branchTargetResolve #(parameter WIDTH = 31)
 					always_comb begin
 						jump = isJAL;
 						targetAddress = PC + immExt;
-						earlyResult = PC + immExt;
 						seqPC = PC + 32'd1;
 					end
 

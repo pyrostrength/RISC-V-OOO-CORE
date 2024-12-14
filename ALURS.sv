@@ -49,7 +49,7 @@ module ALURS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3, RS = 3)
 					
 					//SrcMux
 					logic signed[RS:0][WIDTH:0] operands1,operands2;
-					logic signed[WIDTH:0] sourceValue1,sourceValue2; //Intermediate value for pipelining.
+					logic signed[WIDTH:0] sourceValue1,sourceValue2; 
 					
 					logic[RS:0][ROB:0] robs;
 					logic[ROB:0] chosenROB;
@@ -68,10 +68,10 @@ module ALURS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3, RS = 3)
 					srcMux #(.WIDTH(C_WIDTH)) info(.*,.sourceOperands(information),.operand(toomanyNames));
 					
 					always_ff @(posedge clk) begin
-					//Only pass values from sourceMux if functional unit is available for execution.
+					//Only pass values if functional unit is available.
 						if(clear | globalReset) begin
 							{src1,src2} <= '0;
-							instrInfo <= '0;
+							instrInfo <= 4'b1111; //Default case to ensure ALU doesn't recognize pipeline bubble as actual instruction.
 							instrRob <= '0;
 						end
 						else if(execute) begin
@@ -83,5 +83,4 @@ module ALURS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3, RS = 3)
 					end
 					
 endmodule
-					//Control signal execute determines whether we can result from ALU RS to
 					
