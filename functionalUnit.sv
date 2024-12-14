@@ -29,8 +29,7 @@ module functionalUnit #(parameter WIDTH = 31, B_WIDTH = 7, A_WIDTH = 3, ROB = 2,
 								 branchALU branchUnit(.*);
 								 ALU computeUnit(.*);
 								 
-								 CDBArbiter dataBusArbiter(.*,.fetchAddress(correctAddress),.ALUResult(result),.branchRequest(request)
-								                           ,.branchResult(branchResultE));
+								 CDBArbiter dataBusArbiter(.*,.fetchAddress(correctAddress),.ALUResult(result),.branchRequest(request));
 								 
 								 
 endmodule

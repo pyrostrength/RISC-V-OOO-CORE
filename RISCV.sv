@@ -66,7 +66,7 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 				logic[RS:0] RSstation;
 				logic[2:0] branchFunct3;
 				logic brnch,jal,useImm,regWrite;
-				logic isJALR,isLUI,isAUIPC,stationRequest;
+				logic isJALR,stationRequest;
 				logic[REG:0] destRegW; //We write ROB dependence on second stage when we're sure that we occupy a register so loop back the output.
 				logic busy1,busy2;
 				
