@@ -28,8 +28,8 @@ Written to during broadcast on CDB with correct fetch address
 
 module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 							  (commonDataBus.reorder_buffer dataBus,
-							   input logic[ROB:0] rob1,rob2,
-								input logic robWrite,freeze,globalReset,
+							   input logic[ROB:0] rob1,rob2,reset_ptr,
+								input logic robWrite,freeze,globalReset,cpuReset,
 							   writeCommit inputBus,
 								writeCommit outputBus,
 								output logic[WIDTH:0] ROBValue1,ROBValue2,
@@ -80,6 +80,8 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 								
 								logic rdy,bypass,commitRdy;
 								
+								logic reset,nxtCycleCommit;
+								
 								
 								//Signal declaration for writing to the commit bus.
 								logic[WIDTH:0] value,target;
@@ -95,8 +97,15 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 								  pass the value through the flipflop by enabling it.*/
 								/*read_ptr is incremented if commit occures at positive clock edge*/
 								always_comb begin
+									
+									nxtCycleCommit = (dataBus.robEntry == read_ptr) & (dataBus.validBroadcast);
+									
+									/*Determine if we increment read_ptr/write_ptr in next cycle*/
+									reset = (nxtCycleCommit) ? dataBus.pcControl[0] : 1'b0;
+									
 									bypass = 1'b0;
-									if(dataBus.validBroadcast & (dataBus.robEntry == read_ptr)) begin
+									
+									if(nxtCycleCommit) begin
 										bypass = 1'b1; //Ready to commit instruction
 								   end
 									
@@ -131,7 +140,9 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 										rdy <= readyBuffer[read_ptr];
 										destCommit <= destinationBuffer[read_ptr];
 										
-								/*Write on negative clock edge since inter-stage flip-flops operate positive clock edge*/
+								/*Write on negative clock edge since inter-stage flip-flops operate positive clock edge.
+								In case of cpu reset we void this write to ROB by emptying entire pipeline and setting
+								write_ptr to read-ptr*/
 										if(!freeze & robWrite & !globalReset) begin 
 											
 											//Write instruction destination into destination buffer
@@ -143,11 +154,26 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 											//Clear ready buffer of incorrect information
 											readyBuffer[write_ptr] <= 1'b0;
 											
+											/*In case of cpuReset we clear initial commiting entry
+											and empty reorder buffer by setting read_ptr and write_ptr to
+											its location. Read_ptr is set to location by never incrementing
+											when CPU reset is detected in prior cycle and write_ptr is changed
+											to initial read_ptr at negative clock edge*/
+											if(cpuReset) begin
+												readyBuffer[reset_ptr] <= 1'b0;
+											end
+											
 											/*Increment write_ptr iff pipeline was never frozen,
 											a request to write the rob had been made and rob isn't
 											full*/
-											if(!full) begin
+											if(!full & !cpuReset) begin
 												write_ptr <= write_ptr + 3'b001;
+											end
+											
+											/*Reset_ptr is rob entry of committing instruction. 
+											Resetting write_ptr to read_ptr empties the ROB*/
+											else if(cpuReset) begin
+												write_ptr <= reset_ptr;
 											end
 											
 											//Write sequential PC associated with an instruction to buffer
@@ -162,9 +188,10 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 											
 										end
 										
-										if(globalReset) begin
+										else if(globalReset) begin
 											write_ptr <= '0;
 										end
+											
 									
 									 /*Indicate data value and it's availability after write result stage.
 									   Doesn't depend upon fullness of ROB. */
@@ -178,7 +205,7 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 									/*If instruction is a control flow instruction then we store
 									  target address and relevant PC select and branch predictor update
 									  control information*/
-										if(dataBus.isControl) begin
+										if(dataBus.isControl & dataBus.validBroadcast) begin
 											addressBuffer[dataBus.robEntry] <= dataBus.targetAddress;
 											
 											updateBuffer[dataBus.robEntry] <= {dataBus.isControl,dataBus.pcControl};
@@ -208,8 +235,7 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 										outputBus.targetAddress <= '0;
 										outputBus.validCommit <= '0;
 										outputBus.destCommit <= '0;
-										commitRob <= '0;
-										read_ptr <= '0;
+										{commitRob,read_ptr} <= '0;
 									end
 								/*Pass new value of the read_ptr. Then we
 								use the new value to read from buffers at negative
@@ -227,9 +253,12 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 										outputBus.targetAddress <= targetAddress;
 										outputBus.validCommit <= 1'b1;
 										outputBus.destCommit <= destCommit;
-										read_ptr <= read_ptr + 3'b001; //Increment read_ptr
+										if(!reset) begin //Increment read_ptr iff reset is low.
+											read_ptr <= read_ptr + 3'b001; 
+										end
 										commitRob <= read_ptr; //the rob entry for currently commiting instruction is commitRob, the initial read_ptr.
 									end
+									
 									
 									
 									/* If we received no indication that instruction was ready to commit

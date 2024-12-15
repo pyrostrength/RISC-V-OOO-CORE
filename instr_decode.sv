@@ -22,7 +22,7 @@ module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1
 							 output logic[A_WIDTH:0] ALUControl,
 							 output logic[WIDTH:0] immExt,pc,
 							 output logic[RS:0] RSstation,
-							 output logic branch,isJAL,useImm,regWrite,earlyMisdirect, //Must pass out regWrite to bring it back in as write enable for register status.
+							 output logic isJAL,useImm,regWrite,earlyMisdirect, //Must pass out regWrite to bring it back in as write enable for register status.
 							 output logic isJALR,stationRequest,
 							 output logic[REG:0] destRegW,
 							 output logic busy1,busy2,
@@ -132,10 +132,15 @@ module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1
 							  entry or requesting to write the ROB or writing
 							  to register status in the next cycle or
 							  making special requests for special instructions*/
+							  
+							/*We assert isJAL,isJALR both high - no instruction
+							can be both a JAL and JALR at the same time. We also
+							make ALUControl be 4'b1111,corresponding to the global
+							reset state. We also make branchFunct3 3'b111*/
 								if(robBus.controlFlow[0] | globalReset) begin
 									stationRequest <= '0;
 									regWrite <= '0;
-									{isJALR,isJAL} <= '0;
+									{isJALR,isJAL} <= 1'b1; 
 									 
 									inputBus.commitInfo <= '0;
 									inputBus.destination <= '0;
@@ -143,13 +148,12 @@ module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1
 									inputBus.regStatus <= '0;
 									inputBus.instrPC <= '0;
 									
-									{branch,useImm} <= '0;
+									{rdirect,useImm} <= '0;
 									{RSstation,state} <= '0;
 									destRegW <= '0; 
-									ALUControl <= '0;
+									ALUControl <= 4'b1111;
 									predictPC <= '0;
-									rdirect <= '0;
-									branchFunct3 <= '0;//No special instruction requests on CDB.
+									branchFunct3 <= 3'b111;//No special instruction requests on CDB.
 								end
 								else if(!freeze) begin
 								//To reorder buffer and reorder rename buffer.
@@ -161,7 +165,6 @@ module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1
 									
 									regWrite <= regWr;
 									isJALR <= jalr;
-									branch <= brnch;
 									isJAL <= jal;
 									useImm <= immUse;
 									stationRequest <= stationReq;

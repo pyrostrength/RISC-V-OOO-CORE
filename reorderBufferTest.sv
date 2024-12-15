@@ -2,12 +2,12 @@
 
 module reorderBufferTest #(parameter WIDTH = 31, CONTROL = 6, INDEX = 7, ROB = 2);
 								   commonDataBus dataBus();
-							      logic[ROB:0] rob1,rob2,robAllocation,commitRob;
+							      logic[ROB:0] rob1,rob2,robAllocation,commitRob,reset_ptr;
 							      logic[WIDTH:0] earlyResult;
 							      writeCommit inputBus();
 								   writeCommit outputBus();
 								   logic[WIDTH:0] ROBValue1,ROBValue2;
-								   logic valid1,valid2;
+								   logic valid1,valid2,cpuReset;
 							      logic clk,isJAL;
 									logic robWrite,freeze,full,globalReset;
 									

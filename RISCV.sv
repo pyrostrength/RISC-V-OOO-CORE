@@ -27,7 +27,7 @@ Change instruction decode to assign to an interface.
 module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, INDEX = 7,
 					BRANCH = 1, ALU = 3, B_WIDTH = 7)
                (input logic globalReset,clk,
-				    output logic[WIDTH:0] result,regDest);
+				    output logic[WIDTH:0] result,regDest,nextPC);
 				 
 				 
 				 /*Declare instances of write commit interface which models
@@ -47,7 +47,7 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 				 //a branch instruction.
 				 //instrFetchUnit output signals
 				 logic redirect; //Did we redirect program flow according to branch predictor?
-				 logic[WIDTH:0] predictedPCF,instr,instrPC,nextPC;//read from I-mem
+				 logic[WIDTH:0] predictedPCF,instr,instrPC;//read from I-mem
 				 logic[INDEX:0] GHRIndex; //from predictor
 				 logic[1:0] PHTState; //State read off from g-share predictor.
 				
@@ -69,7 +69,7 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 				logic[WIDTH:0] immExt,pc;
 				logic[RS:0] RSstation;
 				logic[2:0] branchFunct3;
-				logic brnch,jal,useImm,regWrite;
+				logic jal,useImm,regWrite;
 				logic isJALR,stationRequest;
 				logic[REG:0] destRegW; //We write ROB dependence on second stage when we're sure that we occupy a register so loop back the output.
 				logic busy1,busy2;
@@ -84,7 +84,7 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 				
 				
 				
-				instr_decode decodeStage(.*,.isJAL(jal),.branch(brnch),.robBus(outputBus),.inputBus(inputBus),.commitROB(commitRob),.fullRob(full)); 
+				instr_decode decodeStage(.*,.isJAL(jal),.robBus(outputBus),.inputBus(inputBus),.commitROB(commitRob),.fullRob(full)); 
 				
 				assign destRegR = destRegW; //Loop back to write during rename stage
 				assign we = regWrite;
@@ -145,7 +145,7 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 				
 				
 				functionalUnit executeStage(.*,.predictedPC(predictedAddress),.branchControl(branchInfo),.src1(aluSrc1),.src2(aluSrc2)
-													 ,.ALUControl(ALUInfo),.bSrc1(bsrc1),.bSrc2(bsrc2));
+													 ,.ALUControl(ALUInfo),.bSrc1(bsrc1),.bSrc2(bsrc2),.clear(outputBus.controlFlow[0]));
 				
 				//Output from functional Unit is grant signal to pass instruction for execution
 				
@@ -153,6 +153,11 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 								
 				logic[WIDTH:0] ROBValue1,ROBValue2;
 				logic valid1,valid2; 
+				logic cpuReset;
+				logic[ROB:0] reset_ptr;
+				
+				assign cpuReset = outputBus.controlFlow[0];
+				assign reset_ptr = commitRob;
 				
 				reorderBuffer rob(.*,.robWrite(robReq),.inputBus(inputBus),.outputBus(outputBus),.full(full));
 				

@@ -58,7 +58,7 @@ module ALURS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3, RS = 3)
 					logic[C_WIDTH:0] toomanyNames;
 					
 					assign operands1 = {src1Instr4,src1Instr3,src1Instr2,src1Instr1};
-					assign operands2 = {src2Instr4,src2Instr3,src2Instr2,src1Instr1};
+					assign operands2 = {src2Instr4,src2Instr3,src2Instr2,src2Instr1};
 					assign robs = {instrRob4,instrRob3,instrRob2,instrRob1};
 					assign information = {instrInfo4,instrInfo3,instrInfo2,instrInfo1};
 					

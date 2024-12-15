@@ -14,7 +14,7 @@ module functionalUnit #(parameter WIDTH = 31, B_WIDTH = 7, A_WIDTH = 3, ROB = 2,
 								 input logic signed[WIDTH:0] src1,src2,
 								 input logic [A_WIDTH:0] ALUControl,
 								 input logic[ROB:0] ALURob,branchRob,
-								 input logic clk,globalReset,
+								 input logic clk,globalReset,clear,
 								 output logic aluAvailable,branchAvailable,
 								 commonDataBus.arbiter dataBus);
 								 

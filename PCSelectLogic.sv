@@ -25,8 +25,9 @@ module PCSelectLogic #(parameter WIDTH = 31)
 							 (input logic[WIDTH:0] validAddress,targetAddress,predictedPC,decodePC,
 							  input logic isJAL,predictorHit,clk,freeze,globalReset,reset,earlyMisdirect,
 							  output logic redirect, //if we redirected instruction PC according to predictedPC. JAL has no wrong redirect.
-							  output logic[WIDTH:0] nextPC,intermediatePC);
+							  output logic[WIDTH:0] nextPC);
 							  
+							  logic[WIDTH:0] intermediatePC;
 							  always_comb begin
 									intermediatePC = nextPC + 32'd1;
 									redirect = '0;

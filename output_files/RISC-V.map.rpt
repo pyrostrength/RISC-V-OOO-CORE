@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RISC-V
-Sat Dec 14 15:13:52 2024
+Sat Dec 14 17:40:26 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -30,79 +30,77 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
  22. Source assignments for instr_decode:decodeStage|register_status:regTable|altsyncram:src1ROB_rtl_0|altsyncram_o9s1:auto_generated
  23. Source assignments for instr_decode:decodeStage|register_status:regTable|altsyncram:src2ROB_rtl_0|altsyncram_p9s1:auto_generated
  24. Source assignments for instr_decode:decodeStage|register_status:regTable|altsyncram:dependencyBuffer_rtl_0|altsyncram_s9s1:auto_generated
- 25. Source assignments for instrFetchUnit:fetchStage|imem:IMem|altsyncram:iMem_rtl_0|altsyncram_8hc1:auto_generated
- 26. Source assignments for instrFetchUnit:fetchStage|gshare:predictor|altsyncram:patternTable_rtl_0|altsyncram_2qq1:auto_generated
- 27. Source assignments for instrFetchUnit:fetchStage|BTB:branchTargetBuffer|altsyncram:targetBuffer_rtl_0|altsyncram_auq1:auto_generated
- 28. Parameter Settings for User Entity Instance: Top-level Entity: |RISCV
- 29. Parameter Settings for User Entity Instance: writeCommit:inputBus
- 30. Parameter Settings for User Entity Instance: writeCommit:outputBus
- 31. Parameter Settings for User Entity Instance: commonDataBus:dataBus
- 32. Parameter Settings for User Entity Instance: instrFetchUnit:fetchStage
- 33. Parameter Settings for User Entity Instance: instrFetchUnit:fetchStage|PCSelectLogic:pcSelect
- 34. Parameter Settings for User Entity Instance: instrFetchUnit:fetchStage|BTB:branchTargetBuffer
- 35. Parameter Settings for User Entity Instance: instrFetchUnit:fetchStage|gshare:predictor
- 36. Parameter Settings for User Entity Instance: instrFetchUnit:fetchStage|branchIndex:indexGen
- 37. Parameter Settings for User Entity Instance: instrFetchUnit:fetchStage|imem:IMem
- 38. Parameter Settings for User Entity Instance: instr_decode:decodeStage
- 39. Parameter Settings for User Entity Instance: instr_decode:decodeStage|decodeextend:decodeExtender
- 40. Parameter Settings for User Entity Instance: instr_decode:decodeStage|decodeextend:decodeExtender|extend:extender
- 41. Parameter Settings for User Entity Instance: instr_decode:decodeStage|register_file:regfile
- 42. Parameter Settings for User Entity Instance: instr_decode:decodeStage|register_status:regTable
- 43. Parameter Settings for User Entity Instance: renameStage:instrRenameStage
- 44. Parameter Settings for User Entity Instance: renameStage:instrRenameStage|instructionValues:valdet1
- 45. Parameter Settings for User Entity Instance: renameStage:instrRenameStage|instructionValues:valdet2
- 46. Parameter Settings for User Entity Instance: renameStage:instrRenameStage|RSArbiter:arbiter
- 47. Parameter Settings for User Entity Instance: renameStage:instrRenameStage|branchTargetResolve:targetResolver
- 48. Parameter Settings for User Entity Instance: ALURS:aluReservationStation
- 49. Parameter Settings for User Entity Instance: ALURS:aluReservationStation|ALURStationEntry:entry1
- 50. Parameter Settings for User Entity Instance: ALURS:aluReservationStation|ALURStationEntry:entry2
- 51. Parameter Settings for User Entity Instance: ALURS:aluReservationStation|ALURStationEntry:entry3
- 52. Parameter Settings for User Entity Instance: ALURS:aluReservationStation|ALURStationEntry:entry4
- 53. Parameter Settings for User Entity Instance: ALURS:aluReservationStation|ALUSelect:selectLogic
- 54. Parameter Settings for User Entity Instance: ALURS:aluReservationStation|srcMux:op1
- 55. Parameter Settings for User Entity Instance: ALURS:aluReservationStation|srcMux:op2
- 56. Parameter Settings for User Entity Instance: ALURS:aluReservationStation|srcMux:rob
- 57. Parameter Settings for User Entity Instance: ALURS:aluReservationStation|srcMux:info
- 58. Parameter Settings for User Entity Instance: branchRS:branchReservationStation
- 59. Parameter Settings for User Entity Instance: branchRS:branchReservationStation|branchRSEntry:entry1
- 60. Parameter Settings for User Entity Instance: branchRS:branchReservationStation|branchRSEntry:entry2
- 61. Parameter Settings for User Entity Instance: branchRS:branchReservationStation|branchSelect:selectLogic
- 62. Parameter Settings for User Entity Instance: branchRS:branchReservationStation|srcMux:op1
- 63. Parameter Settings for User Entity Instance: branchRS:branchReservationStation|srcMux:op2
- 64. Parameter Settings for User Entity Instance: branchRS:branchReservationStation|srcMux:rob
- 65. Parameter Settings for User Entity Instance: branchRS:branchReservationStation|srcMux:info
- 66. Parameter Settings for User Entity Instance: branchRS:branchReservationStation|srcMux:predictor
- 67. Parameter Settings for User Entity Instance: branchRS:branchReservationStation|srcMux:addressor
- 68. Parameter Settings for User Entity Instance: branchRS:branchReservationStation|srcMux:fetchor
- 69. Parameter Settings for User Entity Instance: functionalUnit:executeStage
- 70. Parameter Settings for User Entity Instance: functionalUnit:executeStage|branchALU:branchUnit
- 71. Parameter Settings for User Entity Instance: functionalUnit:executeStage|ALU:computeUnit
- 72. Parameter Settings for User Entity Instance: functionalUnit:executeStage|CDBArbiter:dataBusArbiter
- 73. Parameter Settings for User Entity Instance: reorderBuffer:rob
- 74. Parameter Settings for User Entity Instance: reorderBuffer:rob|ROBrenamebuffer:renamebuffer
- 75. Parameter Settings for Inferred Entity Instance: reorderBuffer:rob|altsyncram:valueBuffer_rtl_0
- 76. Parameter Settings for Inferred Entity Instance: reorderBuffer:rob|altsyncram:destinationBuffer_rtl_0
- 77. Parameter Settings for Inferred Entity Instance: reorderBuffer:rob|altsyncram:addressBuffer_rtl_0
- 78. Parameter Settings for Inferred Entity Instance: reorderBuffer:rob|altsyncram:regStatusBuffer_rtl_0
- 79. Parameter Settings for Inferred Entity Instance: reorderBuffer:rob|altsyncram:oldPCBuffer_rtl_0
- 80. Parameter Settings for Inferred Entity Instance: reorderBuffer:rob|altsyncram:previousIndexBuffer_rtl_0
- 81. Parameter Settings for Inferred Entity Instance: reorderBuffer:rob|ROBrenamebuffer:renamebuffer|altsyncram:valuebuffer1_rtl_0
- 82. Parameter Settings for Inferred Entity Instance: reorderBuffer:rob|ROBrenamebuffer:renamebuffer|altsyncram:valuebuffer2_rtl_0
- 83. Parameter Settings for Inferred Entity Instance: instr_decode:decodeStage|register_status:regTable|altsyncram:src1ROB_rtl_0
- 84. Parameter Settings for Inferred Entity Instance: instr_decode:decodeStage|register_status:regTable|altsyncram:src2ROB_rtl_0
- 85. Parameter Settings for Inferred Entity Instance: instr_decode:decodeStage|register_status:regTable|altsyncram:dependencyBuffer_rtl_0
- 86. Parameter Settings for Inferred Entity Instance: instrFetchUnit:fetchStage|imem:IMem|altsyncram:iMem_rtl_0
- 87. Parameter Settings for Inferred Entity Instance: instrFetchUnit:fetchStage|gshare:predictor|altsyncram:patternTable_rtl_0
- 88. Parameter Settings for Inferred Entity Instance: instrFetchUnit:fetchStage|BTB:branchTargetBuffer|altsyncram:targetBuffer_rtl_0
- 89. altsyncram Parameter Settings by Entity Instance
- 90. Port Connectivity Checks: "ALURS:aluReservationStation|ALURStationEntry:entry1"
- 91. Port Connectivity Checks: "instr_decode:decodeStage"
- 92. Port Connectivity Checks: "instrFetchUnit:fetchStage|PCSelectLogic:pcSelect"
- 93. Port Connectivity Checks: "instrFetchUnit:fetchStage"
- 94. Post-Synthesis Netlist Statistics for Top Partition
- 95. Elapsed Time Per Partition
- 96. Analysis & Synthesis Messages
- 97. Analysis & Synthesis Suppressed Messages
+ 25. Source assignments for instr_decode:decodeStage|register_file:regfile|altsyncram:regFile_rtl_0|altsyncram_g9o1:auto_generated
+ 26. Source assignments for instrFetchUnit:fetchStage|imem:IMem|altsyncram:iMem_rtl_0|altsyncram_8hc1:auto_generated
+ 27. Source assignments for instrFetchUnit:fetchStage|gshare:predictor|altsyncram:patternTable_rtl_0|altsyncram_2qq1:auto_generated
+ 28. Source assignments for instrFetchUnit:fetchStage|BTB:branchTargetBuffer|altsyncram:targetBuffer_rtl_0|altsyncram_auq1:auto_generated
+ 29. Parameter Settings for User Entity Instance: Top-level Entity: |RISCV
+ 30. Parameter Settings for User Entity Instance: writeCommit:inputBus
+ 31. Parameter Settings for User Entity Instance: writeCommit:outputBus
+ 32. Parameter Settings for User Entity Instance: commonDataBus:dataBus
+ 33. Parameter Settings for User Entity Instance: instrFetchUnit:fetchStage
+ 34. Parameter Settings for User Entity Instance: instrFetchUnit:fetchStage|PCSelectLogic:pcSelect
+ 35. Parameter Settings for User Entity Instance: instrFetchUnit:fetchStage|BTB:branchTargetBuffer
+ 36. Parameter Settings for User Entity Instance: instrFetchUnit:fetchStage|gshare:predictor
+ 37. Parameter Settings for User Entity Instance: instrFetchUnit:fetchStage|branchIndex:indexGen
+ 38. Parameter Settings for User Entity Instance: instrFetchUnit:fetchStage|imem:IMem
+ 39. Parameter Settings for User Entity Instance: instr_decode:decodeStage
+ 40. Parameter Settings for User Entity Instance: instr_decode:decodeStage|decodeextend:decodeExtender
+ 41. Parameter Settings for User Entity Instance: instr_decode:decodeStage|decodeextend:decodeExtender|extend:extender
+ 42. Parameter Settings for User Entity Instance: instr_decode:decodeStage|register_file:regfile
+ 43. Parameter Settings for User Entity Instance: instr_decode:decodeStage|register_status:regTable
+ 44. Parameter Settings for User Entity Instance: renameStage:instrRenameStage
+ 45. Parameter Settings for User Entity Instance: renameStage:instrRenameStage|instructionValues:valdet1
+ 46. Parameter Settings for User Entity Instance: renameStage:instrRenameStage|instructionValues:valdet2
+ 47. Parameter Settings for User Entity Instance: renameStage:instrRenameStage|RSArbiter:arbiter
+ 48. Parameter Settings for User Entity Instance: renameStage:instrRenameStage|branchTargetResolve:targetResolver
+ 49. Parameter Settings for User Entity Instance: ALURS:aluReservationStation
+ 50. Parameter Settings for User Entity Instance: ALURS:aluReservationStation|ALURStationEntry:entry1
+ 51. Parameter Settings for User Entity Instance: ALURS:aluReservationStation|ALURStationEntry:entry2
+ 52. Parameter Settings for User Entity Instance: ALURS:aluReservationStation|ALURStationEntry:entry3
+ 53. Parameter Settings for User Entity Instance: ALURS:aluReservationStation|ALURStationEntry:entry4
+ 54. Parameter Settings for User Entity Instance: ALURS:aluReservationStation|ALUSelect:selectLogic
+ 55. Parameter Settings for User Entity Instance: ALURS:aluReservationStation|srcMux:op1
+ 56. Parameter Settings for User Entity Instance: ALURS:aluReservationStation|srcMux:op2
+ 57. Parameter Settings for User Entity Instance: ALURS:aluReservationStation|srcMux:rob
+ 58. Parameter Settings for User Entity Instance: ALURS:aluReservationStation|srcMux:info
+ 59. Parameter Settings for User Entity Instance: branchRS:branchReservationStation
+ 60. Parameter Settings for User Entity Instance: branchRS:branchReservationStation|branchRSEntry:entry1
+ 61. Parameter Settings for User Entity Instance: branchRS:branchReservationStation|branchRSEntry:entry2
+ 62. Parameter Settings for User Entity Instance: branchRS:branchReservationStation|branchSelect:selectLogic
+ 63. Parameter Settings for User Entity Instance: branchRS:branchReservationStation|srcMux:op1
+ 64. Parameter Settings for User Entity Instance: branchRS:branchReservationStation|srcMux:op2
+ 65. Parameter Settings for User Entity Instance: branchRS:branchReservationStation|srcMux:rob
+ 66. Parameter Settings for User Entity Instance: branchRS:branchReservationStation|srcMux:info
+ 67. Parameter Settings for User Entity Instance: branchRS:branchReservationStation|srcMux:predictor
+ 68. Parameter Settings for User Entity Instance: branchRS:branchReservationStation|srcMux:addressor
+ 69. Parameter Settings for User Entity Instance: branchRS:branchReservationStation|srcMux:fetchor
+ 70. Parameter Settings for User Entity Instance: functionalUnit:executeStage
+ 71. Parameter Settings for User Entity Instance: functionalUnit:executeStage|branchALU:branchUnit
+ 72. Parameter Settings for User Entity Instance: functionalUnit:executeStage|ALU:computeUnit
+ 73. Parameter Settings for User Entity Instance: functionalUnit:executeStage|CDBArbiter:dataBusArbiter
+ 74. Parameter Settings for User Entity Instance: reorderBuffer:rob
+ 75. Parameter Settings for User Entity Instance: reorderBuffer:rob|ROBrenamebuffer:renamebuffer
+ 76. Parameter Settings for Inferred Entity Instance: reorderBuffer:rob|altsyncram:valueBuffer_rtl_0
+ 77. Parameter Settings for Inferred Entity Instance: reorderBuffer:rob|altsyncram:destinationBuffer_rtl_0
+ 78. Parameter Settings for Inferred Entity Instance: reorderBuffer:rob|altsyncram:addressBuffer_rtl_0
+ 79. Parameter Settings for Inferred Entity Instance: reorderBuffer:rob|altsyncram:regStatusBuffer_rtl_0
+ 80. Parameter Settings for Inferred Entity Instance: reorderBuffer:rob|altsyncram:oldPCBuffer_rtl_0
+ 81. Parameter Settings for Inferred Entity Instance: reorderBuffer:rob|altsyncram:previousIndexBuffer_rtl_0
+ 82. Parameter Settings for Inferred Entity Instance: reorderBuffer:rob|ROBrenamebuffer:renamebuffer|altsyncram:valuebuffer1_rtl_0
+ 83. Parameter Settings for Inferred Entity Instance: reorderBuffer:rob|ROBrenamebuffer:renamebuffer|altsyncram:valuebuffer2_rtl_0
+ 84. Parameter Settings for Inferred Entity Instance: instr_decode:decodeStage|register_status:regTable|altsyncram:src1ROB_rtl_0
+ 85. Parameter Settings for Inferred Entity Instance: instr_decode:decodeStage|register_status:regTable|altsyncram:src2ROB_rtl_0
+ 86. Parameter Settings for Inferred Entity Instance: instr_decode:decodeStage|register_status:regTable|altsyncram:dependencyBuffer_rtl_0
+ 87. Parameter Settings for Inferred Entity Instance: instr_decode:decodeStage|register_file:regfile|altsyncram:regFile_rtl_0
+ 88. Parameter Settings for Inferred Entity Instance: instrFetchUnit:fetchStage|imem:IMem|altsyncram:iMem_rtl_0
+ 89. Parameter Settings for Inferred Entity Instance: instrFetchUnit:fetchStage|gshare:predictor|altsyncram:patternTable_rtl_0
+ 90. Parameter Settings for Inferred Entity Instance: instrFetchUnit:fetchStage|BTB:branchTargetBuffer|altsyncram:targetBuffer_rtl_0
+ 91. altsyncram Parameter Settings by Entity Instance
+ 92. Post-Synthesis Netlist Statistics for Top Partition
+ 93. Elapsed Time Per Partition
+ 94. Analysis & Synthesis Messages
+ 95. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -129,16 +127,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat Dec 14 15:13:52 2024          ;
+; Analysis & Synthesis Status     ; Successful - Sat Dec 14 17:40:26 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; RISC-V                                         ;
 ; Top-level Entity Name           ; RISCV                                          ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 2333                                           ;
-; Total pins                      ; 66                                             ;
+; Total registers                 ; 2354                                           ;
+; Total pins                      ; 98                                             ;
 ; Total virtual pins              ; 0                                              ;
-; Total block memory bits         ; 10,496                                         ;
+; Total block memory bits         ; 11,520                                         ;
 ; Total DSP Blocks                ; 0                                              ;
 ; Total HSSI RX PCSs              ; 0                                              ;
 ; Total HSSI PMA RX Deserializers ; 0                                              ;
@@ -338,6 +336,8 @@ https://fpgasoftware.intel.com/eula.
 ; db/RISC-V.ram1_register_status_56d9645f.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/voidknight/Downloads/CPU_Q/db/RISC-V.ram1_register_status_56d9645f.hdl.mif                 ;         ;
 ; db/altsyncram_s9s1.tdf                          ; yes             ; Auto-Generated Megafunction                           ; /home/voidknight/Downloads/CPU_Q/db/altsyncram_s9s1.tdf                                          ;         ;
 ; db/RISC-V.ram2_register_status_56d9645f.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/voidknight/Downloads/CPU_Q/db/RISC-V.ram2_register_status_56d9645f.hdl.mif                 ;         ;
+; db/altsyncram_g9o1.tdf                          ; yes             ; Auto-Generated Megafunction                           ; /home/voidknight/Downloads/CPU_Q/db/altsyncram_g9o1.tdf                                          ;         ;
+; db/RISC-V.ram0_register_file_87c776fc.hdl.mif   ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/voidknight/Downloads/CPU_Q/db/RISC-V.ram0_register_file_87c776fc.hdl.mif                   ;         ;
 ; db/altsyncram_8hc1.tdf                          ; yes             ; Auto-Generated Megafunction                           ; /home/voidknight/Downloads/CPU_Q/db/altsyncram_8hc1.tdf                                          ;         ;
 ; db/RISC-V.ram0_imem_37c714.hdl.mif              ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/voidknight/Downloads/CPU_Q/db/RISC-V.ram0_imem_37c714.hdl.mif                              ;         ;
 ; db/altsyncram_2qq1.tdf                          ; yes             ; Auto-Generated Megafunction                           ; /home/voidknight/Downloads/CPU_Q/db/altsyncram_2qq1.tdf                                          ;         ;
@@ -352,27 +352,27 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 2223      ;
+; Estimate of Logic utilization (ALMs needed) ; 2035      ;
 ;                                             ;           ;
-; Combinational ALUT usage for logic          ; 2723      ;
-;     -- 7 input functions                    ; 614       ;
-;     -- 6 input functions                    ; 942       ;
-;     -- 5 input functions                    ; 345       ;
-;     -- 4 input functions                    ; 203       ;
-;     -- <=3 input functions                  ; 619       ;
+; Combinational ALUT usage for logic          ; 2646      ;
+;     -- 7 input functions                    ; 293       ;
+;     -- 6 input functions                    ; 926       ;
+;     -- 5 input functions                    ; 413       ;
+;     -- 4 input functions                    ; 240       ;
+;     -- <=3 input functions                  ; 774       ;
 ;                                             ;           ;
-; Dedicated logic registers                   ; 2333      ;
+; Dedicated logic registers                   ; 2354      ;
 ;                                             ;           ;
-; I/O pins                                    ; 66        ;
+; I/O pins                                    ; 98        ;
 ; Total MLAB memory bits                      ; 0         ;
-; Total block memory bits                     ; 10496     ;
+; Total block memory bits                     ; 11520     ;
 ;                                             ;           ;
 ; Total DSP Blocks                            ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 2618      ;
-; Total fan-out                               ; 24388     ;
-; Average fan-out                             ; 4.46      ;
+; Maximum fan-out                             ; 2671      ;
+; Total fan-out                               ; 23586     ;
+; Average fan-out                             ; 4.28      ;
 +---------------------------------------------+-----------+
 
 
@@ -381,29 +381,29 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                       ; Entity Name         ; Library Name ;
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |RISCV                                       ; 2723 (8)            ; 2333 (238)                ; 10496             ; 0          ; 66   ; 0            ; |RISCV                                                                                                                    ; RISCV               ; work         ;
-;    |ALURS:aluReservationStation|             ; 565 (23)            ; 361 (71)                  ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation                                                                                        ; ALURS               ; work         ;
-;       |ALURStationEntry:entry1|              ; 53 (53)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry1                                                                ; ALURStationEntry    ; work         ;
+; |RISCV                                       ; 2646 (8)            ; 2354 (238)                ; 11520             ; 0          ; 98   ; 0            ; |RISCV                                                                                                                    ; RISCV               ; work         ;
+;    |ALURS:aluReservationStation|             ; 690 (18)            ; 393 (71)                  ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation                                                                                        ; ALURS               ; work         ;
+;       |ALURStationEntry:entry1|              ; 85 (85)             ; 80 (80)                   ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry1                                                                ; ALURStationEntry    ; work         ;
 ;       |ALURStationEntry:entry2|              ; 87 (87)             ; 80 (80)                   ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry2                                                                ; ALURStationEntry    ; work         ;
 ;       |ALURStationEntry:entry3|              ; 85 (85)             ; 80 (80)                   ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry3                                                                ; ALURStationEntry    ; work         ;
 ;       |ALURStationEntry:entry4|              ; 86 (86)             ; 80 (80)                   ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry4                                                                ; ALURStationEntry    ; work         ;
 ;       |ALUSelect:selectLogic|                ; 6 (6)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|ALUSelect:selectLogic                                                                  ; ALUSelect           ; work         ;
-;       |srcMux:info|                          ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|srcMux:info                                                                            ; srcMux              ; work         ;
-;       |srcMux:op1|                           ; 96 (96)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|srcMux:op1                                                                             ; srcMux              ; work         ;
-;       |srcMux:op2|                           ; 128 (128)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|srcMux:op2                                                                             ; srcMux              ; work         ;
-;    |branchRS:branchReservationStation|       ; 256 (1)             ; 241 (74)                  ; 0                 ; 0          ; 0    ; 0            ; |RISCV|branchRS:branchReservationStation                                                                                  ; branchRS            ; work         ;
-;       |branchRSEntry:entry1|                 ; 89 (89)             ; 83 (83)                   ; 0                 ; 0          ; 0    ; 0            ; |RISCV|branchRS:branchReservationStation|branchRSEntry:entry1                                                             ; branchRSEntry       ; work         ;
-;       |branchRSEntry:entry2|                 ; 89 (89)             ; 83 (83)                   ; 0                 ; 0          ; 0    ; 0            ; |RISCV|branchRS:branchReservationStation|branchRSEntry:entry2                                                             ; branchRSEntry       ; work         ;
-;       |branchSelect:selectLogic|             ; 2 (2)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|branchRS:branchReservationStation|branchSelect:selectLogic                                                         ; branchSelect        ; work         ;
+;       |srcMux:info|                          ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|srcMux:info                                                                            ; srcMux              ; work         ;
+;       |srcMux:op1|                           ; 160 (160)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|srcMux:op1                                                                             ; srcMux              ; work         ;
+;       |srcMux:op2|                           ; 161 (161)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|srcMux:op2                                                                             ; srcMux              ; work         ;
+;    |branchRS:branchReservationStation|       ; 252 (1)             ; 241 (74)                  ; 0                 ; 0          ; 0    ; 0            ; |RISCV|branchRS:branchReservationStation                                                                                  ; branchRS            ; work         ;
+;       |branchRSEntry:entry1|                 ; 88 (88)             ; 83 (83)                   ; 0                 ; 0          ; 0    ; 0            ; |RISCV|branchRS:branchReservationStation|branchRSEntry:entry1                                                             ; branchRSEntry       ; work         ;
+;       |branchRSEntry:entry2|                 ; 88 (88)             ; 83 (83)                   ; 0                 ; 0          ; 0    ; 0            ; |RISCV|branchRS:branchReservationStation|branchRSEntry:entry2                                                             ; branchRSEntry       ; work         ;
+;       |branchSelect:selectLogic|             ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|branchRS:branchReservationStation|branchSelect:selectLogic                                                         ; branchSelect        ; work         ;
 ;       |srcMux:addressor|                     ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|branchRS:branchReservationStation|srcMux:addressor                                                                 ; srcMux              ; work         ;
-;       |srcMux:fetchor|                       ; 33 (33)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|branchRS:branchReservationStation|srcMux:fetchor                                                                   ; srcMux              ; work         ;
+;       |srcMux:fetchor|                       ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|branchRS:branchReservationStation|srcMux:fetchor                                                                   ; srcMux              ; work         ;
 ;       |srcMux:info|                          ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|branchRS:branchReservationStation|srcMux:info                                                                      ; srcMux              ; work         ;
 ;       |srcMux:rob|                           ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|branchRS:branchReservationStation|srcMux:rob                                                                       ; srcMux              ; work         ;
-;    |functionalUnit:executeStage|             ; 465 (0)             ; 75 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |RISCV|functionalUnit:executeStage                                                                                        ; functionalUnit      ; work         ;
+;    |functionalUnit:executeStage|             ; 474 (0)             ; 75 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |RISCV|functionalUnit:executeStage                                                                                        ; functionalUnit      ; work         ;
 ;       |ALU:computeUnit|                      ; 258 (258)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|functionalUnit:executeStage|ALU:computeUnit                                                                        ; ALU                 ; work         ;
-;       |CDBArbiter:dataBusArbiter|            ; 185 (185)           ; 75 (75)                   ; 0                 ; 0          ; 0    ; 0            ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter                                                              ; CDBArbiter          ; work         ;
-;       |branchALU:branchUnit|                 ; 22 (22)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|functionalUnit:executeStage|branchALU:branchUnit                                                                   ; branchALU           ; work         ;
-;    |instrFetchUnit:fetchStage|               ; 154 (5)             ; 121 (72)                  ; 8512              ; 0          ; 0    ; 0            ; |RISCV|instrFetchUnit:fetchStage                                                                                          ; instrFetchUnit      ; work         ;
+;       |CDBArbiter:dataBusArbiter|            ; 162 (162)           ; 75 (75)                   ; 0                 ; 0          ; 0    ; 0            ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter                                                              ; CDBArbiter          ; work         ;
+;       |branchALU:branchUnit|                 ; 54 (54)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|functionalUnit:executeStage|branchALU:branchUnit                                                                   ; branchALU           ; work         ;
+;    |instrFetchUnit:fetchStage|               ; 225 (76)            ; 121 (72)                  ; 8512              ; 0          ; 0    ; 0            ; |RISCV|instrFetchUnit:fetchStage                                                                                          ; instrFetchUnit      ; work         ;
 ;       |BTB:branchTargetBuffer|               ; 21 (21)             ; 17 (17)                   ; 576               ; 0          ; 0    ; 0            ; |RISCV|instrFetchUnit:fetchStage|BTB:branchTargetBuffer                                                                   ; BTB                 ; work         ;
 ;          |altsyncram:targetBuffer_rtl_0|     ; 0 (0)               ; 0 (0)                     ; 576               ; 0          ; 0    ; 0            ; |RISCV|instrFetchUnit:fetchStage|BTB:branchTargetBuffer|altsyncram:targetBuffer_rtl_0                                     ; altsyncram          ; work         ;
 ;             |altsyncram_auq1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 576               ; 0          ; 0    ; 0            ; |RISCV|instrFetchUnit:fetchStage|BTB:branchTargetBuffer|altsyncram:targetBuffer_rtl_0|altsyncram_auq1:auto_generated      ; altsyncram_auq1     ; work         ;
@@ -414,25 +414,27 @@ https://fpgasoftware.intel.com/eula.
 ;       |imem:IMem|                            ; 0 (0)               ; 0 (0)                     ; 7424              ; 0          ; 0    ; 0            ; |RISCV|instrFetchUnit:fetchStage|imem:IMem                                                                                ; imem                ; work         ;
 ;          |altsyncram:iMem_rtl_0|             ; 0 (0)               ; 0 (0)                     ; 7424              ; 0          ; 0    ; 0            ; |RISCV|instrFetchUnit:fetchStage|imem:IMem|altsyncram:iMem_rtl_0                                                          ; altsyncram          ; work         ;
 ;             |altsyncram_8hc1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 7424              ; 0          ; 0    ; 0            ; |RISCV|instrFetchUnit:fetchStage|imem:IMem|altsyncram:iMem_rtl_0|altsyncram_8hc1:auto_generated                           ; altsyncram_8hc1     ; work         ;
-;    |instr_decode:decodeStage|                ; 976 (175)           ; 1215 (159)                ; 320               ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage                                                                                           ; instr_decode        ; work         ;
-;       |decodeextend:decodeExtender|          ; 48 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|decodeextend:decodeExtender                                                               ; decodeextend        ; work         ;
-;          |ALUDecoder:ALUdecoder|             ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|decodeextend:decodeExtender|ALUDecoder:ALUdecoder                                         ; ALUDecoder          ; work         ;
-;          |extend:extender|                   ; 34 (34)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|decodeextend:decodeExtender|extend:extender                                               ; extend              ; work         ;
-;          |infodecoder:maindecoder|           ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|decodeextend:decodeExtender|infodecoder:maindecoder                                       ; infodecoder         ; work         ;
-;       |register_file:regfile|                ; 608 (608)           ; 1024 (1024)               ; 0                 ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_file:regfile                                                                     ; register_file       ; work         ;
-;       |register_status:regTable|             ; 145 (145)           ; 32 (32)                   ; 320               ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_status:regTable                                                                  ; register_status     ; work         ;
+;    |instr_decode:decodeStage|                ; 686 (181)           ; 1204 (148)                ; 1344              ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage                                                                                           ; instr_decode        ; work         ;
+;       |decodeextend:decodeExtender|          ; 30 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|decodeextend:decodeExtender                                                               ; decodeextend        ; work         ;
+;          |ALUDecoder:ALUdecoder|             ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|decodeextend:decodeExtender|ALUDecoder:ALUdecoder                                         ; ALUDecoder          ; work         ;
+;          |extend:extender|                   ; 21 (21)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|decodeextend:decodeExtender|extend:extender                                               ; extend              ; work         ;
+;          |infodecoder:maindecoder|           ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|decodeextend:decodeExtender|infodecoder:maindecoder                                       ; infodecoder         ; work         ;
+;       |register_file:regfile|                ; 329 (329)           ; 1024 (1024)               ; 1024              ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_file:regfile                                                                     ; register_file       ; work         ;
+;          |altsyncram:regFile_rtl_0|          ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_file:regfile|altsyncram:regFile_rtl_0                                            ; altsyncram          ; work         ;
+;             |altsyncram_g9o1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_file:regfile|altsyncram:regFile_rtl_0|altsyncram_g9o1:auto_generated             ; altsyncram_g9o1     ; work         ;
+;       |register_status:regTable|             ; 146 (146)           ; 32 (32)                   ; 320               ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_status:regTable                                                                  ; register_status     ; work         ;
 ;          |altsyncram:dependencyBuffer_rtl_0| ; 0 (0)               ; 0 (0)                     ; 128               ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_status:regTable|altsyncram:dependencyBuffer_rtl_0                                ; altsyncram          ; work         ;
 ;             |altsyncram_s9s1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 128               ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_status:regTable|altsyncram:dependencyBuffer_rtl_0|altsyncram_s9s1:auto_generated ; altsyncram_s9s1     ; work         ;
 ;          |altsyncram:src1ROB_rtl_0|          ; 0 (0)               ; 0 (0)                     ; 96                ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_status:regTable|altsyncram:src1ROB_rtl_0                                         ; altsyncram          ; work         ;
 ;             |altsyncram_o9s1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 96                ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_status:regTable|altsyncram:src1ROB_rtl_0|altsyncram_o9s1:auto_generated          ; altsyncram_o9s1     ; work         ;
 ;          |altsyncram:src2ROB_rtl_0|          ; 0 (0)               ; 0 (0)                     ; 96                ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_status:regTable|altsyncram:src2ROB_rtl_0                                         ; altsyncram          ; work         ;
 ;             |altsyncram_p9s1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 96                ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_status:regTable|altsyncram:src2ROB_rtl_0|altsyncram_p9s1:auto_generated          ; altsyncram_p9s1     ; work         ;
-;    |renameStage:instrRenameStage|            ; 151 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|renameStage:instrRenameStage                                                                                       ; renameStage         ; work         ;
+;    |renameStage:instrRenameStage|            ; 147 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|renameStage:instrRenameStage                                                                                       ; renameStage         ; work         ;
 ;       |RSArbiter:arbiter|                    ; 13 (13)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|renameStage:instrRenameStage|RSArbiter:arbiter                                                                     ; RSArbiter           ; work         ;
 ;       |branchTargetResolve:targetResolver|   ; 64 (64)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|renameStage:instrRenameStage|branchTargetResolve:targetResolver                                                    ; branchTargetResolve ; work         ;
-;       |instructionValues:valdet1|            ; 37 (37)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|renameStage:instrRenameStage|instructionValues:valdet1                                                             ; instructionValues   ; work         ;
-;       |instructionValues:valdet2|            ; 37 (37)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|renameStage:instrRenameStage|instructionValues:valdet2                                                             ; instructionValues   ; work         ;
-;    |reorderBuffer:rob|                       ; 148 (136)           ; 82 (72)                   ; 1664              ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob                                                                                                  ; reorderBuffer       ; work         ;
+;       |instructionValues:valdet1|            ; 35 (35)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|renameStage:instrRenameStage|instructionValues:valdet1                                                             ; instructionValues   ; work         ;
+;       |instructionValues:valdet2|            ; 35 (35)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|renameStage:instrRenameStage|instructionValues:valdet2                                                             ; instructionValues   ; work         ;
+;    |reorderBuffer:rob|                       ; 164 (152)           ; 82 (72)                   ; 1664              ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob                                                                                                  ; reorderBuffer       ; work         ;
 ;       |ROBrenamebuffer:renamebuffer|         ; 12 (12)             ; 10 (10)                   ; 512               ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|ROBrenamebuffer:renamebuffer                                                                     ; ROBrenamebuffer     ; work         ;
 ;          |altsyncram:valuebuffer1_rtl_0|     ; 0 (0)               ; 0 (0)                     ; 256               ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|ROBrenamebuffer:renamebuffer|altsyncram:valuebuffer1_rtl_0                                       ; altsyncram          ; work         ;
 ;             |altsyncram_sas1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 256               ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|ROBrenamebuffer:renamebuffer|altsyncram:valuebuffer1_rtl_0|altsyncram_sas1:auto_generated        ; altsyncram_sas1     ; work         ;
@@ -462,6 +464,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; instrFetchUnit:fetchStage|BTB:branchTargetBuffer|altsyncram:targetBuffer_rtl_0|altsyncram_auq1:auto_generated|ALTSYNCRAM      ; AUTO ; Simple Dual Port ; 16           ; 36           ; 16           ; 36           ; 576  ; db/RISC-V.ram0_BTB_117dd.hdl.mif                ;
 ; instrFetchUnit:fetchStage|gshare:predictor|altsyncram:patternTable_rtl_0|altsyncram_2qq1:auto_generated|ALTSYNCRAM            ; AUTO ; Simple Dual Port ; 256          ; 2            ; 256          ; 2            ; 512  ; db/RISC-V.ram0_gshare_d55d801b.hdl.mif          ;
 ; instrFetchUnit:fetchStage|imem:IMem|altsyncram:iMem_rtl_0|altsyncram_8hc1:auto_generated|ALTSYNCRAM                           ; AUTO ; ROM              ; 256          ; 32           ; --           ; --           ; 8192 ; db/RISC-V.ram0_imem_37c714.hdl.mif              ;
+; instr_decode:decodeStage|register_file:regfile|altsyncram:regFile_rtl_0|altsyncram_g9o1:auto_generated|ALTSYNCRAM             ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024 ; db/RISC-V.ram0_register_file_87c776fc.hdl.mif   ;
 ; instr_decode:decodeStage|register_status:regTable|altsyncram:dependencyBuffer_rtl_0|altsyncram_s9s1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 4            ; 32           ; 4            ; 128  ; db/RISC-V.ram2_register_status_56d9645f.hdl.mif ;
 ; instr_decode:decodeStage|register_status:regTable|altsyncram:src1ROB_rtl_0|altsyncram_o9s1:auto_generated|ALTSYNCRAM          ; AUTO ; Simple Dual Port ; 32           ; 3            ; 32           ; 3            ; 96   ; db/RISC-V.ram0_register_status_56d9645f.hdl.mif ;
 ; instr_decode:decodeStage|register_status:regTable|altsyncram:src2ROB_rtl_0|altsyncram_p9s1:auto_generated|ALTSYNCRAM          ; AUTO ; Simple Dual Port ; 32           ; 3            ; 32           ; 3            ; 96   ; db/RISC-V.ram1_register_status_56d9645f.hdl.mif ;
@@ -476,124 +479,125 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+-------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                   ;
-+-----------------------------------------------------------------------------+----------------------------------------+
-; Register name                                                               ; Reason for Removal                     ;
-+-----------------------------------------------------------------------------+----------------------------------------+
-; inputBus.commitInfo[2]                                                      ; Merged with inputBus.commitInfo[1]     ;
-; inputBus.destination[5..31]                                                 ; Merged with inputBus.commitInfo[1]     ;
-; inputBus.commitInfo[1]                                                      ; Stuck at GND due to stuck port data_in ;
-; instr_decode:decodeStage|rdirect                                            ; Stuck at GND due to stuck port data_in ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|instrInfo[0]         ; Stuck at GND due to stuck port data_in ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|instrInfo[0]         ; Stuck at GND due to stuck port data_in ;
-; branchRS:branchReservationStation|instrInfo[0]                              ; Stuck at GND due to stuck port data_in ;
-; branchRS:branchReservationStation|predictedAddress[0..31]                   ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[31] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[31] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[30] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[30] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[29] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[29] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[28] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[28] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[27] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[27] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[26] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[26] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[25] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[25] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[24] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[24] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[23] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[23] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[22] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[22] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[21] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[21] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[20] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[20] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[19] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[19] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[18] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[18] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[17] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[17] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[16] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[16] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[15] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[15] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[14] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[14] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[13] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[13] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[12] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[12] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[11] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[11] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[10] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[10] ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[9]  ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[9]  ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[8]  ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[8]  ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[7]  ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[7]  ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[6]  ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[6]  ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[5]  ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[5]  ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[4]  ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[4]  ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[3]  ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[3]  ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[2]  ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[2]  ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[1]  ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[1]  ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[0]  ; Lost fanout                            ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[0]  ; Lost fanout                            ;
-; instr_decode:decodeStage|predictPC[0..31]                                   ; Lost fanout                            ;
-; instrFetchUnit:fetchStage|predictedPCF[0..31]                               ; Lost fanout                            ;
-; inputBus.commitInfo[0]                                                      ; Lost fanout                            ;
-; reorderBuffer:rob|updateBuffer~5                                            ; Lost fanout                            ;
-; reorderBuffer:rob|updateBuffer~11                                           ; Lost fanout                            ;
-; reorderBuffer:rob|updateBuffer~17                                           ; Lost fanout                            ;
-; reorderBuffer:rob|updateBuffer~23                                           ; Lost fanout                            ;
-; reorderBuffer:rob|updateBuffer~29                                           ; Lost fanout                            ;
-; reorderBuffer:rob|updateBuffer~35                                           ; Lost fanout                            ;
-; reorderBuffer:rob|updateBuffer~41                                           ; Lost fanout                            ;
-; reorderBuffer:rob|updateBuffer~47                                           ; Lost fanout                            ;
-; reorderBuffer:rob|controlBuffer~0                                           ; Lost fanout                            ;
-; reorderBuffer:rob|controlBuffer~2                                           ; Lost fanout                            ;
-; reorderBuffer:rob|controlBuffer~4                                           ; Lost fanout                            ;
-; reorderBuffer:rob|controlBuffer~6                                           ; Lost fanout                            ;
-; reorderBuffer:rob|controlBuffer~8                                           ; Lost fanout                            ;
-; reorderBuffer:rob|controlBuffer~10                                          ; Lost fanout                            ;
-; reorderBuffer:rob|controlBuffer~12                                          ; Lost fanout                            ;
-; reorderBuffer:rob|controlBuffer~14                                          ; Lost fanout                            ;
-; reorderBuffer:rob|controlBuffer~16                                          ; Lost fanout                            ;
-; reorderBuffer:rob|controlBuffer~18                                          ; Lost fanout                            ;
-; reorderBuffer:rob|controlBuffer~20                                          ; Lost fanout                            ;
-; reorderBuffer:rob|controlBuffer~22                                          ; Lost fanout                            ;
-; reorderBuffer:rob|controlBuffer~24                                          ; Lost fanout                            ;
-; reorderBuffer:rob|controlBuffer~26                                          ; Lost fanout                            ;
-; reorderBuffer:rob|controlBuffer~28                                          ; Lost fanout                            ;
-; reorderBuffer:rob|controlBuffer~30                                          ; Lost fanout                            ;
-; reorderBuffer:rob|controlBuffer~1                                           ; Stuck at GND due to stuck port data_in ;
-; reorderBuffer:rob|controlBuffer~5                                           ; Stuck at GND due to stuck port data_in ;
-; reorderBuffer:rob|controlBuffer~9                                           ; Stuck at GND due to stuck port data_in ;
-; reorderBuffer:rob|controlBuffer~13                                          ; Stuck at GND due to stuck port data_in ;
-; reorderBuffer:rob|controlBuffer~17                                          ; Stuck at GND due to stuck port data_in ;
-; reorderBuffer:rob|controlBuffer~21                                          ; Stuck at GND due to stuck port data_in ;
-; reorderBuffer:rob|controlBuffer~25                                          ; Stuck at GND due to stuck port data_in ;
-; reorderBuffer:rob|controlBuffer~29                                          ; Stuck at GND due to stuck port data_in ;
-; reorderBuffer:rob|commitInfo[1]                                             ; Stuck at GND due to stuck port data_in ;
-; outputBus.commitInfo[1]                                                     ; Stuck at GND due to stuck port data_in ;
-; instrFetchUnit:fetchStage|branchIndex:indexGen|globalHistory[0..7]          ; Stuck at GND due to stuck port data_in ;
-; inputBus.instrPC[8..31]                                                     ; Lost fanout                            ;
-; Total Number of Removed Registers = 260                                     ;                                        ;
-+-----------------------------------------------------------------------------+----------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                            ;
++-----------------------------------------------------------------------------+-------------------------------------------------+
+; Register name                                                               ; Reason for Removal                              ;
++-----------------------------------------------------------------------------+-------------------------------------------------+
+; instr_decode:decodeStage|immExt[21..31]                                     ; Merged with instr_decode:decodeStage|immExt[20] ;
+; inputBus.commitInfo[2]                                                      ; Merged with inputBus.commitInfo[1]              ;
+; inputBus.destination[5..31]                                                 ; Merged with inputBus.commitInfo[1]              ;
+; inputBus.commitInfo[1]                                                      ; Stuck at GND due to stuck port data_in          ;
+; instr_decode:decodeStage|rdirect                                            ; Stuck at GND due to stuck port data_in          ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|instrInfo[0]         ; Stuck at GND due to stuck port data_in          ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|instrInfo[0]         ; Stuck at GND due to stuck port data_in          ;
+; branchRS:branchReservationStation|instrInfo[0]                              ; Stuck at GND due to stuck port data_in          ;
+; branchRS:branchReservationStation|predictedAddress[0..31]                   ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[31] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[31] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[30] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[30] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[29] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[29] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[28] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[28] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[27] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[27] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[26] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[26] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[25] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[25] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[24] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[24] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[23] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[23] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[22] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[22] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[21] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[21] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[20] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[20] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[19] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[19] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[18] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[18] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[17] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[17] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[16] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[16] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[15] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[15] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[14] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[14] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[13] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[13] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[12] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[12] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[11] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[11] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[10] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[10] ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[9]  ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[9]  ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[8]  ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[8]  ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[7]  ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[7]  ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[6]  ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[6]  ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[5]  ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[5]  ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[4]  ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[4]  ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[3]  ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[3]  ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[2]  ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[2]  ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[1]  ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[1]  ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[0]  ; Lost fanout                                     ;
+; branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[0]  ; Lost fanout                                     ;
+; instr_decode:decodeStage|predictPC[0..31]                                   ; Lost fanout                                     ;
+; instrFetchUnit:fetchStage|predictedPCF[0..31]                               ; Lost fanout                                     ;
+; inputBus.commitInfo[0]                                                      ; Lost fanout                                     ;
+; reorderBuffer:rob|updateBuffer~5                                            ; Lost fanout                                     ;
+; reorderBuffer:rob|updateBuffer~11                                           ; Lost fanout                                     ;
+; reorderBuffer:rob|updateBuffer~17                                           ; Lost fanout                                     ;
+; reorderBuffer:rob|updateBuffer~23                                           ; Lost fanout                                     ;
+; reorderBuffer:rob|updateBuffer~29                                           ; Lost fanout                                     ;
+; reorderBuffer:rob|updateBuffer~35                                           ; Lost fanout                                     ;
+; reorderBuffer:rob|updateBuffer~41                                           ; Lost fanout                                     ;
+; reorderBuffer:rob|updateBuffer~47                                           ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~0                                           ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~2                                           ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~4                                           ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~6                                           ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~8                                           ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~10                                          ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~12                                          ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~14                                          ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~16                                          ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~18                                          ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~20                                          ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~22                                          ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~24                                          ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~26                                          ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~28                                          ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~30                                          ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~1                                           ; Stuck at GND due to stuck port data_in          ;
+; reorderBuffer:rob|controlBuffer~5                                           ; Stuck at GND due to stuck port data_in          ;
+; reorderBuffer:rob|controlBuffer~9                                           ; Stuck at GND due to stuck port data_in          ;
+; reorderBuffer:rob|controlBuffer~13                                          ; Stuck at GND due to stuck port data_in          ;
+; reorderBuffer:rob|controlBuffer~17                                          ; Stuck at GND due to stuck port data_in          ;
+; reorderBuffer:rob|controlBuffer~21                                          ; Stuck at GND due to stuck port data_in          ;
+; reorderBuffer:rob|controlBuffer~25                                          ; Stuck at GND due to stuck port data_in          ;
+; reorderBuffer:rob|controlBuffer~29                                          ; Stuck at GND due to stuck port data_in          ;
+; reorderBuffer:rob|commitInfo[1]                                             ; Stuck at GND due to stuck port data_in          ;
+; outputBus.commitInfo[1]                                                     ; Stuck at GND due to stuck port data_in          ;
+; instrFetchUnit:fetchStage|branchIndex:indexGen|globalHistory[0..7]          ; Stuck at GND due to stuck port data_in          ;
+; inputBus.instrPC[8..31]                                                     ; Lost fanout                                     ;
+; Total Number of Removed Registers = 271                                     ;                                                 ;
++-----------------------------------------------------------------------------+-------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -717,12 +721,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 2333  ;
-; Number of registers using Synchronous Clear  ; 954   ;
-; Number of registers using Synchronous Load   ; 66    ;
+; Total registers                              ; 2354  ;
+; Number of registers using Synchronous Clear  ; 833   ;
+; Number of registers using Synchronous Load   ; 206   ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 1616  ;
+; Number of registers using Clock Enable       ; 1526  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -754,55 +758,59 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------+
-; 3:1                ; 113 bits  ; 226 LEs       ; 0 LEs                ; 226 LEs                ; Yes        ; |RISCV|branchRS:branchReservationStation|branchRSEntry:entry1|instrInfo[7]             ;
-; 3:1                ; 113 bits  ; 226 LEs       ; 0 LEs                ; 226 LEs                ; Yes        ; |RISCV|branchRS:branchReservationStation|branchRSEntry:entry2|predictedAddress[20]     ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry4|instrInfo[1]                ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry3|instrRob[0]                 ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry2|instrInfo[1]                ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry1|instrRob[0]                 ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |RISCV|instrFetchUnit:fetchStage|branchIndex:indexGen|globalHistory[4]                 ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |RISCV|outputBus.commitInfo[1]                                                         ;
-; 3:1                ; 86 bits   ; 172 LEs       ; 0 LEs                ; 172 LEs                ; Yes        ; |RISCV|outputBus.statusSnap[1]                                                         ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.isControl         ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |RISCV|reorderBuffer:rob|write_ptr[1]                                                  ;
-; 3:1                ; 136 bits  ; 272 LEs       ; 0 LEs                ; 272 LEs                ; Yes        ; |RISCV|validAddress[25]                                                                ;
-; 3:1                ; 227 bits  ; 454 LEs       ; 0 LEs                ; 454 LEs                ; Yes        ; |RISCV|inputBus.regStatus[14]                                                          ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry4|val1[2]                     ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry4|val2[15]                    ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry3|val1[25]                    ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry3|val2[1]                     ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry2|val1[22]                    ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry2|val2[26]                    ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry1|val1[20]                    ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |RISCV|outputBus.controlFlow[0]                                                        ;
-; 4:1                ; 64 bits   ; 128 LEs       ; 0 LEs                ; 128 LEs                ; Yes        ; |RISCV|outputBus.result[0]                                                             ;
+; 3:1                ; 113 bits  ; 226 LEs       ; 0 LEs                ; 226 LEs                ; Yes        ; |RISCV|branchRS:branchReservationStation|branchRSEntry:entry1|instrInfo[4]             ;
+; 3:1                ; 113 bits  ; 226 LEs       ; 0 LEs                ; 226 LEs                ; Yes        ; |RISCV|branchRS:branchReservationStation|branchRSEntry:entry2|branchResult[6]          ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry4|instrInfo[3]                ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry3|instrInfo[2]                ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry2|src2Rob[2]                  ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry1|instrInfo[2]                ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |RISCV|instrFetchUnit:fetchStage|branchIndex:indexGen|globalHistory[7]                 ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |RISCV|outputBus.commitInfo[3]                                                         ;
+; 3:1                ; 83 bits   ; 166 LEs       ; 0 LEs                ; 166 LEs                ; Yes        ; |RISCV|outputBus.oldPC[7]                                                              ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.pcControl[1]      ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |RISCV|reorderBuffer:rob|read_ptr[2]                                                   ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RISCV|instr_decode:decodeStage|branchFunct3[0]                                        ;
+; 3:1                ; 33 bits   ; 66 LEs        ; 0 LEs                ; 66 LEs                 ; Yes        ; |RISCV|validAddress[19]                                                                ;
+; 3:1                ; 321 bits  ; 642 LEs       ; 0 LEs                ; 642 LEs                ; Yes        ; |RISCV|instr_decode:decodeStage|pc[13]                                                 ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry4|val1[25]                    ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry4|val2[30]                    ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry3|val1[2]                     ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry3|val2[15]                    ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry2|val1[10]                    ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry2|val2[15]                    ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry1|val1[25]                    ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry1|val2[4]                     ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |RISCV|outputBus.controlFlow[4]                                                        ;
+; 4:1                ; 64 bits   ; 128 LEs       ; 0 LEs                ; 128 LEs                ; Yes        ; |RISCV|outputBus.targetAddress[15]                                                     ;
 ; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |RISCV|instr_decode:decodeStage|rob1[2]                                                ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |RISCV|instr_decode:decodeStage|rob2[0]                                                ;
-; 4:1                ; 107 bits  ; 214 LEs       ; 0 LEs                ; 214 LEs                ; Yes        ; |RISCV|branchRS:branchReservationStation|nxtPC[29]                                     ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |RISCV|instr_decode:decodeStage|immExt[8]                                              ;
-; 6:1                ; 31 bits   ; 124 LEs       ; 62 LEs               ; 62 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.targetAddress[29] ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |RISCV|instr_decode:decodeStage|rob2[1]                                                ;
+; 4:1                ; 107 bits  ; 214 LEs       ; 0 LEs                ; 214 LEs                ; Yes        ; |RISCV|branchRS:branchReservationStation|predictedAddress[13]                          ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |RISCV|instr_decode:decodeStage|immExt[10]                                             ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |RISCV|reorderBuffer:rob|write_ptr[0]                                                  ;
+; 6:1                ; 31 bits   ; 124 LEs       ; 62 LEs               ; 62 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.targetAddress[21] ;
 ; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.robEntry[2]       ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |RISCV|instr_decode:decodeStage|ALUControl[2]                                          ;
-; 10:1               ; 11 bits   ; 66 LEs        ; 0 LEs                ; 66 LEs                 ; Yes        ; |RISCV|instr_decode:decodeStage|immExt[20]                                             ;
 ; 10:1               ; 8 bits    ; 48 LEs        ; 0 LEs                ; 48 LEs                 ; Yes        ; |RISCV|instr_decode:decodeStage|immExt[12]                                             ;
-; 10:1               ; 4 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |RISCV|instr_decode:decodeStage|immExt[3]                                              ;
-; 6:1                ; 7 bits    ; 28 LEs        ; 21 LEs               ; 7 LEs                  ; Yes        ; |RISCV|ALURS:aluReservationStation|instrInfo[0]                                        ;
-; 7:1                ; 32 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; Yes        ; |RISCV|instrFetchUnit:fetchStage|PCSelectLogic:pcSelect|nextPC[26]                     ;
-; 9:1                ; 32 bits   ; 192 LEs       ; 64 LEs               ; 128 LEs                ; Yes        ; |RISCV|ALURS:aluReservationStation|src1[0]                                             ;
-; 9:1                ; 32 bits   ; 192 LEs       ; 64 LEs               ; 128 LEs                ; Yes        ; |RISCV|ALURS:aluReservationStation|src2[14]                                            ;
-; 25:1               ; 12 bits   ; 192 LEs       ; 96 LEs               ; 96 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.result[9]         ;
-; 26:1               ; 11 bits   ; 187 LEs       ; 88 LEs               ; 99 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.result[24]        ;
-; 28:1               ; 3 bits    ; 54 LEs        ; 42 LEs               ; 12 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.result[3]         ;
+; 10:1               ; 4 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |RISCV|instr_decode:decodeStage|immExt[1]                                              ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; Yes        ; |RISCV|ALURS:aluReservationStation|instrInfo[0]                                        ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; Yes        ; |RISCV|ALURS:aluReservationStation|instrRob[0]                                         ;
+; 7:1                ; 32 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; Yes        ; |RISCV|instrFetchUnit:fetchStage|PCSelectLogic:pcSelect|nextPC[25]                     ;
+; 10:1               ; 32 bits   ; 192 LEs       ; 64 LEs               ; 128 LEs                ; Yes        ; |RISCV|ALURS:aluReservationStation|src1[17]                                            ;
+; 10:1               ; 32 bits   ; 192 LEs       ; 64 LEs               ; 128 LEs                ; Yes        ; |RISCV|ALURS:aluReservationStation|src2[16]                                            ;
+; 25:1               ; 12 bits   ; 192 LEs       ; 96 LEs               ; 96 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.result[13]        ;
+; 26:1               ; 11 bits   ; 187 LEs       ; 88 LEs               ; 99 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.result[20]        ;
+; 28:1               ; 3 bits    ; 54 LEs        ; 42 LEs               ; 12 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.result[1]         ;
 ; 29:1               ; 3 bits    ; 57 LEs        ; 45 LEs               ; 12 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.result[28]        ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftLeft0                          ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftRight0                         ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftLeft0                          ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftRight1                         ;
-; 4:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftRight0                         ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftLeft0                          ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftLeft0                          ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftRight1                         ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftRight0                         ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftRight0                         ;
 ; 4:1                ; 50 bits   ; 100 LEs       ; 100 LEs              ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftLeft0                          ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |RISCV|renameStage:instrRenameStage|instructionValues:valdet1|instrValue[27]           ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |RISCV|renameStage:instrRenameStage|instructionValues:valdet2|instrValue[8]            ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |RISCV|instrFetchUnit:fetchStage|instr                                                 ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |RISCV|renameStage:instrRenameStage|instructionValues:valdet1|instrValue[17]           ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |RISCV|renameStage:instrRenameStage|instructionValues:valdet2|instrValue[19]           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------+
 
 
@@ -903,6 +911,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
 ; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                           ;
 +---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for instr_decode:decodeStage|register_file:regfile|altsyncram:regFile_rtl_0|altsyncram_g9o1:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                              ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                               ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------+
@@ -2164,6 +2181,67 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++--------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: instr_decode:decodeStage|register_file:regfile|altsyncram:regFile_rtl_0 ;
++------------------------------------+-----------------------------------------------+-------------------------------------+
+; Parameter Name                     ; Value                                         ; Type                                ;
++------------------------------------+-----------------------------------------------+-------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                             ; Untyped                             ;
+; AUTO_CARRY_CHAINS                  ; ON                                            ; AUTO_CARRY                          ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                           ; IGNORE_CARRY                        ;
+; AUTO_CASCADE_CHAINS                ; ON                                            ; AUTO_CASCADE                        ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                           ; IGNORE_CASCADE                      ;
+; WIDTH_BYTEENA                      ; 1                                             ; Untyped                             ;
+; OPERATION_MODE                     ; DUAL_PORT                                     ; Untyped                             ;
+; WIDTH_A                            ; 32                                            ; Untyped                             ;
+; WIDTHAD_A                          ; 5                                             ; Untyped                             ;
+; NUMWORDS_A                         ; 32                                            ; Untyped                             ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                  ; Untyped                             ;
+; ADDRESS_ACLR_A                     ; NONE                                          ; Untyped                             ;
+; OUTDATA_ACLR_A                     ; NONE                                          ; Untyped                             ;
+; WRCONTROL_ACLR_A                   ; NONE                                          ; Untyped                             ;
+; INDATA_ACLR_A                      ; NONE                                          ; Untyped                             ;
+; BYTEENA_ACLR_A                     ; NONE                                          ; Untyped                             ;
+; WIDTH_B                            ; 32                                            ; Untyped                             ;
+; WIDTHAD_B                          ; 5                                             ; Untyped                             ;
+; NUMWORDS_B                         ; 32                                            ; Untyped                             ;
+; INDATA_REG_B                       ; CLOCK1                                        ; Untyped                             ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                        ; Untyped                             ;
+; RDCONTROL_REG_B                    ; CLOCK1                                        ; Untyped                             ;
+; ADDRESS_REG_B                      ; CLOCK1                                        ; Untyped                             ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                  ; Untyped                             ;
+; BYTEENA_REG_B                      ; CLOCK1                                        ; Untyped                             ;
+; INDATA_ACLR_B                      ; NONE                                          ; Untyped                             ;
+; WRCONTROL_ACLR_B                   ; NONE                                          ; Untyped                             ;
+; ADDRESS_ACLR_B                     ; NONE                                          ; Untyped                             ;
+; OUTDATA_ACLR_B                     ; NONE                                          ; Untyped                             ;
+; RDCONTROL_ACLR_B                   ; NONE                                          ; Untyped                             ;
+; BYTEENA_ACLR_B                     ; NONE                                          ; Untyped                             ;
+; WIDTH_BYTEENA_A                    ; 1                                             ; Untyped                             ;
+; WIDTH_BYTEENA_B                    ; 1                                             ; Untyped                             ;
+; RAM_BLOCK_TYPE                     ; AUTO                                          ; Untyped                             ;
+; BYTE_SIZE                          ; 8                                             ; Untyped                             ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                     ; Untyped                             ;
+; READ_DURING_WRITE_MODE_PORT_A      ; OLD_DATA_NO_NBE_READ                          ; Untyped                             ;
+; READ_DURING_WRITE_MODE_PORT_B      ; OLD_DATA_NO_NBE_READ                          ; Untyped                             ;
+; INIT_FILE                          ; db/RISC-V.ram0_register_file_87c776fc.hdl.mif ; Untyped                             ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                        ; Untyped                             ;
+; MAXIMUM_DEPTH                      ; 0                                             ; Untyped                             ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                        ; Untyped                             ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                        ; Untyped                             ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                        ; Untyped                             ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                        ; Untyped                             ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                               ; Untyped                             ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                               ; Untyped                             ;
+; ENABLE_ECC                         ; FALSE                                         ; Untyped                             ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                         ; Untyped                             ;
+; WIDTH_ECCSTATUS                    ; 3                                             ; Untyped                             ;
+; DEVICE_FAMILY                      ; Cyclone V                                     ; Untyped                             ;
+; CBXI_PARAMETER                     ; altsyncram_g9o1                               ; Untyped                             ;
++------------------------------------+-----------------------------------------------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +------------------------------------------------------------------------------------------------------------+
 ; Parameter Settings for Inferred Entity Instance: instrFetchUnit:fetchStage|imem:IMem|altsyncram:iMem_rtl_0 ;
 +------------------------------------+------------------------------------+----------------------------------+
@@ -2352,7 +2430,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+-------------------------------------------------------------------------------------+
 ; Name                                      ; Value                                                                               ;
 +-------------------------------------------+-------------------------------------------------------------------------------------+
-; Number of entity instances                ; 14                                                                                  ;
+; Number of entity instances                ; 15                                                                                  ;
 ; Entity Instance                           ; reorderBuffer:rob|altsyncram:valueBuffer_rtl_0                                      ;
 ;     -- OPERATION_MODE                     ; DUAL_PORT                                                                           ;
 ;     -- WIDTH_A                            ; 32                                                                                  ;
@@ -2474,6 +2552,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                        ;
 ;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                ;
 ;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                                                            ;
+; Entity Instance                           ; instr_decode:decodeStage|register_file:regfile|altsyncram:regFile_rtl_0             ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                                           ;
+;     -- WIDTH_A                            ; 32                                                                                  ;
+;     -- NUMWORDS_A                         ; 32                                                                                  ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                        ;
+;     -- WIDTH_B                            ; 32                                                                                  ;
+;     -- NUMWORDS_B                         ; 32                                                                                  ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                              ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                        ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                           ;
 ; Entity Instance                           ; instrFetchUnit:fetchStage|imem:IMem|altsyncram:iMem_rtl_0                           ;
 ;     -- OPERATION_MODE                     ; ROM                                                                                 ;
 ;     -- WIDTH_A                            ; 32                                                                                  ;
@@ -2510,76 +2599,41 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+-------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "ALURS:aluReservationStation|ALURStationEntry:entry1"                                ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; src2 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "instr_decode:decodeStage"                                                             ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; Port   ; Type   ; Severity ; Details                                                                             ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; branch ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "instrFetchUnit:fetchStage|PCSelectLogic:pcSelect"                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; intermediatePC ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "instrFetchUnit:fetchStage"                                                            ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; Port   ; Type   ; Severity ; Details                                                                             ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; nextPC ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-
-
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 2333                        ;
-;     ENA               ; 1105                        ;
-;     ENA SCLR          ; 479                         ;
+; arriav_ff             ; 2354                        ;
+;     ENA               ; 1069                        ;
+;     ENA SCLR          ; 300                         ;
 ;     ENA SCLR SLD      ; 32                          ;
-;     SCLR              ; 409                         ;
-;     SCLR SLD          ; 34                          ;
-;     plain             ; 274                         ;
-; arriav_lcell_comb     ; 2723                        ;
+;     ENA SLD           ; 125                         ;
+;     SCLR              ; 466                         ;
+;     SCLR SLD          ; 35                          ;
+;     SLD               ; 14                          ;
+;     plain             ; 313                         ;
+; arriav_lcell_comb     ; 2646                        ;
 ;     arith             ; 164                         ;
 ;         1 data inputs ; 96                          ;
 ;         2 data inputs ; 65                          ;
 ;         5 data inputs ; 3                           ;
-;     extend            ; 614                         ;
-;         7 data inputs ; 614                         ;
-;     normal            ; 1913                        ;
+;     extend            ; 293                         ;
+;         7 data inputs ; 293                         ;
+;     normal            ; 2157                        ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 2                           ;
-;         2 data inputs ; 39                          ;
-;         3 data inputs ; 384                         ;
-;         4 data inputs ; 203                         ;
-;         5 data inputs ; 342                         ;
-;         6 data inputs ; 942                         ;
+;         2 data inputs ; 34                          ;
+;         3 data inputs ; 546                         ;
+;         4 data inputs ; 240                         ;
+;         5 data inputs ; 410                         ;
+;         6 data inputs ; 926                         ;
 ;     shared            ; 32                          ;
 ;         2 data inputs ; 32                          ;
-; boundary_port         ; 66                          ;
-; stratixv_ram_block    ; 285                         ;
+; boundary_port         ; 98                          ;
+; stratixv_ram_block    ; 317                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 7.10                        ;
-; Average LUT depth     ; 3.52                        ;
+; Max LUT depth         ; 7.00                        ;
+; Average LUT depth     ; 3.55                        ;
 +-----------------------+-----------------------------+
 
 
@@ -2588,7 +2642,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:37     ;
+; Top            ; 00:00:35     ;
 +----------------+--------------+
 
 
@@ -2598,10 +2652,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Sat Dec 14 15:12:45 2024
+    Info: Processing started: Sat Dec 14 17:39:23 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RISC-V -c RISC-V
 Info (16303): Aggressive Performance optimization mode selected -- timing performance will be prioritized at the potential cost of increased logic area and compilation time
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Warning (10090): Verilog HDL syntax warning at extend.sv(25): extra block comment delimiter characters /* within block comment File: /home/voidknight/Downloads/CPU_Q/extend.sv Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file extend.sv
     Info (12023): Found entity 1: extend File: /home/voidknight/Downloads/CPU_Q/extend.sv Line: 11
 Info (12021): Found 1 design units, including 1 entities, in source file register_file.sv
@@ -2636,7 +2691,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file ROBrena
     Info (12023): Found entity 1: ROBrenamebuffer File: /home/voidknight/Downloads/CPU_Q/ROBrenamebuffer.sv Line: 54
 Info (12021): Found 2 design units, including 2 entities, in source file reorderBuffer.sv
     Info (12023): Found entity 1: reorderBuffer File: /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv Line: 29
-    Info (12023): Found entity 2: writeCommit File: /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv Line: 254
+    Info (12023): Found entity 2: writeCommit File: /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv Line: 283
 Info (12021): Found 1 design units, including 1 entities, in source file branchALU.sv
     Info (12023): Found entity 1: branchALU File: /home/voidknight/Downloads/CPU_Q/branchALU.sv Line: 35
 Info (12021): Found 2 design units, including 2 entities, in source file CDBArbiter.sv
@@ -2700,7 +2755,6 @@ Info (12021): Found 1 design units, including 1 entities, in source file cpuSim.
     Info (12023): Found entity 1: cpuSim File: /home/voidknight/Downloads/CPU_Q/cpuSim.sv Line: 1
 Info (12127): Elaborating entity "RISCV" for the top level hierarchy
 Info (12128): Elaborating entity "writeCommit" for hierarchy "writeCommit:inputBus" File: /home/voidknight/Downloads/CPU_Q/RISCV.sv Line: 36
-Warning (12158): Entity "writeCommit" contains only dangling pins File: /home/voidknight/Downloads/CPU_Q/RISCV.sv Line: 36
 Info (12128): Elaborating entity "commonDataBus" for hierarchy "commonDataBus:dataBus" File: /home/voidknight/Downloads/CPU_Q/RISCV.sv Line: 40
 Info (12128): Elaborating entity "instrFetchUnit" for hierarchy "instrFetchUnit:fetchStage" File: /home/voidknight/Downloads/CPU_Q/RISCV.sv Line: 54
 Info (12128): Elaborating entity "PCSelectLogic" for hierarchy "instrFetchUnit:fetchStage|PCSelectLogic:pcSelect" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 32
@@ -2744,7 +2798,7 @@ Info (12128): Elaborating entity "branchALU" for hierarchy "functionalUnit:execu
 Info (12128): Elaborating entity "ALU" for hierarchy "functionalUnit:executeStage|ALU:computeUnit" File: /home/voidknight/Downloads/CPU_Q/functionalUnit.sv Line: 30
 Info (12128): Elaborating entity "CDBArbiter" for hierarchy "functionalUnit:executeStage|CDBArbiter:dataBusArbiter" File: /home/voidknight/Downloads/CPU_Q/functionalUnit.sv Line: 32
 Info (10264): Verilog HDL Case Statement information at CDBArbiter.sv(109): all case item expressions in this case statement are onehot File: /home/voidknight/Downloads/CPU_Q/CDBArbiter.sv Line: 109
-Info (12128): Elaborating entity "reorderBuffer" for hierarchy "reorderBuffer:rob" File: /home/voidknight/Downloads/CPU_Q/RISCV.sv Line: 157
+Info (12128): Elaborating entity "reorderBuffer" for hierarchy "reorderBuffer:rob" File: /home/voidknight/Downloads/CPU_Q/RISCV.sv Line: 162
 Warning (10230): Verilog HDL assignment warning at controlInit.txt(1): truncated value with size 8 to match size of target (6) File: /home/voidknight/Downloads/CPU_Q/controlInit.txt Line: 1
 Warning (10230): Verilog HDL assignment warning at controlInit.txt(2): truncated value with size 8 to match size of target (6) File: /home/voidknight/Downloads/CPU_Q/controlInit.txt Line: 2
 Warning (10230): Verilog HDL assignment warning at controlInit.txt(3): truncated value with size 8 to match size of target (6) File: /home/voidknight/Downloads/CPU_Q/controlInit.txt Line: 3
@@ -2753,13 +2807,14 @@ Warning (10230): Verilog HDL assignment warning at controlInit.txt(5): truncated
 Warning (10230): Verilog HDL assignment warning at controlInit.txt(6): truncated value with size 8 to match size of target (6) File: /home/voidknight/Downloads/CPU_Q/controlInit.txt Line: 6
 Warning (10230): Verilog HDL assignment warning at controlInit.txt(7): truncated value with size 8 to match size of target (6) File: /home/voidknight/Downloads/CPU_Q/controlInit.txt Line: 7
 Warning (10230): Verilog HDL assignment warning at controlInit.txt(8): truncated value with size 8 to match size of target (6) File: /home/voidknight/Downloads/CPU_Q/controlInit.txt Line: 8
-Info (12128): Elaborating entity "ROBrenamebuffer" for hierarchy "reorderBuffer:rob|ROBrenamebuffer:renamebuffer" File: /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv Line: 194
+Info (12128): Elaborating entity "ROBrenamebuffer" for hierarchy "reorderBuffer:rob|ROBrenamebuffer:renamebuffer" File: /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv Line: 221
+Warning (276027): Inferred dual-clock RAM node "instr_decode:decodeStage|register_file:regfile|regFile_rtl_0" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
 Info (276014): Found 4 instances of uninferred RAM logic
     Info (276004): RAM logic "reorderBuffer:rob|controlBuffer" is uninferred due to inappropriate RAM size File: /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv Line: 52
     Info (276004): RAM logic "reorderBuffer:rob|updateBuffer" is uninferred due to inappropriate RAM size File: /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv Line: 58
     Info (276007): RAM logic "instr_decode:decodeStage|register_file:regfile|regFile" is uninferred due to asynchronous read logic File: /home/voidknight/Downloads/CPU_Q/register_file.sv Line: 40
     Info (276004): RAM logic "instrFetchUnit:fetchStage|BTB:branchTargetBuffer|validBuffer" is uninferred due to inappropriate RAM size File: /home/voidknight/Downloads/CPU_Q/BTB.sv Line: 54
-Info (19000): Inferred 14 megafunctions from design logic
+Info (19000): Inferred 15 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "reorderBuffer:rob|valueBuffer_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
         Info (286033): Parameter WIDTH_A set to 32
@@ -2947,6 +3002,22 @@ Info (19000): Inferred 14 megafunctions from design logic
         Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
         Info (286033): Parameter INIT_FILE set to db/RISC-V.ram2_register_status_56d9645f.hdl.mif
         Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "instr_decode:decodeStage|register_file:regfile|regFile_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 5
+        Info (286033): Parameter NUMWORDS_A set to 32
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 5
+        Info (286033): Parameter NUMWORDS_B set to 32
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK1
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/RISC-V.ram0_register_file_87c776fc.hdl.mif
     Info (276029): Inferred altsyncram megafunction from the following design logic: "instrFetchUnit:fetchStage|imem:IMem|iMem_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to ROM
         Info (286033): Parameter WIDTH_A set to 32
@@ -3212,6 +3283,25 @@ Info (12133): Instantiated megafunction "instr_decode:decodeStage|register_statu
     Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_s9s1.tdf
     Info (12023): Found entity 1: altsyncram_s9s1 File: /home/voidknight/Downloads/CPU_Q/db/altsyncram_s9s1.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "instr_decode:decodeStage|register_file:regfile|altsyncram:regFile_rtl_0"
+Info (12133): Instantiated megafunction "instr_decode:decodeStage|register_file:regfile|altsyncram:regFile_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "5"
+    Info (12134): Parameter "NUMWORDS_A" = "32"
+    Info (12134): Parameter "WIDTH_B" = "32"
+    Info (12134): Parameter "WIDTHAD_B" = "5"
+    Info (12134): Parameter "NUMWORDS_B" = "32"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK1"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/RISC-V.ram0_register_file_87c776fc.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_g9o1.tdf
+    Info (12023): Found entity 1: altsyncram_g9o1 File: /home/voidknight/Downloads/CPU_Q/db/altsyncram_g9o1.tdf Line: 28
 Info (12130): Elaborated megafunction instantiation "instrFetchUnit:fetchStage|imem:IMem|altsyncram:iMem_rtl_0"
 Info (12133): Instantiated megafunction "instrFetchUnit:fetchStage|imem:IMem|altsyncram:iMem_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "ROM"
@@ -3301,15 +3391,14 @@ Info (144001): Generated suppressed messages file /home/voidknight/Downloads/CPU
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (15752): Ignored 53 Virtual Pin logic option assignments
-    Warning (15720): Ignored Virtual Pin assignment to node "outputBus.targetAddress[4]"
-    Warning (15720): Ignored Virtual Pin assignment to node "outputBus.targetAddress[5]"
-    Warning (15720): Ignored Virtual Pin assignment to node "outputBus.targetAddress[6]"
-    Warning (15720): Ignored Virtual Pin assignment to node "outputBus.targetAddress[7]"
     Warning (15720): Ignored Virtual Pin assignment to node "outputBus.targetAddress[0]"
     Warning (15720): Ignored Virtual Pin assignment to node "outputBus.targetAddress[1]"
     Warning (15720): Ignored Virtual Pin assignment to node "outputBus.targetAddress[2]"
     Warning (15720): Ignored Virtual Pin assignment to node "outputBus.targetAddress[3]"
-    Warning (15720): Ignored Virtual Pin assignment to node "outputBus.commitInfo[3]"
+    Warning (15720): Ignored Virtual Pin assignment to node "outputBus.targetAddress[4]"
+    Warning (15720): Ignored Virtual Pin assignment to node "outputBus.targetAddress[5]"
+    Warning (15720): Ignored Virtual Pin assignment to node "outputBus.targetAddress[6]"
+    Warning (15720): Ignored Virtual Pin assignment to node "outputBus.targetAddress[7]"
     Warning (15720): Ignored Virtual Pin assignment to node "outputBus.targetAddress[8]"
     Warning (15720): Ignored Virtual Pin assignment to node "outputBus.targetAddress[9]"
     Warning (15720): Ignored Virtual Pin assignment to node "outputBus.targetAddress[10]"
@@ -3334,36 +3423,37 @@ Warning (15752): Ignored 53 Virtual Pin logic option assignments
     Warning (15720): Ignored Virtual Pin assignment to node "outputBus.targetAddress[29]"
     Warning (15720): Ignored Virtual Pin assignment to node "outputBus.targetAddress[30]"
     Warning (15720): Ignored Virtual Pin assignment to node "outputBus.targetAddress[31]"
-    Warning (15751): Ignored Virtual Pin assignment to "outputBus.regStatusC".
-    Warning (15751): Ignored Virtual Pin assignment to "immExt".
-    Warning (15751): Ignored Virtual Pin assignment to "operand1".
-    Warning (15751): Ignored Virtual Pin assignment to "inputBus.regStatusW".
-    Warning (15751): Ignored Virtual Pin assignment to "dataBus.isControl".
-    Warning (15751): Ignored Virtual Pin assignment to "ROBValue1".
-    Warning (15751): Ignored Virtual Pin assignment to "instrPC".
-    Warning (15751): Ignored Virtual Pin assignment to "ROBValue2".
-    Warning (15751): Ignored Virtual Pin assignment to "predictedAddress".
-    Warning (15751): Ignored Virtual Pin assignment to "dataBus.pcControl".
-    Warning (15751): Ignored Virtual Pin assignment to "predictedPC".
-    Warning (15751): Ignored Virtual Pin assignment to "inputBus.seqPCW".
-    Warning (15751): Ignored Virtual Pin assignment to "regStatusSnap".
+    Warning (15720): Ignored Virtual Pin assignment to node "outputBus.commitInfo[3]"
     Warning (15751): Ignored Virtual Pin assignment to "targetAddress".
-    Warning (15751): Ignored Virtual Pin assignment to "pc".
-    Warning (15751): Ignored Virtual Pin assignment to "operand2".
-    Warning (15751): Ignored Virtual Pin assignment to "address".
-    Warning (15751): Ignored Virtual Pin assignment to "dataBus.result".
-    Warning (15751): Ignored Virtual Pin assignment to "instruction".
+    Warning (15751): Ignored Virtual Pin assignment to "immExt".
+    Warning (15751): Ignored Virtual Pin assignment to "ROBValue1".
     Warning (15751): Ignored Virtual Pin assignment to "inputBus.instrInfo".
-Info (21057): Implemented 4329 device resources after synthesis - the final resource count might be different
+    Warning (15751): Ignored Virtual Pin assignment to "pc".
+    Warning (15751): Ignored Virtual Pin assignment to "instrPC".
+    Warning (15751): Ignored Virtual Pin assignment to "dataBus.result".
+    Warning (15751): Ignored Virtual Pin assignment to "predictedPC".
+    Warning (15751): Ignored Virtual Pin assignment to "predictedAddress".
+    Warning (15751): Ignored Virtual Pin assignment to "inputBus.regStatusW".
+    Warning (15751): Ignored Virtual Pin assignment to "dataBus.pcControl".
+    Warning (15751): Ignored Virtual Pin assignment to "ROBValue2".
+    Warning (15751): Ignored Virtual Pin assignment to "inputBus.seqPCW".
+    Warning (15751): Ignored Virtual Pin assignment to "operand2".
+    Warning (15751): Ignored Virtual Pin assignment to "operand1".
+    Warning (15751): Ignored Virtual Pin assignment to "instruction".
+    Warning (15751): Ignored Virtual Pin assignment to "dataBus.isControl".
+    Warning (15751): Ignored Virtual Pin assignment to "regStatusSnap".
+    Warning (15751): Ignored Virtual Pin assignment to "address".
+    Warning (15751): Ignored Virtual Pin assignment to "outputBus.regStatusC".
+Info (21057): Implemented 4250 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 64 output pins
-    Info (21061): Implemented 3978 logic cells
-    Info (21064): Implemented 285 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 98 warnings
-    Info: Peak virtual memory: 537 megabytes
-    Info: Processing ended: Sat Dec 14 15:13:52 2024
-    Info: Elapsed time: 00:01:07
-    Info: Total CPU time (on all processors): 00:01:54
+    Info (21059): Implemented 96 output pins
+    Info (21061): Implemented 3835 logic cells
+    Info (21064): Implemented 317 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 99 warnings
+    Info: Peak virtual memory: 536 megabytes
+    Info: Processing ended: Sat Dec 14 17:40:26 2024
+    Info: Elapsed time: 00:01:03
+    Info: Total CPU time (on all processors): 00:01:48
 
 
 +------------------------------------------+

@@ -25,332 +25,332 @@
 # 
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/extend.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:52 on Dec 13,2024
+# Start time: 17:50:51 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/extend.sv 
 # -- Compiling module extend
 # 
 # Top level modules:
 # 	extend
-# End time: 22:01:52 on Dec 13,2024, Elapsed time: 0:00:00
+# End time: 17:50:51 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/ALU.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:52 on Dec 13,2024
+# Start time: 17:50:51 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/ALU.sv 
 # -- Compiling module ALU
 # 
 # Top level modules:
 # 	ALU
-# End time: 22:01:52 on Dec 13,2024, Elapsed time: 0:00:00
+# End time: 17:50:51 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/ALUDecoder.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:52 on Dec 13,2024
+# Start time: 17:50:51 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/ALUDecoder.sv 
 # -- Compiling module ALUDecoder
 # 
 # Top level modules:
 # 	ALUDecoder
-# End time: 22:01:52 on Dec 13,2024, Elapsed time: 0:00:00
+# End time: 17:50:51 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/branchIndex.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:52 on Dec 13,2024
+# Start time: 17:50:51 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/branchIndex.sv 
 # -- Compiling module branchIndex
 # 
 # Top level modules:
 # 	branchIndex
-# End time: 22:01:53 on Dec 13,2024, Elapsed time: 0:00:01
+# End time: 17:50:52 on Dec 14,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/infodecoder.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:53 on Dec 13,2024
+# Start time: 17:50:52 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/infodecoder.sv 
 # -- Compiling module infodecoder
 # 
 # Top level modules:
 # 	infodecoder
-# End time: 22:01:53 on Dec 13,2024, Elapsed time: 0:00:00
+# End time: 17:50:52 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/branchALU.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:53 on Dec 13,2024
+# Start time: 17:50:52 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/branchALU.sv 
 # -- Compiling module branchALU
 # 
 # Top level modules:
 # 	branchALU
-# End time: 22:01:53 on Dec 13,2024, Elapsed time: 0:00:00
+# End time: 17:50:52 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/CDBArbiter.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:53 on Dec 13,2024
+# Start time: 17:50:52 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/CDBArbiter.sv 
 # -- Compiling interface commonDataBus
 # -- Compiling module CDBArbiter
 # 
 # Top level modules:
 # 	CDBArbiter
-# End time: 22:01:53 on Dec 13,2024, Elapsed time: 0:00:00
+# End time: 17:50:52 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/branchTargetResolve.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:53 on Dec 13,2024
+# Start time: 17:50:52 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/branchTargetResolve.sv 
 # -- Compiling module branchTargetResolve
 # 
 # Top level modules:
 # 	branchTargetResolve
-# End time: 22:01:53 on Dec 13,2024, Elapsed time: 0:00:00
+# End time: 17:50:52 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/ALUSelect.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:53 on Dec 13,2024
+# Start time: 17:50:52 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/ALUSelect.sv 
 # -- Compiling module ALUSelect
 # 
 # Top level modules:
 # 	ALUSelect
-# End time: 22:01:53 on Dec 13,2024, Elapsed time: 0:00:00
+# End time: 17:50:52 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/branchSelect.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:53 on Dec 13,2024
+# Start time: 17:50:52 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/branchSelect.sv 
 # -- Compiling module branchSelect
 # 
 # Top level modules:
 # 	branchSelect
-# End time: 22:01:54 on Dec 13,2024, Elapsed time: 0:00:01
+# End time: 17:50:53 on Dec 14,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/srcMux.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:54 on Dec 13,2024
+# Start time: 17:50:53 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/srcMux.sv 
 # -- Compiling module srcMux
 # ** Warning: /home/voidknight/Downloads/CPU_Q/srcMux.sv(20): (vlog-13314) Defaulting port 'sourceOperands' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
 # 
 # Top level modules:
 # 	srcMux
-# End time: 22:01:54 on Dec 13,2024, Elapsed time: 0:00:00
+# End time: 17:50:53 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 1
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/PCSelectLogic.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:54 on Dec 13,2024
+# Start time: 17:50:53 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/PCSelectLogic.sv 
 # -- Compiling module PCSelectLogic
 # 
 # Top level modules:
 # 	PCSelectLogic
-# End time: 22:01:54 on Dec 13,2024, Elapsed time: 0:00:00
+# End time: 17:50:53 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/RSArbiter.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:54 on Dec 13,2024
+# Start time: 17:50:53 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/RSArbiter.sv 
 # -- Compiling module RSArbiter
 # 
 # Top level modules:
 # 	RSArbiter
-# End time: 22:01:54 on Dec 13,2024, Elapsed time: 0:00:00
+# End time: 17:50:53 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/register_file.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:54 on Dec 13,2024
+# Start time: 17:50:53 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/register_file.sv 
 # -- Compiling module register_file
 # 
 # Top level modules:
 # 	register_file
-# End time: 22:01:55 on Dec 13,2024, Elapsed time: 0:00:01
+# End time: 17:50:53 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/imem.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:55 on Dec 13,2024
+# Start time: 17:50:53 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/imem.sv 
 # -- Compiling module imem
 # 
 # Top level modules:
 # 	imem
-# End time: 22:01:55 on Dec 13,2024, Elapsed time: 0:00:00
+# End time: 17:50:53 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/gshare.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:55 on Dec 13,2024
+# Start time: 17:50:53 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/gshare.sv 
 # -- Compiling module gshare
 # 
 # Top level modules:
 # 	gshare
-# End time: 22:01:55 on Dec 13,2024, Elapsed time: 0:00:00
+# End time: 17:50:54 on Dec 14,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/BTB.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:55 on Dec 13,2024
+# Start time: 17:50:54 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/BTB.sv 
 # -- Compiling module BTB
 # 
 # Top level modules:
 # 	BTB
-# End time: 22:01:55 on Dec 13,2024, Elapsed time: 0:00:00
+# End time: 17:50:54 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/register_status.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:55 on Dec 13,2024
+# Start time: 17:50:54 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/register_status.sv 
 # -- Compiling module register_status
 # 
 # Top level modules:
 # 	register_status
-# End time: 22:01:55 on Dec 13,2024, Elapsed time: 0:00:00
+# End time: 17:50:54 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/decodeextend.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:55 on Dec 13,2024
+# Start time: 17:50:54 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/decodeextend.sv 
 # -- Compiling module decodeextend
 # 
 # Top level modules:
 # 	decodeextend
-# End time: 22:01:56 on Dec 13,2024, Elapsed time: 0:00:01
+# End time: 17:50:54 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/instructionValues.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:56 on Dec 13,2024
+# Start time: 17:50:54 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/instructionValues.sv 
 # -- Compiling module instructionValues
 # 
 # Top level modules:
 # 	instructionValues
-# End time: 22:01:56 on Dec 13,2024, Elapsed time: 0:00:00
+# End time: 17:50:54 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/ROBrenamebuffer.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:56 on Dec 13,2024
+# Start time: 17:50:54 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/ROBrenamebuffer.sv 
 # -- Compiling module ROBrenamebuffer
 # 
 # Top level modules:
 # 	ROBrenamebuffer
-# End time: 22:01:56 on Dec 13,2024, Elapsed time: 0:00:00
+# End time: 17:50:54 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/ALURStationEntry.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:56 on Dec 13,2024
+# Start time: 17:50:54 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/ALURStationEntry.sv 
 # -- Compiling module ALURStationEntry
 # 
 # Top level modules:
 # 	ALURStationEntry
-# End time: 22:01:56 on Dec 13,2024, Elapsed time: 0:00:00
+# End time: 17:50:55 on Dec 14,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/branchRSEntry.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:56 on Dec 13,2024
+# Start time: 17:50:55 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/branchRSEntry.sv 
 # -- Compiling module branchRSEntry
 # 
 # Top level modules:
 # 	branchRSEntry
-# End time: 22:01:56 on Dec 13,2024, Elapsed time: 0:00:00
+# End time: 17:50:55 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/functionalUnit.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:57 on Dec 13,2024
+# Start time: 17:50:55 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/functionalUnit.sv 
 # -- Compiling module functionalUnit
 # 
 # Top level modules:
 # 	functionalUnit
-# End time: 22:01:57 on Dec 13,2024, Elapsed time: 0:00:00
+# End time: 17:50:55 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/reorderBuffer.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:57 on Dec 13,2024
+# Start time: 17:50:55 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv 
 # -- Compiling module reorderBuffer
 # -- Compiling interface writeCommit
 # 
 # Top level modules:
 # 	reorderBuffer
-# End time: 22:01:57 on Dec 13,2024, Elapsed time: 0:00:00
+# End time: 17:50:55 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/ALURS.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:57 on Dec 13,2024
+# Start time: 17:50:55 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/ALURS.sv 
 # -- Compiling module ALURS
 # 
 # Top level modules:
 # 	ALURS
-# End time: 22:01:57 on Dec 13,2024, Elapsed time: 0:00:00
+# End time: 17:50:55 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/branchRS.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:57 on Dec 13,2024
+# Start time: 17:50:55 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/branchRS.sv 
 # -- Compiling module branchRS
 # 
 # Top level modules:
 # 	branchRS
-# End time: 22:01:57 on Dec 13,2024, Elapsed time: 0:00:00
+# End time: 17:50:55 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/renameStage.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:57 on Dec 13,2024
+# Start time: 17:50:56 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/renameStage.sv 
 # -- Compiling module renameStage
 # 
 # Top level modules:
 # 	renameStage
-# End time: 22:01:58 on Dec 13,2024, Elapsed time: 0:00:01
+# End time: 17:50:56 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:58 on Dec 13,2024
+# Start time: 17:50:56 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv 
 # -- Compiling module instrFetchUnit
 # 
 # Top level modules:
 # 	instrFetchUnit
-# End time: 22:01:58 on Dec 13,2024, Elapsed time: 0:00:00
+# End time: 17:50:56 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/instr_decode.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:58 on Dec 13,2024
+# Start time: 17:50:56 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/instr_decode.sv 
 # -- Compiling module instr_decode
 # 
 # Top level modules:
 # 	instr_decode
-# End time: 22:01:58 on Dec 13,2024, Elapsed time: 0:00:00
+# End time: 17:50:56 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/RISCV.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:58 on Dec 13,2024
+# Start time: 17:50:56 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/RISCV.sv 
 # -- Compiling module RISCV
 # 
 # Top level modules:
 # 	RISCV
-# End time: 22:01:58 on Dec 13,2024, Elapsed time: 0:00:00
+# End time: 17:50:56 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlog -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q {/home/voidknight/Downloads/CPU_Q/regfileTest.sv}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:01:58 on Dec 13,2024
+# Start time: 17:50:56 on Dec 14,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/voidknight/Downloads/CPU_Q" /home/voidknight/Downloads/CPU_Q/regfileTest.sv 
 # -- Compiling module regfileTest
 # 
 # Top level modules:
 # 	regfileTest
-# End time: 22:01:59 on Dec 13,2024, Elapsed time: 0:00:01
+# End time: 17:50:56 on Dec 14,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  regfileTest
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" regfileTest 
-# Start time: 22:01:59 on Dec 13,2024
+# Start time: 17:50:56 on Dec 14,2024
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
 # ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
@@ -369,383 +369,3 @@
 #    Time: 0 ps  Iteration: 0  Instance: /regfileTest/regFile
 # ** Error: Assertion error.
 #    Time: 11 ns  Scope: regfileTest File: /home/voidknight/Downloads/CPU_Q/regfileTest.sv Line: 37
-# 
-# stdin: <EOF>
-quit -sim
-# End time: 22:03:03 on Dec 13,2024, Elapsed time: 0:01:04
-# Errors: 1, Warnings: 2
-cd /home/voidknight/Downloads/CPU_Q
-# reading modelsim.ini
-vsim -t 100ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=\"+acc\" work.reorderBufferTest
-# vsim -t 100ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" work.reorderBufferTest 
-# Start time: 22:03:47 on Dec 13,2024
-# ** Note: (vsim-8009) Loading existing optimized design _opt1
-# Loading sv_std.std
-# Loading work.reorderBufferTest(fast)
-# Loading work.commonDataBus(fast__1)
-# Loading work.writeCommit(fast__1)
-# Loading work.writeCommit(fast__2)
-# Loading work.reorderBuffer(fast)
-# Loading work.ROBrenamebuffer(fast)
-add wave sim:/reorderBufferTest/*
-run
-# ** Warning: (vsim-PLI-3406) Too many digits (8) in data on line 1 of file "/home/voidknight/Downloads/CPU_Q/controlInit.txt". (Max is 6.)    : /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv(75)
-#    Time: 0 ps  Iteration: 0  Instance: /reorderBufferTest/rob
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-vsim -t 100ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=\"+acc\" work.cpuSim
-# End time: 22:08:34 on Dec 13,2024, Elapsed time: 0:04:47
-# Errors: 0, Warnings: 1
-# vsim -t 100ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" work.cpuSim 
-# Start time: 22:08:34 on Dec 13,2024
-# ** Note: (vsim-8009) Loading existing optimized design _opt
-# Loading sv_std.std
-# Loading work.cpuSim(fast)
-# Loading work.RISCV(fast)
-# Loading work.writeCommit(fast__1)
-# Loading work.writeCommit(fast__2)
-# Loading work.commonDataBus(fast__1)
-# Loading work.instrFetchUnit(fast)
-# Loading work.PCSelectLogic(fast)
-# Loading work.BTB(fast)
-# Loading work.gshare(fast)
-# Loading work.branchIndex(fast)
-# Loading work.imem(fast)
-# Loading work.instr_decode(fast)
-# Loading work.decodeextend(fast)
-# Loading work.infodecoder(fast)
-# Loading work.extend(fast)
-# Loading work.ALUDecoder(fast)
-# Loading work.register_file(fast)
-# Loading work.register_status(fast)
-# Loading work.renameStage(fast)
-# Loading work.instructionValues(fast)
-# Loading work.RSArbiter(fast)
-# Loading work.branchTargetResolve(fast)
-# Loading work.ALURS(fast)
-# Loading work.ALURStationEntry(fast)
-# Loading work.ALUSelect(fast)
-# Loading work.srcMux(fast)
-# Loading work.srcMux(fast__1)
-# Loading work.srcMux(fast__2)
-# Loading work.branchRS(fast)
-# Loading work.branchRSEntry(fast)
-# Loading work.branchSelect(fast)
-# Loading work.srcMux(fast__3)
-# Loading work.srcMux(fast__4)
-# Loading work.srcMux(fast__5)
-# Loading work.functionalUnit(fast)
-# Loading work.branchALU(fast)
-# Loading work.ALU(fast)
-# Loading work.CDBArbiter(fast)
-# Loading work.reorderBuffer(fast)
-# Loading work.ROBrenamebuffer(fast)
-# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'PC'. The port definition is at: /home/voidknight/Downloads/CPU_Q/BTB.sv(43).
-#    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/fetchStage/branchTargetBuffer File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 37
-# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'PC'. The port definition is at: /home/voidknight/Downloads/CPU_Q/branchIndex.sv(28).
-#    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/fetchStage/indexGen File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 48
-# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'opcode'. The port definition is at: /home/voidknight/Downloads/CPU_Q/infodecoder.sv(29).
-#    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/decodeStage/decodeExtender/maindecoder File: /home/voidknight/Downloads/CPU_Q/decodeextend.sv Line: 54
-do /home/voidknight/Downloads/CPU_Q/wave.do
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/fullRob'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 19
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/isLUI'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 39
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/isAUIPC'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 40
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/branchResult'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 80
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/fetchStage/pcSelect/oldPC'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 95
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/fetchStage/pcSelect/mispredict'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 96
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/fetchStage/pcSelect/misdirect'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 97
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/fetchStage/pcSelect/pcPlus1'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 107
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/decodeStage/isLUI'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 163
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/decodeStage/isAUIPC'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 164
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/decodeStage/lui'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 178
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/decodeStage/auipc'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 179
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/decodeStage/decodeExtender/isLUI'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 236
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/decodeStage/decodeExtender/isAUIPC'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 237
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/decodeStage/decodeExtender/maindecoder/isLUI'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 253
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/decodeStage/decodeExtender/maindecoder/isAUIPC'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 254
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/instrRenameStage/branch'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 309
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/instrRenameStage/isLUI'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 315
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/instrRenameStage/isAUIPC'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 316
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/instrRenameStage/earlyResult'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 324
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/instrRenameStage/earlyWrite'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 328
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/instrRenameStage/targetResolver/branch'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 382
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/instrRenameStage/targetResolver/redirect'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 384
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/instrRenameStage/targetResolver/isLUI'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 385
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/instrRenameStage/targetResolver/isAUIPC'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 386
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/instrRenameStage/targetResolver/earlyWrite'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 387
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/instrRenameStage/targetResolver/earlyResult'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 390
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/branchReservationStation/branchResult'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 645
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/executeStage/branchResultE'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 817
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/executeStage/mispredict'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 819
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/executeStage/misdirect'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 820
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/cpuSim/cpu/executeStage/branchUnit/branchResultE'.
-# Executing ONERROR command at macro /home/voidknight/Downloads/CPU_Q/wave.do line 839
-run
-# ** Warning: (vsim-PLI-3406) Too many digits (8) in data on line 1 of file "/home/voidknight/Downloads/CPU_Q/controlInit.txt". (Max is 6.)    : /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv(75)
-#    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/rob
-# ** Warning: (vsim-8315) No condition is true in the unique/priority if/case statement.
-#    Time: 0 ps  Iteration: 3  Process: /cpuSim/cpu/executeStage/branchUnit/#implicit#unique__129 File: /home/voidknight/Downloads/CPU_Q/branchALU.sv Line: 129
-#          x
-run
-run
-run
-run
-run
-run
-run
-run
-run
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/RISCV.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:13:06 on Dec 13,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/RISCV.sv 
-# -- Compiling module RISCV
-# 
-# Top level modules:
-# 	RISCV
-# End time: 22:13:06 on Dec 13,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/cpuSim.sv
-# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 22:13:13 on Dec 13,2024
-# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/cpuSim.sv 
-# -- Compiling module cpuSim
-# 
-# Top level modules:
-# 	cpuSim
-# End time: 22:13:13 on Dec 13,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
-# Loading sv_std.std
-# Loading work.cpuSim(fast)
-# Loading work.RISCV(fast)
-# Loading work.writeCommit(fast__1)
-# Loading work.writeCommit(fast__2)
-# Loading work.commonDataBus(fast__1)
-# Loading work.instrFetchUnit(fast)
-# Loading work.PCSelectLogic(fast)
-# Loading work.BTB(fast)
-# Loading work.gshare(fast)
-# Loading work.branchIndex(fast)
-# Loading work.imem(fast)
-# Loading work.instr_decode(fast)
-# Loading work.decodeextend(fast)
-# Loading work.infodecoder(fast)
-# Loading work.extend(fast)
-# Loading work.ALUDecoder(fast)
-# Loading work.register_file(fast)
-# Loading work.register_status(fast)
-# Loading work.renameStage(fast)
-# Loading work.instructionValues(fast)
-# Loading work.RSArbiter(fast)
-# Loading work.branchTargetResolve(fast)
-# Loading work.ALURS(fast)
-# Loading work.ALURStationEntry(fast)
-# Loading work.ALUSelect(fast)
-# Loading work.srcMux(fast)
-# Loading work.srcMux(fast__1)
-# Loading work.srcMux(fast__2)
-# Loading work.branchRS(fast)
-# Loading work.branchRSEntry(fast)
-# Loading work.branchSelect(fast)
-# Loading work.srcMux(fast__3)
-# Loading work.srcMux(fast__4)
-# Loading work.srcMux(fast__5)
-# Loading work.functionalUnit(fast)
-# Loading work.branchALU(fast)
-# Loading work.ALU(fast)
-# Loading work.CDBArbiter(fast)
-# Loading work.reorderBuffer(fast)
-# Loading work.ROBrenamebuffer(fast)
-# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'PC'. The port definition is at: /home/voidknight/Downloads/CPU_Q/BTB.sv(43).
-#    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/fetchStage/branchTargetBuffer File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 37
-# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'PC'. The port definition is at: /home/voidknight/Downloads/CPU_Q/branchIndex.sv(28).
-#    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/fetchStage/indexGen File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 48
-# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'opcode'. The port definition is at: /home/voidknight/Downloads/CPU_Q/infodecoder.sv(29).
-#    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/decodeStage/decodeExtender/maindecoder File: /home/voidknight/Downloads/CPU_Q/decodeextend.sv Line: 54
-run
-# ** Warning: (vsim-PLI-3406) Too many digits (8) in data on line 1 of file "/home/voidknight/Downloads/CPU_Q/controlInit.txt". (Max is 6.)    : /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv(75)
-#    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/rob
-# ** Warning: (vsim-8315) No condition is true in the unique/priority if/case statement.
-#    Time: 0 ps  Iteration: 3  Process: /cpuSim/cpu/executeStage/branchUnit/#implicit#unique__129 File: /home/voidknight/Downloads/CPU_Q/branchALU.sv Line: 129
-#          x
-run
-run
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Note: (vsim-8009) Loading existing optimized design _opt
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
-# Loading work.cpuSim(fast)
-# Loading work.RISCV(fast)
-# Loading work.writeCommit(fast__1)
-# Loading work.writeCommit(fast__2)
-# Loading work.commonDataBus(fast__1)
-# Loading work.instrFetchUnit(fast)
-# Loading work.PCSelectLogic(fast)
-# Loading work.BTB(fast)
-# Loading work.gshare(fast)
-# Loading work.branchIndex(fast)
-# Loading work.imem(fast)
-# Loading work.instr_decode(fast)
-# Loading work.decodeextend(fast)
-# Loading work.infodecoder(fast)
-# Loading work.extend(fast)
-# Loading work.ALUDecoder(fast)
-# Loading work.register_file(fast)
-# Loading work.register_status(fast)
-# Loading work.renameStage(fast)
-# Loading work.instructionValues(fast)
-# Loading work.RSArbiter(fast)
-# Loading work.branchTargetResolve(fast)
-# Loading work.ALURS(fast)
-# Loading work.ALURStationEntry(fast)
-# Loading work.ALUSelect(fast)
-# Loading work.srcMux(fast)
-# Loading work.srcMux(fast__1)
-# Loading work.srcMux(fast__2)
-# Loading work.branchRS(fast)
-# Loading work.branchRSEntry(fast)
-# Loading work.branchSelect(fast)
-# Loading work.srcMux(fast__3)
-# Loading work.srcMux(fast__4)
-# Loading work.srcMux(fast__5)
-# Loading work.functionalUnit(fast)
-# Loading work.branchALU(fast)
-# Loading work.ALU(fast)
-# Loading work.CDBArbiter(fast)
-# Loading work.reorderBuffer(fast)
-# Loading work.ROBrenamebuffer(fast)
-# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'PC'. The port definition is at: /home/voidknight/Downloads/CPU_Q/BTB.sv(43).
-#    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/fetchStage/branchTargetBuffer File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 37
-# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'PC'. The port definition is at: /home/voidknight/Downloads/CPU_Q/branchIndex.sv(28).
-#    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/fetchStage/indexGen File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 48
-# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'opcode'. The port definition is at: /home/voidknight/Downloads/CPU_Q/infodecoder.sv(29).
-#    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/decodeStage/decodeExtender/maindecoder File: /home/voidknight/Downloads/CPU_Q/decodeextend.sv Line: 54
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Note: (vsim-8009) Loading existing optimized design _opt
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
-# Loading work.cpuSim(fast)
-# Loading work.RISCV(fast)
-# Loading work.writeCommit(fast__1)
-# Loading work.writeCommit(fast__2)
-# Loading work.commonDataBus(fast__1)
-# Loading work.instrFetchUnit(fast)
-# Loading work.PCSelectLogic(fast)
-# Loading work.BTB(fast)
-# Loading work.gshare(fast)
-# Loading work.branchIndex(fast)
-# Loading work.imem(fast)
-# Loading work.instr_decode(fast)
-# Loading work.decodeextend(fast)
-# Loading work.infodecoder(fast)
-# Loading work.extend(fast)
-# Loading work.ALUDecoder(fast)
-# Loading work.register_file(fast)
-# Loading work.register_status(fast)
-# Loading work.renameStage(fast)
-# Loading work.instructionValues(fast)
-# Loading work.RSArbiter(fast)
-# Loading work.branchTargetResolve(fast)
-# Loading work.ALURS(fast)
-# Loading work.ALURStationEntry(fast)
-# Loading work.ALUSelect(fast)
-# Loading work.srcMux(fast)
-# Loading work.srcMux(fast__1)
-# Loading work.srcMux(fast__2)
-# Loading work.branchRS(fast)
-# Loading work.branchRSEntry(fast)
-# Loading work.branchSelect(fast)
-# Loading work.srcMux(fast__3)
-# Loading work.srcMux(fast__4)
-# Loading work.srcMux(fast__5)
-# Loading work.functionalUnit(fast)
-# Loading work.branchALU(fast)
-# Loading work.ALU(fast)
-# Loading work.CDBArbiter(fast)
-# Loading work.reorderBuffer(fast)
-# Loading work.ROBrenamebuffer(fast)
-# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'PC'. The port definition is at: /home/voidknight/Downloads/CPU_Q/BTB.sv(43).
-#    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/fetchStage/branchTargetBuffer File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 37
-# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'PC'. The port definition is at: /home/voidknight/Downloads/CPU_Q/branchIndex.sv(28).
-#    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/fetchStage/indexGen File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 48
-# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'opcode'. The port definition is at: /home/voidknight/Downloads/CPU_Q/infodecoder.sv(29).
-#    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/decodeStage/decodeExtender/maindecoder File: /home/voidknight/Downloads/CPU_Q/decodeextend.sv Line: 54
-add wave -r /*
-run
-# ** Warning: (vsim-PLI-3406) Too many digits (8) in data on line 1 of file "/home/voidknight/Downloads/CPU_Q/controlInit.txt". (Max is 6.)    : /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv(75)
-#    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/rob
-# ** Warning: (vsim-8315) No condition is true in the unique/priority if/case statement.
-#    Time: 0 ps  Iteration: 3  Process: /cpuSim/cpu/executeStage/branchUnit/#implicit#unique__129 File: /home/voidknight/Downloads/CPU_Q/branchALU.sv Line: 129
-#          x
-run
-run
-run
-run
-run
-run
-run
-run
