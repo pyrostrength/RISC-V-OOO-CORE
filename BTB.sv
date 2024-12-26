@@ -41,7 +41,7 @@ module BTB #(parameter WIDTH = 31,
 							  INDEX = 3)
 			  (input logic[WIDTH:0] resolvedTarget,
 			   input logic[B_WIDTH:0] PC,oldPC,
-			   input logic writeBTB,clk,takenBranch,
+			   input logic writeBTB,validCommit,clk,takenBranch,
 				output logic validRead,
 			   output logic[WIDTH:0] targetAddress);
 				
@@ -61,7 +61,7 @@ module BTB #(parameter WIDTH = 31,
 					old instruction was a taken branch 
 					or to correct in case previously taken
 					branch no longer a taken branch*/
-					if(writeBTB) begin
+					if(writeBTB & validCommit) begin
 						targetBuffer[oldPC[INDEX:0]] <= {oldPC[B_WIDTH:INDEX+1],resolvedTarget};
 						validBuffer[oldPC[INDEX:0]] <= takenBranch;
 					end

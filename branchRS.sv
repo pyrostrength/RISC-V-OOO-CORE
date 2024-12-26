@@ -8,7 +8,7 @@ that pass selected instruction on positive clock edge*/
 
 module branchRS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 7, RS = 1)
 					  (commonDataBus.reservation_station dataBus,
-						input logic ready1,ready2,clear,clk,execute,globalReset,
+						input logic ready1,ready2,clear,clk,validCommit,execute,globalReset,
 						input logic[RS:0] writeRequests, 
 						input logic signed[WIDTH:0] value1,value2,
 						input logic[WIDTH:0] predictedPC,address,seqPC,
@@ -50,6 +50,16 @@ module branchRS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 7, RS = 1)
 						logic[RS:0] selectionRequests;
 						assign selectionRequests = {selectReq2,selectReq1};
 						
+						logic noSelect;
+						/*If no instruction selected for execution,provide
+						default behavior equal to CPUreset*/
+						always_comb begin
+							noSelect = 1'b0;
+							if(selectionRequests == 2'b00) begin
+								noSelect = 1'b1;
+							end
+						end
+						
 						branchSelect selectLogic(.*,.requests(selectionRequests));
 						
 						//SrcMux
@@ -81,9 +91,9 @@ module branchRS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 7, RS = 1)
 						srcMux #(.WIDTH(31),.RS(RS)) fetchor(.*,.sourceOperands(seqFetch),.operand(sequentialFetch));
 						
 						always_ff @(posedge clk) begin
-							if(clear | globalReset) begin
+							if((clear & validCommit) | globalReset | noSelect) begin
 								{src1,src2,predictedAddress,targetAddress,nxtPC} <= '0;
-								instrInfo <= '0;
+								instrInfo <= '1; //instrInfo designed to do nothing due to the high signals on the most significant bits.
 								instrRob <= '0;
 							end
 							else if(execute) begin

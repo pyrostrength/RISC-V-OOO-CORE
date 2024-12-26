@@ -15,7 +15,7 @@ module regfileTest #(parameter WIDTH = 31, A_WIDTH = 4);
        
 		 logic[A_WIDTH:0] address1,address2,wraddress;
 		 logic[WIDTH:0] regValue1,regValue2,wdata;
-		 logic clk,regWrite;
+		 logic clk,regWrite,validCommit;
 		 
 		 
 		 timeunit 1ns;

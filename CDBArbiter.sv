@@ -47,7 +47,7 @@ respective functional unit is available.
 								
 module CDBArbiter  #(parameter WIDTH = 31, ROB = 2,CONTROL = 4) //control changed to 6 to account for reset signal. we place reset in L.S.Bit.
 						  (commonDataBus.arbiter dataBus,
-						   input logic globalReset,clear,
+						   input logic globalReset,clear,validCommit,
 							input logic[CONTROL:0] controlPC,
 							input logic[ROB:0] ALURob,branchRob,
 							input logic[WIDTH:0] ALUResult,branchResult,fetchAddress,
@@ -120,10 +120,6 @@ module CDBArbiter  #(parameter WIDTH = 31, ROB = 2,CONTROL = 4) //control change
 										
 								//We only pass a result out if and only if we received sth from functional units.
 								always_ff @(posedge clk) begin
-									
-									if(controlFlow & !globalReset) begin
-										dataBus.targetAddress <= fetchAddress;
-									end	
 								//Pass a result iff and only if we actually received sth from the functional units.
 									if(globalReset) begin
 										pointer <= nxtPointer;
@@ -135,7 +131,7 @@ module CDBArbiter  #(parameter WIDTH = 31, ROB = 2,CONTROL = 4) //control change
 										dataBus.targetAddress <= '0;
 									end
 									
-									else if(clear) begin
+									else if(clear & validCommit) begin
 										dataBus.validBroadcast <= '0;
 									end
 									
@@ -147,15 +143,14 @@ module CDBArbiter  #(parameter WIDTH = 31, ROB = 2,CONTROL = 4) //control change
 										dataBus.validBroadcast <= we;//(Value of we to determine if we actually made a request)
 										dataBus.isControl <= controlFlow;
 										dataBus.pcControl <= controlPC;
+										dataBus.targetAddress <= fetchAddress;
 									end
 									
 									/*If not global reset, no instruction requested CDB,no cpuReset then
 									we must indicate that the broadcast on ROB is invalid*/
-									else if(!we & !globalReset & !clear) begin
+									else begin
 										dataBus.validBroadcast <= '0;
-									end
-									
-										
+									end	
 									
 								end
 endmodule

@@ -39,6 +39,10 @@ module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1
 							 //Associated with writing to rob
 							 output logic[ROB:0] robInstr);
 							 
+							 logic validCommit;
+							 
+							 assign validCommit = robBus.validCommit;
+							 
 							//We, destRegD all come from this stage.
 							 logic[WIDTH:0] extImm;
 							 logic jalr,stationReq,regWr,jal,brnch,memWr,occupied1,occupied2,immUse,robWrite;
@@ -58,19 +62,14 @@ module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1
 							register_status regTable(.*,.rs1(instruction[19:15]),.rs2(instruction[24:20]),.destReg(instruction[11:7]),
 															 .statusRestore(robBus.statusSnap),.regCommit(robBus.destCommit[4:0]),
 															 .reset(robBus.controlFlow[0]),.busy1(occupied1),.busy2(occupied2),
-															 .regStatusSnap(regStatus),.rob1(src1ROB),.rob2(src2ROB),.validCommit(robBus.validCommit),
+															 .regStatusSnap(regStatus),.rob1(src1ROB),.rob2(src2ROB),
 															 .regWrite(regWr));
 										
 							//Value determination
 							logic[WIDTH:0] op1,op2;
 							always_comb begin
 								op1 = regValue1;
-								if(immUse) begin
-									op2 = extImm;
-								end
-								else begin
-									op2 = regValue2;
-								end
+								op2 = (immUse) ? extImm : regValue2;
 							end
 							
 							logic noRS;
@@ -87,7 +86,7 @@ module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1
 								
 								freeze = fullRob | noRS | earlyMisdirect;
 								
-								robReq = robBus.controlFlow[0] & robWrite; 
+								
 							end
 							
 							/*Course correction if we mistakenly took an instruction
@@ -105,7 +104,7 @@ module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1
 							//Just pass on instruction PC.
 							//For register status and value determination
 							always_ff @(posedge clk) begin
-								if(robBus.controlFlow[0] | globalReset) begin
+								if((robBus.controlFlow[0] & validCommit) | globalReset) begin
 									{pc,operand1,operand2,immExt} <= '0;
 									{busy1,busy2} <= '0;
 									{rob1,rob2,robInstr} <= '0;
@@ -137,10 +136,12 @@ module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1
 							can be both a JAL and JALR at the same time. We also
 							make ALUControl be 4'b1111,corresponding to the global
 							reset state. We also make branchFunct3 3'b111*/
-								if(robBus.controlFlow[0] | globalReset) begin
+								if((robBus.controlFlow[0] & validCommit) | globalReset) begin
 									stationRequest <= '0;
 									regWrite <= '0;
-									{isJALR,isJAL} <= 1'b1; 
+									isJALR <= 1'b1;
+								
+									isJAL <= 1'b1;
 									 
 									inputBus.commitInfo <= '0;
 									inputBus.destination <= '0;
@@ -148,7 +149,7 @@ module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1
 									inputBus.regStatus <= '0;
 									inputBus.instrPC <= '0;
 									
-									{rdirect,useImm} <= '0;
+									{rdirect,useImm,robReq} <= '0;
 									{RSstation,state} <= '0;
 									destRegW <= '0; 
 									ALUControl <= 4'b1111;
@@ -163,6 +164,8 @@ module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1
 									inputBus.regStatus <= regStatus;
 									inputBus.instrPC <= instrPC;
 									
+									//Pass out robReq synchronously.
+									robReq <= !robBus.controlFlow[0] & robWrite; 
 									regWrite <= regWr;
 									isJALR <= jalr;
 									isJAL <= jal;
@@ -178,6 +181,8 @@ module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1
 									branchFunct3 <= instruction[14:12];
 								end
 							end
+							
+							//Freeze signal is evaluated combinationally. Instantenously in simulation.
 
 endmodule
 																	

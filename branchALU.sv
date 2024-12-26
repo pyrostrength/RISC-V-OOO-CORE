@@ -128,10 +128,10 @@ module branchALU #(parameter WIDTH = 31, C_WIDTH = 7)
 							
 							//Next state logic can occur in parallel. 
 							unique case(branchControl[2:1])
-										2'b11: nextState = (takenBranch == '1)? 2'b11 : 2'b10; //STAKEN
-										2'b10: nextState = (takenBranch == '1) ? 2'b11 : 2'b01; //WTAKEN
-										2'b01: nextState = (takenBranch == '1) ?  2'b10: 2'b00; //WNTAKEN
-										2'b00: nextState = (takenBranch == '1) ? 2'b01 : 2'b00; //SNTAKEN
+										2'b11: nextState = (takenBranch == 1'b1)? 2'b11 : 2'b10; //STAKEN
+										2'b10: nextState = (takenBranch == 1'b1) ? 2'b11 : 2'b01; //WTAKEN
+										2'b01: nextState = (takenBranch == 1'b1) ?  2'b10: 2'b00; //WNTAKEN
+										2'b00: nextState = (takenBranch == 1'b1) ? 2'b01 : 2'b00; //SNTAKEN
 							endcase
 						end
 						

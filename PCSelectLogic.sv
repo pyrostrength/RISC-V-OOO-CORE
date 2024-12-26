@@ -23,7 +23,7 @@ misdirections.
 
 module PCSelectLogic #(parameter WIDTH = 31)
 							 (input logic[WIDTH:0] validAddress,targetAddress,predictedPC,decodePC,
-							  input logic isJAL,predictorHit,clk,freeze,globalReset,reset,earlyMisdirect,
+							  input logic isJAL,predictorHit,validCommit,clk,freeze,globalReset,reset,earlyMisdirect,
 							  output logic redirect, //if we redirected instruction PC according to predictedPC. JAL has no wrong redirect.
 							  output logic[WIDTH:0] nextPC);
 							  
@@ -32,7 +32,7 @@ module PCSelectLogic #(parameter WIDTH = 31)
 									intermediatePC = nextPC + 32'd1;
 									redirect = '0;
 									//Priority-encoded logic
-									if(reset) begin
+									if(reset & validCommit) begin
 										intermediatePC = targetAddress;
 									end
 								   //Early misdirect - if we predicted an instruction to be a branch yet it isn't

@@ -1,5 +1,5 @@
 module registerFileTest #(parameter D_WIDTH = 31, A_WIDTH = 4);
-								logic clk,regWrite;
+								logic clk,regWrite,validCommit;
 							   logic[A_WIDTH:0] address1,address2,wraddress;
 							   logic[D_WIDTH:0] wdata;
 							   logic[D_WIDTH:0] regValue1,regValue2;

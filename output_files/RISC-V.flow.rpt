@@ -1,5 +1,5 @@
 Flow report for RISC-V
-Sat Dec 14 17:49:00 2024
+Wed Dec 25 22:09:13 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -41,18 +41,18 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +---------------------------------+------------------------------------------------+
-; Flow Status                     ; Successful - Sat Dec 14 17:49:00 2024          ;
+; Flow Status                     ; Successful - Wed Dec 25 22:09:13 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; RISC-V                                         ;
 ; Top-level Entity Name           ; RISCV                                          ;
 ; Family                          ; Cyclone V                                      ;
 ; Device                          ; 5CGXFC9A6U19A7                                 ;
 ; Timing Models                   ; Final                                          ;
-; Logic utilization (in ALMs)     ; 1,968 / 113,560 ( 2 % )                        ;
-; Total registers                 ; 2362                                           ;
-; Total pins                      ; 98 / 264 ( 37 % )                              ;
-; Total virtual pins              ; 0                                              ;
-; Total block memory bits         ; 11,520 / 12,492,800 ( < 1 % )                  ;
+; Logic utilization (in ALMs)     ; 2,121 / 113,560 ( 2 % )                        ;
+; Total registers                 ; 2416                                           ;
+; Total pins                      ; 159 / 264 ( 60 % )                             ;
+; Total virtual pins              ; 224                                            ;
+; Total block memory bits         ; 12,072 / 12,492,800 ( < 1 % )                  ;
 ; Total DSP Blocks                ; 0 / 342 ( 0 % )                                ;
 ; Total HSSI RX PCSs              ; 0 / 5 ( 0 % )                                  ;
 ; Total HSSI PMA RX Deserializers ; 0 / 5 ( 0 % )                                  ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/14/2024 17:39:24 ;
+; Start date & time ; 12/25/2024 21:59:10 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; RISC-V              ;
 +-------------------+---------------------+
@@ -81,7 +81,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; ALLOW_REGISTER_RETIMING              ; Off                                    ; On            ; --          ; --                                ;
 ; ALM_REGISTER_PACKING_EFFORT          ; Low                                    ; Medium        ; --          ; --                                ;
-; COMPILER_SIGNATURE_ID                ; 194220041798786.173422676409341        ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID                ; 194220041798786.173519275007846        ; --            ; --          ; --                                ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; regfileTest                       ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; imemTest                          ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
@@ -128,12 +128,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:01:00     ; 1.0                     ; 536 MB              ; 00:01:45                           ;
-; Fitter               ; 00:06:39     ; 1.2                     ; 2574 MB             ; 00:17:53                           ;
-; Assembler            ; 00:00:50     ; 1.0                     ; 553 MB              ; 00:00:51                           ;
-; Timing Analyzer      ; 00:00:39     ; 2.3                     ; 1069 MB             ; 00:01:24                           ;
-; EDA Netlist Writer   ; 00:00:08     ; 1.0                     ; 721 MB              ; 00:00:07                           ;
-; Total                ; 00:09:16     ; --                      ; --                  ; 00:22:00                           ;
+; Analysis & Synthesis ; 00:01:06     ; 1.0                     ; 535 MB              ; 00:01:52                           ;
+; Fitter               ; 00:07:02     ; 1.2                     ; 2569 MB             ; 00:18:51                           ;
+; Assembler            ; 00:00:45     ; 1.0                     ; 561 MB              ; 00:00:45                           ;
+; Timing Analyzer      ; 00:00:42     ; 2.4                     ; 1069 MB             ; 00:01:32                           ;
+; EDA Netlist Writer   ; 00:00:07     ; 1.0                     ; 725 MB              ; 00:00:06                           ;
+; Total                ; 00:09:42     ; --                      ; --                  ; 00:23:06                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

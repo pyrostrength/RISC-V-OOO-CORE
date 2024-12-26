@@ -7,7 +7,7 @@ module reorderBufferTest #(parameter WIDTH = 31, CONTROL = 6, INDEX = 7, ROB = 2
 							      writeCommit inputBus();
 								   writeCommit outputBus();
 								   logic[WIDTH:0] ROBValue1,ROBValue2;
-								   logic valid1,valid2,cpuReset;
+								   logic valid1,valid2,cpuReset,priorCommit;
 							      logic clk,isJAL;
 									logic robWrite,freeze,full,globalReset;
 									

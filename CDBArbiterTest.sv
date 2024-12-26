@@ -7,7 +7,7 @@ module CDBArbiterTest #(parameter WIDTH = 31,ROB = 2,CONTROL = 5);
 							  logic[CONTROL:0] controlPC;
 							  logic[ROB:0] ALURob,branchRob;
 							  logic[WIDTH:0] ALUResult,branchResult,fetchAddress,globalReset;
-							  logic ALURequest,branchRequest,clk,clear,aluAvailable,branchAvailable;
+							  logic ALURequest,branchRequest,clk,clear,aluAvailable,branchAvailable,validCommit;
 							  
 							  CDBArbiter arbiter(.*);
 								

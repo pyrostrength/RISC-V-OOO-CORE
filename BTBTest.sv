@@ -21,7 +21,7 @@ module BTBTest #(parameter WIDTH = 31, B_WIDTH = 7);
 						logic[WIDTH:0] resolvedTarget;
 			         logic[B_WIDTH:0] PC,oldPC;
 			         logic writeBTB,clk,takenBranch;
-				      logic validRead;
+				      logic validRead,validCommit;
 			         logic[WIDTH:0] targetAddress;
 					 
 					 

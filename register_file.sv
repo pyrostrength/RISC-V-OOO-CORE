@@ -32,7 +32,7 @@
 
 
 module register_file #(parameter D_WIDTH = 31, A_WIDTH = 4)
-							(input logic clk,regWrite,
+							(input logic clk,regWrite,validCommit,
 							 input logic[A_WIDTH:0] address1,address2,wraddress,
 							 input logic[D_WIDTH:0] wdata,
 							 output logic[D_WIDTH:0] regValue1,regValue2);
@@ -46,7 +46,7 @@ module register_file #(parameter D_WIDTH = 31, A_WIDTH = 4)
 							 /*Values from ROB are passed out on positive edge so
 							 we write on negative edge of the clock*/
 							 always @(negedge clk) begin
-								if(regWrite) begin
+								if(regWrite & validCommit) begin
 									regFile[wraddress] <= wdata;
 								end
 							 end

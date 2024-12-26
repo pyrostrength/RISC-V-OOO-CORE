@@ -1,5 +1,5 @@
 Assembler report for RISC-V
-Sat Dec 14 17:48:06 2024
+Wed Dec 25 22:08:17 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Sat Dec 14 17:48:06 2024 ;
+; Assembler Status      ; Successful - Wed Dec 25 22:08:17 2024 ;
 ; Revision Name         ; RISC-V                                ;
 ; Top-level Entity Name ; RISCV                                 ;
 ; Family                ; Cyclone V                             ;
@@ -67,8 +67,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------+---------------------+
 ; Option         ; Setting             ;
 +----------------+---------------------+
-; JTAG usercode  ; 0x02620612          ;
-; Checksum       ; 0x02620612          ;
+; JTAG usercode  ; 0x02627A33          ;
+; Checksum       ; 0x02627A33          ;
 +----------------+---------------------+
 
 
@@ -78,13 +78,13 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Sat Dec 14 17:47:16 2024
+    Info: Processing started: Wed Dec 25 22:07:32 2024
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off RISC-V -c RISC-V
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 553 megabytes
-    Info: Processing ended: Sat Dec 14 17:48:07 2024
-    Info: Elapsed time: 00:00:51
-    Info: Total CPU time (on all processors): 00:00:51
+    Info: Peak virtual memory: 561 megabytes
+    Info: Processing ended: Wed Dec 25 22:08:18 2024
+    Info: Elapsed time: 00:00:46
+    Info: Total CPU time (on all processors): 00:00:46
 
 

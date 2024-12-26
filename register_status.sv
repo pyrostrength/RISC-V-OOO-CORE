@@ -1,36 +1,21 @@
 /* 
-  Lower clock rate to 150 MHz.
-  VERIFIED.
 	Register status file indicating the ROB entry of 
 	the instruction writing to a destination register.
 	
 	Indexed by respective destination register and each entry
 	contains associated ROB entry.
 	
-	We implement register status as 2 dual port MLAB memory module 
-	and 2 dual-port ALM-based memory mode
-	
 	For both memory modules we indicate ROB entry to which
 	a destination register is assigned on next clock cycle.
-	This meshes well with current system design as well as 
-	accounts for corner case in which an instruction's
+	This accounts for corner case in which an instruction's
 	source operands' register is the exact same as the 
 	destination register.
 	
 	regCommit is destination register of currently committing instruction.
-	regCommit is only relevant for busy buffers.
-	destROB is ROB entry writing to a destination register.
+	destROB is ROB entry that will write to a destination register.
 	destReg is destination register.
 	
-	Write enable is active if instruction writes to a
-	destination register. If destination register
-	is x0 value to be passed is changed to zero.
 	
-	destReg comes in from instruction in rename stage that was previously
-	in the decode stage. It thus fully writes it's occupancy of in 2 stages.
-	What about regStatusSnap?
-	
-	Forgot about dealing with register status reset.
 	
 */
 
@@ -108,6 +93,13 @@ module register_status #(parameter REG = 4, DEPTH = 31, ROB = 2, WIDTH = 31)
 											busyVectorI[regCommit] = 1'b0;
 										end
 									end
+									
+									/*Check to see if instruction writes to the
+									same destination register that's freed up
+									by another instruction's commit. If instruction
+									doesn't write to a destination register then
+									we check for validity of commit and register
+									dependency before marking down register as free*/
 									else if(destReg == regCommit) begin
 										if(regWrite) begin
 											busyVectorI[destReg] = 1'b1;
@@ -164,7 +156,9 @@ module register_status #(parameter REG = 4, DEPTH = 31, ROB = 2, WIDTH = 31)
 									busyVectorF <= '0;
 								end
 								
-								else if(reset) begin
+								/*If a commiting instruction demands 
+								pipeline reset*/
+								else if(reset & validCommit) begin
 									busyVectorF <= statusRestore;
 								end
 								

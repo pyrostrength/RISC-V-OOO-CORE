@@ -1,47 +1,33 @@
 /*
 
-2 ALM-based memory module.
 During instruction rename stage CPU performs
 a check through the rename buffer for values associated
 with either source register. The buffer is indexed by the
-source operand's ROB allocation (an instruction in ROB
-writes the destination register, to prevent RAW register is 
-tagged by the instruction's ROB). In effect, a check is performed
+source operand's ROB allocation. In effect, a check is performed
 on whether instruction has passed the write result stage.
 
-With old data behaviour on read during write operations,
-if an instruction writes its result in current stage then
-we need only bypass that value to rename stage. 
+ROBrenamebuffer monitors the CDB for data values associated
+with particular ROB entries. During instruction commit,these
+ROB entries are cleared. An instruction currently
+searching through ROB will still obtain the necessary values
+from the ROBrenamebuffer as allows synchronous RAM
+implementation with old data behavior allows capturing
+of this data value.Nevertheless we must indicate 
+correct instruction dependence in reservation
+station so we take into account currently committing instruction. 
 
-If an instruction had written it's result in previous stage 
-but is currently committing then old data behaviour captures the
-actual commit value since buffer was written during write
-result stage. Thus we need not bypass commit value
-to instruction value stage. Nevertheless we must indicate 
-correct source operand ROB entry dependence in reservation
-station so we bypass the commiting instruction's ROB entry.
-
-We must indicate validity of a data value. Done during write
-result stage where we have a valid,robEntry,result combo.
-Must indicate invalidity of a result on instruction commit
-or on pipeline flush due to branch misprediction.
 
 rob1 and rob2 are the rob entries associated with a source 
 operand.
 
-ROBvalue1 and ROBValue2 are 33 bit signals of form {valid,result}
-with valid bit indicating relevancy & availability of result read from buffer.
+ROBvalue1 and ROBValue2 are 33 bit signals 
+of form {valid,result} indicating result availability.
 
-ROBresult is the rob entry of the instruction whose result has just
-become available during write result stage.
 
 ROBcommit is ROB entry of committing instruction. 
-We must invalidate an entry's result after an instruction
-commits as an ensuing unexecuted instruction will use
-the same ROB entry. We don't want to read off the wrong
-value from the value buffer.
-
-Busy1 and Busy2 act as our read enables on readybuffer
+We must invalidate an entry's result 
+after instruction commits and current instruction,if it needs to,
+has already retrieved the necessary value.  
 
 
 */

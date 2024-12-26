@@ -24,6 +24,8 @@ module instrFetchUnit #(parameter WIDTH = 31, INDEX = 7, B_WIDTH = 7)
 								output logic[INDEX:0] GHRIndex,
 								output logic[1:0] PHTState);
 								
+								logic validCommit;
+								assign validCommit = outputBus.validCommit;
 								
 								//Account for all signals
 								logic[WIDTH:0] intermediatePC;
@@ -62,7 +64,7 @@ module instrFetchUnit #(parameter WIDTH = 31, INDEX = 7, B_WIDTH = 7)
 									/*If globalReset or clear we pass a pipeline bubble i.e info
 									that wouldn't introduce permanent state changes that would
 									make program execute incorrectly*/
-									if(globalReset | outputBus.controlFlow[0]) begin
+									if(globalReset | (outputBus.controlFlow[0] & validCommit)) begin
 										instr <= '0;
 										instrPC <=  '0;
 										predictedPCF <= '0;

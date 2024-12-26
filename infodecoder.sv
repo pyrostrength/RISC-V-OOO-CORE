@@ -40,7 +40,8 @@ module infodecoder (input logic[3:0] opcode,
 								immSrc = 3'b000; //For JALR and I-type instructions.
 								RSstation = 2'b00; //Corresponds to ALU.
 								regWrite = (destReg != 5'd0); //If DestReg is equal to 0 then regWrite is 0 for all instructions.
-								{useImm,robWrite}= 1'b1; // By default useImm is high since most instructions use immediate field.
+								useImm = 1'b1;
+								robWrite = 1'b1; // By default useImm is high since most instructions use immediate field.
 								//Branching instructions shouldn't use the immediate field.
 								case(opcode)
 										4'b0001 : begin //R-type

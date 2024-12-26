@@ -18,7 +18,7 @@ of reservation station entries(4 for ALU,2 for branch).
 
 module srcMux #(parameter WIDTH = 31, RS = 3)
 					(input logic [RS:0][WIDTH:0] sourceOperands,
-					 input logic[RS:0] grants,
+					 input logic[RS:0] grants, 
 					 output logic[WIDTH:0] operand);
 					 
 					 logic done; 

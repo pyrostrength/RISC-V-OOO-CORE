@@ -20,7 +20,7 @@ bypassing of required data from CDB broadcast.
 
 module ALURStationEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3)
 									(commonDataBus.reservation_station dataBus, //shouldn't have the arbiter view
-									 input logic ready1,ready2,clear,writeReq,clk,globalReset,
+									 input logic ready1,ready2,clear,validCommit,writeReq,clk,globalReset,
 									 input logic selected,execute,
 									 input logic signed[WIDTH:0] value1,value2,
 									 input logic [C_WIDTH:0] ALUControl,
@@ -76,9 +76,9 @@ module ALURStationEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3)
 									 or capturing value on CDB*/
 									 always_ff @(posedge clk) begin
 									 /*If a request to clear the RS has been made*/
-										if(clear | globalReset) begin
+										if((clear & validCommit) | globalReset) begin
 											{value1Ready,value2Ready,busy} <= '0;
-											{instrInfo} <= '0;
+											{instrInfo} <= 4'b1111;
 											{instrRob} <= '0;
 											{val1,val2} <= '0;
 											{src1Rob,src2Rob} <= '0;

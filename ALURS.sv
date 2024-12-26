@@ -4,7 +4,7 @@ that pass selected instruction on positive clock edge*/
 
 module ALURS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3, RS = 3)
               (commonDataBus.reservation_station dataBus,
-					input logic ready1,ready2,clear,clk,execute,globalReset,
+					input logic ready1,ready2,clear,validCommit,clk,execute,globalReset,
 					input logic[RS:0] writeRequests, 
 					input logic signed[WIDTH:0] value1,value2,
 					input logic [C_WIDTH:0] ALUControl,
@@ -45,6 +45,16 @@ module ALURS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3, RS = 3)
 					logic[RS:0] selectionRequests;
 					assign selectionRequests = {selectReq4,selectReq3,selectReq2,selectReq1};
 					
+					logic noSelect;
+						/*If no instruction selected for execution,provide
+						default behavior equal to CPUreset*/
+					always_comb begin
+						noSelect = 1'b0;
+						if(selectionRequests == 4'b0000) begin
+							noSelect = 1'b1;
+						end
+					end
+					
 					ALUSelect selectLogic(.*,.requests(selectionRequests));
 					
 					//SrcMux
@@ -69,7 +79,7 @@ module ALURS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3, RS = 3)
 					
 					always_ff @(posedge clk) begin
 					//Only pass values if functional unit is available.
-						if(clear | globalReset) begin
+						if((clear & validCommit) | globalReset | noSelect) begin
 							{src1,src2} <= '0;
 							instrInfo <= 4'b1111; //Default case to ensure ALU doesn't recognize pipeline bubble as actual instruction.
 							instrRob <= '0;

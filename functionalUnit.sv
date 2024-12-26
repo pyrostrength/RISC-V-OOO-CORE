@@ -14,19 +14,19 @@ module functionalUnit #(parameter WIDTH = 31, B_WIDTH = 7, A_WIDTH = 3, ROB = 2,
 								 input logic signed[WIDTH:0] src1,src2,
 								 input logic [A_WIDTH:0] ALUControl,
 								 input logic[ROB:0] ALURob,branchRob,
-								 input logic clk,globalReset,clear,
-								 output logic aluAvailable,branchAvailable,
+								 input logic clk,globalReset,clear,validCommit,
+								 output logic aluAvailable,branchAvailable,branchRequest,ALURequest,
 								 commonDataBus.arbiter dataBus);
 								 
 								 logic signed[WIDTH:0] result;
-								 logic ALURequest;
+								 //logic ALURequest;
 								 logic[WIDTH:0] correctAddress,branchResult;
 								 logic[1:0] nextState;
 								 logic reset,writeBTB,request,takenBranch; 
 								 logic[CONTROL:0] controlPC;
 								 assign controlPC = {nextState,writeBTB,takenBranch,reset};
 								 
-								 branchALU branchUnit(.*);
+								 branchALU branchUnit(.*,.request(branchRequest));
 								 ALU computeUnit(.*);
 								 
 								 CDBArbiter dataBusArbiter(.*,.fetchAddress(correctAddress),.ALUResult(result),.branchRequest(request));

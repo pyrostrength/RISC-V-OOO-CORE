@@ -36,7 +36,7 @@
 module gshare #(parameter I_WIDTH = 7) //Width of the indexing field.
 					  (input logic[I_WIDTH:0] index,previousIndex,
 					   input logic[1:0] newState,
-					   input logic clk,predictorWrite,
+					   input logic clk,predictorWrite,validCommit,
 					   output logic[1:0] state);
 						
 						
@@ -55,7 +55,7 @@ module gshare #(parameter I_WIDTH = 7) //Width of the indexing field.
 						  on negative clock edge provided predictorWrite
 						  is asserted;signal is transferred through ROB outputBus. */
 						always_ff @(negedge clk) begin
-							if(predictorWrite) begin
+							if(predictorWrite & validCommit) begin
 								patternTable[previousIndex] <= newState;
 							end
 							/*Pattern history table is read synchronously

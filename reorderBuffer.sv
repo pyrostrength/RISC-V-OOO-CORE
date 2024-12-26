@@ -22,14 +22,16 @@ to that entry are allowed.
 
 Written to during broadcast on CDB with correct fetch address
 (for JALR/branch instructions),instruction fetch control info
-{isControl,nextState,writeBTB,takenBranch,reset}
+{isControl,nextState,writeBTB,takenBranch,reset}.
+
+Al
 
 */
 
 module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 							  (commonDataBus.reorder_buffer dataBus,
 							   input logic[ROB:0] rob1,rob2,reset_ptr,
-								input logic robWrite,freeze,globalReset,cpuReset,
+								input logic robWrite,freeze,globalReset,cpuReset,priorCommit,
 							   writeCommit inputBus,
 								writeCommit outputBus,
 								output logic[WIDTH:0] ROBValue1,ROBValue2,
@@ -78,17 +80,16 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 									$readmemb("/home/voidknight/Downloads/CPU_Q/valueInit.txt",destinationBuffer);
 								end
 								
-								logic rdy,bypass,commitRdy;
+								logic rdy,commitRdy;
 								
 								logic reset,nxtCycleCommit;
 								
 								
 								//Signal declaration for writing to the commit bus.
 								logic[WIDTH:0] value,target;
-								logic[CONTROL:0] pcControl;
+								logic[CONTROL:0] pcControl,controlFlow;
 								logic[WIDTH:0] result,targetAddress,statusSnap,oldPC,destCommit;
 								logic[3:0] commitInfo;
-								logic[CONTROL:0] controlFlow;
 								logic[INDEX:0] previousIndex;
 										
 								
@@ -101,25 +102,19 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 									nxtCycleCommit = (dataBus.robEntry == read_ptr) & (dataBus.validBroadcast);
 									
 									/*Determine if we increment read_ptr/write_ptr in next cycle*/
-									reset = (nxtCycleCommit) ? dataBus.pcControl[0] : 1'b0;
-									
-									bypass = 1'b0;
-									
-									if(nxtCycleCommit) begin
-										bypass = 1'b1; //Ready to commit instruction
-								   end
+									reset = (nxtCycleCommit) ? dataBus.pcControl[0] : pcControl[0];
 									
 									/*If instruction writing CDB as we read from buffers
 									is current head of ROB then we
 									prepare result for commit in next cycle by bypassing
 									the values from CDB. We commit in the next cycle.*/
-									result = (bypass) ? dataBus.result : value;
+									result = (nxtCycleCommit) ? dataBus.result : value;
 								
-									targetAddress = (bypass) ? dataBus.targetAddress :  target;
+									targetAddress = (nxtCycleCommit) ? dataBus.targetAddress :  target;
 									
-									controlFlow = (bypass) ? {dataBus.isControl,dataBus.pcControl} : pcControl;
+									controlFlow = (nxtCycleCommit) ? {dataBus.isControl,dataBus.pcControl} : pcControl;
 									
-									commitRdy = bypass | rdy;
+									commitRdy = nxtCycleCommit | rdy;
 									
 								end
 										
@@ -158,23 +153,21 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 											and empty reorder buffer by setting read_ptr and write_ptr to
 											its location. Read_ptr is set to location by never incrementing
 											when CPU reset is detected in prior cycle and write_ptr is changed
-											to initial read_ptr at negative clock edge*/
-											if(cpuReset) begin
+											to initial read_ptr at negative clock edge.
+											Reset_ptr is rob entry of committing instruction. 
+											Resetting write_ptr to read_ptr empties the ROB*/
+											if(cpuReset & priorCommit) begin
 												readyBuffer[reset_ptr] <= 1'b0;
+												write_ptr <= reset_ptr;
 											end
 											
 											/*Increment write_ptr iff pipeline was never frozen,
 											a request to write the rob had been made and rob isn't
 											full*/
-											if(!full & !cpuReset) begin
+											else if(!full & !cpuReset) begin
 												write_ptr <= write_ptr + 3'b001;
 											end
 											
-											/*Reset_ptr is rob entry of committing instruction. 
-											Resetting write_ptr to read_ptr empties the ROB*/
-											else if(cpuReset) begin
-												write_ptr <= reset_ptr;
-											end
 											
 											//Write sequential PC associated with an instruction to buffer
 											oldPCBuffer[write_ptr] <= inputBus.instrPC;
@@ -218,7 +211,7 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 									full = ((write_ptr + 3'b001) == read_ptr);
 								end
 								
-								ROBrenamebuffer renamebuffer(.*,.ROBcommit(commitRob),.wcommit(commitRdy));
+								ROBrenamebuffer renamebuffer(.*,.ROBcommit(commitRob),.wcommit(outputBus.validCommit));
 								
 								assign robAllocation = write_ptr;
 								
