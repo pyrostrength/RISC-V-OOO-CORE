@@ -186,7 +186,7 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 				
 				//CPU output.
 				assign result = outputBus.result;
-				assign regDest = outputBus.destination;
+				assign regDest = outputBus.destCommit;
 				assign rgWr = outputBus.commitInfo[3];
 				assign valueBroadcast = dataBus.result;
 				assign robBroadcast = dataBus.robEntry;

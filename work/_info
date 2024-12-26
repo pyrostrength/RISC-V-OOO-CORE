@@ -37,6 +37,8 @@ R0
 R1
 R0
 R1
+R0
+R1
 Z2 !s12c _opt2
 R1
 R0
@@ -294,10 +296,10 @@ R1
 cModel Technology
 Z4 d/home/voidknight/Downloads/CPU_Q
 T_opt
-!s110 1735194045
-V]8NOj:jAUJ<ad4la:cBP:2
+!s110 1735194728
+V?aJCn7<TXSm?8U]Sj_ejC0
 04 6 4 work cpuSim fast 0
-=5-000ae431a4f1-676cf5bc-ab006-1da6
+=8-000ae431a4f1-676cf867-e0351-1da6
 R1
 Z5 !s12b OEM100
 !s124 OEM10U51 
@@ -1667,23 +1669,23 @@ nreorder@buffer@test
 vRISCV
 2/home/voidknight/Downloads/CPU_Q/RISCV.sv
 R9
-!s110 1735193221
+!s110 1735194718
 !i10b 1
-!s100 cQje>]l=Rf]7k?>Ghgjja0
-IZ7SP]z>U2U43?SUU10ah63
+!s100 6?3aNUCn[^z5FcHiPVEUJ1
+IMBknI?kQGDh3E2Kkf_amf2
 S1
 R4
-w1735193161
+w1735194695
 8/home/voidknight/Downloads/CPU_Q/RISCV.sv
 F/home/voidknight/Downloads/CPU_Q/RISCV.sv
-!i122 818
+!i122 835
 L0 27 170
 R10
 R11
 r1
 !s85 0
 31
-!s108 1735193221.000000
+!s108 1735194718.000000
 !s107 /home/voidknight/Downloads/CPU_Q/RISCV.sv|
 !s90 -reportprogress|300|-work|work|/home/voidknight/Downloads/CPU_Q/RISCV.sv|
 !i113 0
