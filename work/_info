@@ -39,6 +39,8 @@ R0
 R1
 R0
 R1
+R0
+R1
 Z2 !s12c _opt2
 R1
 R0
@@ -296,10 +298,10 @@ R1
 cModel Technology
 Z4 d/home/voidknight/Downloads/CPU_Q
 T_opt
-!s110 1735194728
-V?aJCn7<TXSm?8U]Sj_ejC0
+!s110 1735457130
+V>M<?8R>cM=03fM<@^VYMa1
 04 6 4 work cpuSim fast 0
-=8-000ae431a4f1-676cf867-e0351-1da6
+=2-000ae431a4f1-6770f96a-17d66-158b
 R1
 Z5 !s12b OEM100
 !s124 OEM10U51 
@@ -307,6 +309,7 @@ Z6 o-quiet -auto_acc_if_foreign -work work -L altera_ver -L lpm_ver -L sgate_ver
 Z7 tCvgOpt 0
 n@_opt
 Z8 OL;O;2023.3;77
+R4
 T_opt1
 !s110 1734148814
 V35URYCo;R3?>nXf3Nkecg0
@@ -699,7 +702,7 @@ nbranch@target@resolve
 vBTB
 2/home/voidknight/Downloads/CPU_Q/BTB.sv
 R9
-!s110 1735193211
+!s110 1735511293
 !i10b 1
 !s100 KGMAN^A@HDhcn5<@L@bjK2
 I_0]zgFRHSoNg=nUA]Ua4M2
@@ -708,14 +711,14 @@ R4
 w1734499636
 8/home/voidknight/Downloads/CPU_Q/BTB.sv
 F/home/voidknight/Downloads/CPU_Q/BTB.sv
-!i122 813
+!i122 838
 L0 39 53
 R10
 R11
 r1
 !s85 0
 31
-!s108 1735193210.000000
+!s108 1735511293.000000
 !s107 /home/voidknight/Downloads/CPU_Q/BTB.sv|
 !s90 -reportprogress|300|-work|work|/home/voidknight/Downloads/CPU_Q/BTB.sv|
 !i113 0
@@ -777,7 +780,7 @@ n@c@d@b@arbiter
 vCDBArbiterTest
 2/home/voidknight/Downloads/CPU_Q/CDBArbiterTest.sv
 R9
-!s110 1735194032
+!s110 1735511310
 !i10b 1
 !s100 hgC3FgA5gcP]YRhKJ4=b<0
 I?G]k@MQDLW<o`7XNkI8nn3
@@ -786,14 +789,14 @@ R4
 w1734502466
 8/home/voidknight/Downloads/CPU_Q/CDBArbiterTest.sv
 F/home/voidknight/Downloads/CPU_Q/CDBArbiterTest.sv
-!i122 833
+!i122 841
 L0 4 30
 R10
 R11
 r1
 !s85 0
 31
-!s108 1735194032.000000
+!s108 1735511310.000000
 !s107 /home/voidknight/Downloads/CPU_Q/CDBArbiterTest.sv|
 !s90 -reportprogress|300|-work|work|/home/voidknight/Downloads/CPU_Q/CDBArbiterTest.sv|
 !i113 0
@@ -855,23 +858,23 @@ ncommon@data@bus
 vcpuSim
 2/home/voidknight/Downloads/CPU_Q/cpuSim.sv
 R9
-!s110 1735193207
+!s110 1735511311
 !i10b 1
-!s100 WFYXW_BV1=Y_AFEmGC;<Z1
-IRjP:8[KFFkd914hRKeUal2
+!s100 RCJd4@emU^l>GAUOfaKm^0
+IgfeIXSYaPeD0IWAI]>0hD0
 S1
 R4
-w1735193178
+w1735457084
 8/home/voidknight/Downloads/CPU_Q/cpuSim.sv
 F/home/voidknight/Downloads/CPU_Q/cpuSim.sv
-!i122 811
-Z22 L0 1 28
+!i122 842
+L0 1 29
 R10
 R11
 r1
 !s85 0
 31
-!s108 1735193207.000000
+!s108 1735511311.000000
 !s107 /home/voidknight/Downloads/CPU_Q/cpuSim.sv|
 !s90 -reportprogress|300|-work|work|/home/voidknight/Downloads/CPU_Q/cpuSim.sv|
 !i113 0
@@ -912,7 +915,7 @@ R9
 IH7EEMI6?ZzjQ>gY24OMDD0
 S1
 R4
-Z23 w1727522880
+Z22 w1727522880
 8/home/voidknight/Downloads/CPU_Q/dmem.sv
 F/home/voidknight/Downloads/CPU_Q/dmem.sv
 !i122 668
@@ -1057,7 +1060,7 @@ R7
 vimem
 2/home/voidknight/Downloads/CPU_Q/imem.sv
 R9
-!s110 1735192178
+!s110 1735511304
 !i10b 1
 !s100 c22kiVa:`M^EY@MXEKHBL0
 IdXBS;z2jn`Wk4FK:>h^Jf0
@@ -1066,14 +1069,14 @@ R4
 w1734137861
 8/home/voidknight/Downloads/CPU_Q/imem.sv
 F/home/voidknight/Downloads/CPU_Q/imem.sv
-!i122 785
+!i122 839
 L0 23 18
 R10
 R11
 r1
 !s85 0
 31
-!s108 1735192178.000000
+!s108 1735511304.000000
 !s107 /home/voidknight/Downloads/CPU_Q/imem.sv|
 !s90 -reportprogress|300|-work|work|/home/voidknight/Downloads/CPU_Q/imem.sv|
 !i113 0
@@ -1341,7 +1344,7 @@ R9
 If>B25c8ib2Q3b4_ziP[fG3
 S1
 R4
-R23
+R22
 8/home/voidknight/Downloads/CPU_Q/mux2.sv
 F/home/voidknight/Downloads/CPU_Q/mux2.sv
 !i122 243
@@ -1366,7 +1369,7 @@ R9
 I0lM30=90AY[KHP4SKkz=m2
 S1
 R4
-R23
+R22
 8/home/voidknight/Downloads/CPU_Q/mux4.sv
 F/home/voidknight/Downloads/CPU_Q/mux4.sv
 !i122 244
@@ -1549,7 +1552,7 @@ w1734501457
 8/home/voidknight/Downloads/CPU_Q/registerFileTest.sv
 F/home/voidknight/Downloads/CPU_Q/registerFileTest.sv
 !i122 690
-R22
+Z23 L0 1 28
 R10
 R11
 r1
@@ -1669,23 +1672,23 @@ nreorder@buffer@test
 vRISCV
 2/home/voidknight/Downloads/CPU_Q/RISCV.sv
 R9
-!s110 1735194718
+!s110 1735511307
 !i10b 1
-!s100 6?3aNUCn[^z5FcHiPVEUJ1
-IMBknI?kQGDh3E2Kkf_amf2
+!s100 PMd<J68gPhI5=gIHW9:nG2
+I>W^Ho;WdeLjQW161n^Chh2
 S1
 R4
-w1735194695
+w1735457116
 8/home/voidknight/Downloads/CPU_Q/RISCV.sv
 F/home/voidknight/Downloads/CPU_Q/RISCV.sv
-!i122 835
-L0 27 170
+!i122 840
+L0 27 171
 R10
 R11
 r1
 !s85 0
 31
-!s108 1735194718.000000
+!s108 1735511307.000000
 !s107 /home/voidknight/Downloads/CPU_Q/RISCV.sv|
 !s90 -reportprogress|300|-work|work|/home/voidknight/Downloads/CPU_Q/RISCV.sv|
 !i113 0
@@ -1757,7 +1760,7 @@ w1733456475
 8/home/voidknight/Downloads/CPU_Q/RSArbiterTest.sv
 F/home/voidknight/Downloads/CPU_Q/RSArbiterTest.sv
 !i122 698
-R22
+R23
 R10
 R11
 r1

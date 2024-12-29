@@ -28,13 +28,14 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 					BRANCH = 1, ALU = 3, B_WIDTH = 7)
                (input logic globalReset,clk,
 				    output logic[WIDTH:0] nextPC,result,regDest,valueBroadcast,instr,instrPC,aluSrc1,aluSrc2,
-					 output logic[WIDTH:0] operand1,operand2,immExt,
+					 output logic[WIDTH:0] operand1,operand2,immExt,predictedPCF,
 					 output logic validBroadcast,validCommit,full,robReq,rgWr,branchRequest,ALURequest,
-					 output logic aluAvailable,branchAvailable,
+					 output logic aluAvailable,branchAvailable,redirect,
 					 output logic[BRANCH:0] branchRequests,
 					 output logic[ALU:0] ALURequests,
 					 output logic[ROB:0] robBroadcast,robAllocation,
 					 output logic[A_WIDTH:0] ALUInfo,
+					 output logic[INDEX:0] GHRIndex,
 					 output logic[5:0] cntrlFlow);
 				 
 				 
@@ -54,9 +55,9 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 				 logic[WIDTH:0] decodePC; //Instruction PC from decode stage correcting control flow if we discover that instruction fetched was never
 				 //a branch instruction.
 				 //instrFetchUnit output signals
-				 logic redirect; //Did we redirect program flow according to branch predictor?
-				 logic[WIDTH:0] predictedPCF; //instr,instrPC;//read from I-mem
-				 logic[INDEX:0] GHRIndex; //from predictor
+				// logic redirect; //Did we redirect program flow according to branch predictor?
+				// logic[WIDTH:0] predictedPCF; //instr,instrPC;//read from I-mem
+				// logic[INDEX:0] GHRIndex; //from predictor
 				 logic[1:0] PHTState; //State read off from g-share predictor.
 				
 				instrFetchUnit fetchStage(.*); 
