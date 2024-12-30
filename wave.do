@@ -6,17 +6,13 @@ add wave -noupdate -label clk /cpuSim/clk
 add wave -noupdate -label globalReset /cpuSim/globalReset
 add wave -noupdate -label validBroadcast /cpuSim/validBroadcast
 add wave -noupdate -label validCommit /cpuSim/validCommit
-add wave -noupdate -label branchRequest /cpuSim/branchRequest
-add wave -noupdate -label ALURequest /cpuSim/ALURequest
 add wave -noupdate -label nextPC /cpuSim/nextPC
 add wave -noupdate -label cntrlFlow /cpuSim/cntrlFlow
 add wave -noupdate -label valueBroadcast -radix decimal -radixshowbase 0 /cpuSim/valueBroadcast
 add wave -noupdate -label robbroadcast /cpuSim/robBroadcast
 add wave -noupdate -label robAllocation /cpuSim/robAllocation
-add wave -noupdate -label branchReq /cpuSim/branchRequest
 add wave -noupdate -label branchRSReqs /cpuSim/branchRequests
 add wave -noupdate -label ALURequests /cpuSim/ALURequests
-add wave -noupdate -label ALUReq /cpuSim/ALURequest
 add wave -noupdate -label instrPC /cpuSim/instrPC
 add wave -noupdate -label instr -radix binary -radixshowbase 0 /cpuSim/instr
 add wave -noupdate -label immExt -radix decimal -radixshowbase 0 /cpuSim/immExt
@@ -32,8 +28,12 @@ add wave -noupdate -label aluAvailable /cpuSim/aluAvailable
 add wave -noupdate -label redirect /cpuSim/redirect
 add wave -noupdate -label predictedPCF /cpuSim/predictedPCF
 add wave -noupdate -label GHRIndex /cpuSim/GHRIndex
+add wave -noupdate -label branchDataBusReq /cpuSim/branchDataBusReq
+add wave -noupdate -label aluDataBusReq /cpuSim/aluDataBusReq
+add wave -noupdate -label busy2 /cpuSim/busy2
+add wave -noupdate -label busy1 /cpuSim/busy1
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {7400 ps} 0}
+WaveRestoreCursors {{Cursor 1} {35000 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100

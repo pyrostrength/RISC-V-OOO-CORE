@@ -602,3 +602,178 @@ run
 run
 run
 run
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.cpuSim(fast)
+# Loading work.writeCommit(fast__1)
+# Loading work.RISCV(fast)
+# Loading work.writeCommit(fast__2)
+# Loading work.writeCommit(fast__3)
+# Loading work.commonDataBus(fast__1)
+# Loading work.instrFetchUnit(fast)
+# Loading work.PCSelectLogic(fast)
+# Loading work.BTB(fast)
+# Loading work.gshare(fast)
+# Loading work.branchIndex(fast)
+# Loading work.imem(fast)
+# Loading work.instr_decode(fast)
+# Loading work.decodeextend(fast)
+# Loading work.infodecoder(fast)
+# Loading work.extend(fast)
+# Loading work.ALUDecoder(fast)
+# Loading work.register_file(fast)
+# Loading work.register_status(fast)
+# Loading work.renameStage(fast)
+# Loading work.instructionValues(fast)
+# Loading work.RSArbiter(fast)
+# Loading work.branchTargetResolve(fast)
+# Loading work.ALURS(fast)
+# Loading work.ALURStationEntry(fast)
+# Loading work.ALUSelect(fast)
+# Loading work.srcMux(fast)
+# Loading work.srcMux(fast__1)
+# Loading work.srcMux(fast__2)
+# Loading work.branchRS(fast)
+# Loading work.branchRSEntry(fast)
+# Loading work.branchSelect(fast)
+# Loading work.srcMux(fast__3)
+# Loading work.srcMux(fast__4)
+# Loading work.srcMux(fast__5)
+# Loading work.functionalUnit(fast)
+# Loading work.branchALU(fast)
+# Loading work.ALU(fast)
+# Loading work.CDBArbiter(fast)
+# Loading work.reorderBuffer(fast)
+# Loading work.ROBrenamebuffer(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'PC'. The port definition is at: /home/voidknight/Downloads/CPU_Q/BTB.sv(43).
+#    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/fetchStage/branchTargetBuffer File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 39
+# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'PC'. The port definition is at: /home/voidknight/Downloads/CPU_Q/branchIndex.sv(28).
+#    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/fetchStage/indexGen File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 50
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'opcode'. The port definition is at: /home/voidknight/Downloads/CPU_Q/infodecoder.sv(29).
+#    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/decodeStage/decodeExtender/maindecoder File: /home/voidknight/Downloads/CPU_Q/decodeextend.sv Line: 54
+run
+# ** Warning: (vsim-8315) No condition is true in the unique/priority if/case statement.
+#    Time: 0 ps  Iteration: 3  Process: /cpuSim/cpu/executeStage/branchUnit/#implicit#unique__131 File: /home/voidknight/Downloads/CPU_Q/branchALU.sv Line: 131
+run
+run
+run
+run
+vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 18:31:08 on Dec 29,2024
+# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv 
+# -- Compiling module instrFetchUnit
+# 
+# Top level modules:
+# 	instrFetchUnit
+# End time: 18:31:08 on Dec 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/instrdecoder.sv
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 18:31:12 on Dec 29,2024
+# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/instrdecoder.sv 
+# -- Compiling module instrdecoder
+# 
+# Top level modules:
+# 	instrdecoder
+# End time: 18:31:12 on Dec 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/instr_decode.sv
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 18:31:13 on Dec 29,2024
+# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/instr_decode.sv 
+# -- Compiling module instr_decode
+# 
+# Top level modules:
+# 	instr_decode
+# End time: 18:31:14 on Dec 29,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/cpuSim.sv
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 18:31:17 on Dec 29,2024
+# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/cpuSim.sv 
+# -- Compiling module cpuSim
+# 
+# Top level modules:
+# 	cpuSim
+# End time: 18:31:17 on Dec 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/RISCV.sv
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 18:31:20 on Dec 29,2024
+# vlog -reportprogress 300 -work work /home/voidknight/Downloads/CPU_Q/RISCV.sv 
+# -- Compiling module RISCV
+# 
+# Top level modules:
+# 	RISCV
+# End time: 18:31:20 on Dec 29,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.cpuSim(fast)
+# Loading work.writeCommit(fast__1)
+# Loading work.RISCV(fast)
+# Loading work.writeCommit(fast__2)
+# Loading work.writeCommit(fast__3)
+# Loading work.commonDataBus(fast__1)
+# Loading work.instrFetchUnit(fast)
+# Loading work.PCSelectLogic(fast)
+# Loading work.BTB(fast)
+# Loading work.gshare(fast)
+# Loading work.branchIndex(fast)
+# Loading work.imem(fast)
+# Loading work.instr_decode(fast)
+# Loading work.decodeextend(fast)
+# Loading work.infodecoder(fast)
+# Loading work.extend(fast)
+# Loading work.ALUDecoder(fast)
+# Loading work.register_file(fast)
+# Loading work.register_status(fast)
+# Loading work.renameStage(fast)
+# Loading work.instructionValues(fast)
+# Loading work.RSArbiter(fast)
+# Loading work.branchTargetResolve(fast)
+# Loading work.ALURS(fast)
+# Loading work.ALURStationEntry(fast)
+# Loading work.ALUSelect(fast)
+# Loading work.srcMux(fast)
+# Loading work.srcMux(fast__1)
+# Loading work.srcMux(fast__2)
+# Loading work.branchRS(fast)
+# Loading work.branchRSEntry(fast)
+# Loading work.branchSelect(fast)
+# Loading work.srcMux(fast__3)
+# Loading work.srcMux(fast__4)
+# Loading work.srcMux(fast__5)
+# Loading work.functionalUnit(fast)
+# Loading work.branchALU(fast)
+# Loading work.ALU(fast)
+# Loading work.CDBArbiter(fast)
+# Loading work.reorderBuffer(fast)
+# Loading work.ROBrenamebuffer(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'PC'. The port definition is at: /home/voidknight/Downloads/CPU_Q/BTB.sv(43).
+#    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/fetchStage/branchTargetBuffer File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 39
+# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'PC'. The port definition is at: /home/voidknight/Downloads/CPU_Q/branchIndex.sv(28).
+#    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/fetchStage/indexGen File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 50
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (5) for port 'opcode'. The port definition is at: /home/voidknight/Downloads/CPU_Q/infodecoder.sv(29).
+#    Time: 0 ps  Iteration: 0  Instance: /cpuSim/cpu/decodeStage/decodeExtender/maindecoder File: /home/voidknight/Downloads/CPU_Q/decodeextend.sv Line: 54
+add wave  \
+sim:/cpuSim/branchDataBusReq
+add wave  \
+sim:/cpuSim/aluDataBusReq
+add wave  \
+sim:/cpuSim/busy2
+add wave  \
+sim:/cpuSim/busy1
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/voidknight/Downloads/CPU_Q/wave.do
+run
+# ** Warning: (vsim-8315) No condition is true in the unique/priority if/case statement.
+#    Time: 0 ps  Iteration: 3  Process: /cpuSim/cpu/executeStage/branchUnit/#implicit#unique__131 File: /home/voidknight/Downloads/CPU_Q/branchALU.sv Line: 131
+run
+run
