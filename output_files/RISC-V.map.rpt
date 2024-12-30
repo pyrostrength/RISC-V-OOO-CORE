@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RISC-V
-Sun Dec 29 14:26:01 2024
+Sun Dec 29 18:14:54 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -21,7 +21,7 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
  13. Multiplexer Restructuring Statistics (No Restructuring Performed)
  14. Source assignments for reorderBuffer:rob|altsyncram:valueBuffer_rtl_0|altsyncram_k7s1:auto_generated
  15. Source assignments for reorderBuffer:rob|altsyncram:destinationBuffer_rtl_0|altsyncram_r7s1:auto_generated
- 16. Source assignments for reorderBuffer:rob|altsyncram:addressBuffer_rtl_0|altsyncram_pir1:auto_generated
+ 16. Source assignments for reorderBuffer:rob|altsyncram:addressBuffer_rtl_0|altsyncram_l7s1:auto_generated
  17. Source assignments for reorderBuffer:rob|altsyncram:regStatusBuffer_rtl_0|altsyncram_m7s1:auto_generated
  18. Source assignments for reorderBuffer:rob|altsyncram:oldPCBuffer_rtl_0|altsyncram_n7s1:auto_generated
  19. Source assignments for reorderBuffer:rob|altsyncram:previousIndexBuffer_rtl_0|altsyncram_05s1:auto_generated
@@ -97,11 +97,10 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
  89. Parameter Settings for Inferred Entity Instance: instrFetchUnit:fetchStage|gshare:predictor|altsyncram:patternTable_rtl_0
  90. Parameter Settings for Inferred Entity Instance: instrFetchUnit:fetchStage|BTB:branchTargetBuffer|altsyncram:targetBuffer_rtl_0
  91. altsyncram Parameter Settings by Entity Instance
- 92. Port Connectivity Checks: "functionalUnit:executeStage|CDBArbiter:dataBusArbiter"
- 93. Post-Synthesis Netlist Statistics for Top Partition
- 94. Elapsed Time Per Partition
- 95. Analysis & Synthesis Messages
- 96. Analysis & Synthesis Suppressed Messages
+ 92. Post-Synthesis Netlist Statistics for Top Partition
+ 93. Elapsed Time Per Partition
+ 94. Analysis & Synthesis Messages
+ 95. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -128,13 +127,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Dec 29 14:26:01 2024          ;
+; Analysis & Synthesis Status     ; Successful - Sun Dec 29 18:14:53 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; RISC-V                                         ;
 ; Top-level Entity Name           ; RISCV                                          ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 2463                                           ;
+; Total registers                 ; 2532                                           ;
 ; Total pins                      ; 202                                            ;
 ; Total virtual pins              ; 224                                            ;
 ; Total block memory bits         ; 12,288                                         ;
@@ -250,9 +249,9 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.2%      ;
-;     Processor 3            ;   0.1%      ;
-;     Processor 4            ;   0.1%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
 ;     Processor 5            ;   0.0%      ;
 ;     Processor 6            ;   0.0%      ;
 +----------------------------+-------------+
@@ -319,7 +318,7 @@ https://fpgasoftware.intel.com/eula.
 ; db/RISC-V.ram0_reorderBuffer_baf5ec2f.hdl.mif   ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/voidknight/Downloads/CPU_Q/db/RISC-V.ram0_reorderBuffer_baf5ec2f.hdl.mif                   ;         ;
 ; db/altsyncram_r7s1.tdf                          ; yes             ; Auto-Generated Megafunction                           ; /home/voidknight/Downloads/CPU_Q/db/altsyncram_r7s1.tdf                                          ;         ;
 ; db/RISC-V.ram7_reorderBuffer_baf5ec2f.hdl.mif   ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/voidknight/Downloads/CPU_Q/db/RISC-V.ram7_reorderBuffer_baf5ec2f.hdl.mif                   ;         ;
-; db/altsyncram_pir1.tdf                          ; yes             ; Auto-Generated Megafunction                           ; /home/voidknight/Downloads/CPU_Q/db/altsyncram_pir1.tdf                                          ;         ;
+; db/altsyncram_l7s1.tdf                          ; yes             ; Auto-Generated Megafunction                           ; /home/voidknight/Downloads/CPU_Q/db/altsyncram_l7s1.tdf                                          ;         ;
 ; db/RISC-V.ram1_reorderBuffer_baf5ec2f.hdl.mif   ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/voidknight/Downloads/CPU_Q/db/RISC-V.ram1_reorderBuffer_baf5ec2f.hdl.mif                   ;         ;
 ; db/altsyncram_m7s1.tdf                          ; yes             ; Auto-Generated Megafunction                           ; /home/voidknight/Downloads/CPU_Q/db/altsyncram_m7s1.tdf                                          ;         ;
 ; db/RISC-V.ram2_reorderBuffer_baf5ec2f.hdl.mif   ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/voidknight/Downloads/CPU_Q/db/RISC-V.ram2_reorderBuffer_baf5ec2f.hdl.mif                   ;         ;
@@ -353,16 +352,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 2259      ;
+; Estimate of Logic utilization (ALMs needed) ; 2423      ;
 ;                                             ;           ;
-; Combinational ALUT usage for logic          ; 2933      ;
-;     -- 7 input functions                    ; 319       ;
-;     -- 6 input functions                    ; 918       ;
-;     -- 5 input functions                    ; 295       ;
-;     -- 4 input functions                    ; 323       ;
-;     -- <=3 input functions                  ; 1078      ;
+; Combinational ALUT usage for logic          ; 3121      ;
+;     -- 7 input functions                    ; 332       ;
+;     -- 6 input functions                    ; 1039      ;
+;     -- 5 input functions                    ; 481       ;
+;     -- 4 input functions                    ; 259       ;
+;     -- <=3 input functions                  ; 1010      ;
 ;                                             ;           ;
-; Dedicated logic registers                   ; 2463      ;
+; Dedicated logic registers                   ; 2532      ;
 ;                                             ;           ;
 ; Virtual pins                                ; 224       ;
 ; I/O pins                                    ; 202       ;
@@ -372,9 +371,9 @@ https://fpgasoftware.intel.com/eula.
 ; Total DSP Blocks                            ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 2783      ;
-; Total fan-out                               ; 24846     ;
-; Average fan-out                             ; 3.92      ;
+; Maximum fan-out                             ; 2852      ;
+; Total fan-out                               ; 26452     ;
+; Average fan-out                             ; 4.01      ;
 +---------------------------------------------+-----------+
 
 
@@ -383,30 +382,30 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                       ; Entity Name         ; Library Name ;
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |RISCV                                       ; 2933 (8)            ; 2463 (238)                ; 12288             ; 0          ; 202  ; 224          ; |RISCV                                                                                                                    ; RISCV               ; work         ;
-;    |ALURS:aluReservationStation|             ; 775 (14)            ; 393 (71)                  ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation                                                                                        ; ALURS               ; work         ;
-;       |ALURStationEntry:entry1|              ; 91 (91)             ; 80 (80)                   ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry1                                                                ; ALURStationEntry    ; work         ;
-;       |ALURStationEntry:entry2|              ; 91 (91)             ; 80 (80)                   ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry2                                                                ; ALURStationEntry    ; work         ;
-;       |ALURStationEntry:entry3|              ; 91 (91)             ; 80 (80)                   ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry3                                                                ; ALURStationEntry    ; work         ;
-;       |ALURStationEntry:entry4|              ; 91 (91)             ; 80 (80)                   ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry4                                                                ; ALURStationEntry    ; work         ;
+; |RISCV                                       ; 3121 (8)            ; 2532 (239)                ; 12288             ; 0          ; 202  ; 224          ; |RISCV                                                                                                                    ; RISCV               ; work         ;
+;    |ALURS:aluReservationStation|             ; 893 (16)            ; 393 (71)                  ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation                                                                                        ; ALURS               ; work         ;
+;       |ALURStationEntry:entry1|              ; 151 (151)           ; 80 (80)                   ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry1                                                                ; ALURStationEntry    ; work         ;
+;       |ALURStationEntry:entry2|              ; 150 (150)           ; 80 (80)                   ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry2                                                                ; ALURStationEntry    ; work         ;
+;       |ALURStationEntry:entry3|              ; 151 (151)           ; 80 (80)                   ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry3                                                                ; ALURStationEntry    ; work         ;
+;       |ALURStationEntry:entry4|              ; 156 (156)           ; 80 (80)                   ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry4                                                                ; ALURStationEntry    ; work         ;
 ;       |ALUSelect:selectLogic|                ; 6 (6)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|ALUSelect:selectLogic                                                                  ; ALUSelect           ; work         ;
-;       |srcMux:op1|                           ; 193 (193)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|srcMux:op1                                                                             ; srcMux              ; work         ;
-;       |srcMux:op2|                           ; 192 (192)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|srcMux:op2                                                                             ; srcMux              ; work         ;
+;       |srcMux:op1|                           ; 129 (129)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|srcMux:op1                                                                             ; srcMux              ; work         ;
+;       |srcMux:op2|                           ; 128 (128)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|srcMux:op2                                                                             ; srcMux              ; work         ;
 ;       |srcMux:rob|                           ; 6 (6)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|srcMux:rob                                                                             ; srcMux              ; work         ;
-;    |branchRS:branchReservationStation|       ; 344 (1)             ; 329 (104)                 ; 0                 ; 0          ; 0    ; 0            ; |RISCV|branchRS:branchReservationStation                                                                                  ; branchRS            ; work         ;
-;       |branchRSEntry:entry1|                 ; 119 (119)           ; 112 (112)                 ; 0                 ; 0          ; 0    ; 0            ; |RISCV|branchRS:branchReservationStation|branchRSEntry:entry1                                                             ; branchRSEntry       ; work         ;
-;       |branchRSEntry:entry2|                 ; 119 (119)           ; 112 (112)                 ; 0                 ; 0          ; 0    ; 0            ; |RISCV|branchRS:branchReservationStation|branchRSEntry:entry2                                                             ; branchRSEntry       ; work         ;
+;    |branchRS:branchReservationStation|       ; 357 (10)            ; 340 (107)                 ; 0                 ; 0          ; 0    ; 0            ; |RISCV|branchRS:branchReservationStation                                                                                  ; branchRS            ; work         ;
+;       |branchRSEntry:entry1|                 ; 123 (123)           ; 116 (116)                 ; 0                 ; 0          ; 0    ; 0            ; |RISCV|branchRS:branchReservationStation|branchRSEntry:entry1                                                             ; branchRSEntry       ; work         ;
+;       |branchRSEntry:entry2|                 ; 123 (123)           ; 116 (116)                 ; 0                 ; 0          ; 0    ; 0            ; |RISCV|branchRS:branchReservationStation|branchRSEntry:entry2                                                             ; branchRSEntry       ; work         ;
 ;       |branchSelect:selectLogic|             ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|branchRS:branchReservationStation|branchSelect:selectLogic                                                         ; branchSelect        ; work         ;
 ;       |srcMux:addressor|                     ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|branchRS:branchReservationStation|srcMux:addressor                                                                 ; srcMux              ; work         ;
 ;       |srcMux:fetchor|                       ; 33 (33)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|branchRS:branchReservationStation|srcMux:fetchor                                                                   ; srcMux              ; work         ;
-;       |srcMux:info|                          ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|branchRS:branchReservationStation|srcMux:info                                                                      ; srcMux              ; work         ;
 ;       |srcMux:predictor|                     ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|branchRS:branchReservationStation|srcMux:predictor                                                                 ; srcMux              ; work         ;
-;    |functionalUnit:executeStage|             ; 487 (0)             ; 73 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |RISCV|functionalUnit:executeStage                                                                                        ; functionalUnit      ; work         ;
-;       |ALU:computeUnit|                      ; 388 (388)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|functionalUnit:executeStage|ALU:computeUnit                                                                        ; ALU                 ; work         ;
-;       |CDBArbiter:dataBusArbiter|            ; 2 (2)               ; 73 (73)                   ; 0                 ; 0          ; 0    ; 0            ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter                                                              ; CDBArbiter          ; work         ;
+;       |srcMux:rob|                           ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|branchRS:branchReservationStation|srcMux:rob                                                                       ; srcMux              ; work         ;
+;    |functionalUnit:executeStage|             ; 521 (0)             ; 75 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |RISCV|functionalUnit:executeStage                                                                                        ; functionalUnit      ; work         ;
+;       |ALU:computeUnit|                      ; 268 (268)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|functionalUnit:executeStage|ALU:computeUnit                                                                        ; ALU                 ; work         ;
+;       |CDBArbiter:dataBusArbiter|            ; 156 (156)           ; 75 (75)                   ; 0                 ; 0          ; 0    ; 0            ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter                                                              ; CDBArbiter          ; work         ;
 ;       |branchALU:branchUnit|                 ; 97 (97)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|functionalUnit:executeStage|branchALU:branchUnit                                                                   ; branchALU           ; work         ;
-;    |instrFetchUnit:fetchStage|               ; 267 (117)           ; 156 (107)                 ; 9280              ; 0          ; 0    ; 0            ; |RISCV|instrFetchUnit:fetchStage                                                                                          ; instrFetchUnit      ; work         ;
-;       |BTB:branchTargetBuffer|               ; 22 (22)             ; 17 (17)                   ; 576               ; 0          ; 0    ; 0            ; |RISCV|instrFetchUnit:fetchStage|BTB:branchTargetBuffer                                                                   ; BTB                 ; work         ;
+;    |instrFetchUnit:fetchStage|               ; 265 (113)           ; 156 (107)                 ; 9280              ; 0          ; 0    ; 0            ; |RISCV|instrFetchUnit:fetchStage                                                                                          ; instrFetchUnit      ; work         ;
+;       |BTB:branchTargetBuffer|               ; 24 (24)             ; 17 (17)                   ; 576               ; 0          ; 0    ; 0            ; |RISCV|instrFetchUnit:fetchStage|BTB:branchTargetBuffer                                                                   ; BTB                 ; work         ;
 ;          |altsyncram:targetBuffer_rtl_0|     ; 0 (0)               ; 0 (0)                     ; 576               ; 0          ; 0    ; 0            ; |RISCV|instrFetchUnit:fetchStage|BTB:branchTargetBuffer|altsyncram:targetBuffer_rtl_0                                     ; altsyncram          ; work         ;
 ;             |altsyncram_auq1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 576               ; 0          ; 0    ; 0            ; |RISCV|instrFetchUnit:fetchStage|BTB:branchTargetBuffer|altsyncram:targetBuffer_rtl_0|altsyncram_auq1:auto_generated      ; altsyncram_auq1     ; work         ;
 ;       |PCSelectLogic:pcSelect|               ; 128 (128)           ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |RISCV|instrFetchUnit:fetchStage|PCSelectLogic:pcSelect                                                                   ; PCSelectLogic       ; work         ;
@@ -416,34 +415,34 @@ https://fpgasoftware.intel.com/eula.
 ;       |imem:IMem|                            ; 0 (0)               ; 0 (0)                     ; 8192              ; 0          ; 0    ; 0            ; |RISCV|instrFetchUnit:fetchStage|imem:IMem                                                                                ; imem                ; work         ;
 ;          |altsyncram:iMem_rtl_0|             ; 0 (0)               ; 0 (0)                     ; 8192              ; 0          ; 0    ; 0            ; |RISCV|instrFetchUnit:fetchStage|imem:IMem|altsyncram:iMem_rtl_0                                                          ; altsyncram          ; work         ;
 ;             |altsyncram_8hc1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192              ; 0          ; 0    ; 0            ; |RISCV|instrFetchUnit:fetchStage|imem:IMem|altsyncram:iMem_rtl_0|altsyncram_8hc1:auto_generated                           ; altsyncram_8hc1     ; work         ;
-;    |instr_decode:decodeStage|                ; 751 (246)           ; 1237 (181)                ; 1344              ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage                                                                                           ; instr_decode        ; work         ;
-;       |decodeextend:decodeExtender|          ; 22 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|decodeextend:decodeExtender                                                               ; decodeextend        ; work         ;
+;    |instr_decode:decodeStage|                ; 753 (248)           ; 1238 (182)                ; 1344              ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage                                                                                           ; instr_decode        ; work         ;
+;       |decodeextend:decodeExtender|          ; 21 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|decodeextend:decodeExtender                                                               ; decodeextend        ; work         ;
 ;          |ALUDecoder:ALUdecoder|             ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|decodeextend:decodeExtender|ALUDecoder:ALUdecoder                                         ; ALUDecoder          ; work         ;
-;          |extend:extender|                   ; 14 (14)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|decodeextend:decodeExtender|extend:extender                                               ; extend              ; work         ;
+;          |extend:extender|                   ; 13 (13)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|decodeextend:decodeExtender|extend:extender                                               ; extend              ; work         ;
 ;          |infodecoder:maindecoder|           ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|decodeextend:decodeExtender|infodecoder:maindecoder                                       ; infodecoder         ; work         ;
 ;       |register_file:regfile|                ; 330 (330)           ; 1024 (1024)               ; 1024              ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_file:regfile                                                                     ; register_file       ; work         ;
 ;          |altsyncram:regFile_rtl_0|          ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_file:regfile|altsyncram:regFile_rtl_0                                            ; altsyncram          ; work         ;
 ;             |altsyncram_g9o1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_file:regfile|altsyncram:regFile_rtl_0|altsyncram_g9o1:auto_generated             ; altsyncram_g9o1     ; work         ;
-;       |register_status:regTable|             ; 153 (153)           ; 32 (32)                   ; 320               ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_status:regTable                                                                  ; register_status     ; work         ;
+;       |register_status:regTable|             ; 154 (154)           ; 32 (32)                   ; 320               ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_status:regTable                                                                  ; register_status     ; work         ;
 ;          |altsyncram:dependencyBuffer_rtl_0| ; 0 (0)               ; 0 (0)                     ; 128               ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_status:regTable|altsyncram:dependencyBuffer_rtl_0                                ; altsyncram          ; work         ;
 ;             |altsyncram_s9s1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 128               ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_status:regTable|altsyncram:dependencyBuffer_rtl_0|altsyncram_s9s1:auto_generated ; altsyncram_s9s1     ; work         ;
 ;          |altsyncram:src1ROB_rtl_0|          ; 0 (0)               ; 0 (0)                     ; 96                ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_status:regTable|altsyncram:src1ROB_rtl_0                                         ; altsyncram          ; work         ;
 ;             |altsyncram_o9s1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 96                ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_status:regTable|altsyncram:src1ROB_rtl_0|altsyncram_o9s1:auto_generated          ; altsyncram_o9s1     ; work         ;
 ;          |altsyncram:src2ROB_rtl_0|          ; 0 (0)               ; 0 (0)                     ; 96                ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_status:regTable|altsyncram:src2ROB_rtl_0                                         ; altsyncram          ; work         ;
 ;             |altsyncram_p9s1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 96                ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_status:regTable|altsyncram:src2ROB_rtl_0|altsyncram_p9s1:auto_generated          ; altsyncram_p9s1     ; work         ;
-;    |renameStage:instrRenameStage|            ; 149 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|renameStage:instrRenameStage                                                                                       ; renameStage         ; work         ;
-;       |RSArbiter:arbiter|                    ; 14 (14)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|renameStage:instrRenameStage|RSArbiter:arbiter                                                                     ; RSArbiter           ; work         ;
+;    |renameStage:instrRenameStage|            ; 148 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|renameStage:instrRenameStage                                                                                       ; renameStage         ; work         ;
+;       |RSArbiter:arbiter|                    ; 13 (13)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|renameStage:instrRenameStage|RSArbiter:arbiter                                                                     ; RSArbiter           ; work         ;
 ;       |branchTargetResolve:targetResolver|   ; 65 (65)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|renameStage:instrRenameStage|branchTargetResolve:targetResolver                                                    ; branchTargetResolve ; work         ;
 ;       |instructionValues:valdet1|            ; 35 (35)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|renameStage:instrRenameStage|instructionValues:valdet1                                                             ; instructionValues   ; work         ;
 ;       |instructionValues:valdet2|            ; 35 (35)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|renameStage:instrRenameStage|instructionValues:valdet2                                                             ; instructionValues   ; work         ;
-;    |reorderBuffer:rob|                       ; 152 (138)           ; 37 (27)                   ; 1664              ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob                                                                                                  ; reorderBuffer       ; work         ;
+;    |reorderBuffer:rob|                       ; 176 (162)           ; 91 (81)                   ; 1664              ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob                                                                                                  ; reorderBuffer       ; work         ;
 ;       |ROBrenamebuffer:renamebuffer|         ; 14 (14)             ; 10 (10)                   ; 512               ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|ROBrenamebuffer:renamebuffer                                                                     ; ROBrenamebuffer     ; work         ;
 ;          |altsyncram:valuebuffer1_rtl_0|     ; 0 (0)               ; 0 (0)                     ; 256               ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|ROBrenamebuffer:renamebuffer|altsyncram:valuebuffer1_rtl_0                                       ; altsyncram          ; work         ;
 ;             |altsyncram_sas1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 256               ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|ROBrenamebuffer:renamebuffer|altsyncram:valuebuffer1_rtl_0|altsyncram_sas1:auto_generated        ; altsyncram_sas1     ; work         ;
 ;          |altsyncram:valuebuffer2_rtl_0|     ; 0 (0)               ; 0 (0)                     ; 256               ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|ROBrenamebuffer:renamebuffer|altsyncram:valuebuffer2_rtl_0                                       ; altsyncram          ; work         ;
 ;             |altsyncram_tas1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 256               ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|ROBrenamebuffer:renamebuffer|altsyncram:valuebuffer2_rtl_0|altsyncram_tas1:auto_generated        ; altsyncram_tas1     ; work         ;
 ;       |altsyncram:addressBuffer_rtl_0|       ; 0 (0)               ; 0 (0)                     ; 256               ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|altsyncram:addressBuffer_rtl_0                                                                   ; altsyncram          ; work         ;
-;          |altsyncram_pir1:auto_generated|    ; 0 (0)               ; 0 (0)                     ; 256               ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|altsyncram:addressBuffer_rtl_0|altsyncram_pir1:auto_generated                                    ; altsyncram_pir1     ; work         ;
+;          |altsyncram_l7s1:auto_generated|    ; 0 (0)               ; 0 (0)                     ; 256               ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|altsyncram:addressBuffer_rtl_0|altsyncram_l7s1:auto_generated                                    ; altsyncram_l7s1     ; work         ;
 ;       |altsyncram:destinationBuffer_rtl_0|   ; 0 (0)               ; 0 (0)                     ; 256               ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|altsyncram:destinationBuffer_rtl_0                                                               ; altsyncram          ; work         ;
 ;          |altsyncram_r7s1:auto_generated|    ; 0 (0)               ; 0 (0)                     ; 256               ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|altsyncram:destinationBuffer_rtl_0|altsyncram_r7s1:auto_generated                                ; altsyncram_r7s1     ; work         ;
 ;       |altsyncram:oldPCBuffer_rtl_0|         ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|altsyncram:oldPCBuffer_rtl_0                                                                     ; altsyncram          ; work         ;
@@ -472,7 +471,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; instr_decode:decodeStage|register_status:regTable|altsyncram:src2ROB_rtl_0|altsyncram_p9s1:auto_generated|ALTSYNCRAM          ; AUTO ; Simple Dual Port ; 32           ; 3            ; 32           ; 3            ; 96   ; db/RISC-V.ram1_register_status_56d9645f.hdl.mif ;
 ; reorderBuffer:rob|ROBrenamebuffer:renamebuffer|altsyncram:valuebuffer1_rtl_0|altsyncram_sas1:auto_generated|ALTSYNCRAM        ; AUTO ; Simple Dual Port ; 8            ; 32           ; 8            ; 32           ; 256  ; db/RISC-V.ram0_ROBrenamebuffer_b95a32dd.hdl.mif ;
 ; reorderBuffer:rob|ROBrenamebuffer:renamebuffer|altsyncram:valuebuffer2_rtl_0|altsyncram_tas1:auto_generated|ALTSYNCRAM        ; AUTO ; Simple Dual Port ; 8            ; 32           ; 8            ; 32           ; 256  ; db/RISC-V.ram1_ROBrenamebuffer_b95a32dd.hdl.mif ;
-; reorderBuffer:rob|altsyncram:addressBuffer_rtl_0|altsyncram_pir1:auto_generated|ALTSYNCRAM                                    ; AUTO ; Simple Dual Port ; 8            ; 32           ; 8            ; 32           ; 256  ; db/RISC-V.ram1_reorderBuffer_baf5ec2f.hdl.mif   ;
+; reorderBuffer:rob|altsyncram:addressBuffer_rtl_0|altsyncram_l7s1:auto_generated|ALTSYNCRAM                                    ; AUTO ; Simple Dual Port ; 8            ; 32           ; 8            ; 32           ; 256  ; db/RISC-V.ram1_reorderBuffer_baf5ec2f.hdl.mif   ;
 ; reorderBuffer:rob|altsyncram:destinationBuffer_rtl_0|altsyncram_r7s1:auto_generated|ALTSYNCRAM                                ; AUTO ; Simple Dual Port ; 8            ; 32           ; 8            ; 32           ; 256  ; db/RISC-V.ram7_reorderBuffer_baf5ec2f.hdl.mif   ;
 ; reorderBuffer:rob|altsyncram:oldPCBuffer_rtl_0|altsyncram_n7s1:auto_generated|ALTSYNCRAM                                      ; AUTO ; Simple Dual Port ; 8            ; 32           ; 8            ; 32           ; 256  ; db/RISC-V.ram3_reorderBuffer_baf5ec2f.hdl.mif   ;
 ; reorderBuffer:rob|altsyncram:previousIndexBuffer_rtl_0|altsyncram_05s1:auto_generated|ALTSYNCRAM                              ; AUTO ; Simple Dual Port ; 8            ; 8            ; 8            ; 8            ; 64   ; db/RISC-V.ram6_reorderBuffer_baf5ec2f.hdl.mif   ;
@@ -481,133 +480,63 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+-------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                        ;
-+-------------------------------------------------------------------------+-------------------------------------------------+
-; Register name                                                           ; Reason for Removal                              ;
-+-------------------------------------------------------------------------+-------------------------------------------------+
-; branchRS:branchReservationStation|instrRob[0..2]                        ; Lost fanout                                     ;
-; functionalUnit:executeStage|CDBArbiter:dataBusArbiter|pointer           ; Lost fanout                                     ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|instrRob[0..2]   ; Lost fanout                                     ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|instrRob[0..2]   ; Lost fanout                                     ;
-; instr_decode:decodeStage|immExt[21..31]                                 ; Merged with instr_decode:decodeStage|immExt[20] ;
-; inputBus.commitInfo[2]                                                  ; Merged with inputBus.commitInfo[1]              ;
-; inputBus.destination[5..31]                                             ; Merged with inputBus.commitInfo[1]              ;
-; functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.isControl ; Stuck at GND due to stuck port data_in          ;
-; inputBus.commitInfo[1]                                                  ; Stuck at GND due to stuck port data_in          ;
-; instr_decode:decodeStage|rdirect                                        ; Stuck at GND due to stuck port data_in          ;
-; branchRS:branchReservationStation|branchRSEntry:entry1|instrInfo[0]     ; Stuck at GND due to stuck port data_in          ;
-; branchRS:branchReservationStation|branchRSEntry:entry2|instrInfo[0]     ; Stuck at GND due to stuck port data_in          ;
-; inputBus.commitInfo[0]                                                  ; Lost fanout                                     ;
-; reorderBuffer:rob|controlBuffer~0                                       ; Lost fanout                                     ;
-; reorderBuffer:rob|controlBuffer~2                                       ; Lost fanout                                     ;
-; reorderBuffer:rob|controlBuffer~4                                       ; Lost fanout                                     ;
-; reorderBuffer:rob|controlBuffer~6                                       ; Lost fanout                                     ;
-; reorderBuffer:rob|controlBuffer~8                                       ; Lost fanout                                     ;
-; reorderBuffer:rob|controlBuffer~10                                      ; Lost fanout                                     ;
-; reorderBuffer:rob|controlBuffer~12                                      ; Lost fanout                                     ;
-; reorderBuffer:rob|controlBuffer~14                                      ; Lost fanout                                     ;
-; reorderBuffer:rob|controlBuffer~16                                      ; Lost fanout                                     ;
-; reorderBuffer:rob|controlBuffer~18                                      ; Lost fanout                                     ;
-; reorderBuffer:rob|controlBuffer~20                                      ; Lost fanout                                     ;
-; reorderBuffer:rob|controlBuffer~22                                      ; Lost fanout                                     ;
-; reorderBuffer:rob|controlBuffer~24                                      ; Lost fanout                                     ;
-; reorderBuffer:rob|controlBuffer~26                                      ; Lost fanout                                     ;
-; reorderBuffer:rob|controlBuffer~28                                      ; Lost fanout                                     ;
-; reorderBuffer:rob|controlBuffer~30                                      ; Lost fanout                                     ;
-; reorderBuffer:rob|updateBuffer~0                                        ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~6                                        ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~12                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~18                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~24                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~30                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~36                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~42                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~1                                        ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~7                                        ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~13                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~19                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~25                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~31                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~37                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~43                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~2                                        ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~8                                        ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~14                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~20                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~26                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~32                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~38                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~44                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~3                                        ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~9                                        ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~15                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~21                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~27                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~33                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~39                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~45                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~4                                        ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~10                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~16                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~22                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~28                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~34                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~40                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~46                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~5                                        ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~11                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~17                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~23                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~29                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~35                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~41                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|updateBuffer~47                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|controlBuffer~1                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|controlBuffer~5                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|controlBuffer~9                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|controlBuffer~13                                      ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|controlBuffer~17                                      ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|controlBuffer~21                                      ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|controlBuffer~25                                      ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|controlBuffer~29                                      ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|pcControl[0..5]                                       ; Stuck at GND due to stuck port data_in          ;
-; reorderBuffer:rob|commitInfo[1]                                         ; Stuck at GND due to stuck port data_in          ;
-; outputBus.controlFlow[5]                                                ; Stuck at GND due to stuck port data_in          ;
-; outputBus.commitInfo[1]                                                 ; Stuck at GND due to stuck port data_in          ;
-; instrFetchUnit:fetchStage|branchIndex:indexGen|globalHistory[0..7]      ; Stuck at GND due to stuck port data_in          ;
-; inputBus.instrPC[8..31]                                                 ; Lost fanout                                     ;
-; Total Number of Removed Registers = 168                                 ;                                                 ;
-+-------------------------------------------------------------------------+-------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                   ;
++--------------------------------------------------------------------+-------------------------------------------------+
+; Register name                                                      ; Reason for Removal                              ;
++--------------------------------------------------------------------+-------------------------------------------------+
+; instr_decode:decodeStage|immExt[21..31]                            ; Merged with instr_decode:decodeStage|immExt[20] ;
+; inputBus.commitInfo[2]                                             ; Merged with inputBus.commitInfo[1]              ;
+; inputBus.destination[5..31]                                        ; Merged with inputBus.commitInfo[1]              ;
+; inputBus.commitInfo[1]                                             ; Stuck at GND due to stuck port data_in          ;
+; inputBus.commitInfo[0]                                             ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~0                                  ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~2                                  ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~4                                  ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~6                                  ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~8                                  ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~10                                 ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~12                                 ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~14                                 ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~16                                 ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~18                                 ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~20                                 ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~22                                 ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~24                                 ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~26                                 ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~28                                 ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~30                                 ; Lost fanout                                     ;
+; reorderBuffer:rob|controlBuffer~1                                  ; Stuck at GND due to stuck port data_in          ;
+; reorderBuffer:rob|controlBuffer~5                                  ; Stuck at GND due to stuck port data_in          ;
+; reorderBuffer:rob|controlBuffer~9                                  ; Stuck at GND due to stuck port data_in          ;
+; reorderBuffer:rob|controlBuffer~13                                 ; Stuck at GND due to stuck port data_in          ;
+; reorderBuffer:rob|controlBuffer~17                                 ; Stuck at GND due to stuck port data_in          ;
+; reorderBuffer:rob|controlBuffer~21                                 ; Stuck at GND due to stuck port data_in          ;
+; reorderBuffer:rob|controlBuffer~25                                 ; Stuck at GND due to stuck port data_in          ;
+; reorderBuffer:rob|controlBuffer~29                                 ; Stuck at GND due to stuck port data_in          ;
+; reorderBuffer:rob|commitInfo[1]                                    ; Stuck at GND due to stuck port data_in          ;
+; outputBus.commitInfo[1]                                            ; Stuck at GND due to stuck port data_in          ;
+; instrFetchUnit:fetchStage|branchIndex:indexGen|globalHistory[0..7] ; Stuck at GND due to stuck port data_in          ;
+; inputBus.instrPC[8..31]                                            ; Lost fanout                                     ;
+; Total Number of Removed Registers = 99                             ;                                                 ;
++--------------------------------------------------------------------+-------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                                             ;
-+-------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------------+
-; Register name                                                           ; Reason for Removal        ; Registers Removed due to This Register                                            ;
-+-------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------------+
-; inputBus.commitInfo[1]                                                  ; Stuck at GND              ; inputBus.commitInfo[0], reorderBuffer:rob|commitInfo[1], outputBus.commitInfo[1], ;
-;                                                                         ; due to stuck port data_in ; instrFetchUnit:fetchStage|branchIndex:indexGen|globalHistory[0],                  ;
-;                                                                         ;                           ; instrFetchUnit:fetchStage|branchIndex:indexGen|globalHistory[1],                  ;
-;                                                                         ;                           ; instrFetchUnit:fetchStage|branchIndex:indexGen|globalHistory[2],                  ;
-;                                                                         ;                           ; instrFetchUnit:fetchStage|branchIndex:indexGen|globalHistory[3],                  ;
-;                                                                         ;                           ; instrFetchUnit:fetchStage|branchIndex:indexGen|globalHistory[4],                  ;
-;                                                                         ;                           ; instrFetchUnit:fetchStage|branchIndex:indexGen|globalHistory[5],                  ;
-;                                                                         ;                           ; instrFetchUnit:fetchStage|branchIndex:indexGen|globalHistory[6],                  ;
-;                                                                         ;                           ; instrFetchUnit:fetchStage|branchIndex:indexGen|globalHistory[7]                   ;
-; functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.isControl ; Stuck at GND              ; reorderBuffer:rob|pcControl[0], reorderBuffer:rob|pcControl[1],                   ;
-;                                                                         ; due to stuck port data_in ; reorderBuffer:rob|pcControl[2], reorderBuffer:rob|pcControl[3],                   ;
-;                                                                         ;                           ; reorderBuffer:rob|pcControl[4], reorderBuffer:rob|pcControl[5],                   ;
-;                                                                         ;                           ; outputBus.controlFlow[5]                                                          ;
-; branchRS:branchReservationStation|instrRob[2]                           ; Lost Fanouts              ; branchRS:branchReservationStation|branchRSEntry:entry2|instrRob[2],               ;
-;                                                                         ;                           ; branchRS:branchReservationStation|branchRSEntry:entry1|instrRob[2]                ;
-; branchRS:branchReservationStation|instrRob[1]                           ; Lost Fanouts              ; branchRS:branchReservationStation|branchRSEntry:entry2|instrRob[1],               ;
-;                                                                         ;                           ; branchRS:branchReservationStation|branchRSEntry:entry1|instrRob[1]                ;
-; branchRS:branchReservationStation|instrRob[0]                           ; Lost Fanouts              ; branchRS:branchReservationStation|branchRSEntry:entry2|instrRob[0],               ;
-;                                                                         ;                           ; branchRS:branchReservationStation|branchRSEntry:entry1|instrRob[0]                ;
-; instr_decode:decodeStage|rdirect                                        ; Stuck at GND              ; branchRS:branchReservationStation|branchRSEntry:entry1|instrInfo[0],              ;
-;                                                                         ; due to stuck port data_in ; branchRS:branchReservationStation|branchRSEntry:entry2|instrInfo[0]               ;
-+-------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                            ;
++------------------------+---------------------------+-----------------------------------------------------------------------------------+
+; Register name          ; Reason for Removal        ; Registers Removed due to This Register                                            ;
++------------------------+---------------------------+-----------------------------------------------------------------------------------+
+; inputBus.commitInfo[1] ; Stuck at GND              ; inputBus.commitInfo[0], reorderBuffer:rob|commitInfo[1], outputBus.commitInfo[1], ;
+;                        ; due to stuck port data_in ; instrFetchUnit:fetchStage|branchIndex:indexGen|globalHistory[0],                  ;
+;                        ;                           ; instrFetchUnit:fetchStage|branchIndex:indexGen|globalHistory[1],                  ;
+;                        ;                           ; instrFetchUnit:fetchStage|branchIndex:indexGen|globalHistory[2],                  ;
+;                        ;                           ; instrFetchUnit:fetchStage|branchIndex:indexGen|globalHistory[3],                  ;
+;                        ;                           ; instrFetchUnit:fetchStage|branchIndex:indexGen|globalHistory[4],                  ;
+;                        ;                           ; instrFetchUnit:fetchStage|branchIndex:indexGen|globalHistory[5],                  ;
+;                        ;                           ; instrFetchUnit:fetchStage|branchIndex:indexGen|globalHistory[6],                  ;
+;                        ;                           ; instrFetchUnit:fetchStage|branchIndex:indexGen|globalHistory[7]                   ;
++------------------------+---------------------------+-----------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -615,12 +544,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 2463  ;
-; Number of registers using Synchronous Clear  ; 1083  ;
-; Number of registers using Synchronous Load   ; 151   ;
+; Total registers                              ; 2532  ;
+; Number of registers using Synchronous Clear  ; 1091  ;
+; Number of registers using Synchronous Load   ; 78    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 1313  ;
+; Number of registers using Clock Enable       ; 1528  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -647,69 +576,71 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------------------------------------------+--------------------------------------------------------------------------+------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (No Restructuring Performed)                                                                                                                                   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------+
-; 3:1                ; 110 bits  ; 220 LEs       ; 0 LEs                ; 220 LEs                ; Yes        ; |RISCV|branchRS:branchReservationStation|branchRSEntry:entry1|predictedAddress[31]    ;
-; 3:1                ; 110 bits  ; 220 LEs       ; 0 LEs                ; 220 LEs                ; Yes        ; |RISCV|branchRS:branchReservationStation|branchRSEntry:entry2|targetAddress[29]       ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry1|instrInfo[0]               ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry1|instrRob[2]                ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry2|instrInfo[2]               ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry2|instrRob[0]                ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry3|instrInfo[2]               ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry3|instrRob[1]                ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry4|instrInfo[1]               ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry4|instrRob[2]                ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |RISCV|instrFetchUnit:fetchStage|branchIndex:indexGen|globalHistory[4]                ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |RISCV|outputBus.commitInfo[1]                                                        ;
-; 3:1                ; 83 bits   ; 166 LEs       ; 0 LEs                ; 166 LEs                ; Yes        ; |RISCV|outputBus.oldPC[1]                                                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.robEntry[2]      ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |RISCV|reorderBuffer:rob|read_ptr[2]                                                  ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |RISCV|branchRS:branchReservationStation|instrInfo[7]                                 ;
-; 3:1                ; 96 bits   ; 192 LEs       ; 0 LEs                ; 192 LEs                ; Yes        ; |RISCV|branchRS:branchReservationStation|nxtPC[13]                                    ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |RISCV|instr_decode:decodeStage|isJALR                                                ;
-; 3:1                ; 33 bits   ; 66 LEs        ; 0 LEs                ; 66 LEs                 ; Yes        ; |RISCV|validAddress[18]                                                               ;
-; 3:1                ; 313 bits  ; 626 LEs       ; 0 LEs                ; 626 LEs                ; Yes        ; |RISCV|instr_decode:decodeStage|predictPC[5]                                          ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry1|val1[19]                   ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry1|val2[22]                   ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry2|val1[22]                   ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry2|val2[8]                    ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry3|val1[5]                    ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry3|val2[27]                   ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry4|val1[17]                   ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry4|val2[0]                    ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |RISCV|outputBus.controlFlow[4]                                                       ;
-; 4:1                ; 64 bits   ; 128 LEs       ; 0 LEs                ; 128 LEs                ; Yes        ; |RISCV|outputBus.targetAddress[20]                                                    ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |RISCV|instr_decode:decodeStage|rob1[2]                                               ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |RISCV|instr_decode:decodeStage|rob2[0]                                               ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|instr_decode:decodeStage|operand2[24]                                          ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |RISCV|instr_decode:decodeStage|ALUControl[2]                                         ;
-; 6:1                ; 31 bits   ; 124 LEs       ; 62 LEs               ; 62 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.targetAddress[4] ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |RISCV|reorderBuffer:rob|write_ptr[2]                                                 ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |RISCV|ALURS:aluReservationStation|instrInfo[2]                                       ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; Yes        ; |RISCV|ALURS:aluReservationStation|instrRob[0]                                        ;
-; 7:1                ; 32 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; Yes        ; |RISCV|instrFetchUnit:fetchStage|PCSelectLogic:pcSelect|nextPC[14]                    ;
-; 9:1                ; 32 bits   ; 192 LEs       ; 64 LEs               ; 128 LEs                ; Yes        ; |RISCV|ALURS:aluReservationStation|src1[14]                                           ;
-; 9:1                ; 32 bits   ; 192 LEs       ; 64 LEs               ; 128 LEs                ; Yes        ; |RISCV|ALURS:aluReservationStation|src2[2]                                            ;
-; 24:1               ; 11 bits   ; 176 LEs       ; 88 LEs               ; 88 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.result[27]       ;
-; 23:1               ; 12 bits   ; 180 LEs       ; 96 LEs               ; 84 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.result[14]       ;
-; 27:1               ; 3 bits    ; 54 LEs        ; 42 LEs               ; 12 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.result[30]       ;
-; 26:1               ; 3 bits    ; 51 LEs        ; 39 LEs               ; 12 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.result[1]        ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftLeft0                         ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftLeft0                         ;
-; 4:1                ; 50 bits   ; 100 LEs       ; 100 LEs              ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftRight1                        ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftRight0                        ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftLeft0                         ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftRight1                        ;
-; 4:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftRight1                        ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |RISCV|instrFetchUnit:fetchStage|instr                                                ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |RISCV|renameStage:instrRenameStage|instructionValues:valdet1|instrValue[3]           ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |RISCV|renameStage:instrRenameStage|instructionValues:valdet2|instrValue[31]          ;
-; 8:1                ; 8 bits    ; 40 LEs        ; 16 LEs               ; 24 LEs                 ; No         ; |RISCV|instr_decode:decodeStage|decodeextend:decodeExtender|extend:extender|Mux3      ;
-; 8:1                ; 4 bits    ; 20 LEs        ; 8 LEs                ; 12 LEs                 ; No         ; |RISCV|instr_decode:decodeStage|decodeextend:decodeExtender|extend:extender|Mux11     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (No Restructuring Performed)                                                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------+
+; 3:1                ; 113 bits  ; 226 LEs       ; 0 LEs                ; 226 LEs                ; Yes        ; |RISCV|branchRS:branchReservationStation|branchRSEntry:entry1|branchResult[26]         ;
+; 3:1                ; 113 bits  ; 226 LEs       ; 0 LEs                ; 226 LEs                ; Yes        ; |RISCV|branchRS:branchReservationStation|branchRSEntry:entry2|targetAddress[3]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry1|instrInfo[2]                ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry1|instrRob[0]                 ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry2|instrInfo[3]                ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry2|instrRob[0]                 ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry3|instrInfo[2]                ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry3|src1Rob[0]                  ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry4|instrInfo[3]                ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry4|instrRob[0]                 ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |RISCV|instrFetchUnit:fetchStage|branchIndex:indexGen|globalHistory[7]                 ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |RISCV|outputBus.controlFlow[0]                                                        ;
+; 3:1                ; 83 bits   ; 166 LEs       ; 0 LEs                ; 166 LEs                ; Yes        ; |RISCV|outputBus.oldPC[6]                                                              ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.isControl         ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |RISCV|reorderBuffer:rob|read_ptr[0]                                                   ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |RISCV|instr_decode:decodeStage|branchFunct3[1]                                        ;
+; 3:1                ; 33 bits   ; 66 LEs        ; 0 LEs                ; 66 LEs                 ; Yes        ; |RISCV|validAddress[12]                                                                ;
+; 3:1                ; 101 bits  ; 202 LEs       ; 0 LEs                ; 202 LEs                ; Yes        ; |RISCV|instrFetchUnit:fetchStage|instr[5]                                              ;
+; 3:1                ; 212 bits  ; 424 LEs       ; 0 LEs                ; 424 LEs                ; Yes        ; |RISCV|instr_decode:decodeStage|predictPC[28]                                          ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry1|val1[15]                    ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry1|val2[27]                    ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry2|val1[29]                    ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry2|val2[8]                     ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry3|val1[17]                    ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry3|val2[30]                    ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry4|val1[24]                    ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry4|val2[21]                    ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |RISCV|outputBus.controlFlow[5]                                                        ;
+; 4:1                ; 64 bits   ; 128 LEs       ; 0 LEs                ; 128 LEs                ; Yes        ; |RISCV|outputBus.targetAddress[1]                                                      ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |RISCV|branchRS:branchReservationStation|instrInfo[1]                                  ;
+; 4:1                ; 99 bits   ; 198 LEs       ; 0 LEs                ; 198 LEs                ; Yes        ; |RISCV|branchRS:branchReservationStation|predictedAddress[13]                          ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |RISCV|instr_decode:decodeStage|rob1[2]                                                ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |RISCV|instr_decode:decodeStage|rob2[0]                                                ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|instr_decode:decodeStage|operand2[19]                                           ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |RISCV|instr_decode:decodeStage|ALUControl[1]                                          ;
+; 6:1                ; 31 bits   ; 124 LEs       ; 62 LEs               ; 62 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.targetAddress[26] ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.robEntry[2]       ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |RISCV|reorderBuffer:rob|write_ptr[0]                                                  ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; Yes        ; |RISCV|ALURS:aluReservationStation|instrInfo[0]                                        ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; Yes        ; |RISCV|ALURS:aluReservationStation|instrRob[0]                                         ;
+; 7:1                ; 32 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; Yes        ; |RISCV|instrFetchUnit:fetchStage|PCSelectLogic:pcSelect|nextPC[4]                      ;
+; 10:1               ; 32 bits   ; 192 LEs       ; 64 LEs               ; 128 LEs                ; Yes        ; |RISCV|ALURS:aluReservationStation|src1[28]                                            ;
+; 10:1               ; 32 bits   ; 192 LEs       ; 64 LEs               ; 128 LEs                ; Yes        ; |RISCV|ALURS:aluReservationStation|src2[15]                                            ;
+; 26:1               ; 11 bits   ; 187 LEs       ; 88 LEs               ; 99 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.result[18]        ;
+; 25:1               ; 12 bits   ; 192 LEs       ; 96 LEs               ; 96 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.result[9]         ;
+; 29:1               ; 3 bits    ; 57 LEs        ; 45 LEs               ; 12 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.result[30]        ;
+; 28:1               ; 3 bits    ; 54 LEs        ; 42 LEs               ; 12 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.result[1]         ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftRight0                         ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftRight0                         ;
+; 4:1                ; 50 bits   ; 100 LEs       ; 100 LEs              ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftRight1                         ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftLeft0                          ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftRight0                         ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftRight1                         ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftLeft0                          ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |RISCV|instrFetchUnit:fetchStage|instr                                                 ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |RISCV|renameStage:instrRenameStage|instructionValues:valdet1|instrValue[6]            ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |RISCV|renameStage:instrRenameStage|instructionValues:valdet2|instrValue[31]           ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 16 LEs               ; 24 LEs                 ; No         ; |RISCV|instr_decode:decodeStage|decodeextend:decodeExtender|extend:extender|Mux2       ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 8 LEs                ; 12 LEs                 ; No         ; |RISCV|instr_decode:decodeStage|decodeextend:decodeExtender|extend:extender|Mux10      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------+
@@ -731,7 +662,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 +--------------------------------------------------------------------------------------------------------+
-; Source assignments for reorderBuffer:rob|altsyncram:addressBuffer_rtl_0|altsyncram_pir1:auto_generated ;
+; Source assignments for reorderBuffer:rob|altsyncram:addressBuffer_rtl_0|altsyncram_l7s1:auto_generated ;
 +---------------------------------+--------------------+------+------------------------------------------+
 ; Assignment                      ; Value              ; From ; To                                       ;
 +---------------------------------+--------------------+------+------------------------------------------+
@@ -1586,7 +1517,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                         ; Untyped        ;
 ; WIDTH_ECCSTATUS                    ; 3                                             ; Untyped        ;
 ; DEVICE_FAMILY                      ; Cyclone V                                     ; Untyped        ;
-; CBXI_PARAMETER                     ; altsyncram_pir1                               ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_l7s1                               ; Untyped        ;
 +------------------------------------+-----------------------------------------------+----------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -2497,43 +2428,33 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+-------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------+
-; Port Connectivity Checks: "functionalUnit:executeStage|CDBArbiter:dataBusArbiter" ;
-+---------------+-------+----------+------------------------------------------------+
-; Port          ; Type  ; Severity ; Details                                        ;
-+---------------+-------+----------+------------------------------------------------+
-; branchRequest ; Input ; Info     ; Stuck at GND                                   ;
-+---------------+-------+----------+------------------------------------------------+
-
-
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 2463                        ;
-;     ENA               ; 1029                        ;
-;     ENA SCLR          ; 284                         ;
-;     SCLR              ; 678                         ;
-;     SCLR SLD          ; 121                         ;
+; arriav_ff             ; 2532                        ;
+;     ENA               ; 1077                        ;
+;     ENA SCLR          ; 451                         ;
+;     SCLR              ; 592                         ;
+;     SCLR SLD          ; 48                          ;
 ;     SLD               ; 30                          ;
-;     plain             ; 321                         ;
-; arriav_lcell_comb     ; 2936                        ;
+;     plain             ; 334                         ;
+; arriav_lcell_comb     ; 3124                        ;
 ;     arith             ; 164                         ;
 ;         1 data inputs ; 96                          ;
-;         2 data inputs ; 64                          ;
-;         4 data inputs ; 1                           ;
+;         2 data inputs ; 65                          ;
 ;         5 data inputs ; 3                           ;
-;     extend            ; 319                         ;
-;         7 data inputs ; 319                         ;
-;     normal            ; 2421                        ;
-;         0 data inputs ; 2                           ;
-;         1 data inputs ; 2                           ;
-;         2 data inputs ; 114                         ;
-;         3 data inputs ; 771                         ;
-;         4 data inputs ; 322                         ;
-;         5 data inputs ; 292                         ;
-;         6 data inputs ; 918                         ;
+;     extend            ; 332                         ;
+;         7 data inputs ; 332                         ;
+;     normal            ; 2596                        ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 42                          ;
+;         3 data inputs ; 773                         ;
+;         4 data inputs ; 259                         ;
+;         5 data inputs ; 478                         ;
+;         6 data inputs ; 1039                        ;
 ;     shared            ; 32                          ;
 ;         2 data inputs ; 32                          ;
 ; boundary_port         ; 426                         ;
@@ -2549,7 +2470,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:39     ;
+; Top            ; 00:01:02     ;
 +----------------+--------------+
 
 
@@ -2559,7 +2480,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Sun Dec 29 14:24:53 2024
+    Info: Processing started: Sun Dec 29 18:13:23 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RISC-V -c RISC-V
 Info (16303): Aggressive Performance optimization mode selected -- timing performance will be prioritized at the potential cost of increased logic area and compilation time
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -2624,7 +2545,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file RSArbit
 Info (12021): Found 1 design units, including 1 entities, in source file instrFetchUnit.sv
     Info (12023): Found entity 1: instrFetchUnit File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 17
 Info (12021): Found 1 design units, including 1 entities, in source file instr_decode.sv
-    Info (12023): Found entity 1: instr_decode File: /home/voidknight/Downloads/CPU_Q/instr_decode.sv Line: 9
+    Info (12023): Found entity 1: instr_decode File: /home/voidknight/Downloads/CPU_Q/instr_decode.sv Line: 10
 Info (12021): Found 1 design units, including 1 entities, in source file functionalUnit.sv
     Info (12023): Found entity 1: functionalUnit File: /home/voidknight/Downloads/CPU_Q/functionalUnit.sv Line: 10
 Info (12021): Found 1 design units, including 1 entities, in source file ALURS.sv
@@ -2670,17 +2591,17 @@ Info (12128): Elaborating entity "gshare" for hierarchy "instrFetchUnit:fetchSta
 Warning (10850): Verilog HDL warning at gshare.sv(46): number of words (32) in memory file does not match the number of elements in the address range [0:255] File: /home/voidknight/Downloads/CPU_Q/gshare.sv Line: 46
 Info (12128): Elaborating entity "branchIndex" for hierarchy "instrFetchUnit:fetchStage|branchIndex:indexGen" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 51
 Info (12128): Elaborating entity "imem" for hierarchy "instrFetchUnit:fetchStage|imem:IMem" File: /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv Line: 59
-Warning (10850): Verilog HDL warning at imem.sv(33): number of words (5) in memory file does not match the number of elements in the address range [0:255] File: /home/voidknight/Downloads/CPU_Q/imem.sv Line: 33
+Warning (10850): Verilog HDL warning at imem.sv(33): number of words (2) in memory file does not match the number of elements in the address range [0:255] File: /home/voidknight/Downloads/CPU_Q/imem.sv Line: 33
 Warning (10030): Net "iMem.data_a" at imem.sv(31) has no driver or initial value, using a default initial value '0' File: /home/voidknight/Downloads/CPU_Q/imem.sv Line: 31
 Warning (10030): Net "iMem.waddr_a" at imem.sv(31) has no driver or initial value, using a default initial value '0' File: /home/voidknight/Downloads/CPU_Q/imem.sv Line: 31
 Warning (10030): Net "iMem.we_a" at imem.sv(31) has no driver or initial value, using a default initial value '0' File: /home/voidknight/Downloads/CPU_Q/imem.sv Line: 31
 Info (12128): Elaborating entity "instr_decode" for hierarchy "instr_decode:decodeStage" File: /home/voidknight/Downloads/CPU_Q/RISCV.sv Line: 96
-Info (12128): Elaborating entity "decodeextend" for hierarchy "instr_decode:decodeStage|decodeextend:decodeExtender" File: /home/voidknight/Downloads/CPU_Q/instr_decode.sv Line: 53
+Info (12128): Elaborating entity "decodeextend" for hierarchy "instr_decode:decodeStage|decodeextend:decodeExtender" File: /home/voidknight/Downloads/CPU_Q/instr_decode.sv Line: 54
 Info (12128): Elaborating entity "infodecoder" for hierarchy "instr_decode:decodeStage|decodeextend:decodeExtender|infodecoder:maindecoder" File: /home/voidknight/Downloads/CPU_Q/decodeextend.sv Line: 55
 Info (12128): Elaborating entity "extend" for hierarchy "instr_decode:decodeStage|decodeextend:decodeExtender|extend:extender" File: /home/voidknight/Downloads/CPU_Q/decodeextend.sv Line: 58
 Info (12128): Elaborating entity "ALUDecoder" for hierarchy "instr_decode:decodeStage|decodeextend:decodeExtender|ALUDecoder:ALUdecoder" File: /home/voidknight/Downloads/CPU_Q/decodeextend.sv Line: 61
-Info (12128): Elaborating entity "register_file" for hierarchy "instr_decode:decodeStage|register_file:regfile" File: /home/voidknight/Downloads/CPU_Q/instr_decode.sv Line: 58
-Info (12128): Elaborating entity "register_status" for hierarchy "instr_decode:decodeStage|register_status:regTable" File: /home/voidknight/Downloads/CPU_Q/instr_decode.sv Line: 66
+Info (12128): Elaborating entity "register_file" for hierarchy "instr_decode:decodeStage|register_file:regfile" File: /home/voidknight/Downloads/CPU_Q/instr_decode.sv Line: 59
+Info (12128): Elaborating entity "register_status" for hierarchy "instr_decode:decodeStage|register_status:regTable" File: /home/voidknight/Downloads/CPU_Q/instr_decode.sv Line: 67
 Info (12128): Elaborating entity "renameStage" for hierarchy "renameStage:instrRenameStage" File: /home/voidknight/Downloads/CPU_Q/RISCV.sv Line: 119
 Info (12128): Elaborating entity "instructionValues" for hierarchy "renameStage:instrRenameStage|instructionValues:valdet1" File: /home/voidknight/Downloads/CPU_Q/renameStage.sv Line: 44
 Info (12128): Elaborating entity "RSArbiter" for hierarchy "renameStage:instrRenameStage|RSArbiter:arbiter" File: /home/voidknight/Downloads/CPU_Q/renameStage.sv Line: 48
@@ -2701,7 +2622,6 @@ Info (12128): Elaborating entity "srcMux" for hierarchy "branchRS:branchReservat
 Info (12128): Elaborating entity "srcMux" for hierarchy "branchRS:branchReservationStation|srcMux:rob" File: /home/voidknight/Downloads/CPU_Q/branchRS.sv Line: 87
 Info (12128): Elaborating entity "srcMux" for hierarchy "branchRS:branchReservationStation|srcMux:info" File: /home/voidknight/Downloads/CPU_Q/branchRS.sv Line: 88
 Info (12128): Elaborating entity "functionalUnit" for hierarchy "functionalUnit:executeStage" File: /home/voidknight/Downloads/CPU_Q/RISCV.sv Line: 159
-Warning (10030): Net "request" at functionalUnit.sv(25) has no driver or initial value, using a default initial value '0' File: /home/voidknight/Downloads/CPU_Q/functionalUnit.sv Line: 25
 Info (12128): Elaborating entity "branchALU" for hierarchy "functionalUnit:executeStage|branchALU:branchUnit" File: /home/voidknight/Downloads/CPU_Q/functionalUnit.sv Line: 29
 Info (12128): Elaborating entity "ALU" for hierarchy "functionalUnit:executeStage|ALU:computeUnit" File: /home/voidknight/Downloads/CPU_Q/functionalUnit.sv Line: 30
 Info (12128): Elaborating entity "CDBArbiter" for hierarchy "functionalUnit:executeStage|CDBArbiter:dataBusArbiter" File: /home/voidknight/Downloads/CPU_Q/functionalUnit.sv Line: 32
@@ -3021,8 +2941,8 @@ Info (12133): Instantiated megafunction "reorderBuffer:rob|altsyncram:addressBuf
     Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
     Info (12134): Parameter "INIT_FILE" = "db/RISC-V.ram1_reorderBuffer_baf5ec2f.hdl.mif"
     Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_pir1.tdf
-    Info (12023): Found entity 1: altsyncram_pir1 File: /home/voidknight/Downloads/CPU_Q/db/altsyncram_pir1.tdf Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_l7s1.tdf
+    Info (12023): Found entity 1: altsyncram_l7s1 File: /home/voidknight/Downloads/CPU_Q/db/altsyncram_l7s1.tdf Line: 28
 Info (12130): Elaborated megafunction instantiation "reorderBuffer:rob|altsyncram:regStatusBuffer_rtl_0"
 Info (12133): Instantiated megafunction "reorderBuffer:rob|altsyncram:regStatusBuffer_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
@@ -3216,8 +3136,6 @@ Info (12133): Instantiated megafunction "instrFetchUnit:fetchStage|imem:IMem|alt
     Info (12134): Parameter "INIT_FILE" = "db/RISC-V.ram0_imem_37c714.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_8hc1.tdf
     Info (12023): Found entity 1: altsyncram_8hc1 File: /home/voidknight/Downloads/CPU_Q/db/altsyncram_8hc1.tdf Line: 28
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home/voidknight/Downloads/CPU_Q/db/RISC-V.ram0_imem_37c714.hdl.mif" contains "don't care" values -- overwriting them with 0s File: /home/voidknight/Downloads/Quartus/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home/voidknight/Downloads/CPU_Q/db/RISC-V.ram0_imem_37c714.hdl.mif" contains "don't care" values -- overwriting them with 0s File: /home/voidknight/Downloads/Quartus/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12130): Elaborated megafunction instantiation "instrFetchUnit:fetchStage|gshare:predictor|altsyncram:patternTable_rtl_0"
 Info (12133): Instantiated megafunction "instrFetchUnit:fetchStage|gshare:predictor|altsyncram:patternTable_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
@@ -3284,12 +3202,8 @@ Warning (14284): Synthesized away the following node(s):
         Warning (14320): Synthesized away node "reorderBuffer:rob|altsyncram:oldPCBuffer_rtl_0|altsyncram_n7s1:auto_generated|ram_block1a29" File: /home/voidknight/Downloads/CPU_Q/db/altsyncram_n7s1.tdf Line: 908
         Warning (14320): Synthesized away node "reorderBuffer:rob|altsyncram:oldPCBuffer_rtl_0|altsyncram_n7s1:auto_generated|ram_block1a30" File: /home/voidknight/Downloads/CPU_Q/db/altsyncram_n7s1.tdf Line: 938
         Warning (14320): Synthesized away node "reorderBuffer:rob|altsyncram:oldPCBuffer_rtl_0|altsyncram_n7s1:auto_generated|ram_block1a31" File: /home/voidknight/Downloads/CPU_Q/db/altsyncram_n7s1.tdf Line: 968
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "aluAvailable" is stuck at VCC File: /home/voidknight/Downloads/CPU_Q/RISCV.sv Line: 33
-    Warning (13410): Pin "branchAvailable" is stuck at VCC File: /home/voidknight/Downloads/CPU_Q/RISCV.sv Line: 33
-    Warning (13410): Pin "cntrlFlow[5]" is stuck at GND File: /home/voidknight/Downloads/CPU_Q/RISCV.sv Line: 39
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 51 registers lost all their fanouts during netlist optimizations.
+Info (17049): 41 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file /home/voidknight/Downloads/CPU_Q/output_files/RISC-V.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
@@ -3592,32 +3506,32 @@ Warning (15752): Ignored 89 Virtual Pin logic option assignments
     Warning (15720): Ignored Virtual Pin assignment to node "outputBus.statusSnap[27]"
     Warning (15720): Ignored Virtual Pin assignment to node "outputBus.statusSnap[24]"
     Warning (15720): Ignored Virtual Pin assignment to node "outputBus.statusSnap[26]"
-    Warning (15751): Ignored Virtual Pin assignment to "address".
-    Warning (15751): Ignored Virtual Pin assignment to "dataBus.pcControl".
-    Warning (15751): Ignored Virtual Pin assignment to "inputBus.seqPCW".
-    Warning (15751): Ignored Virtual Pin assignment to "inputBus.instrInfo".
-    Warning (15751): Ignored Virtual Pin assignment to "predictedAddress".
-    Warning (15751): Ignored Virtual Pin assignment to "regStatusSnap".
     Warning (15751): Ignored Virtual Pin assignment to "outputBus.regStatusC".
-    Warning (15751): Ignored Virtual Pin assignment to "inputBus.regStatusW".
-    Warning (15751): Ignored Virtual Pin assignment to "dataBus.isControl".
-    Warning (15751): Ignored Virtual Pin assignment to "ROBValue2".
-    Warning (15751): Ignored Virtual Pin assignment to "dataBus.result".
+    Warning (15751): Ignored Virtual Pin assignment to "pc".
+    Warning (15751): Ignored Virtual Pin assignment to "predictedAddress".
     Warning (15751): Ignored Virtual Pin assignment to "instruction".
+    Warning (15751): Ignored Virtual Pin assignment to "inputBus.instrInfo".
+    Warning (15751): Ignored Virtual Pin assignment to "inputBus.regStatusW".
+    Warning (15751): Ignored Virtual Pin assignment to "dataBus.pcControl".
+    Warning (15751): Ignored Virtual Pin assignment to "dataBus.isControl".
+    Warning (15751): Ignored Virtual Pin assignment to "dataBus.result".
+    Warning (15751): Ignored Virtual Pin assignment to "ROBValue2".
+    Warning (15751): Ignored Virtual Pin assignment to "inputBus.seqPCW".
     Warning (15751): Ignored Virtual Pin assignment to "targetAddress".
     Warning (15751): Ignored Virtual Pin assignment to "predictedPC".
+    Warning (15751): Ignored Virtual Pin assignment to "regStatusSnap".
     Warning (15751): Ignored Virtual Pin assignment to "ROBValue1".
-    Warning (15751): Ignored Virtual Pin assignment to "pc".
-Info (21057): Implemented 4824 device resources after synthesis - the final resource count might be different
+    Warning (15751): Ignored Virtual Pin assignment to "address".
+Info (21057): Implemented 5060 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 200 output pins
-    Info (21061): Implemented 4302 logic cells
+    Info (21061): Implemented 4538 logic cells
     Info (21064): Implemented 320 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 131 warnings
-    Info: Peak virtual memory: 561 megabytes
-    Info: Processing ended: Sun Dec 29 14:26:01 2024
-    Info: Elapsed time: 00:01:08
-    Info: Total CPU time (on all processors): 00:01:53
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 124 warnings
+    Info: Peak virtual memory: 536 megabytes
+    Info: Processing ended: Sun Dec 29 18:14:54 2024
+    Info: Elapsed time: 00:01:31
+    Info: Total CPU time (on all processors): 00:02:17
 
 
 +------------------------------------------+

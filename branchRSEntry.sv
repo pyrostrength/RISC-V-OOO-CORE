@@ -75,7 +75,7 @@ module branchRSEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 7)
 									 /*If a request to clear the RS has been made*/
 										if((clear & validCommit) | globalReset) begin
 											{value1Ready,value2Ready,busy} <= '0;
-											{instrInfo} <= '0;
+											{instrInfo} <= '1;
 											{instrRob,src1Rob,src2Rob} <= '0;
 											{branchResult,val1,val2,predictedAddress,targetAddress} <= '0;
 										end

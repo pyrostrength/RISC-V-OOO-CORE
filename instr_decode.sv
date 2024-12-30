@@ -4,6 +4,7 @@ we need to clear the register pass a bubble.
 If we have no space on ROB indicated by full signal
 we pass no value i.e freeze the pipeline*
 
+
 Reset signal coming from ROB bus control flow signal*/
 
 module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1, A_WIDTH = 3,INDEX = 7)
@@ -84,7 +85,7 @@ module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1
 										noRS = 1'b0;
 								endcase
 								
-								freeze = fullRob | noRS | earlyMisdirect;
+								freeze = fullRob | noRS ;
 								
 								
 							end
@@ -92,7 +93,9 @@ module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1
 							/*Course correction if we mistakenly took an instruction
 							as a branch instruction */
 							always_comb begin
-							//Only conditional control flow instructions undergo branch prediction.
+							/*Only conditional control flow instructions undergo branch prediction.
+							Early misdirect means we should flush the pipeline at
+							fetch/decode stage and we fetch from next sequential address. */
 								if(!brnch & redirect) begin
 									earlyMisdirect = 1'b1;
 								end

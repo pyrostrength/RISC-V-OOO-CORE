@@ -19,58 +19,58 @@ module ALU #(parameter WIDTH = 31,C_WIDTH = 3)
 				(input logic signed[WIDTH:0] src1,src2,
 				 input logic [C_WIDTH:0] ALUControl,
 				 output logic signed[WIDTH:0] result,
-				 output logic  ALURequest);
+				 output logic  aluDataBusReq);
 				 
 				 /*For shifts with immediate the shift amount
 				 is encoded in first 5 bits of immediate or rs2 value.
 				 */
 				 always_comb begin
 					result = 32'd0;
-					ALURequest = 1'b0; //Default value of zero for ALURequest
+					aluDataBusReq = 1'b0;
 					case(ALUControl)
 						4'b0000: begin
 							result = src1 + src2; //add
-							ALURequest = 1'b1;
+							aluDataBusReq = 1'b1;
 						end
 						4'b0001: begin
 							result = src1 & src2; //bit-wise and
-							ALURequest = 1'b1;
+							aluDataBusReq = 1'b1;
 						end
 						4'b0010: begin
-							result = src1 | src2; //bit-wise or	
-							ALURequest = 1'b1;
+							result = src1 | src2; //bit-wise or
+							aluDataBusReq = 1'b1;	
 						end
 						4'b0011: begin
 							result = src1 ^ src2; //bit-wise xor
-							ALURequest = 1'b1;
+							aluDataBusReq = 1'b1;
 						end
 						4'b0100: begin
-							result = src1 < src2; // set-less than 
-							ALURequest = 1'b1;
+							result = src1 < src2; // set-less than
+							aluDataBusReq = 1'b1;
 						end
 						4'b0101: begin
 							result = unsigned' (src1) < unsigned' (src2); // set-less than unsigned
-							ALURequest = 1'b1;
+							aluDataBusReq = 1'b1;
 						end
 						4'b0110: begin
 							result = src1 << src2[4:0]; // shift left logical
-							ALURequest = 1'b1;
+							aluDataBusReq = 1'b1;
 						end
 						4'b0111: begin
 							result = src1 >> src2[4:0]; // shift right logical
-							ALURequest = 1'b1;
+							aluDataBusReq = 1'b1;
 						end
 						4'b1000: begin
 							result = src1 - src2; // subtraction
-							ALURequest = 1'b1;
+							aluDataBusReq = 1'b1;
 						end
 						4'b1001: begin
 							result = src1 >>> src2[4:0]; // shift right arithmetic.
-							ALURequest = 1'b1;
+							aluDataBusReq = 1'b1;
 						end
 						default: begin
 							result = 32'd0;
-							ALURequest = 1'b0;
+							aluDataBusReq = 1'b0;
 						end
 					endcase
 				end	

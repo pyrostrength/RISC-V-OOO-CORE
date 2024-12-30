@@ -1560,11 +1560,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "branchRequest",
+					"name" : "branchDataBusReq",
 					"strict" : false
 				},
 				{
-					"name" : "ALURequest",
+					"name" : "aluDataBusReq",
+					"strict" : false
+				},
+				{
+					"name" : "aluAvailable",
+					"strict" : false
+				},
+				{
+					"name" : "branchAvailable",
 					"strict" : false
 				},
 				{
@@ -1685,6 +1693,10 @@
 				},
 				{
 					"name" : "cntrlFlow[4]",
+					"strict" : false
+				},
+				{
+					"name" : "cntrlFlow[5]",
 					"strict" : false
 				},
 				{

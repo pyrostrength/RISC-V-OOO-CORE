@@ -39,7 +39,7 @@ module branchALU #(parameter WIDTH = 31, C_WIDTH = 7)
 						 output logic [WIDTH:0] correctAddress,branchResult,
 						 output logic[1:0] nextState,
 						 output logic reset,takenBranch, 
-						 output logic writeBTB,request); 
+						 output logic writeBTB,branchDataBusReq); 
 						 
 						 logic signed [WIDTH : 0] tempAddress;
 						 //BranchControl is {isJAL,isJALR,funct3 for branch,state,redirect}
@@ -49,14 +49,15 @@ module branchALU #(parameter WIDTH = 31, C_WIDTH = 7)
 						 logic mispredict,misdirect;
 						 
 						 always_comb begin
-							{writeBTB,takenBranch,request,reset,mispredict,misdirect} = 1'b0;
+							{writeBTB,takenBranch,reset,mispredict,misdirect} = 1'b0;
 							nextState = branchControl[2:1]; //Next state equals current state
 							tempAddress = src1 + src2;
+							branchDataBusReq = 1'b0;
 							branchResult = nxtPC;
 							unique case(branchControl[7:6]) //{isJAL,isJALR}
 								2'b00: begin //Branch instructions
-									request = 1'b1;
 									takenBranch = 1'b0; 
+									branchDataBusReq = 1'b1;
 									unique case(branchControl[5:3])
 										3'b000: begin //BEQ
 											takenBranch = (src1 == src2);
@@ -106,22 +107,22 @@ module branchALU #(parameter WIDTH = 31, C_WIDTH = 7)
 								/*JALR and JAL instructions don't update the BTB */
 								2'b01: begin //JALR instructions
 									{writeBTB,takenBranch}= 1'b0;
+									branchDataBusReq = 1'b1;
 									correctAddress = {tempAddress[WIDTH:1],1'b0}; //Actual target address.
 									reset = 1'b1; //Since we change next sequential fetch.
-									request = 1'b1;
 								end
 								
 								/*JAL instruction changes instruction PC 2 cycles after rename stage.
 								We,for now,prevent it from writing to BTB or updating the g-share predictor.*/
 								2'b10: begin //JAL instruction
 									{writeBTB,takenBranch,reset} = 1'b0;
+									branchDataBusReq = 1'b1;
 									correctAddress = targetAddress;
-									request = 1'b1;
 								end
 								
 								default: begin  
 									correctAddress = tempAddress;
-									request = 1'b0;
+									branchDataBusReq = 1'b0;
 								end
 							
 							endcase

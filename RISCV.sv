@@ -29,7 +29,7 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
                (input logic globalReset,clk,
 				    output logic[WIDTH:0] nextPC,result,regDest,valueBroadcast,instr,instrPC,aluSrc1,aluSrc2,
 					 output logic[WIDTH:0] operand1,operand2,immExt,predictedPCF,
-					 output logic validBroadcast,validCommit,full,robReq,rgWr,branchRequest,ALURequest,
+					 output logic validBroadcast,validCommit,full,robReq,rgWr,branchDataBusReq,aluDataBusReq,
 					 output logic aluAvailable,branchAvailable,redirect,
 					 output logic[BRANCH:0] branchRequests,
 					 output logic[ALU:0] ALURequests,
@@ -78,7 +78,7 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 				logic[WIDTH:0] pc ; //immExt
 				logic[RS:0] RSstation;
 				logic[2:0] branchFunct3;
-				logic jal,useImm,regWrite;
+				logic jal,useImm,regWrite,earlyMiss;
 				logic isJALR,stationRequest;
 				logic[REG:0] destRegW; //We write ROB dependence on second stage when we're sure that we occupy a register so loop back the output.
 				logic busy1,busy2;

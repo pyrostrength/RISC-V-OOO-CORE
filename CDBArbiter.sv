@@ -51,7 +51,7 @@ module CDBArbiter  #(parameter WIDTH = 31, ROB = 2,CONTROL = 4) //control change
 							input logic[CONTROL:0] controlPC,
 							input logic[ROB:0] ALURob,branchRob,
 							input logic[WIDTH:0] ALUResult,branchResult,fetchAddress,
-							input logic ALURequest,branchRequest,clk,
+							input logic aluDataBusReq,branchDataBusReq,clk,
 							output logic aluAvailable,branchAvailable);
 							
 								//Bus arbitration functionality
@@ -66,7 +66,7 @@ module CDBArbiter  #(parameter WIDTH = 31, ROB = 2,CONTROL = 4) //control change
 								//Variable declaration assignment needs to have a constant expression
 								logic we;
 								
-								assign we = ALURequest | branchRequest;
+								assign we = aluDataBusReq | branchDataBusReq;
 								
 								logic controlFlow; //Are we going to write a control flow instruction on CDB?
 								
@@ -74,22 +74,22 @@ module CDBArbiter  #(parameter WIDTH = 31, ROB = 2,CONTROL = 4) //control change
 								//Pointer points to respective functional unit.
 								//01 for ALU,10 for branch.
 								always_comb begin
-									grant = 2'b01;
+									grant = '0;
 									controlFlow = 1'b0;
 									case(pointer)
 										1'b0: begin//ALU request
-											if(ALURequest) grant = 2'b01;
-											else if(branchRequest) begin
+											if(aluDataBusReq) grant = 2'b01;
+											else if(branchDataBusReq) begin
 												grant = 2'b10;
 												controlFlow = 1'b1;
 											end
 										end
 										1'b1: begin//Branch request
-											if(branchRequest) begin
+											if(branchDataBusReq) begin
 												grant = 2'b10;
 												controlFlow = 1'b1;
 											end
-											else if(ALURequest) grant = 2'b01;
+											else if(aluDataBusReq) grant = 2'b01;
 										end
 									endcase
 									//Assigning to a result
@@ -114,8 +114,8 @@ module CDBArbiter  #(parameter WIDTH = 31, ROB = 2,CONTROL = 4) //control change
 								end
 								
 								always_comb begin
-									aluAvailable = (grant == 2'b01) ? 1'b1 : !ALURequest;
-									branchAvailable = (grant == 2'b10) ? 1'b1 : !branchRequest;
+									aluAvailable =  (grant == 2'b01) ? 1'b1 : !aluDataBusReq;
+									branchAvailable = (grant == 2'b10) ? 1'b1 :!branchDataBusReq;
 								end
 										
 								//We only pass a result out if and only if we received sth from functional units.

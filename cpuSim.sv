@@ -2,7 +2,7 @@ module cpuSim #(parameter WIDTH = 31,REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 					BRANCH = 1, ALU = 3, B_WIDTH = 7);
 		
 		logic clk;
-		logic globalReset,validBroadcast,validCommit,full,robReq,rgWr,branchRequest,ALURequest;
+		logic globalReset,validBroadcast,validCommit,full,robReq,rgWr,branchDataBusReq,aluDataBusReq;
 		logic aluAvailable,branchAvailable,redirect;
 		logic[ALU:0] ALURequests,ALUInfo;
 		logic[BRANCH:0] branchRequests;

@@ -61,10 +61,12 @@ module instrFetchUnit #(parameter WIDTH = 31, INDEX = 7, B_WIDTH = 7)
 								
 								
 								always_ff @(posedge clk) begin
-									/*If globalReset or clear we pass a pipeline bubble i.e info
+									/*If globalReset or clear or made a prediction
+								   on non-conditional branching instruction
+									we pass a pipeline bubble i.e info
 									that wouldn't introduce permanent state changes that would
 									make program execute incorrectly*/
-									if(globalReset | (outputBus.controlFlow[0] & validCommit)) begin
+									if(globalReset | (outputBus.controlFlow[0] & validCommit) | earlyMisdirect) begin
 										instr <= '0;
 										instrPC <=  '0;
 										predictedPCF <= '0;

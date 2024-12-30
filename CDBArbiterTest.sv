@@ -7,7 +7,7 @@ module CDBArbiterTest #(parameter WIDTH = 31,ROB = 2,CONTROL = 5);
 							  logic[CONTROL:0] controlPC;
 							  logic[ROB:0] ALURob,branchRob;
 							  logic[WIDTH:0] ALUResult,branchResult,fetchAddress,globalReset;
-							  logic ALURequest,branchRequest,clk,clear,aluAvailable,branchAvailable,validCommit;
+							  logic aluDataBusReq,branchDataBusReq,clk,clear,aluAvailable,branchAvailable,validCommit;
 							  
 							  CDBArbiter arbiter(.*);
 								
@@ -24,7 +24,7 @@ module CDBArbiterTest #(parameter WIDTH = 31,ROB = 2,CONTROL = 5);
 									clear = 1'b1; #5 //Set pointer to 0.
 									
 									/*Only one request by ALU unit with value and request setup before rising clock edge*/
-									ALUResult = 32'd60 ; ALURequest = 1'b0; ALURob = 3'd1; #3
+									ALUResult = 32'd60 ; aluDataBusReq = 1'b0; ALURob = 3'd1; #3
 									
 									assert (dataBus.result == ALUResult);
 									assert (dataBus.robEntry == ALURob); 
