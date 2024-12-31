@@ -1540,6 +1540,134 @@
 					"strict" : false
 				},
 				{
+					"name" : "trgetAddr[0]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[1]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[2]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[3]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[4]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[5]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[6]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[7]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[8]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[9]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[10]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[11]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[12]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[13]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[14]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[15]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[16]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[17]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[18]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[19]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[20]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[21]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[22]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[23]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[24]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[25]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[26]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[27]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[28]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[29]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[30]",
+					"strict" : false
+				},
+				{
+					"name" : "trgetAddr[31]",
+					"strict" : false
+				},
+				{
 					"name" : "validBroadcast",
 					"strict" : false
 				},
@@ -1593,6 +1721,14 @@
 				},
 				{
 					"name" : "ready2",
+					"strict" : false
+				},
+				{
+					"name" : "noSelect",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
 					"strict" : false
 				},
 				{

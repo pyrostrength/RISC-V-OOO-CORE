@@ -68,6 +68,7 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 								//Contains previousIndex for updating the gshare unit
 								logic[INDEX:0] previousIndexBuffer[7:0];
 								
+								
 								//Memory initialization for reorder buffers.
 								initial begin
 									$readmemb("/home/voidknight/Downloads/CPU_Q/valueInit.txt",valueBuffer);
@@ -135,10 +136,23 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 										rdy <= readyBuffer[read_ptr];
 										destCommit <= destinationBuffer[read_ptr];
 										
+										/*In case of cpuReset we clear initial commiting entry from ROB
+											and empty reorder buffer by setting read_ptr and write_ptr to
+											the same location. CPU reset is detected in the previous cycle
+											and read_ptr remains the same when CPU reset is detected.
+											*/
+										if(cpuReset & priorCommit) begin
+											readyBuffer[reset_ptr] <= 1'b0;
+											write_ptr <= reset_ptr;
+											controlBuffer[write_ptr] <= '0;
+											updateBuffer[write_ptr] <= '0;
+										end
+											
+										
 								/*Write on negative clock edge since inter-stage flip-flops operate positive clock edge.
 								In case of cpu reset we void this write to ROB by emptying entire pipeline and setting
 								write_ptr to read-ptr*/
-										if(!freeze & robWrite & !globalReset) begin 
+										else if(!freeze & robWrite & !globalReset) begin 
 											
 											//Write instruction destination into destination buffer
 											destinationBuffer[write_ptr] <= inputBus.destination;
@@ -149,22 +163,7 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 											//Clear ready buffer of incorrect information
 											readyBuffer[write_ptr] <= 1'b0;
 											
-											/*In case of cpuReset we clear initial commiting entry
-											and empty reorder buffer by setting read_ptr and write_ptr to
-											its location. Read_ptr is set to location by never incrementing
-											when CPU reset is detected in prior cycle and write_ptr is changed
-											to initial read_ptr at negative clock edge.
-											Reset_ptr is rob entry of committing instruction. 
-											Resetting write_ptr to read_ptr empties the ROB*/
-											if(cpuReset & priorCommit) begin
-												readyBuffer[reset_ptr] <= 1'b0;
-												write_ptr <= reset_ptr;
-											end
-											
-											/*Increment write_ptr iff pipeline was never frozen,
-											a request to write the rob had been made and rob isn't
-											full*/
-											else if(!full & !cpuReset) begin
+											if(!full) begin
 												write_ptr <= write_ptr + 3'b001;
 											end
 											
@@ -188,7 +187,7 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 									
 									 /*Indicate data value and it's availability after write result stage.
 									   Doesn't depend upon fullness of ROB. */
-										if(dataBus.validBroadcast) begin
+										if(dataBus.validBroadcast & !(cpuReset & priorCommit)) begin
 											readyBuffer[dataBus.robEntry] <= 1'b1;
 											
 											valueBuffer[dataBus.robEntry] <= dataBus.result;
@@ -198,7 +197,7 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 									/*If instruction is a control flow instruction then we store
 									  target address and relevant PC select and branch predictor update
 									  control information*/
-										if(dataBus.isControl & dataBus.validBroadcast) begin
+										if(dataBus.isControl & dataBus.validBroadcast & !(cpuReset & priorCommit)) begin
 											addressBuffer[dataBus.robEntry] <= dataBus.targetAddress;
 											
 											updateBuffer[dataBus.robEntry] <= {dataBus.isControl,dataBus.pcControl};
