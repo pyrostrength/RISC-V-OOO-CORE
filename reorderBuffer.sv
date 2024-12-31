@@ -230,6 +230,15 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 										outputBus.destCommit <= '0;
 										{commitRob,read_ptr} <= '0;
 									end
+									
+									/*If we requested a cpuReset in prior cycle then we must ensure
+									that some signals are asserted low since read_ptr isn't incremented*/
+									else if(cpuReset & priorCommit) begin
+										outputBus.validCommit <= '0;
+										outputBus.commitInfo <= '0;
+										outputBus.destCommit <= '0;
+										outputBus.controlFlow <= '0;
+									end
 								/*Pass new value of the read_ptr. Then we
 								use the new value to read from buffers at negative
 								clock edge. Timing should be met*/
@@ -258,11 +267,11 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 									then its imperative that some signals be rendered inactive as opposed to 
 									retaining their previous values. These are the control signals
 								   that introduce state changes.	*/
-									else begin
-										outputBus.commitInfo <= '0;
-										outputBus.controlFlow <= '0;
-										outputBus.validCommit <= '0;
-									end
+									//else begin
+										//outputBus.commitInfo <= '0;
+										//outputBus.controlFlow <= '0;
+										//outputBus.validCommit <= '0;
+									//end
 								end
 								
 endmodule
