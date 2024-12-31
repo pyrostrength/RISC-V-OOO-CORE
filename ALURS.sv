@@ -9,6 +9,7 @@ module ALURS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3, RS = 3)
 					input logic signed[WIDTH:0] value1,value2,
 					input logic [C_WIDTH:0] ALUControl,
 					input logic[ROB:0] rob1,rob2,robInstr,
+					output logic noSelect,
 					output logic[ROB:0] instrRob,
 					output logic[C_WIDTH:0] instrInfo,
 					output logic[RS:0] busy,
@@ -45,7 +46,7 @@ module ALURS #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3, RS = 3)
 					logic[RS:0] selectionRequests;
 					assign selectionRequests = {selectReq4,selectReq3,selectReq2,selectReq1};
 					
-					logic noSelect;
+					//logic noSelect;
 						/*If no instruction selected for execution,provide
 						default behavior equal to CPUreset*/
 					always_comb begin

@@ -32,8 +32,13 @@ add wave -noupdate -label branchDataBusReq /cpuSim/branchDataBusReq
 add wave -noupdate -label aluDataBusReq /cpuSim/aluDataBusReq
 add wave -noupdate -label busy2 /cpuSim/busy2
 add wave -noupdate -label busy1 /cpuSim/busy1
+add wave -noupdate -label ready2 /cpuSim/ready2
+add wave -noupdate -label ready1 /cpuSim/ready1
+add wave -noupdate -label rob2 /cpuSim/rob2
+add wave -noupdate -label rob1 /cpuSim/rob1
+add wave -noupdate -label ALURob /cpuSim/ALURob
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {35000 ps} 0}
+WaveRestoreCursors {{Cursor 1} {42400 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100

@@ -30,10 +30,11 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 				    output logic[WIDTH:0] nextPC,result,regDest,valueBroadcast,instr,instrPC,aluSrc1,aluSrc2,
 					 output logic[WIDTH:0] operand1,operand2,immExt,predictedPCF,
 					 output logic validBroadcast,validCommit,full,robReq,rgWr,branchDataBusReq,aluDataBusReq,
-					 output logic aluAvailable,branchAvailable,redirect,busy1,busy2,
+					 output logic aluAvailable,branchAvailable,redirect,busy1,busy2,ready1,ready2,
+					 output logic noSelect,
 					 output logic[BRANCH:0] branchRequests,
 					 output logic[ALU:0] ALURequests,
-					 output logic[ROB:0] robBroadcast,robAllocation,
+					 output logic[ROB:0] robBroadcast,robAllocation,rob1,rob2,ALURob,
 					 output logic[A_WIDTH:0] ALUInfo,
 					 output logic[INDEX:0] GHRIndex,
 					 output logic[5:0] cntrlFlow);
@@ -72,7 +73,8 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 				logic[ROB:0] destROB; //robAllocation;	
 				
 				//Outputs of instruction decode stage
-				logic[ROB:0] rob1,rob2,robInstr;
+				//logic[ROB:0] rob1,rob2,
+				logic[ROB:0] robInstr;
 				//logic[WIDTH:0] operand1,operand2;
 				logic[A_WIDTH:0] ALUControl;
 				logic[WIDTH:0] pc ; //immExt
@@ -109,7 +111,8 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 				
 				//Output from rename stage
 				logic[WIDTH:0] targetPC,earlyResult,seqPC;
-				logic ready1,ready2,earlyWrite,jump;
+				//logic ready1,ready2;
+				logic earlyWrite,jump;
 				logic signed[WIDTH:0] value1,value2;
 				logic[A_WIDTH:0] aluCntrl;
 				logic[B_WIDTH:0] brnchCntrl;
@@ -130,8 +133,9 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 					end
 				end
 				
+				
 				//Outputs from ALURS
-				logic[ROB:0] ALURob;
+				//logic[ROB:0] ALURob;
 				//logic[A_WIDTH:0] ALUInfo;
 				//logic signed[WIDTH:0] aluSrc1,aluSrc2;
 				//logic aluAvailable,branchAvailable;

@@ -3,13 +3,14 @@ module cpuSim #(parameter WIDTH = 31,REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 		
 		logic clk;
 		logic globalReset,validBroadcast,validCommit,full,robReq,rgWr,branchDataBusReq,aluDataBusReq;
-		logic aluAvailable,branchAvailable,redirect,busy1,busy2;
+		logic aluAvailable,branchAvailable,redirect,busy1,busy2,ready1,ready2;
 		logic[ALU:0] ALURequests,ALUInfo;
 		logic[BRANCH:0] branchRequests;
 		logic[WIDTH:0] nextPC,result,regDest,valueBroadcast,instr,instrPC,aluSrc1,aluSrc2,immExt;
 		logic[WIDTH:0] operand1,operand2,predictedPCF;
-		logic[ROB:0] robBroadcast,robAllocation;
+		logic[ROB:0] robBroadcast,robAllocation,rob1,rob2,ALURob;
 		logic[INDEX:0] GHRIndex;
+		logic noSelect;
 		writeCommit outputBus();
 		logic[5:0] cntrlFlow;
 		

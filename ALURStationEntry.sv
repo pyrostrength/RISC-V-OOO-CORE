@@ -42,9 +42,8 @@ module ALURStationEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3)
 									 
 									 logic[ROB:0] src1Rob,src2Rob;
 									 
-									 logic busyI; //Signal to change busyness of entry if selected and we can execute;
-									 
 									 logic selectReq1,selectReq2;
+									 /*glitch source : determining instruction readiness based upon ready signal*/
 									 
 									 /*Combinational logic for comparing instruction write result
 									   ROB entry with source operands ROB entries.
@@ -53,15 +52,14 @@ module ALURStationEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3)
 									 always_comb begin
 										match1 =  (dataBus.robEntry == src1Rob) & !value1Ready & busy & dataBus.validBroadcast; //Match only possible if value wasn't ready
 										match2 = (dataBus.robEntry == src2Rob) & !value2Ready & busy & dataBus.validBroadcast; 
-										selectReq1 = (value1Ready|ready1|match1);
-										selectReq2 = (value2Ready|ready2|match2);
+										selectReq1 = (value1Ready|match1);
+										selectReq2 = (value2Ready|match2);
 										selectReq = selectReq1 & selectReq2;
 										/*When both operands ready, we can request the selection logic.
 										Oring the ready inputs and value1Ready signals allows for 
 										an instruction to be both written to RS and selected in the same 
 										stage
 										*/
-										busyI = (selected & execute) ? 1'b0 : busy;
 										
 										//Source values either value broadcast on CDB or value stored in RS.
 										src1 = (match1) ? dataBus.result : val1;
@@ -76,7 +74,7 @@ module ALURStationEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3)
 									 or capturing value on CDB*/
 									 always_ff @(posedge clk) begin
 									 /*If a request to clear the RS has been made*/
-										if((clear & validCommit) | globalReset) begin
+										if((clear & validCommit) | globalReset | (selected & execute)) begin
 											{value1Ready,value2Ready,busy} <= '0;
 											{instrInfo} <= 4'b1111;
 											{instrRob} <= '0;
@@ -96,20 +94,19 @@ module ALURStationEntry #(parameter WIDTH = 31, ROB = 2, C_WIDTH = 3)
 											busy <= 1'b1;
 										end
 										
-										else begin
-											busy <= busyI;
-										end
+										/*Might have a potential simulation error here on
+										capturing appropriate instruction broadcasts*/
 										
 										/*If match for tag associated with operand we
 										store value and indicate operand readiness*/ 
-										if(match1 & (!clear & !globalReset)) begin
+										if (match1) begin
 											val1 <= dataBus.result; 
 											value1Ready <= 1'b1;
 										end
 										
 										/*If match for tag associated with operand we
 										store value and indicate operand readiness*/ 
-										if(match2 & (!clear & !globalReset)) begin
+										if (match2) begin
 											val2 <= dataBus.result;
 											value2Ready <= 1'b1;
 										end

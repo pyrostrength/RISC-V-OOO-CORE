@@ -1580,6 +1580,22 @@
 					"strict" : false
 				},
 				{
+					"name" : "busy1",
+					"strict" : false
+				},
+				{
+					"name" : "busy2",
+					"strict" : false
+				},
+				{
+					"name" : "ready1",
+					"strict" : false
+				},
+				{
+					"name" : "ready2",
+					"strict" : false
+				},
+				{
 					"name" : "branchRequests[0]",
 					"strict" : false
 				},
@@ -1625,6 +1641,42 @@
 				},
 				{
 					"name" : "robAllocation[2]",
+					"strict" : false
+				},
+				{
+					"name" : "rob1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "rob1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "rob1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "rob2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "rob2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "rob2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ALURob[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ALURob[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ALURob[2]",
 					"strict" : false
 				},
 				{
