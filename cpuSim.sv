@@ -10,7 +10,7 @@ module cpuSim #(parameter WIDTH = 31,REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 		logic[WIDTH:0] operand1,operand2,predictedPCF,trgetAddr;
 		logic[ROB:0] robBroadcast,robAllocation,rob1,rob2,ALURob;
 		logic[INDEX:0] GHRIndex;
-		logic noSelect;
+		logic noSelect,earlyMisdirect;
 		writeCommit outputBus();
 		logic[5:0] cntrlFlow;
 		

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RISC-V
-Mon Dec 30 18:56:27 2024
+Mon Dec 30 22:55:26 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -20,11 +20,11 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
  12. Registers Packed Into Inferred Megafunctions
  13. Multiplexer Restructuring Statistics (No Restructuring Performed)
  14. Source assignments for reorderBuffer:rob|altsyncram:valueBuffer_rtl_0|altsyncram_k7s1:auto_generated
- 15. Source assignments for reorderBuffer:rob|altsyncram:destinationBuffer_rtl_0|altsyncram_r7s1:auto_generated
+ 15. Source assignments for reorderBuffer:rob|altsyncram:destinationBuffer_rtl_0|altsyncram_q7s1:auto_generated
  16. Source assignments for reorderBuffer:rob|altsyncram:addressBuffer_rtl_0|altsyncram_l7s1:auto_generated
  17. Source assignments for reorderBuffer:rob|altsyncram:regStatusBuffer_rtl_0|altsyncram_m7s1:auto_generated
  18. Source assignments for reorderBuffer:rob|altsyncram:oldPCBuffer_rtl_0|altsyncram_n7s1:auto_generated
- 19. Source assignments for reorderBuffer:rob|altsyncram:previousIndexBuffer_rtl_0|altsyncram_05s1:auto_generated
+ 19. Source assignments for reorderBuffer:rob|altsyncram:previousIndexBuffer_rtl_0|altsyncram_v4s1:auto_generated
  20. Source assignments for reorderBuffer:rob|ROBrenamebuffer:renamebuffer|altsyncram:valuebuffer1_rtl_0|altsyncram_sas1:auto_generated
  21. Source assignments for reorderBuffer:rob|ROBrenamebuffer:renamebuffer|altsyncram:valuebuffer2_rtl_0|altsyncram_tas1:auto_generated
  22. Source assignments for instr_decode:decodeStage|register_status:regTable|altsyncram:src1ROB_rtl_0|altsyncram_o9s1:auto_generated
@@ -127,7 +127,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Dec 30 18:56:26 2024          ;
+; Analysis & Synthesis Status     ; Successful - Mon Dec 30 22:55:26 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; RISC-V                                         ;
 ; Top-level Entity Name           ; RISCV                                          ;
@@ -249,8 +249,8 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
 ;     Processor 4            ;   0.0%      ;
 ;     Processor 5            ;   0.0%      ;
 ;     Processor 6            ;   0.0%      ;
@@ -316,16 +316,16 @@ https://fpgasoftware.intel.com/eula.
 ; altdpram.inc                                    ; yes             ; Megafunction                                          ; /home/voidknight/Downloads/Quartus/23.1std/quartus/libraries/megafunctions/altdpram.inc          ;         ;
 ; db/altsyncram_k7s1.tdf                          ; yes             ; Auto-Generated Megafunction                           ; /home/voidknight/Downloads/CPU_Q/db/altsyncram_k7s1.tdf                                          ;         ;
 ; db/RISC-V.ram0_reorderBuffer_baf5ec2f.hdl.mif   ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/voidknight/Downloads/CPU_Q/db/RISC-V.ram0_reorderBuffer_baf5ec2f.hdl.mif                   ;         ;
-; db/altsyncram_r7s1.tdf                          ; yes             ; Auto-Generated Megafunction                           ; /home/voidknight/Downloads/CPU_Q/db/altsyncram_r7s1.tdf                                          ;         ;
-; db/RISC-V.ram7_reorderBuffer_baf5ec2f.hdl.mif   ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/voidknight/Downloads/CPU_Q/db/RISC-V.ram7_reorderBuffer_baf5ec2f.hdl.mif                   ;         ;
+; db/altsyncram_q7s1.tdf                          ; yes             ; Auto-Generated Megafunction                           ; /home/voidknight/Downloads/CPU_Q/db/altsyncram_q7s1.tdf                                          ;         ;
+; db/RISC-V.ram6_reorderBuffer_baf5ec2f.hdl.mif   ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/voidknight/Downloads/CPU_Q/db/RISC-V.ram6_reorderBuffer_baf5ec2f.hdl.mif                   ;         ;
 ; db/altsyncram_l7s1.tdf                          ; yes             ; Auto-Generated Megafunction                           ; /home/voidknight/Downloads/CPU_Q/db/altsyncram_l7s1.tdf                                          ;         ;
 ; db/RISC-V.ram1_reorderBuffer_baf5ec2f.hdl.mif   ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/voidknight/Downloads/CPU_Q/db/RISC-V.ram1_reorderBuffer_baf5ec2f.hdl.mif                   ;         ;
 ; db/altsyncram_m7s1.tdf                          ; yes             ; Auto-Generated Megafunction                           ; /home/voidknight/Downloads/CPU_Q/db/altsyncram_m7s1.tdf                                          ;         ;
 ; db/RISC-V.ram2_reorderBuffer_baf5ec2f.hdl.mif   ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/voidknight/Downloads/CPU_Q/db/RISC-V.ram2_reorderBuffer_baf5ec2f.hdl.mif                   ;         ;
 ; db/altsyncram_n7s1.tdf                          ; yes             ; Auto-Generated Megafunction                           ; /home/voidknight/Downloads/CPU_Q/db/altsyncram_n7s1.tdf                                          ;         ;
 ; db/RISC-V.ram3_reorderBuffer_baf5ec2f.hdl.mif   ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/voidknight/Downloads/CPU_Q/db/RISC-V.ram3_reorderBuffer_baf5ec2f.hdl.mif                   ;         ;
-; db/altsyncram_05s1.tdf                          ; yes             ; Auto-Generated Megafunction                           ; /home/voidknight/Downloads/CPU_Q/db/altsyncram_05s1.tdf                                          ;         ;
-; db/RISC-V.ram6_reorderBuffer_baf5ec2f.hdl.mif   ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/voidknight/Downloads/CPU_Q/db/RISC-V.ram6_reorderBuffer_baf5ec2f.hdl.mif                   ;         ;
+; db/altsyncram_v4s1.tdf                          ; yes             ; Auto-Generated Megafunction                           ; /home/voidknight/Downloads/CPU_Q/db/altsyncram_v4s1.tdf                                          ;         ;
+; db/RISC-V.ram5_reorderBuffer_baf5ec2f.hdl.mif   ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/voidknight/Downloads/CPU_Q/db/RISC-V.ram5_reorderBuffer_baf5ec2f.hdl.mif                   ;         ;
 ; db/altsyncram_sas1.tdf                          ; yes             ; Auto-Generated Megafunction                           ; /home/voidknight/Downloads/CPU_Q/db/altsyncram_sas1.tdf                                          ;         ;
 ; db/RISC-V.ram0_ROBrenamebuffer_b95a32dd.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/voidknight/Downloads/CPU_Q/db/RISC-V.ram0_ROBrenamebuffer_b95a32dd.hdl.mif                 ;         ;
 ; db/altsyncram_tas1.tdf                          ; yes             ; Auto-Generated Megafunction                           ; /home/voidknight/Downloads/CPU_Q/db/altsyncram_tas1.tdf                                          ;         ;
@@ -352,14 +352,14 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 2339      ;
+; Estimate of Logic utilization (ALMs needed) ; 2409      ;
 ;                                             ;           ;
-; Combinational ALUT usage for logic          ; 2951      ;
+; Combinational ALUT usage for logic          ; 3015      ;
 ;     -- 7 input functions                    ; 336       ;
-;     -- 6 input functions                    ; 1042      ;
-;     -- 5 input functions                    ; 250       ;
-;     -- 4 input functions                    ; 620       ;
-;     -- <=3 input functions                  ; 703       ;
+;     -- 6 input functions                    ; 1123      ;
+;     -- 5 input functions                    ; 502       ;
+;     -- 4 input functions                    ; 293       ;
+;     -- <=3 input functions                  ; 761       ;
 ;                                             ;           ;
 ; Dedicated logic registers                   ; 2532      ;
 ;                                             ;           ;
@@ -372,8 +372,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 2852      ;
-; Total fan-out                               ; 25950     ;
-; Average fan-out                             ; 3.98      ;
+; Total fan-out                               ; 26504     ;
+; Average fan-out                             ; 4.02      ;
 +---------------------------------------------+-----------+
 
 
@@ -382,7 +382,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                       ; Entity Name         ; Library Name ;
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |RISCV                                       ; 2951 (10)           ; 2532 (239)                ; 12288             ; 0          ; 249  ; 224          ; |RISCV                                                                                                                    ; RISCV               ; work         ;
+; |RISCV                                       ; 3015 (11)           ; 2532 (239)                ; 12288             ; 0          ; 249  ; 224          ; |RISCV                                                                                                                    ; RISCV               ; work         ;
 ;    |ALURS:aluReservationStation|             ; 664 (16)            ; 393 (71)                  ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation                                                                                        ; ALURS               ; work         ;
 ;       |ALURStationEntry:entry1|              ; 93 (93)             ; 80 (80)                   ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry1                                                                ; ALURStationEntry    ; work         ;
 ;       |ALURStationEntry:entry2|              ; 91 (91)             ; 80 (80)                   ; 0                 ; 0          ; 0    ; 0            ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry2                                                                ; ALURStationEntry    ; work         ;
@@ -415,12 +415,12 @@ https://fpgasoftware.intel.com/eula.
 ;       |imem:IMem|                            ; 0 (0)               ; 0 (0)                     ; 8192              ; 0          ; 0    ; 0            ; |RISCV|instrFetchUnit:fetchStage|imem:IMem                                                                                ; imem                ; work         ;
 ;          |altsyncram:iMem_rtl_0|             ; 0 (0)               ; 0 (0)                     ; 8192              ; 0          ; 0    ; 0            ; |RISCV|instrFetchUnit:fetchStage|imem:IMem|altsyncram:iMem_rtl_0                                                          ; altsyncram          ; work         ;
 ;             |altsyncram_8hc1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192              ; 0          ; 0    ; 0            ; |RISCV|instrFetchUnit:fetchStage|imem:IMem|altsyncram:iMem_rtl_0|altsyncram_8hc1:auto_generated                           ; altsyncram_8hc1     ; work         ;
-;    |instr_decode:decodeStage|                ; 733 (238)           ; 1238 (182)                ; 1344              ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage                                                                                           ; instr_decode        ; work         ;
+;    |instr_decode:decodeStage|                ; 739 (241)           ; 1238 (182)                ; 1344              ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage                                                                                           ; instr_decode        ; work         ;
 ;       |decodeextend:decodeExtender|          ; 23 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|decodeextend:decodeExtender                                                               ; decodeextend        ; work         ;
 ;          |ALUDecoder:ALUdecoder|             ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|decodeextend:decodeExtender|ALUDecoder:ALUdecoder                                         ; ALUDecoder          ; work         ;
 ;          |extend:extender|                   ; 14 (14)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|decodeextend:decodeExtender|extend:extender                                               ; extend              ; work         ;
 ;          |infodecoder:maindecoder|           ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|decodeextend:decodeExtender|infodecoder:maindecoder                                       ; infodecoder         ; work         ;
-;       |register_file:regfile|                ; 327 (327)           ; 1024 (1024)               ; 1024              ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_file:regfile                                                                     ; register_file       ; work         ;
+;       |register_file:regfile|                ; 330 (330)           ; 1024 (1024)               ; 1024              ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_file:regfile                                                                     ; register_file       ; work         ;
 ;          |altsyncram:regFile_rtl_0|          ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_file:regfile|altsyncram:regFile_rtl_0                                            ; altsyncram          ; work         ;
 ;             |altsyncram_g9o1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_file:regfile|altsyncram:regFile_rtl_0|altsyncram_g9o1:auto_generated             ; altsyncram_g9o1     ; work         ;
 ;       |register_status:regTable|             ; 145 (145)           ; 32 (32)                   ; 320               ; 0          ; 0    ; 0            ; |RISCV|instr_decode:decodeStage|register_status:regTable                                                                  ; register_status     ; work         ;
@@ -435,8 +435,8 @@ https://fpgasoftware.intel.com/eula.
 ;       |branchTargetResolve:targetResolver|   ; 65 (65)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|renameStage:instrRenameStage|branchTargetResolve:targetResolver                                                    ; branchTargetResolve ; work         ;
 ;       |instructionValues:valdet1|            ; 36 (36)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|renameStage:instrRenameStage|instructionValues:valdet1                                                             ; instructionValues   ; work         ;
 ;       |instructionValues:valdet2|            ; 36 (36)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |RISCV|renameStage:instrRenameStage|instructionValues:valdet2                                                             ; instructionValues   ; work         ;
-;    |reorderBuffer:rob|                       ; 207 (185)           ; 91 (81)                   ; 1664              ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob                                                                                                  ; reorderBuffer       ; work         ;
-;       |ROBrenamebuffer:renamebuffer|         ; 22 (22)             ; 10 (10)                   ; 512               ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|ROBrenamebuffer:renamebuffer                                                                     ; ROBrenamebuffer     ; work         ;
+;    |reorderBuffer:rob|                       ; 264 (244)           ; 91 (81)                   ; 1664              ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob                                                                                                  ; reorderBuffer       ; work         ;
+;       |ROBrenamebuffer:renamebuffer|         ; 20 (20)             ; 10 (10)                   ; 512               ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|ROBrenamebuffer:renamebuffer                                                                     ; ROBrenamebuffer     ; work         ;
 ;          |altsyncram:valuebuffer1_rtl_0|     ; 0 (0)               ; 0 (0)                     ; 256               ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|ROBrenamebuffer:renamebuffer|altsyncram:valuebuffer1_rtl_0                                       ; altsyncram          ; work         ;
 ;             |altsyncram_sas1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 256               ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|ROBrenamebuffer:renamebuffer|altsyncram:valuebuffer1_rtl_0|altsyncram_sas1:auto_generated        ; altsyncram_sas1     ; work         ;
 ;          |altsyncram:valuebuffer2_rtl_0|     ; 0 (0)               ; 0 (0)                     ; 256               ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|ROBrenamebuffer:renamebuffer|altsyncram:valuebuffer2_rtl_0                                       ; altsyncram          ; work         ;
@@ -444,11 +444,11 @@ https://fpgasoftware.intel.com/eula.
 ;       |altsyncram:addressBuffer_rtl_0|       ; 0 (0)               ; 0 (0)                     ; 256               ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|altsyncram:addressBuffer_rtl_0                                                                   ; altsyncram          ; work         ;
 ;          |altsyncram_l7s1:auto_generated|    ; 0 (0)               ; 0 (0)                     ; 256               ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|altsyncram:addressBuffer_rtl_0|altsyncram_l7s1:auto_generated                                    ; altsyncram_l7s1     ; work         ;
 ;       |altsyncram:destinationBuffer_rtl_0|   ; 0 (0)               ; 0 (0)                     ; 256               ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|altsyncram:destinationBuffer_rtl_0                                                               ; altsyncram          ; work         ;
-;          |altsyncram_r7s1:auto_generated|    ; 0 (0)               ; 0 (0)                     ; 256               ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|altsyncram:destinationBuffer_rtl_0|altsyncram_r7s1:auto_generated                                ; altsyncram_r7s1     ; work         ;
+;          |altsyncram_q7s1:auto_generated|    ; 0 (0)               ; 0 (0)                     ; 256               ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|altsyncram:destinationBuffer_rtl_0|altsyncram_q7s1:auto_generated                                ; altsyncram_q7s1     ; work         ;
 ;       |altsyncram:oldPCBuffer_rtl_0|         ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|altsyncram:oldPCBuffer_rtl_0                                                                     ; altsyncram          ; work         ;
 ;          |altsyncram_n7s1:auto_generated|    ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|altsyncram:oldPCBuffer_rtl_0|altsyncram_n7s1:auto_generated                                      ; altsyncram_n7s1     ; work         ;
 ;       |altsyncram:previousIndexBuffer_rtl_0| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|altsyncram:previousIndexBuffer_rtl_0                                                             ; altsyncram          ; work         ;
-;          |altsyncram_05s1:auto_generated|    ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|altsyncram:previousIndexBuffer_rtl_0|altsyncram_05s1:auto_generated                              ; altsyncram_05s1     ; work         ;
+;          |altsyncram_v4s1:auto_generated|    ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|altsyncram:previousIndexBuffer_rtl_0|altsyncram_v4s1:auto_generated                              ; altsyncram_v4s1     ; work         ;
 ;       |altsyncram:regStatusBuffer_rtl_0|     ; 0 (0)               ; 0 (0)                     ; 256               ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|altsyncram:regStatusBuffer_rtl_0                                                                 ; altsyncram          ; work         ;
 ;          |altsyncram_m7s1:auto_generated|    ; 0 (0)               ; 0 (0)                     ; 256               ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|altsyncram:regStatusBuffer_rtl_0|altsyncram_m7s1:auto_generated                                  ; altsyncram_m7s1     ; work         ;
 ;       |altsyncram:valueBuffer_rtl_0|         ; 0 (0)               ; 0 (0)                     ; 256               ; 0          ; 0    ; 0            ; |RISCV|reorderBuffer:rob|altsyncram:valueBuffer_rtl_0                                                                     ; altsyncram          ; work         ;
@@ -472,9 +472,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; reorderBuffer:rob|ROBrenamebuffer:renamebuffer|altsyncram:valuebuffer1_rtl_0|altsyncram_sas1:auto_generated|ALTSYNCRAM        ; AUTO ; Simple Dual Port ; 8            ; 32           ; 8            ; 32           ; 256  ; db/RISC-V.ram0_ROBrenamebuffer_b95a32dd.hdl.mif ;
 ; reorderBuffer:rob|ROBrenamebuffer:renamebuffer|altsyncram:valuebuffer2_rtl_0|altsyncram_tas1:auto_generated|ALTSYNCRAM        ; AUTO ; Simple Dual Port ; 8            ; 32           ; 8            ; 32           ; 256  ; db/RISC-V.ram1_ROBrenamebuffer_b95a32dd.hdl.mif ;
 ; reorderBuffer:rob|altsyncram:addressBuffer_rtl_0|altsyncram_l7s1:auto_generated|ALTSYNCRAM                                    ; AUTO ; Simple Dual Port ; 8            ; 32           ; 8            ; 32           ; 256  ; db/RISC-V.ram1_reorderBuffer_baf5ec2f.hdl.mif   ;
-; reorderBuffer:rob|altsyncram:destinationBuffer_rtl_0|altsyncram_r7s1:auto_generated|ALTSYNCRAM                                ; AUTO ; Simple Dual Port ; 8            ; 32           ; 8            ; 32           ; 256  ; db/RISC-V.ram7_reorderBuffer_baf5ec2f.hdl.mif   ;
+; reorderBuffer:rob|altsyncram:destinationBuffer_rtl_0|altsyncram_q7s1:auto_generated|ALTSYNCRAM                                ; AUTO ; Simple Dual Port ; 8            ; 32           ; 8            ; 32           ; 256  ; db/RISC-V.ram6_reorderBuffer_baf5ec2f.hdl.mif   ;
 ; reorderBuffer:rob|altsyncram:oldPCBuffer_rtl_0|altsyncram_n7s1:auto_generated|ALTSYNCRAM                                      ; AUTO ; Simple Dual Port ; 8            ; 32           ; 8            ; 32           ; 256  ; db/RISC-V.ram3_reorderBuffer_baf5ec2f.hdl.mif   ;
-; reorderBuffer:rob|altsyncram:previousIndexBuffer_rtl_0|altsyncram_05s1:auto_generated|ALTSYNCRAM                              ; AUTO ; Simple Dual Port ; 8            ; 8            ; 8            ; 8            ; 64   ; db/RISC-V.ram6_reorderBuffer_baf5ec2f.hdl.mif   ;
+; reorderBuffer:rob|altsyncram:previousIndexBuffer_rtl_0|altsyncram_v4s1:auto_generated|ALTSYNCRAM                              ; AUTO ; Simple Dual Port ; 8            ; 8            ; 8            ; 8            ; 64   ; db/RISC-V.ram5_reorderBuffer_baf5ec2f.hdl.mif   ;
 ; reorderBuffer:rob|altsyncram:regStatusBuffer_rtl_0|altsyncram_m7s1:auto_generated|ALTSYNCRAM                                  ; AUTO ; Simple Dual Port ; 8            ; 32           ; 8            ; 32           ; 256  ; db/RISC-V.ram2_reorderBuffer_baf5ec2f.hdl.mif   ;
 ; reorderBuffer:rob|altsyncram:valueBuffer_rtl_0|altsyncram_k7s1:auto_generated|ALTSYNCRAM                                      ; AUTO ; Simple Dual Port ; 8            ; 32           ; 8            ; 32           ; 256  ; db/RISC-V.ram0_reorderBuffer_baf5ec2f.hdl.mif   ;
 +-------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+-------------------------------------------------+
@@ -545,11 +545,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
 ; Total registers                              ; 2532  ;
-; Number of registers using Synchronous Clear  ; 1002  ;
-; Number of registers using Synchronous Load   ; 94    ;
+; Number of registers using Synchronous Clear  ; 1001  ;
+; Number of registers using Synchronous Load   ; 97    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 1576  ;
+; Number of registers using Clock Enable       ; 1575  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -581,67 +581,76 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |RISCV|branchRS:branchReservationStation|branchRSEntry:entry1|instrInfo[5]             ;
-; 3:1                ; 105 bits  ; 210 LEs       ; 0 LEs                ; 210 LEs                ; Yes        ; |RISCV|branchRS:branchReservationStation|branchRSEntry:entry1|src1Rob[1]               ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |RISCV|branchRS:branchReservationStation|branchRSEntry:entry2|instrInfo[1]             ;
-; 3:1                ; 105 bits  ; 210 LEs       ; 0 LEs                ; 210 LEs                ; Yes        ; |RISCV|branchRS:branchReservationStation|branchRSEntry:entry2|targetAddress[13]        ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry1|instrInfo[1]                ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry1|instrRob[0]                 ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |RISCV|branchRS:branchReservationStation|branchRSEntry:entry1|instrInfo[4]             ;
+; 3:1                ; 105 bits  ; 210 LEs       ; 0 LEs                ; 210 LEs                ; Yes        ; |RISCV|branchRS:branchReservationStation|branchRSEntry:entry1|targetAddress[31]        ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |RISCV|branchRS:branchReservationStation|branchRSEntry:entry2|instrInfo[5]             ;
+; 3:1                ; 105 bits  ; 210 LEs       ; 0 LEs                ; 210 LEs                ; Yes        ; |RISCV|branchRS:branchReservationStation|branchRSEntry:entry2|targetAddress[8]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry1|instrInfo[2]                ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry1|src2Rob[1]                  ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry2|instrInfo[2]                ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry2|src2Rob[1]                  ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry3|instrInfo[2]                ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry2|instrRob[2]                 ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry3|instrInfo[1]                ;
 ; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry3|instrRob[0]                 ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry4|instrInfo[1]                ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry4|instrRob[2]                 ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |RISCV|instrFetchUnit:fetchStage|branchIndex:indexGen|globalHistory[7]                 ;
-; 3:1                ; 51 bits   ; 102 LEs       ; 0 LEs                ; 102 LEs                ; Yes        ; |RISCV|outputBus.previousIndex[0]                                                      ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry4|instrInfo[2]                ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry4|src2Rob[1]                  ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |RISCV|instrFetchUnit:fetchStage|branchIndex:indexGen|globalHistory[0]                 ;
+; 3:1                ; 51 bits   ; 102 LEs       ; 0 LEs                ; 102 LEs                ; Yes        ; |RISCV|outputBus.statusSnap[8]                                                         ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.pcControl[1]      ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |RISCV|reorderBuffer:rob|read_ptr[2]                                                   ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |RISCV|instr_decode:decodeStage|isJALR                                                 ;
-; 3:1                ; 33 bits   ; 66 LEs        ; 0 LEs                ; 66 LEs                 ; Yes        ; |RISCV|validAddress[20]                                                                ;
-; 3:1                ; 101 bits  ; 202 LEs       ; 0 LEs                ; 202 LEs                ; Yes        ; |RISCV|instrFetchUnit:fetchStage|GHRIndex[7]                                           ;
-; 3:1                ; 212 bits  ; 424 LEs       ; 0 LEs                ; 424 LEs                ; Yes        ; |RISCV|inputBus.instrPC[17]                                                            ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry1|val1[7]                     ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry1|val2[10]                    ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry2|val1[9]                     ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry2|val2[7]                     ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry3|val1[3]                     ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry3|val2[26]                    ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry4|val1[8]                     ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry4|val2[1]                     ;
-; 4:1                ; 64 bits   ; 128 LEs       ; 0 LEs                ; 128 LEs                ; Yes        ; |RISCV|outputBus.result[3]                                                             ;
-; 4:1                ; 35 bits   ; 70 LEs        ; 0 LEs                ; 70 LEs                 ; Yes        ; |RISCV|outputBus.destCommit[24]                                                        ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |RISCV|branchRS:branchReservationStation|instrInfo[3]                                  ;
-; 4:1                ; 99 bits   ; 198 LEs       ; 0 LEs                ; 198 LEs                ; Yes        ; |RISCV|branchRS:branchReservationStation|predictedAddress[27]                          ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |RISCV|reorderBuffer:rob|read_ptr[0]                                                   ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |RISCV|reorderBuffer:rob|updateBuffer[7][1]                                            ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |RISCV|reorderBuffer:rob|updateBuffer[6][2]                                            ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |RISCV|reorderBuffer:rob|updateBuffer[5][4]                                            ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |RISCV|reorderBuffer:rob|updateBuffer[4][3]                                            ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |RISCV|reorderBuffer:rob|updateBuffer[3][0]                                            ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |RISCV|reorderBuffer:rob|updateBuffer[2][5]                                            ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |RISCV|reorderBuffer:rob|updateBuffer[1][1]                                            ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |RISCV|reorderBuffer:rob|updateBuffer[0][1]                                            ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |RISCV|instr_decode:decodeStage|branchFunct3[0]                                        ;
+; 3:1                ; 33 bits   ; 66 LEs        ; 0 LEs                ; 66 LEs                 ; Yes        ; |RISCV|validAddress[15]                                                                ;
+; 3:1                ; 101 bits  ; 202 LEs       ; 0 LEs                ; 202 LEs                ; Yes        ; |RISCV|instrFetchUnit:fetchStage|instrPC[11]                                           ;
+; 3:1                ; 212 bits  ; 424 LEs       ; 0 LEs                ; 424 LEs                ; Yes        ; |RISCV|instr_decode:decodeStage|pc[2]                                                  ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 35 LEs               ; 0 LEs                  ; Yes        ; |RISCV|reorderBuffer:rob|pcControl[1]                                                  ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry1|val1[25]                    ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry1|val2[2]                     ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry2|val1[11]                    ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry2|val2[28]                    ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry3|val1[16]                    ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry3|val2[31]                    ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry4|val1[6]                     ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|ALURS:aluReservationStation|ALURStationEntry:entry4|val2[26]                    ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |RISCV|reorderBuffer:rob|write_ptr[0]                                                  ;
+; 4:1                ; 64 bits   ; 128 LEs       ; 0 LEs                ; 128 LEs                ; Yes        ; |RISCV|outputBus.targetAddress[1]                                                      ;
+; 4:1                ; 35 bits   ; 70 LEs        ; 0 LEs                ; 70 LEs                 ; Yes        ; |RISCV|outputBus.destCommit[6]                                                         ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |RISCV|branchRS:branchReservationStation|instrInfo[2]                                  ;
+; 4:1                ; 99 bits   ; 198 LEs       ; 0 LEs                ; 198 LEs                ; Yes        ; |RISCV|branchRS:branchReservationStation|predictedAddress[17]                          ;
 ; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |RISCV|instr_decode:decodeStage|rob1[0]                                                ;
 ; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |RISCV|instr_decode:decodeStage|rob2[1]                                                ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|instr_decode:decodeStage|operand2[11]                                           ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |RISCV|instr_decode:decodeStage|ALUControl[2]                                          ;
-; 6:1                ; 31 bits   ; 124 LEs       ; 62 LEs               ; 62 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.targetAddress[25] ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |RISCV|instr_decode:decodeStage|operand2[21]                                           ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |RISCV|instr_decode:decodeStage|ALUControl[1]                                          ;
+; 6:1                ; 31 bits   ; 124 LEs       ; 62 LEs               ; 62 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.targetAddress[31] ;
 ; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.robEntry[0]       ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |RISCV|reorderBuffer:rob|write_ptr[2]                                                  ;
-; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |RISCV|outputBus.controlFlow[5]                                                        ;
-; 6:1                ; 4 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; Yes        ; |RISCV|ALURS:aluReservationStation|instrInfo[3]                                        ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; Yes        ; |RISCV|ALURS:aluReservationStation|instrRob[0]                                         ;
-; 7:1                ; 32 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; Yes        ; |RISCV|instrFetchUnit:fetchStage|PCSelectLogic:pcSelect|nextPC[25]                     ;
-; 10:1               ; 32 bits   ; 192 LEs       ; 64 LEs               ; 128 LEs                ; Yes        ; |RISCV|ALURS:aluReservationStation|src1[8]                                             ;
-; 10:1               ; 32 bits   ; 192 LEs       ; 64 LEs               ; 128 LEs                ; Yes        ; |RISCV|ALURS:aluReservationStation|src2[15]                                            ;
-; 26:1               ; 11 bits   ; 187 LEs       ; 88 LEs               ; 99 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.result[21]        ;
-; 25:1               ; 12 bits   ; 192 LEs       ; 96 LEs               ; 96 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.result[10]        ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |RISCV|outputBus.controlFlow[2]                                                        ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; Yes        ; |RISCV|ALURS:aluReservationStation|instrInfo[2]                                        ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; Yes        ; |RISCV|ALURS:aluReservationStation|instrRob[2]                                         ;
+; 7:1                ; 32 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; Yes        ; |RISCV|instrFetchUnit:fetchStage|PCSelectLogic:pcSelect|nextPC[7]                      ;
+; 10:1               ; 32 bits   ; 192 LEs       ; 64 LEs               ; 128 LEs                ; Yes        ; |RISCV|ALURS:aluReservationStation|src1[11]                                            ;
+; 10:1               ; 32 bits   ; 192 LEs       ; 64 LEs               ; 128 LEs                ; Yes        ; |RISCV|ALURS:aluReservationStation|src2[6]                                             ;
+; 26:1               ; 11 bits   ; 187 LEs       ; 88 LEs               ; 99 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.result[26]        ;
+; 25:1               ; 12 bits   ; 192 LEs       ; 96 LEs               ; 96 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.result[6]         ;
 ; 29:1               ; 3 bits    ; 57 LEs        ; 45 LEs               ; 12 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.result[28]        ;
-; 28:1               ; 3 bits    ; 54 LEs        ; 42 LEs               ; 12 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.result[2]         ;
+; 28:1               ; 3 bits    ; 54 LEs        ; 42 LEs               ; 12 LEs                 ; Yes        ; |RISCV|functionalUnit:executeStage|CDBArbiter:dataBusArbiter|dataBus.result[3]         ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftRight0                         ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftRight0                         ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftLeft0                          ;
 ; 4:1                ; 50 bits   ; 100 LEs       ; 100 LEs              ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftRight1                         ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftLeft0                          ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftRight0                         ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftLeft0                          ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftRight1                         ;
 ; 4:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |RISCV|functionalUnit:executeStage|ALU:computeUnit|ShiftRight1                         ;
 ; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |RISCV|instrFetchUnit:fetchStage|instr                                                 ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |RISCV|renameStage:instrRenameStage|instructionValues:valdet1|instrValue[8]            ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |RISCV|renameStage:instrRenameStage|instructionValues:valdet2|instrValue[31]           ;
-; 8:1                ; 8 bits    ; 40 LEs        ; 16 LEs               ; 24 LEs                 ; No         ; |RISCV|instr_decode:decodeStage|decodeextend:decodeExtender|extend:extender|Mux1       ;
-; 8:1                ; 4 bits    ; 20 LEs        ; 8 LEs                ; 12 LEs                 ; No         ; |RISCV|instr_decode:decodeStage|decodeextend:decodeExtender|extend:extender|Mux10      ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |RISCV|renameStage:instrRenameStage|instructionValues:valdet1|instrValue[14]           ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |RISCV|renameStage:instrRenameStage|instructionValues:valdet2|instrValue[0]            ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 16 LEs               ; 24 LEs                 ; No         ; |RISCV|instr_decode:decodeStage|decodeextend:decodeExtender|extend:extender|Mux0       ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 8 LEs                ; 12 LEs                 ; No         ; |RISCV|instr_decode:decodeStage|decodeextend:decodeExtender|extend:extender|Mux9       ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------+
 
 
@@ -655,7 +664,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 +------------------------------------------------------------------------------------------------------------+
-; Source assignments for reorderBuffer:rob|altsyncram:destinationBuffer_rtl_0|altsyncram_r7s1:auto_generated ;
+; Source assignments for reorderBuffer:rob|altsyncram:destinationBuffer_rtl_0|altsyncram_q7s1:auto_generated ;
 +---------------------------------+--------------------+------+----------------------------------------------+
 ; Assignment                      ; Value              ; From ; To                                           ;
 +---------------------------------+--------------------+------+----------------------------------------------+
@@ -691,7 +700,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 +--------------------------------------------------------------------------------------------------------------+
-; Source assignments for reorderBuffer:rob|altsyncram:previousIndexBuffer_rtl_0|altsyncram_05s1:auto_generated ;
+; Source assignments for reorderBuffer:rob|altsyncram:previousIndexBuffer_rtl_0|altsyncram_v4s1:auto_generated ;
 +---------------------------------+--------------------+------+------------------------------------------------+
 ; Assignment                      ; Value              ; From ; To                                             ;
 +---------------------------------+--------------------+------+------------------------------------------------+
@@ -1445,7 +1454,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                      ; Untyped          ;
 ; READ_DURING_WRITE_MODE_PORT_A      ; OLD_DATA_NO_NBE_READ                          ; Untyped          ;
 ; READ_DURING_WRITE_MODE_PORT_B      ; OLD_DATA_NO_NBE_READ                          ; Untyped          ;
-; INIT_FILE                          ; db/RISC-V.ram7_reorderBuffer_baf5ec2f.hdl.mif ; Untyped          ;
+; INIT_FILE                          ; db/RISC-V.ram6_reorderBuffer_baf5ec2f.hdl.mif ; Untyped          ;
 ; INIT_FILE_LAYOUT                   ; PORT_A                                        ; Untyped          ;
 ; MAXIMUM_DEPTH                      ; 0                                             ; Untyped          ;
 ; CLOCK_ENABLE_INPUT_A               ; NORMAL                                        ; Untyped          ;
@@ -1458,7 +1467,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                         ; Untyped          ;
 ; WIDTH_ECCSTATUS                    ; 3                                             ; Untyped          ;
 ; DEVICE_FAMILY                      ; Cyclone V                                     ; Untyped          ;
-; CBXI_PARAMETER                     ; altsyncram_r7s1                               ; Untyped          ;
+; CBXI_PARAMETER                     ; altsyncram_q7s1                               ; Untyped          ;
 +------------------------------------+-----------------------------------------------+------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -1689,7 +1698,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                      ; Untyped            ;
 ; READ_DURING_WRITE_MODE_PORT_A      ; OLD_DATA_NO_NBE_READ                          ; Untyped            ;
 ; READ_DURING_WRITE_MODE_PORT_B      ; OLD_DATA_NO_NBE_READ                          ; Untyped            ;
-; INIT_FILE                          ; db/RISC-V.ram6_reorderBuffer_baf5ec2f.hdl.mif ; Untyped            ;
+; INIT_FILE                          ; db/RISC-V.ram5_reorderBuffer_baf5ec2f.hdl.mif ; Untyped            ;
 ; INIT_FILE_LAYOUT                   ; PORT_A                                        ; Untyped            ;
 ; MAXIMUM_DEPTH                      ; 0                                             ; Untyped            ;
 ; CLOCK_ENABLE_INPUT_A               ; NORMAL                                        ; Untyped            ;
@@ -1702,7 +1711,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                         ; Untyped            ;
 ; WIDTH_ECCSTATUS                    ; 3                                             ; Untyped            ;
 ; DEVICE_FAMILY                      ; Cyclone V                                     ; Untyped            ;
-; CBXI_PARAMETER                     ; altsyncram_05s1                               ; Untyped            ;
+; CBXI_PARAMETER                     ; altsyncram_v4s1                               ; Untyped            ;
 +------------------------------------+-----------------------------------------------+--------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -2436,14 +2445,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; arriav_ff             ; 2532                        ;
-;     ENA               ; 1109                        ;
-;     ENA SCLR          ; 435                         ;
+;     ENA               ; 1107                        ;
+;     ENA SCLR          ; 434                         ;
 ;     ENA SCLR SLD      ; 32                          ;
+;     ENA SLD           ; 2                           ;
 ;     SCLR              ; 503                         ;
 ;     SCLR SLD          ; 32                          ;
-;     SLD               ; 30                          ;
+;     SLD               ; 31                          ;
 ;     plain             ; 391                         ;
-; arriav_lcell_comb     ; 2953                        ;
+; arriav_lcell_comb     ; 3017                        ;
 ;     arith             ; 164                         ;
 ;         1 data inputs ; 96                          ;
 ;         2 data inputs ; 64                          ;
@@ -2452,14 +2462,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         5 data inputs ; 2                           ;
 ;     extend            ; 336                         ;
 ;         7 data inputs ; 336                         ;
-;     normal            ; 2421                        ;
+;     normal            ; 2485                        ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 3                           ;
-;         2 data inputs ; 46                          ;
-;         3 data inputs ; 462                         ;
-;         4 data inputs ; 619                         ;
-;         5 data inputs ; 248                         ;
-;         6 data inputs ; 1042                        ;
+;         2 data inputs ; 108                         ;
+;         3 data inputs ; 458                         ;
+;         4 data inputs ; 292                         ;
+;         5 data inputs ; 500                         ;
+;         6 data inputs ; 1123                        ;
 ;     shared            ; 32                          ;
 ;         2 data inputs ; 32                          ;
 ; boundary_port         ; 473                         ;
@@ -2475,7 +2485,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:59     ;
+; Top            ; 00:01:08     ;
 +----------------+--------------+
 
 
@@ -2485,7 +2495,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Mon Dec 30 18:54:58 2024
+    Info: Processing started: Mon Dec 30 22:53:46 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RISC-V -c RISC-V
 Info (16303): Aggressive Performance optimization mode selected -- timing performance will be prioritized at the potential cost of increased logic area and compilation time
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -2523,7 +2533,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file ROBrena
     Info (12023): Found entity 1: ROBrenamebuffer File: /home/voidknight/Downloads/CPU_Q/ROBrenamebuffer.sv Line: 40
 Info (12021): Found 2 design units, including 2 entities, in source file reorderBuffer.sv
     Info (12023): Found entity 1: reorderBuffer File: /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv Line: 31
-    Info (12023): Found entity 2: writeCommit File: /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv Line: 285
+    Info (12023): Found entity 2: writeCommit File: /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv Line: 284
 Info (12021): Found 1 design units, including 1 entities, in source file branchALU.sv
     Info (12023): Found entity 1: branchALU File: /home/voidknight/Downloads/CPU_Q/branchALU.sv Line: 35
 Info (12021): Found 2 design units, including 2 entities, in source file CDBArbiter.sv
@@ -2633,11 +2643,10 @@ Info (12128): Elaborating entity "ALU" for hierarchy "functionalUnit:executeStag
 Info (12128): Elaborating entity "CDBArbiter" for hierarchy "functionalUnit:executeStage|CDBArbiter:dataBusArbiter" File: /home/voidknight/Downloads/CPU_Q/functionalUnit.sv Line: 32
 Info (10264): Verilog HDL Case Statement information at CDBArbiter.sv(109): all case item expressions in this case statement are onehot File: /home/voidknight/Downloads/CPU_Q/CDBArbiter.sv Line: 109
 Info (12128): Elaborating entity "reorderBuffer" for hierarchy "reorderBuffer:rob" File: /home/voidknight/Downloads/CPU_Q/RISCV.sv Line: 177
-Info (12128): Elaborating entity "ROBrenamebuffer" for hierarchy "reorderBuffer:rob|ROBrenamebuffer:renamebuffer" File: /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv Line: 214
+Info (12128): Elaborating entity "ROBrenamebuffer" for hierarchy "reorderBuffer:rob|ROBrenamebuffer:renamebuffer" File: /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv Line: 213
 Warning (276027): Inferred dual-clock RAM node "instr_decode:decodeStage|register_file:regfile|regFile_rtl_0" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
-Info (276014): Found 4 instances of uninferred RAM logic
+Info (276014): Found 3 instances of uninferred RAM logic
     Info (276004): RAM logic "reorderBuffer:rob|controlBuffer" is uninferred due to inappropriate RAM size File: /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv Line: 54
-    Info (276004): RAM logic "reorderBuffer:rob|updateBuffer" is uninferred due to inappropriate RAM size File: /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv Line: 60
     Info (276007): RAM logic "instr_decode:decodeStage|register_file:regfile|regFile" is uninferred due to asynchronous read logic File: /home/voidknight/Downloads/CPU_Q/register_file.sv Line: 40
     Info (276004): RAM logic "instrFetchUnit:fetchStage|BTB:branchTargetBuffer|validBuffer" is uninferred due to inappropriate RAM size File: /home/voidknight/Downloads/CPU_Q/BTB.sv Line: 54
 Info (19000): Inferred 15 megafunctions from design logic
@@ -2673,7 +2682,7 @@ Info (19000): Inferred 15 megafunctions from design logic
         Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
         Info (286033): Parameter INDATA_ACLR_A set to NONE
         Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
-        Info (286033): Parameter INIT_FILE set to db/RISC-V.ram7_reorderBuffer_baf5ec2f.hdl.mif
+        Info (286033): Parameter INIT_FILE set to db/RISC-V.ram6_reorderBuffer_baf5ec2f.hdl.mif
         Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
     Info (276029): Inferred altsyncram megafunction from the following design logic: "reorderBuffer:rob|addressBuffer_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
@@ -2741,7 +2750,7 @@ Info (19000): Inferred 15 megafunctions from design logic
         Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
         Info (286033): Parameter INDATA_ACLR_A set to NONE
         Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
-        Info (286033): Parameter INIT_FILE set to db/RISC-V.ram6_reorderBuffer_baf5ec2f.hdl.mif
+        Info (286033): Parameter INIT_FILE set to db/RISC-V.ram5_reorderBuffer_baf5ec2f.hdl.mif
         Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
     Info (276029): Inferred altsyncram megafunction from the following design logic: "reorderBuffer:rob|ROBrenamebuffer:renamebuffer|valuebuffer1_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
@@ -2925,10 +2934,10 @@ Info (12133): Instantiated megafunction "reorderBuffer:rob|altsyncram:destinatio
     Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
     Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
     Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
-    Info (12134): Parameter "INIT_FILE" = "db/RISC-V.ram7_reorderBuffer_baf5ec2f.hdl.mif"
+    Info (12134): Parameter "INIT_FILE" = "db/RISC-V.ram6_reorderBuffer_baf5ec2f.hdl.mif"
     Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_r7s1.tdf
-    Info (12023): Found entity 1: altsyncram_r7s1 File: /home/voidknight/Downloads/CPU_Q/db/altsyncram_r7s1.tdf Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_q7s1.tdf
+    Info (12023): Found entity 1: altsyncram_q7s1 File: /home/voidknight/Downloads/CPU_Q/db/altsyncram_q7s1.tdf Line: 28
 Info (12130): Elaborated megafunction instantiation "reorderBuffer:rob|altsyncram:addressBuffer_rtl_0"
 Info (12133): Instantiated megafunction "reorderBuffer:rob|altsyncram:addressBuffer_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
@@ -3005,10 +3014,10 @@ Info (12133): Instantiated megafunction "reorderBuffer:rob|altsyncram:previousIn
     Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
     Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
     Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
-    Info (12134): Parameter "INIT_FILE" = "db/RISC-V.ram6_reorderBuffer_baf5ec2f.hdl.mif"
+    Info (12134): Parameter "INIT_FILE" = "db/RISC-V.ram5_reorderBuffer_baf5ec2f.hdl.mif"
     Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_05s1.tdf
-    Info (12023): Found entity 1: altsyncram_05s1 File: /home/voidknight/Downloads/CPU_Q/db/altsyncram_05s1.tdf Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_v4s1.tdf
+    Info (12023): Found entity 1: altsyncram_v4s1 File: /home/voidknight/Downloads/CPU_Q/db/altsyncram_v4s1.tdf Line: 28
 Info (12130): Elaborated megafunction instantiation "reorderBuffer:rob|ROBrenamebuffer:renamebuffer|altsyncram:valuebuffer1_rtl_0"
 Info (12133): Instantiated megafunction "reorderBuffer:rob|ROBrenamebuffer:renamebuffer|altsyncram:valuebuffer1_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
@@ -3142,8 +3151,6 @@ Info (12133): Instantiated megafunction "instrFetchUnit:fetchStage|imem:IMem|alt
     Info (12134): Parameter "INIT_FILE" = "db/RISC-V.ram0_imem_37c714.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_8hc1.tdf
     Info (12023): Found entity 1: altsyncram_8hc1 File: /home/voidknight/Downloads/CPU_Q/db/altsyncram_8hc1.tdf Line: 28
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home/voidknight/Downloads/CPU_Q/db/RISC-V.ram0_imem_37c714.hdl.mif" contains "don't care" values -- overwriting them with 0s File: /home/voidknight/Downloads/Quartus/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home/voidknight/Downloads/CPU_Q/db/RISC-V.ram0_imem_37c714.hdl.mif" contains "don't care" values -- overwriting them with 0s File: /home/voidknight/Downloads/Quartus/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12130): Elaborated megafunction instantiation "instrFetchUnit:fetchStage|gshare:predictor|altsyncram:patternTable_rtl_0"
 Info (12133): Instantiated megafunction "instrFetchUnit:fetchStage|gshare:predictor|altsyncram:patternTable_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
@@ -3514,32 +3521,32 @@ Warning (15752): Ignored 89 Virtual Pin logic option assignments
     Warning (15720): Ignored Virtual Pin assignment to node "outputBus.statusSnap[27]"
     Warning (15720): Ignored Virtual Pin assignment to node "outputBus.statusSnap[24]"
     Warning (15720): Ignored Virtual Pin assignment to node "outputBus.statusSnap[26]"
-    Warning (15751): Ignored Virtual Pin assignment to "predictedAddress".
-    Warning (15751): Ignored Virtual Pin assignment to "outputBus.regStatusC".
-    Warning (15751): Ignored Virtual Pin assignment to "inputBus.instrInfo".
-    Warning (15751): Ignored Virtual Pin assignment to "address".
-    Warning (15751): Ignored Virtual Pin assignment to "instruction".
-    Warning (15751): Ignored Virtual Pin assignment to "pc".
-    Warning (15751): Ignored Virtual Pin assignment to "regStatusSnap".
-    Warning (15751): Ignored Virtual Pin assignment to "inputBus.seqPCW".
-    Warning (15751): Ignored Virtual Pin assignment to "dataBus.result".
     Warning (15751): Ignored Virtual Pin assignment to "dataBus.pcControl".
-    Warning (15751): Ignored Virtual Pin assignment to "ROBValue2".
     Warning (15751): Ignored Virtual Pin assignment to "targetAddress".
-    Warning (15751): Ignored Virtual Pin assignment to "dataBus.isControl".
-    Warning (15751): Ignored Virtual Pin assignment to "predictedPC".
+    Warning (15751): Ignored Virtual Pin assignment to "instruction".
+    Warning (15751): Ignored Virtual Pin assignment to "address".
+    Warning (15751): Ignored Virtual Pin assignment to "ROBValue2".
+    Warning (15751): Ignored Virtual Pin assignment to "dataBus.result".
+    Warning (15751): Ignored Virtual Pin assignment to "outputBus.regStatusC".
     Warning (15751): Ignored Virtual Pin assignment to "inputBus.regStatusW".
+    Warning (15751): Ignored Virtual Pin assignment to "regStatusSnap".
+    Warning (15751): Ignored Virtual Pin assignment to "predictedPC".
+    Warning (15751): Ignored Virtual Pin assignment to "dataBus.isControl".
+    Warning (15751): Ignored Virtual Pin assignment to "inputBus.instrInfo".
+    Warning (15751): Ignored Virtual Pin assignment to "pc".
+    Warning (15751): Ignored Virtual Pin assignment to "inputBus.seqPCW".
+    Warning (15751): Ignored Virtual Pin assignment to "predictedAddress".
     Warning (15751): Ignored Virtual Pin assignment to "ROBValue1".
-Info (21057): Implemented 4904 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 4927 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 247 output pins
-    Info (21061): Implemented 4335 logic cells
+    Info (21061): Implemented 4358 logic cells
     Info (21064): Implemented 320 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 127 warnings
-    Info: Peak virtual memory: 536 megabytes
-    Info: Processing ended: Mon Dec 30 18:56:27 2024
-    Info: Elapsed time: 00:01:29
-    Info: Total CPU time (on all processors): 00:02:14
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 125 warnings
+    Info: Peak virtual memory: 561 megabytes
+    Info: Processing ended: Mon Dec 30 22:55:26 2024
+    Info: Elapsed time: 00:01:40
+    Info: Total CPU time (on all processors): 00:02:30
 
 
 +------------------------------------------+

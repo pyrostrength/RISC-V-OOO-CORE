@@ -30,7 +30,7 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 				    output logic[WIDTH:0] nextPC,result,regDest,valueBroadcast,instr,instrPC,aluSrc1,aluSrc2,
 					 output logic[WIDTH:0] operand1,operand2,immExt,predictedPCF,trgetAddr,
 					 output logic validBroadcast,validCommit,full,robReq,rgWr,branchDataBusReq,aluDataBusReq,
-					 output logic aluAvailable,branchAvailable,redirect,busy1,busy2,ready1,ready2,
+					 output logic aluAvailable,branchAvailable,redirect,busy1,busy2,ready1,ready2,earlyMisdirect,
 					 output logic noSelect,reset,
 					 output logic[BRANCH:0] branchRequests,
 					 output logic[ALU:0] ALURequests,
@@ -51,7 +51,7 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 				
 				 //instrFetchUnit input signals
 				 logic[WIDTH:0] validAddress;//valid address is instruction PC change coming in from the rename stage.
-				 logic isJAL,freeze,earlyMisdirect; //isJAL is control signal indicating JAL instruction requesting instruction PC change from rename stage.
+				 logic isJAL,freeze;//earlyMisdirect; //isJAL is control signal indicating JAL instruction requesting instruction PC change from rename stage.
 				 
 				 logic[WIDTH:0] decodePC; //Instruction PC from decode stage correcting control flow if we discover that instruction fetched was never
 				 //a branch instruction.

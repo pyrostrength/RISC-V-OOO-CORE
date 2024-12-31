@@ -37,6 +37,9 @@ add wave -noupdate -label ready1 /cpuSim/ready1
 add wave -noupdate -label rob2 /cpuSim/rob2
 add wave -noupdate -label rob1 /cpuSim/rob1
 add wave -noupdate -label ALURob /cpuSim/ALURob
+add wave -noupdate -label trgetAddr /cpuSim/trgetAddr
+add wave -noupdate -label reset /cpuSim/reset
+add wave -noupdate -label noSelect /cpuSim/noSelect
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {42400 ps} 0}
 quietly wave cursor active 1
