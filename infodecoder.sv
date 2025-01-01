@@ -63,6 +63,7 @@ module infodecoder (input logic[3:0] opcode,
 											//Branching instructions shouldn't use the immediate field for their source values
 											useImm = 1'b0;
 											stationRequest = 1'b1;
+											branch = 1'b1;
 										end
 										4'b0110 : begin //JAL-type
 											immSrc = 3'b100;

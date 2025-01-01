@@ -37,9 +37,9 @@ module register_status #(parameter REG = 4, DEPTH = 31, ROB = 2, WIDTH = 31)
 							   for register-ROB dependencies on power-up
 								*/
 								
-								logic[ROB:0] src1ROB[0:DEPTH];
+								logic[ROB:0] src1ROB[DEPTH:0];
 								
-								logic[ROB:0] src2ROB[0:DEPTH];
+								logic[ROB:0] src2ROB[DEPTH:0];
 								
 								initial begin
 									$readmemb("robSrc.txt",src1ROB);
@@ -52,7 +52,7 @@ module register_status #(parameter REG = 4, DEPTH = 31, ROB = 2, WIDTH = 31)
 								logic[ROB:0] interRob1,interRob2;
 								
 								
-								logic[ROB + 1:0] dependencyBuffer[0:DEPTH];
+								logic[ROB + 1:0] dependencyBuffer[DEPTH : 0];
 								
 								//{valid,ROB entry} data format.
 								logic[ROB + 1:0] latestDpndency,interDep;

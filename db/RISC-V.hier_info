@@ -508,6 +508,7 @@ busy1 <= instr_decode:decodeStage.busy1
 busy2 <= instr_decode:decodeStage.busy2
 ready1 <= renameStage:instrRenameStage.ready1
 ready2 <= renameStage:instrRenameStage.ready2
+earlyMisdirect <= instr_decode:decodeStage.earlyMisdirect
 noSelect <= ALURS:aluReservationStation.noSelect
 reset <= reset.DB_MAX_OUTPUT_PORT_TYPE
 branchRequests[0] <= renameStage:instrRenameStage.branchRequests[0]

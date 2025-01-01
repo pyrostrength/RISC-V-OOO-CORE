@@ -12,21 +12,21 @@ Z0 !s99 nomlopt
 cModel Technology
 Z1 d/home/voidknight/Downloads/CPU_Q/simulation/questa
 T_opt
-!s110 1735628200
-VfoSaPKcM8M]4AG0^PYgT11
+Z2 !s110 1735689026
+VzYam]15GgaDjlz[3EKTdd1
 04 11 4 work regfileTest fast 0
-=1-000ae431a4f1-677395a7-cb647-20e7
+=1-000ae431a4f1-67748342-98b9d-11df
 R0
 !s12b OEM100
 !s124 OEM10U2 
 o-quiet -auto_acc_if_foreign -work work -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work +acc
-Z2 tCvgOpt 0
+Z3 tCvgOpt 0
 n@_opt
 OL;O;2023.3;77
 vALU
 2/home/voidknight/Downloads/CPU_Q/ALU.sv
-Z3 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-Z4 !s110 1735628192
+Z4 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z5 !s110 1735689021
 !i10b 1
 !s100 ?1j_[aRJC4iP3<`TRBAaz3
 ISB=`OiEdA5Pnl5b;XPcfP0
@@ -37,23 +37,23 @@ w1735524098
 F/home/voidknight/Downloads/CPU_Q/ALU.sv
 !i122 1
 L0 18 60
-Z5 VDg1SIo80bB@j0V0VzS_@n1
-Z6 OL;L;2023.3;77
+Z6 VDg1SIo80bB@j0V0VzS_@n1
+Z7 OL;L;2023.3;77
 r1
 !s85 0
 31
-Z7 !s108 1735628192.000000
+Z8 !s108 1735689021.000000
 !s107 /home/voidknight/Downloads/CPU_Q/ALU.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/ALU.sv|
 !i113 0
-Z8 o-sv -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-Z9 !s92 -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-R2
+Z9 o-sv -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z10 !s92 -sv -work work +incdir+/home/voidknight/Downloads/CPU_Q -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R3
 n@a@l@u
 vALUDecoder
 2/home/voidknight/Downloads/CPU_Q/ALUDecoder.sv
-R3
 R4
+R5
 !i10b 1
 !s100 ]FP^ghZ8T?GTOogk1YiZ@0
 IN5MG9>ARbJ`T;]F7>V?oR2
@@ -64,23 +64,23 @@ w1732315395
 F/home/voidknight/Downloads/CPU_Q/ALUDecoder.sv
 !i122 2
 L0 21 34
-R5
 R6
+R7
 r1
 !s85 0
 31
-R7
+R8
 !s107 /home/voidknight/Downloads/CPU_Q/ALUDecoder.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/ALUDecoder.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 n@a@l@u@decoder
 vALURS
 2/home/voidknight/Downloads/CPU_Q/ALURS.sv
-R3
-Z10 !s110 1735628197
+R4
+Z11 !s110 1735689025
 !i10b 1
 !s100 oCBmzXLFPXgBn;B?4JfDK0
 IBGYR=NGA94kzZcRIL:cYR0
@@ -91,23 +91,23 @@ w1735602354
 F/home/voidknight/Downloads/CPU_Q/ALURS.sv
 !i122 25
 L0 5 92
-R5
 R6
+R7
 r1
 !s85 0
 31
-Z11 !s108 1735628197.000000
+Z12 !s108 1735689025.000000
 !s107 /home/voidknight/Downloads/CPU_Q/ALURS.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/ALURS.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 n@a@l@u@r@s
 vALURStationEntry
 2/home/voidknight/Downloads/CPU_Q/ALURStationEntry.sv
-R3
-R10
+R4
+Z13 !s110 1735689024
 !i10b 1
 !s100 0IWECPP=<7An1:4PCM1b;2
 I7^Mgkh3l3z@1C[dF5L5131
@@ -118,23 +118,23 @@ w1735602298
 F/home/voidknight/Downloads/CPU_Q/ALURStationEntry.sv
 !i122 21
 L0 21 97
-R5
 R6
+R7
 r1
 !s85 0
 31
-Z12 !s108 1735628196.000000
+Z14 !s108 1735689024.000000
 !s107 /home/voidknight/Downloads/CPU_Q/ALURStationEntry.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/ALURStationEntry.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 n@a@l@u@r@station@entry
 vALUSelect
 2/home/voidknight/Downloads/CPU_Q/ALUSelect.sv
-R3
-Z13 !s110 1735628194
+R4
+Z15 !s110 1735689022
 !i10b 1
 !s100 LEga[c_3;Ef7faZ]TH7<h1
 I2E[THd`MI?iM7i3`WmAXd1
@@ -145,23 +145,23 @@ w1731795543
 F/home/voidknight/Downloads/CPU_Q/ALUSelect.sv
 !i122 8
 L0 7 73
-R5
 R6
+R7
 r1
 !s85 0
 31
-Z14 !s108 1735628193.000000
+Z16 !s108 1735689022.000000
 !s107 /home/voidknight/Downloads/CPU_Q/ALUSelect.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/ALUSelect.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 n@a@l@u@select
 vbranchALU
 2/home/voidknight/Downloads/CPU_Q/branchALU.sv
-R3
-Z15 !s110 1735628193
+R4
+R15
 !i10b 1
 !s100 Kb0XlEbe@aIKnCeSS2blP1
 I4jeejOhD=oe_S4EE3RniH0
@@ -172,23 +172,23 @@ w1735524141
 F/home/voidknight/Downloads/CPU_Q/branchALU.sv
 !i122 5
 L0 35 106
-R5
 R6
+R7
 r1
 !s85 0
 31
-R14
+R16
 !s107 /home/voidknight/Downloads/CPU_Q/branchALU.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/branchALU.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 nbranch@a@l@u
 vbranchIndex
 2/home/voidknight/Downloads/CPU_Q/branchIndex.sv
-R3
 R4
+R5
 !i10b 1
 !s100 3OjB8NGUf[fFczVRziMze0
 IPV]2?cS=BZn?n5cb:KVOD3
@@ -199,23 +199,23 @@ w1734501973
 F/home/voidknight/Downloads/CPU_Q/branchIndex.sv
 !i122 3
 L0 26 29
-R5
 R6
+R7
 r1
 !s85 0
 31
-R7
+R8
 !s107 /home/voidknight/Downloads/CPU_Q/branchIndex.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/branchIndex.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 nbranch@index
 vbranchRS
 2/home/voidknight/Downloads/CPU_Q/branchRS.sv
-R3
-Z16 !s110 1735628198
+R4
+R11
 !i10b 1
 !s100 V3Ma[:5]0JA0:o69UE`O?1
 IVBWcQGh9dDZ=Rgh[i_lR>1
@@ -226,23 +226,23 @@ w1735602408
 F/home/voidknight/Downloads/CPU_Q/branchRS.sv
 !i122 26
 L0 9 102
-R5
 R6
+R7
 r1
 !s85 0
 31
-Z17 !s108 1735628198.000000
+R12
 !s107 /home/voidknight/Downloads/CPU_Q/branchRS.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/branchRS.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 nbranch@r@s
 vbranchRSEntry
 2/home/voidknight/Downloads/CPU_Q/branchRSEntry.sv
-R3
-R10
+R4
+R13
 !i10b 1
 !s100 ]OJ]9<ZI9`_P2CW>:Lfan1
 IY[HVkfRJGo>;G:IlnDS``2
@@ -253,23 +253,23 @@ w1735602279
 F/home/voidknight/Downloads/CPU_Q/branchRSEntry.sv
 !i122 22
 L0 24 89
-R5
 R6
+R7
 r1
 !s85 0
 31
-R11
+R14
 !s107 /home/voidknight/Downloads/CPU_Q/branchRSEntry.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/branchRSEntry.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 nbranch@r@s@entry
 vbranchSelect
 2/home/voidknight/Downloads/CPU_Q/branchSelect.sv
-R3
-R13
+R4
+R15
 !i10b 1
 !s100 BXKJi5cf`nnTaoaHTLIH>2
 IWjD;G`YOSBo92NZEDd`hH0
@@ -280,22 +280,22 @@ w1731796244
 F/home/voidknight/Downloads/CPU_Q/branchSelect.sv
 !i122 9
 L0 10 52
-R5
 R6
+R7
 r1
 !s85 0
 31
-Z18 !s108 1735628194.000000
+R16
 !s107 /home/voidknight/Downloads/CPU_Q/branchSelect.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/branchSelect.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 nbranch@select
 vbranchTargetResolve
 2/home/voidknight/Downloads/CPU_Q/branchTargetResolve.sv
-R3
+R4
 R15
 !i10b 1
 !s100 3Uoe^2hlG96SikGNi:jSA2
@@ -307,23 +307,23 @@ w1734228092
 F/home/voidknight/Downloads/CPU_Q/branchTargetResolve.sv
 !i122 7
 L0 12 13
-R5
 R6
+R7
 r1
 !s85 0
 31
-R14
+R16
 !s107 /home/voidknight/Downloads/CPU_Q/branchTargetResolve.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/branchTargetResolve.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 nbranch@target@resolve
 vBTB
 2/home/voidknight/Downloads/CPU_Q/BTB.sv
-R3
-Z19 !s110 1735628195
+R4
+Z17 !s110 1735689023
 !i10b 1
 !s100 KGMAN^A@HDhcn5<@L@bjK2
 IRT4Qc_3EZ5K?Z7l]oh2Sk2
@@ -334,77 +334,77 @@ w1734499636
 F/home/voidknight/Downloads/CPU_Q/BTB.sv
 !i122 16
 L0 39 53
-R5
 R6
+R7
 r1
 !s85 0
 31
-Z20 !s108 1735628195.000000
+Z18 !s108 1735689023.000000
 !s107 /home/voidknight/Downloads/CPU_Q/BTB.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/BTB.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 n@b@t@b
 vCDBArbiter
-Z21 2/home/voidknight/Downloads/CPU_Q/CDBArbiter.sv
-R3
+Z19 2/home/voidknight/Downloads/CPU_Q/CDBArbiter.sv
+R4
 R15
 !i10b 1
 !s100 4aAQ0ik]W`M`9iZAbbI;<0
 IN;D:RPAUiEQOnDhGCeza92
 S1
 R1
-Z22 w1735519367
-Z23 8/home/voidknight/Downloads/CPU_Q/CDBArbiter.sv
-Z24 F/home/voidknight/Downloads/CPU_Q/CDBArbiter.sv
+Z20 w1735519367
+Z21 8/home/voidknight/Downloads/CPU_Q/CDBArbiter.sv
+Z22 F/home/voidknight/Downloads/CPU_Q/CDBArbiter.sv
 !i122 6
 L0 48 109
-R5
 R6
+R7
 r1
 !s85 0
 31
-R14
-Z25 !s107 /home/voidknight/Downloads/CPU_Q/CDBArbiter.sv|
-Z26 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/CDBArbiter.sv|
+R16
+Z23 !s107 /home/voidknight/Downloads/CPU_Q/CDBArbiter.sv|
+Z24 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/CDBArbiter.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 n@c@d@b@arbiter
 YcommonDataBus
-R21
-R3
+R19
+R4
 R15
 !i10b 1
 !s100 MD^S=aZ05FGQ;cDdT>^Q:0
 In73OOXM5R;71P7o>D_<MX0
 S1
 R1
+R20
+R21
 R22
-R23
-R24
 !i122 6
 L0 9 0
-R5
 R6
+R7
 r1
 !s85 0
 31
-R14
-R25
-R26
+R16
+R23
+R24
 !i113 0
-R8
 R9
-R2
+R10
+R3
 ncommon@data@bus
 vdecodeextend
 2/home/voidknight/Downloads/CPU_Q/decodeextend.sv
-R3
-Z27 !s110 1735628196
+R4
+R13
 !i10b 1
 !s100 8@n:Q:R`>ze9K[YVB]1:I2
 IO09L=1MBokaY`JSmZJC^h2
@@ -415,22 +415,22 @@ w1734146411
 F/home/voidknight/Downloads/CPU_Q/decodeextend.sv
 !i122 18
 L0 38 26
-R5
 R6
+R7
 r1
 !s85 0
 31
-R12
+R14
 !s107 /home/voidknight/Downloads/CPU_Q/decodeextend.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/decodeextend.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 vextend
 2/home/voidknight/Downloads/CPU_Q/extend.sv
-R3
 R4
+R5
 !i10b 1
 !s100 VEL8H8XzS=llaIHLO;c=[0
 I3k7`VJ[[le7Wm9l4ME:F:0
@@ -441,22 +441,22 @@ w1734502866
 F/home/voidknight/Downloads/CPU_Q/extend.sv
 !i122 0
 L0 11 19
-R5
 R6
+R7
 r1
 !s85 0
 31
-!s108 1735628191.000000
+R8
 !s107 /home/voidknight/Downloads/CPU_Q/extend.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/extend.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 vfunctionalUnit
 2/home/voidknight/Downloads/CPU_Q/functionalUnit.sv
-R3
-R10
+R4
+R11
 !i10b 1
 !s100 K_kbPdl<QJ@n?Z;zC;aQX1
 I[6J5bXoVURO3b_=KTj4?k2
@@ -467,23 +467,23 @@ w1735523930
 F/home/voidknight/Downloads/CPU_Q/functionalUnit.sv
 !i122 23
 L0 10 26
-R5
 R6
+R7
 r1
 !s85 0
 31
-R11
+R14
 !s107 /home/voidknight/Downloads/CPU_Q/functionalUnit.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/functionalUnit.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 nfunctional@unit
 vgshare
 2/home/voidknight/Downloads/CPU_Q/gshare.sv
-R3
-R19
+R4
+R17
 !i10b 1
 !s100 P?;P`V;O>iGRhU;<4cSdN3
 Iddj`@=Tk:eQVeko?G;TLg2
@@ -494,22 +494,22 @@ w1734499685
 F/home/voidknight/Downloads/CPU_Q/gshare.sv
 !i122 15
 L0 36 36
-R5
 R6
+R7
 r1
 !s85 0
 31
-R20
+R18
 !s107 /home/voidknight/Downloads/CPU_Q/gshare.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/gshare.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 vimem
 2/home/voidknight/Downloads/CPU_Q/imem.sv
-R3
-R19
+R4
+R17
 !i10b 1
 !s100 c22kiVa:`M^EY@MXEKHBL0
 ICD6TJgbRj]JAC6aVE3=IZ3
@@ -520,21 +520,21 @@ w1734137861
 F/home/voidknight/Downloads/CPU_Q/imem.sv
 !i122 14
 L0 23 18
-R5
 R6
+R7
 r1
 !s85 0
 31
-R20
+R18
 !s107 /home/voidknight/Downloads/CPU_Q/imem.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/imem.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 vinfodecoder
 2/home/voidknight/Downloads/CPU_Q/infodecoder.sv
-R3
+R4
 R15
 !i10b 1
 !s100 fE7GZ?Z38dEWW:z;JGOUG0
@@ -546,22 +546,22 @@ w1735191428
 F/home/voidknight/Downloads/CPU_Q/infodecoder.sv
 !i122 4
 L0 29 59
-R5
 R6
+R7
 r1
 !s85 0
 31
-R7
+R8
 !s107 /home/voidknight/Downloads/CPU_Q/infodecoder.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/infodecoder.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 vinstr_decode
 2/home/voidknight/Downloads/CPU_Q/instr_decode.sv
-R3
-R16
+R4
+R11
 !i10b 1
 !s100 W43nU>99jbEGUj=haZNfY3
 IZFWm2@fhWKIh^e8NDfRQY0
@@ -572,22 +572,22 @@ w1735514514
 F/home/voidknight/Downloads/CPU_Q/instr_decode.sv
 !i122 29
 L0 10 181
-R5
 R6
+R7
 r1
 !s85 0
 31
-R17
+R12
 !s107 /home/voidknight/Downloads/CPU_Q/instr_decode.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/instr_decode.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 vinstrFetchUnit
 2/home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv
-R3
-R16
+R4
+R11
 !i10b 1
 !s100 fR_DPTRLHgbB85Pk;0`1>1
 IC]6kG^oclNMkBJn`PUP:F3
@@ -598,23 +598,23 @@ w1735513348
 F/home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv
 !i122 28
 L0 17 73
-R5
 R6
+R7
 r1
 !s85 0
 31
-R17
+R12
 !s107 /home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 ninstr@fetch@unit
 vinstructionValues
 2/home/voidknight/Downloads/CPU_Q/instructionValues.sv
-R3
-R27
+R4
+R13
 !i10b 1
 !s100 Od<bgSFKmaPk_QnodmTbC0
 Ik=o@KmKT74=f?:TCDk1L?2
@@ -625,35 +625,35 @@ w1733446438
 F/home/voidknight/Downloads/CPU_Q/instructionValues.sv
 !i122 19
 L0 33 31
-R5
 R6
+R7
 r1
 !s85 0
 31
-R12
+R14
 !s107 /home/voidknight/Downloads/CPU_Q/instructionValues.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/instructionValues.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 ninstruction@values
 vPCSelectLogic
 2/home/voidknight/Downloads/CPU_Q/PCSelectLogic.sv
-R3
-R13
+R4
+R17
 !i10b 1
-!s100 4N2Jj6?VVK]`cd2]<D59g2
-I0NPZ2AOAGEV`f[Rz=JndS3
+!s100 e0HlCz]WkBW^ZQ?dG2`dJ1
+I0N1?^IA[Mbze?jVkiQkek3
 S1
 R1
-w1734499739
+w1735688564
 8/home/voidknight/Downloads/CPU_Q/PCSelectLogic.sv
 F/home/voidknight/Downloads/CPU_Q/PCSelectLogic.sv
 !i122 11
-L0 24 36
-R5
+L0 24 37
 R6
+R7
 r1
 !s85 0
 31
@@ -661,14 +661,14 @@ R18
 !s107 /home/voidknight/Downloads/CPU_Q/PCSelectLogic.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/PCSelectLogic.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 n@p@c@select@logic
 vregfileTest
 2/home/voidknight/Downloads/CPU_Q/regfileTest.sv
-R3
-Z28 !s110 1735628199
+R4
+R2
 !i10b 1
 !s100 oGFWaHbJLP9a>EATea5L93
 I[Y[L_F@E6eAH=fH0^9SKU2
@@ -679,23 +679,23 @@ w1734501514
 F/home/voidknight/Downloads/CPU_Q/regfileTest.sv
 !i122 31
 L0 14 27
-R5
 R6
+R7
 r1
 !s85 0
 31
-!s108 1735628199.000000
+!s108 1735689026.000000
 !s107 /home/voidknight/Downloads/CPU_Q/regfileTest.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/regfileTest.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 nregfile@test
 vregister_file
 2/home/voidknight/Downloads/CPU_Q/register_file.sv
-R3
-R19
+R4
+R17
 !i10b 1
 !s100 4F8?>joXUTD59FTf`Hb8M1
 IzlVmXBj5^N3UDHWz_^7e10
@@ -706,22 +706,22 @@ w1734501388
 F/home/voidknight/Downloads/CPU_Q/register_file.sv
 !i122 13
 L0 34 25
-R5
 R6
+R7
 r1
 !s85 0
 31
-R20
+R18
 !s107 /home/voidknight/Downloads/CPU_Q/register_file.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/register_file.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 vregister_status
 2/home/voidknight/Downloads/CPU_Q/register_status.sv
-R3
-R27
+R4
+R13
 !i10b 1
 !s100 >fHT>41`[_oQlzL6hznlc1
 I0:PM6WQ[NdQj<T__TI`313
@@ -732,22 +732,22 @@ w1734500312
 F/home/voidknight/Downloads/CPU_Q/register_status.sv
 !i122 17
 L0 24 147
-R5
 R6
+R7
 r1
 !s85 0
 31
-R20
+R18
 !s107 /home/voidknight/Downloads/CPU_Q/register_status.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/register_status.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 vrenameStage
 2/home/voidknight/Downloads/CPU_Q/renameStage.sv
-R3
-R16
+R4
+R11
 !i10b 1
 !s100 @WX^eWR;JBm]c>>7?I1GL3
 IUe7WFmd=SoFj;CC>NijXo0
@@ -758,77 +758,77 @@ w1734146490
 F/home/voidknight/Downloads/CPU_Q/renameStage.sv
 !i122 27
 L0 17 37
-R5
 R6
+R7
 r1
 !s85 0
 31
-R17
+R12
 !s107 /home/voidknight/Downloads/CPU_Q/renameStage.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/renameStage.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 nrename@stage
 vreorderBuffer
-Z29 2/home/voidknight/Downloads/CPU_Q/reorderBuffer.sv
-R3
-R10
+Z25 2/home/voidknight/Downloads/CPU_Q/reorderBuffer.sv
+R4
+R11
 !i10b 1
 !s100 UZ`Jf6odB:IbNon;<0Bjm3
 I9f<Jk8MOhSg;TO6eg;<iz3
 S1
 R1
-Z30 w1735614858
-Z31 8/home/voidknight/Downloads/CPU_Q/reorderBuffer.sv
-Z32 F/home/voidknight/Downloads/CPU_Q/reorderBuffer.sv
+Z26 w1735614858
+Z27 8/home/voidknight/Downloads/CPU_Q/reorderBuffer.sv
+Z28 F/home/voidknight/Downloads/CPU_Q/reorderBuffer.sv
 !i122 24
 L0 31 246
-R5
 R6
+R7
 r1
 !s85 0
 31
-R11
-Z33 !s107 /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv|
-Z34 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/reorderBuffer.sv|
+R12
+Z29 !s107 /home/voidknight/Downloads/CPU_Q/reorderBuffer.sv|
+Z30 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/reorderBuffer.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 nreorder@buffer
 vRISCV
 2/home/voidknight/Downloads/CPU_Q/RISCV.sv
-R3
-R28
+R4
+R2
 !i10b 1
-!s100 UNI;5CaO4o50B6UMWDFZO1
-I[:ZWaI`cPm2P>9]CoABAK1
+!s100 7=jPOVlBbWI?EjUn[RB5@0
+ISBAX?g1A@a^G:RO[2aO;>0
 S1
 R1
-w1735609184
+w1735630129
 8/home/voidknight/Downloads/CPU_Q/RISCV.sv
 F/home/voidknight/Downloads/CPU_Q/RISCV.sv
 !i122 30
 L0 27 177
-R5
 R6
+R7
 r1
 !s85 0
 31
-R17
+R12
 !s107 /home/voidknight/Downloads/CPU_Q/RISCV.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/RISCV.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 n@r@i@s@c@v
 vROBrenamebuffer
 2/home/voidknight/Downloads/CPU_Q/ROBrenamebuffer.sv
-R3
-R27
+R4
+R13
 !i10b 1
 !s100 D05]NKF[UoUn12_Wb<TB02
 IaT65cgQ57VVlknjL==[Dm2
@@ -839,23 +839,23 @@ w1734501142
 F/home/voidknight/Downloads/CPU_Q/ROBrenamebuffer.sv
 !i122 20
 L0 40 59
-R5
 R6
+R7
 r1
 !s85 0
 31
-R12
+R14
 !s107 /home/voidknight/Downloads/CPU_Q/ROBrenamebuffer.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/ROBrenamebuffer.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 n@r@o@brenamebuffer
 vRSArbiter
 2/home/voidknight/Downloads/CPU_Q/RSArbiter.sv
-R3
-R19
+R4
+R17
 !i10b 1
 !s100 VndNlQ_D2b?GzbzPY`kXC1
 I0EK5nhccL2fmEIdG4bA[c3
@@ -866,8 +866,8 @@ w1734146007
 F/home/voidknight/Downloads/CPU_Q/RSArbiter.sv
 !i122 12
 L0 20 103
-R5
 R6
+R7
 r1
 !s85 0
 31
@@ -875,14 +875,14 @@ R18
 !s107 /home/voidknight/Downloads/CPU_Q/RSArbiter.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/RSArbiter.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 n@r@s@arbiter
 vsrcMux
 2/home/voidknight/Downloads/CPU_Q/srcMux.sv
-R3
-R13
+R4
+R17
 !i10b 1
 !s100 4LMB_8jSld02MIaYWgNB42
 IXFo6;h9K:VYiG93YVENdd3
@@ -893,43 +893,43 @@ w1734504580
 F/home/voidknight/Downloads/CPU_Q/srcMux.sv
 !i122 10
 L0 19 21
-R5
 R6
+R7
 r1
 !s85 0
 31
-R18
+R16
 !s107 /home/voidknight/Downloads/CPU_Q/srcMux.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/voidknight/Downloads/CPU_Q|/home/voidknight/Downloads/CPU_Q/srcMux.sv|
 !i113 0
-R8
 R9
-R2
+R10
+R3
 nsrc@mux
 YwriteCommit
-R29
-R3
-R10
+R25
+R4
+R11
 !i10b 1
 !s100 6chYLkFcF`?Ae?>F29OOP2
 I^>6]_X2AEWe<Cl[idKGjj2
 S1
 R1
-R30
-R31
-R32
+R26
+R27
+R28
 !i122 24
 L0 284 0
-R5
 R6
+R7
 r1
 !s85 0
 31
-R11
-R33
-R34
+R12
+R29
+R30
 !i113 0
-R8
 R9
-R2
+R10
+R3
 nwrite@commit
