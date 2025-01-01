@@ -12,10 +12,10 @@ Z0 !s99 nomlopt
 cModel Technology
 Z1 d/home/voidknight/Downloads/CPU_Q/simulation/questa
 T_opt
-Z2 !s110 1735689026
-VzYam]15GgaDjlz[3EKTdd1
+Z2 !s110 1735714655
+VKmE;SdQY1JAn;41Z_3nQP1
 04 11 4 work regfileTest fast 0
-=1-000ae431a4f1-67748342-98b9d-11df
+=1-000ae431a4f1-6774e75f-70c2c-27dc
 R0
 !s12b OEM100
 !s124 OEM10U2 
@@ -26,7 +26,7 @@ OL;O;2023.3;77
 vALU
 2/home/voidknight/Downloads/CPU_Q/ALU.sv
 Z4 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-Z5 !s110 1735689021
+Z5 !s110 1735714649
 !i10b 1
 !s100 ?1j_[aRJC4iP3<`TRBAaz3
 ISB=`OiEdA5Pnl5b;XPcfP0
@@ -72,7 +72,7 @@ n@a@l@u@decoder
 vALURS
 2/home/voidknight/Downloads/CPU_Q/ALURS.sv
 R4
-Z9 !s110 1735689025
+Z9 !s110 1735714653
 !i10b 1
 !s100 oCBmzXLFPXgBn;B?4JfDK0
 IBGYR=NGA94kzZcRIL:cYR0
@@ -95,7 +95,7 @@ n@a@l@u@r@s
 vALURStationEntry
 2/home/voidknight/Downloads/CPU_Q/ALURStationEntry.sv
 R4
-Z10 !s110 1735689024
+R9
 !i10b 1
 !s100 0IWECPP=<7An1:4PCM1b;2
 I7^Mgkh3l3z@1C[dF5L5131
@@ -118,7 +118,7 @@ n@a@l@u@r@station@entry
 vALUSelect
 2/home/voidknight/Downloads/CPU_Q/ALUSelect.sv
 R4
-Z11 !s110 1735689022
+Z10 !s110 1735714650
 !i10b 1
 !s100 LEga[c_3;Ef7faZ]TH7<h1
 I2E[THd`MI?iM7i3`WmAXd1
@@ -141,7 +141,7 @@ n@a@l@u@select
 vbranchALU
 2/home/voidknight/Downloads/CPU_Q/branchALU.sv
 R4
-R11
+R5
 !i10b 1
 !s100 Kb0XlEbe@aIKnCeSS2blP1
 I4jeejOhD=oe_S4EE3RniH0
@@ -187,7 +187,7 @@ nbranch@index
 vbranchRS
 2/home/voidknight/Downloads/CPU_Q/branchRS.sv
 R4
-R9
+Z11 !s110 1735714654
 !i10b 1
 !s100 V3Ma[:5]0JA0:o69UE`O?1
 IVBWcQGh9dDZ=Rgh[i_lR>1
@@ -210,7 +210,7 @@ nbranch@r@s
 vbranchRSEntry
 2/home/voidknight/Downloads/CPU_Q/branchRSEntry.sv
 R4
-R10
+R9
 !i10b 1
 !s100 ]OJ]9<ZI9`_P2CW>:Lfan1
 IY[HVkfRJGo>;G:IlnDS``2
@@ -233,7 +233,7 @@ nbranch@r@s@entry
 vbranchSelect
 2/home/voidknight/Downloads/CPU_Q/branchSelect.sv
 R4
-R11
+R10
 !i10b 1
 !s100 BXKJi5cf`nnTaoaHTLIH>2
 IWjD;G`YOSBo92NZEDd`hH0
@@ -256,7 +256,7 @@ nbranch@select
 vbranchTargetResolve
 2/home/voidknight/Downloads/CPU_Q/branchTargetResolve.sv
 R4
-R11
+R10
 !i10b 1
 !s100 3Uoe^2hlG96SikGNi:jSA2
 IQLPF?C]RA2YPM0n^YTXl52
@@ -279,7 +279,7 @@ nbranch@target@resolve
 vBTB
 2/home/voidknight/Downloads/CPU_Q/BTB.sv
 R4
-Z12 !s110 1735689023
+Z12 !s110 1735714652
 !i10b 1
 !s100 KGMAN^A@HDhcn5<@L@bjK2
 IRT4Qc_3EZ5K?Z7l]oh2Sk2
@@ -302,7 +302,7 @@ n@b@t@b
 vCDBArbiter
 Z13 2/home/voidknight/Downloads/CPU_Q/CDBArbiter.sv
 R4
-R11
+R10
 !i10b 1
 !s100 4aAQ0ik]W`M`9iZAbbI;<0
 IN;D:RPAUiEQOnDhGCeza92
@@ -325,7 +325,7 @@ n@c@d@b@arbiter
 YcommonDataBus
 R13
 R4
-R11
+R10
 !i10b 1
 !s100 MD^S=aZ05FGQ;cDdT>^Q:0
 In73OOXM5R;71P7o>D_<MX0
@@ -348,7 +348,7 @@ ncommon@data@bus
 vdecodeextend
 2/home/voidknight/Downloads/CPU_Q/decodeextend.sv
 R4
-R10
+R12
 !i10b 1
 !s100 8@n:Q:R`>ze9K[YVB]1:I2
 IO09L=1MBokaY`JSmZJC^h2
@@ -437,7 +437,7 @@ R3
 vimem
 2/home/voidknight/Downloads/CPU_Q/imem.sv
 R4
-R12
+Z17 !s110 1735714651
 !i10b 1
 !s100 c22kiVa:`M^EY@MXEKHBL0
 ICD6TJgbRj]JAC6aVE3=IZ3
@@ -459,17 +459,17 @@ R3
 vinfodecoder
 2/home/voidknight/Downloads/CPU_Q/infodecoder.sv
 R4
-R11
+R5
 !i10b 1
-!s100 fE7GZ?Z38dEWW:z;JGOUG0
-IZOA@7iFb?hF:C57Y[?PG?3
+!s100 nBQVkSKoWbN2e;Ya;I]M@1
+IeOL6J5bPh19><z@S78zVm2
 S1
 R1
-w1735191428
+w1735689585
 8/home/voidknight/Downloads/CPU_Q/infodecoder.sv
 F/home/voidknight/Downloads/CPU_Q/infodecoder.sv
 !i122 4
-L0 29 59
+L0 29 60
 R6
 R7
 r1
@@ -481,17 +481,17 @@ R3
 vinstr_decode
 2/home/voidknight/Downloads/CPU_Q/instr_decode.sv
 R4
-R9
+R11
 !i10b 1
-!s100 W43nU>99jbEGUj=haZNfY3
-IZFWm2@fhWKIh^e8NDfRQY0
+!s100 DMi<aSHREjVPnJc2BmPTP2
+I1950a_nmI9>9RQBne[<6=1
 S1
 R1
-w1735514514
+w1735714525
 8/home/voidknight/Downloads/CPU_Q/instr_decode.sv
 F/home/voidknight/Downloads/CPU_Q/instr_decode.sv
 !i122 29
-L0 10 181
+L0 10 179
 R6
 R7
 r1
@@ -503,7 +503,7 @@ R3
 vinstrFetchUnit
 2/home/voidknight/Downloads/CPU_Q/instrFetchUnit.sv
 R4
-R9
+R11
 !i10b 1
 !s100 fR_DPTRLHgbB85Pk;0`1>1
 IC]6kG^oclNMkBJn`PUP:F3
@@ -526,7 +526,7 @@ ninstr@fetch@unit
 vinstructionValues
 2/home/voidknight/Downloads/CPU_Q/instructionValues.sv
 R4
-R10
+R12
 !i10b 1
 !s100 Od<bgSFKmaPk_QnodmTbC0
 Ik=o@KmKT74=f?:TCDk1L?2
@@ -549,7 +549,7 @@ ninstruction@values
 vPCSelectLogic
 2/home/voidknight/Downloads/CPU_Q/PCSelectLogic.sv
 R4
-R12
+R17
 !i10b 1
 !s100 e0HlCz]WkBW^ZQ?dG2`dJ1
 I0N1?^IA[Mbze?jVkiQkek3
@@ -579,7 +579,7 @@ I[Y[L_F@E6eAH=fH0^9SKU2
 S1
 R1
 w1734501514
-8/home/voidknighm255
+m255
 K4
 z2
 !s11f vlog 2023.3 2023.07, Jul 17 2023

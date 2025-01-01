@@ -1668,6 +1668,262 @@
 					"strict" : false
 				},
 				{
+					"name" : "statusSnap[0]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[1]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[2]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[3]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[4]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[5]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[6]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[7]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[8]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[9]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[10]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[11]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[12]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[13]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[14]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[15]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[16]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[17]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[18]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[19]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[20]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[21]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[22]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[23]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[24]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[25]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[26]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[27]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[28]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[29]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[30]",
+					"strict" : false
+				},
+				{
+					"name" : "statusSnap[31]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[0]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[1]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[2]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[3]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[4]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[5]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[6]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[7]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[8]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[9]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[10]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[11]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[12]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[13]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[14]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[15]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[16]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[17]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[18]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[19]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[20]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[21]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[22]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[23]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[24]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[25]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[26]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[27]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[28]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[29]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[30]",
+					"strict" : false
+				},
+				{
+					"name" : "statusRestore[31]",
+					"strict" : false
+				},
+				{
 					"name" : "validBroadcast",
 					"strict" : false
 				},

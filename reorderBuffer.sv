@@ -266,11 +266,11 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 									then its imperative that some signals be rendered inactive as opposed to 
 									retaining their previous values. These are the control signals
 								   that introduce state changes.	*/
-									//else begin
-										//outputBus.commitInfo <= '0;
-										//outputBus.controlFlow <= '0;
-										//outputBus.validCommit <= '0;
-									//end
+									else begin
+										outputBus.commitInfo <= '0;
+										outputBus.controlFlow <= '0;
+										outputBus.validCommit <= '0;
+									end
 								end
 								
 endmodule

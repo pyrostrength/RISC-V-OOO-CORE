@@ -22,20 +22,12 @@
 //regWrite comes from instruction decode stage.
 
 module register_status #(parameter REG = 4, DEPTH = 31, ROB = 2, WIDTH = 31)
-								(input logic clk,we,reset,validCommit,regWrite,globalReset,
-								 input logic[REG:0] rs1,rs2,destReg,destRegR,regCommit, //Must be sure that an instruction is actually commiting
-								 input logic[WIDTH:0] statusRestore,
+								(input logic clk,we,reset,validCommit,globalReset,
+								 input logic[REG:0] rs1,rs2,destRegR,regCommit, //Must be sure that an instruction is actually commiting
 								 input logic[ROB:0] destROB,commitROB, // ROB entry that writes to a destination register.
 								 output logic[ROB:0] rob1,rob2,
 								 output logic[WIDTH:0] regStatusSnap,
 								 output logic busy1,busy2); //rob1 and rob2 are {valid,ROB entry}
-							 
-							 
-							   /*Two dual port MLAB memory modules
-								storing ROB entry associated with
-								specific register. Provide initial states
-							   for register-ROB dependencies on power-up
-								*/
 								
 								logic[ROB:0] src1ROB[DEPTH:0];
 								
@@ -51,115 +43,88 @@ module register_status #(parameter REG = 4, DEPTH = 31, ROB = 2, WIDTH = 31)
 								
 								logic[ROB:0] interRob1,interRob2;
 								
-								
 								logic[ROB + 1:0] dependencyBuffer[DEPTH : 0];
 								
 								//{valid,ROB entry} data format.
-								logic[ROB + 1:0] latestDpndency,interDep;
+								logic[ROB + 1:0] interDep;
 								
 								logic dependent;
 								
-								/* Determine register's current dependency based on committing instruction
-								and instruction writing to register status table.*/
-								always_comb begin
-								//Need to provide bypassing as altsyncram configuration was changed such that
-								//asynchronous read provides old data.
-									latestDpndency = (destRegR == regCommit) ? {we,destROB} : interDep;
-									dependent = (latestDpndency[ROB:0] == commitROB) & latestDpndency[ROB+1] & validCommit;
-								end
+								assign dependent = (interDep == {validCommit,commitROB});
 								
-								/*
-								For instruction in decode stage,we 
-								occupy it's destination register in the rename
-								stage where we have ROB entry the instruction
-								occupies*/
-								
-								/*We determine busyness of registers by
-								comparing destination registers written to 
-								by instruction and registers
-								freed by instruction in commit stage. Updated
-								busy information available on next clock edge
-								allowing us to take a snapshot of register status
-								table before updating it. Instruction writes
-								its busyness and ROB entry in rename stage.*/
+								/* We write register dependency on an instruction
+								during instruction rename stage. If there exists a
+								commiting instruction we mark it's destination register
+								free if it's not being marked by another instruction
+								in rename stage. If it's marked by another instruction
+								we indicate then we don't mark it free. Our snapshots
+								take into account current instruction commits and 
+								instructions in rename stage.*/
 								
 								always_comb begin
 									busyVectorI = busyVectorF;
-									if(destReg != regCommit) begin
-										if(regWrite) begin
-											busyVectorI[destReg] = 1'b1;
-										end
-										if(dependent) begin
-											busyVectorI[regCommit] = 1'b0;
-										end
+									if(we) begin
+										busyVectorI[destRegR] = 1'b1;
 									end
 									
-									/*Check to see if instruction writes to the
-									same destination register that's freed up
-									by another instruction's commit. If instruction
-									doesn't write to a destination register then
-									we check for validity of commit and register
-									dependency before marking down register as free*/
-									else if(destReg == regCommit) begin
-										if(regWrite) begin
-											busyVectorI[destReg] = 1'b1;
-										end
-										else if(dependent) begin //
-											busyVectorI[destReg] = 1'b0;
-										end
+									if(dependent) begin
+										busyVectorI[regCommit] = 1'b0;
 									end
-								end
-								
-								/*Register is busy if current commiting instruction
-								doesn't free it (register mismatch or later instruction
-							   indicated register's dependence on it.*/
-								
-								always_comb begin
-									busy1 = busyVectorF[rs1];
-									busy2 = busyVectorF[rs2];
 									
-									if((regCommit == rs1) & dependent) begin
-											busy1 = 1'b0;
-									end
-										
-									if((regCommit == rs2) & dependent) begin
-											busy2 = 1'b0;
-									end
 									/*Snapshot of the busyVector prior to instruction
-									indicating destination register's dependence on it.*/
-									regStatusSnap = busyVectorF;
+									in decode stage indicating destination 
+									register's dependence on it.*/
+									regStatusSnap = busyVectorI;
+								end
+								
+								/*Determining busy signals accounting
+								for instruction commits and writes during rename stage*/
+								always_comb begin
+									busy1 = busyVectorI[rs1];
+									busy2 = busyVectorI[rs2];
+									/*if((destRegR == rs1) & we) begin
+										busy1 = 1'b1;
+									end
+									
+									else begin
+										busy1 = ((rs1 == regCommit) & dependent) ? 1'b0 : busyVectorF[rs1];
+									end
+									
+									if((destRegR == rs2) & we) begin
+										busy2 = 1'b1;
+									end
+									
+									else begin
+										busy2 = ((rs2 == regCommit) & dependent) ? 1'b0 : busyVectorF[rs2];
+									end */
 								end
 									
-								/*Destination register ROB entry dependency determination 
-								accounting for instruction in rename stage writing
-								to register status table. destROB is ROB entry of 
-								instruction in rename stage.*/
-								always_comb begin
-									rob1 = ((rs1 == destRegR) & we) ? destROB : interRob1;
-									rob2 = ((rs2 == destRegR) & we) ? destROB : interRob2;
-								end
+							/*Register dependency determination accounting for
+							  case in which a previous instruction 
+							  marks a destination register that current instruction
+							  needs for its operands*/
+							always_comb begin
+								rob1 = ((rs1 == destRegR) & we) ? destROB : interRob1;
+								rob2 = ((rs2 == destRegR) & we) ? destROB : interRob2;
+							end
 									
 								/* Sequential write on negative clock edge*/
-								always @(negedge clk) begin
-									if(we) begin
-											src1ROB[destRegR] <= destROB;
-											src2ROB[destRegR] <= destROB;
-											dependencyBuffer[destRegR] <= {we,destROB};
-									end
-									interDep <= dependencyBuffer[regCommit];
-									interRob1 <= src1ROB[rs1];
-									interRob2 <= src2ROB[rs2];
+							always @(negedge clk) begin
+								if(we) begin
+										src1ROB[destRegR] <= destROB;
+										src2ROB[destRegR] <= destROB;
+										dependencyBuffer[destRegR] <= {we,destROB};
 								end
+								interDep <= dependencyBuffer[regCommit];
+								interRob1 <= src1ROB[rs1];
+								interRob2 <= src2ROB[rs2];
+							end
 					
 							always_ff @(posedge clk) begin
-								if(globalReset) begin
+								/*If CPU initialization or committing instruction
+								demands pipeline reset*/
+								if(globalReset | (reset & validCommit)) begin
 									busyVectorF <= '0;
-								end
-								
-								/*If a commiting instruction demands 
-								pipeline reset*/
-								else if(reset & validCommit) begin
-									busyVectorF <= statusRestore;
 								end
 								
 								else begin

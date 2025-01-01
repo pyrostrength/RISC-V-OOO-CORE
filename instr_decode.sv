@@ -60,11 +60,10 @@ module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1
 															
 							logic[ROB:0] src1ROB,src2ROB;
 							logic[WIDTH:0] regStatus;
-							register_status regTable(.*,.rs1(instruction[19:15]),.rs2(instruction[24:20]),.destReg(instruction[11:7]),
-															 .statusRestore(robBus.statusSnap),.regCommit(robBus.destCommit[4:0]),
+							register_status regTable(.*,.rs1(instruction[19:15]),.rs2(instruction[24:20]),
+															 .regCommit(robBus.destCommit[4:0]),
 															 .reset(robBus.controlFlow[0]),.busy1(occupied1),.busy2(occupied2),
-															 .regStatusSnap(regStatus),.rob1(src1ROB),.rob2(src2ROB),
-															 .regWrite(regWr));
+															 .regStatusSnap(regStatus),.rob1(src1ROB),.rob2(src2ROB));
 										
 							//Value determination
 							logic[WIDTH:0] op1,op2;
@@ -149,7 +148,6 @@ module instr_decode #(parameter WIDTH = 31, I_WIDTH = 24,REG = 4,ROB = 2, RS = 1
 									inputBus.commitInfo <= '0;
 									inputBus.destination <= '0;
 									inputBus.PHTIndex <= '0;
-									inputBus.regStatus <= '0;
 									inputBus.instrPC <= '0;
 									
 									{rdirect,useImm,robReq} <= '0;
