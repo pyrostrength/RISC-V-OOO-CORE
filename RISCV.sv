@@ -28,7 +28,7 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 					BRANCH = 1, ALU = 3, B_WIDTH = 7)
                (input logic globalReset,clk,
 				    output logic[WIDTH:0] nextPC,result,regDest,valueBroadcast,instr,instrPC,aluSrc1,aluSrc2,
-					 output logic[WIDTH:0] operand1,operand2,immExt,predictedPCF,trgetAddr,statusSnap,statusRestore,
+					 output logic[WIDTH:0] operand1,operand2,immExt,predictedPCF,trgetAddr,
 					 output logic validBroadcast,validCommit,full,robReq,rgWr,branchDataBusReq,aluDataBusReq,
 					 output logic aluAvailable,branchAvailable,redirect,busy1,busy2,ready1,ready2,earlyMisdirect,
 					 output logic noSelect,reset,
@@ -197,8 +197,6 @@ module RISCV #(parameter WIDTH = 31, REG = 4, ROB = 2 , RS = 1, A_WIDTH = 3, IND
 				assign robBroadcast = dataBus.robEntry;
 				assign reset = outputBus.controlFlow[0];
 				assign trgetAddr = outputBus.targetAddress;
-				assign statusSnap = inputBus.regStatus;
-				assign statusRestore = outputBus.statusSnap;
 				
 				//And that completes the CPU connections.
 				

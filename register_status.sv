@@ -26,7 +26,6 @@ module register_status #(parameter REG = 4, DEPTH = 31, ROB = 2, WIDTH = 31)
 								 input logic[REG:0] rs1,rs2,destRegR,regCommit, //Must be sure that an instruction is actually commiting
 								 input logic[ROB:0] destROB,commitROB, // ROB entry that writes to a destination register.
 								 output logic[ROB:0] rob1,rob2,
-								 output logic[WIDTH:0] regStatusSnap,
 								 output logic busy1,busy2); //rob1 and rob2 are {valid,ROB entry}
 								
 								logic[ROB:0] src1ROB[DEPTH:0];
@@ -70,11 +69,6 @@ module register_status #(parameter REG = 4, DEPTH = 31, ROB = 2, WIDTH = 31)
 									if(dependent) begin
 										busyVectorI[regCommit] = 1'b0;
 									end
-									
-									/*Snapshot of the busyVector prior to instruction
-									in decode stage indicating destination 
-									register's dependence on it.*/
-									regStatusSnap = busyVectorI;
 								end
 								
 								/*Determining busy signals accounting

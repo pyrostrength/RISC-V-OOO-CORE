@@ -12,9 +12,8 @@ and incrementing read_ptr in next cycle at positive clock edge.
 Written to in rename stage 
 with instruction control info{regWrite,
 memWrite,branch,jump},
-result destination,old instruction PC,index used
-to access g-share prediction and a snapshot
-of register status table.
+result destination,old instruction PC and index used
+to access g-share prediction
 
 Clearing of instruction from ROB is completed by
 simply incrementing the read_ptr. That way writes
@@ -24,7 +23,6 @@ Written to during broadcast on CDB with correct fetch address
 (for JALR/branch instructions),instruction fetch control info
 {isControl,nextState,writeBTB,takenBranch,reset}.
 
-Al
 
 */
 
@@ -59,9 +57,6 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 								//Contains {isControl,nextstate,writeBTB,takenBranch,reset}	
 								logic[CONTROL:0] updateBuffer[7:0];
 								 
-								//Contains register status table snapshot for reset under branch misprediction.
-								logic[WIDTH:0] regStatusBuffer[7:0];
-								 
 								/*Contains instruction PC for updating the branch target buffer*/
 								logic[WIDTH:0] oldPCBuffer[7:0];
 								
@@ -73,7 +68,6 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 								initial begin
 									$readmemb("/home/voidknight/Downloads/CPU_Q/valueInit.txt",valueBuffer);
 									$readmemb("/home/voidknight/Downloads/CPU_Q/valueInit.txt",addressBuffer);
-									$readmemb("/home/voidknight/Downloads/CPU_Q/readyInit.txt",regStatusBuffer);
 									$readmemb("/home/voidknight/Downloads/CPU_Q/valueInit.txt",oldPCBuffer);
 									$readmemb("/home/voidknight/Downloads/CPU_Q/controlInit.txt",updateBuffer);
 									$readmemb("/home/voidknight/Downloads/CPU_Q/updateInit.txt",controlBuffer);
@@ -89,7 +83,7 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 								//Signal declaration for writing to the commit bus.
 								logic[WIDTH:0] value,target;
 								logic[CONTROL:0] pcControl,controlFlow;
-								logic[WIDTH:0] result,targetAddress,statusSnap,oldPC,destCommit;
+								logic[WIDTH:0] result,targetAddress,oldPC,destCommit;
 								logic[3:0] commitInfo;
 								logic[INDEX:0] previousIndex;
 										
@@ -128,7 +122,6 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 								clock edge if commit occurs*/
 										value <= valueBuffer[read_ptr];
 										commitInfo <= controlBuffer[read_ptr];
-										statusSnap <= regStatusBuffer[read_ptr];
 										oldPC <= oldPCBuffer[read_ptr];
 										previousIndex <= previousIndexBuffer[read_ptr];
 										pcControl <= updateBuffer[read_ptr];
@@ -172,12 +165,7 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 											oldPCBuffer[write_ptr] <= inputBus.instrPC;
 											
 											//Write previous Index into previousIndexBuffer
-											previousIndexBuffer[write_ptr] <= inputBus.PHTIndex;
-											
-											//Write regstatus snapshot associated with an instruction to buffer
-											regStatusBuffer[write_ptr] <= inputBus.regStatus;
-											
-											
+											previousIndexBuffer[write_ptr] <= inputBus.PHTIndex;	
 										end
 										
 										else if(globalReset) begin
@@ -221,7 +209,6 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 										outputBus.result <= '0;
 										outputBus.commitInfo <= '0;
 										outputBus.oldPC <= '0;
-										outputBus.statusSnap <= '0;
 										outputBus.previousIndex <= '0;
 										outputBus.controlFlow <= '0;
 										outputBus.targetAddress <= '0;
@@ -248,7 +235,6 @@ module reorderBuffer #(parameter WIDTH = 31, CONTROL = 5, INDEX = 7, ROB = 2)
 										outputBus.result <= result;
 										outputBus.commitInfo <= commitInfo;
 										outputBus.oldPC <= oldPC;
-										outputBus.statusSnap <= statusSnap;
 										outputBus.previousIndex <= previousIndex;
 										outputBus.controlFlow <= controlFlow;
 										outputBus.targetAddress <= targetAddress;
@@ -282,7 +268,7 @@ Define a common interface for signals coming into and out of ROB.
 */
 
 interface writeCommit #(parameter WIDTH = 31, CONTROL = 7, INDEX = 7);
-								logic[WIDTH:0] instrPC,oldPC,regStatus,statusSnap,targetAddress,result;
+								logic[WIDTH:0] instrPC,oldPC,targetAddress,result;
 								logic[INDEX:0] PHTIndex,previousIndex;
 								logic[CONTROL:0] controlFlow;
 								logic[WIDTH:0] destination,destCommit;
